@@ -11,5 +11,7 @@ class TestContentPageCreation(TestCase):
         self.portal = self.layer['portal']
         self.portal_url = self.portal.portal_url()
 
-    def test_blubb(self):
-        self.assertTrue(True)
+    def test_fti(self):
+        self.assertIn('ContentPage', self.portal.portal_types.objectIds())
+
+    

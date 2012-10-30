@@ -2,5 +2,5 @@ PROJECTNAME = 'ftw.contentpage'
 
 
 ADD_PERMISSIONS = {
-    'ContentPage': 'ftw.ContentPage: ContentPage',
+    'ContentPage': 'ftw.contentpage: Add ContentPage',
     }
