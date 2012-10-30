@@ -40,8 +40,5 @@ class TestContentPageCreation(TestCase):
         transaction.commit()
         self._auth()
         self.browser.open(self.portal_url + '/' + _id)
-        self.assertIn('simplelayout-container', self.browser.contents)
-
-
-
-
+        self.assertIn('template-simplelayout', self.browser.contents)
+        self.assertIn('simplelayout-content', self.browser.contents)
