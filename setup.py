@@ -5,8 +5,9 @@ from setuptools import setup, find_packages
 version = '1.0.dev0'
 mainainter = 'Mathias Leimgruber'
 
-tests_require = ['plone.app.testing',
-                 'plone.mocktestcase']
+tests_require = ['ftw.testing',
+                 'plone.app.testing',
+                 'plone.mocktestcase', ]
 
 setup(name='ftw.contentpage',
       version=version,
