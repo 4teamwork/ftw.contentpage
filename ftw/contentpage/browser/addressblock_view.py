@@ -1,4 +1,5 @@
 from Products.Five.browser import BrowserView
+from Acquisition import aq_inner, aq_parent
 
 
 class AddressBlockView(BrowserView):
@@ -20,7 +21,7 @@ class AddressBlockPortletView(AddressBlockView):
     """Block representation of AddressBlock"""
 
     def has_team(self):
-        result = self.context.aq_parent.getFolderContents(contentFilter={
-            'portal_type': 'ContentPage',
-            'id': 'team'})
+        result = aq_parent(aq_inner(self.context)).getFolderContents(
+            contentFilter={'portal_type': 'ContentPage',
+                           'id': 'team'})
         return bool(result)

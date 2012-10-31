@@ -2,6 +2,7 @@ from ftw.contentpage.testing import ZCML_LAYER
 from ftw.testing import MockTestCase
 from zope.component import getMultiAdapter
 from ftw.contentpage.interfaces import IAddressBlock
+from simplelayout.base.interfaces import ISimpleLayoutCapable
 from mocker import ANY
 
 OPENING_HOURS = "Line1\nLine2\nLine3"
@@ -48,19 +49,20 @@ class TestAddressBlockView(MockTestCase):
                           "Line1<br />Line2<br />Line3")
 
     def test_has_team(self):
-        self.context.aq_parent = self.mocker.mock(count=False)
-        self.expect(self.context.aq_parent.getFolderContents(ANY)).result(True)
+        parent = self.providing_stub(ISimpleLayoutCapable)
+        self.set_parent(self.context, parent)
+        self.expect(parent.getFolderContents(contentFilter=ANY)).result(True)
         self.replay()
         view = getMultiAdapter(
             (self.context, self.request), name="block_view-portlet")
-        view.has_team
+        self.assertTrue(view.has_team())
 
     def test_has_no_team(self):
-        self.context.aq_parent = self.mocker.mock(count=False)
-        self.expect(self.context.aq_parent.getFolderContents(ANY)).result(
+        parent = self.providing_stub(ISimpleLayoutCapable)
+        self.set_parent(self.context, parent)
+        self.expect(parent.getFolderContents(contentFilter=ANY)).result(
             False)
         self.replay()
         view = getMultiAdapter(
             (self.context, self.request), name="block_view-portlet")
-        view.has_team
-
+        self.assertFalse(view.has_team())
