@@ -1,0 +1,51 @@
+<div class="simplelayout-block-wrapper AddressBlock" id="#"
+     tal:attributes="id here/id">
+    <a tal:attributes="name here/id" ></a>
+    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
+
+    <div class="sl-text-wrapper">
+      <table class="addressTable">
+          <tr>
+              <td class="addressText">
+                  <p>
+                    <span tal:replace="context/getAddressTitle | context/Title" /><br />
+                    <span tal:replace="structure view/get_address_as_html" /><br />
+                    <span tal:replace="context/getZip" />
+                    <span tal:replace="context/getCity" /><br />
+                    <tal:tel tal:condition="context/getPhone">
+                      <tal:translate i18n:translate="text_phone">
+                        Tel. <tal:num i18n:name="num"
+                                      tal:content="context/getPhone" />
+                      </tal:translate>
+                      <br />
+                    </tal:tel>
+                    <tal:tel tal:condition="context/getFax|nothing">
+                      <tal:translate i18n:translate="text_fax">
+                        Fax <tal:num i18n:name="num"
+                                     tal:content="context/getFax" />
+                      </tal:translate>
+                      <br />
+                    </tal:tel>
+                    <a tal:condition="context/getEmail|nothing"
+                       tal:content="context/getEmail"
+                       tal:attributes="href string:mailto:${context/getEmail}" />
+
+                   <tal:www condition="context/getWww|nothing">
+                       <br />
+                       <a tal:content="context/getWww"
+                          tal:attributes="href context/getWww" />
+                   </tal:www>
+                  </p>
+
+                  <tal:openingHours tal:condition="context/getShowOpeningHours">
+                    <h2 i18n:translate="label_openingHours">Opening Hours</h2>
+                    <p tal:content="structure view/get_opening_hours_as_html"></p>
+                  </tal:openingHours>
+              </td>
+          </tr>
+      </table>
+
+    </div>
+
+</div>
+<span class="visualClear">&nbsp;</span>

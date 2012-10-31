@@ -10,4 +10,11 @@
         />
   </class>
 
+  <class class=".addressblock.AddressBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IAddressBlock"
+        />
+  </class>
+
 </configure>

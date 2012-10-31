@@ -42,3 +42,6 @@ class TestContentPageCreation(TestCase):
         self.browser.open(self.portal_url + '/' + _id)
         self.assertIn('template-simplelayout', self.browser.contents)
         self.assertIn('simplelayout-content', self.browser.contents)
+
+    def tearDown(self):
+        super(TestContentPageCreation, self).tearDown()

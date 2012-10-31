@@ -1,0 +1,33 @@
+<div class="simplelayout-block-wrapper AddressBlock" id="#"
+     tal:attributes="id here/id">
+    <a tal:attributes="name here/id" ></a>
+    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
+
+    <div class="sl-text-wrapper">
+      <p>
+         <a href="" tal:attributes="href string:${here/absolute_url}/addressblock_detail_view">
+            <tal:block i18n:translate="contactportlet_address_map">
+              Address / Map
+            </tal:block>
+
+            <tal:block condition="context/getShowOpeningHours"
+                       i18n:translate="contactportlet_open_times">
+              / Open times
+            </tal:block>
+          </a>
+
+          <a tal:attributes="href string:${here/absolute_url}/feedback_view"
+             i18n:translate="contactportlet_contcat_form"
+             tal:condition="here/getEmail">
+            Contact Form
+          </a>
+
+          <a tal:attributes="href string:../team"
+             tal:condition="view/has_team">
+            Team
+          </a>
+      </p>
+    </div>
+
+</div>
+<span class="visualClear">&nbsp;</span>

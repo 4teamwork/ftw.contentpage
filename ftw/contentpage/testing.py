@@ -15,7 +15,10 @@ class ZCMLLayer(ComponentRegistryLayer):
     def setUp(self):
         super(ZCMLLayer, self).setUp()
         import ftw.contentpage.tests
-        #self.load_zcml_file('test.zcml', ftw.contentpage.tests)
+        self.load_zcml_file('tests.zcml', ftw.contentpage.tests)
+
+        import ftw.contentpage.browser
+        self.load_zcml_file('configure.zcml', ftw.contentpage.browser)
 
 
 ZCML_LAYER = ZCMLLayer()

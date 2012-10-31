@@ -1,12 +1,17 @@
 from AccessControl import ClassSecurityInfo
 from ftw.contentpage.interfaces import IAddressBlock
-from Products.ATContentTypes.content.document import ATDocumentBase
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from simplelayout.types.common import config
-from simplelayout_schemas import finalize_simplelayout_schema
+from ftw.contentpage import config
+from simplelayout.types.common.content.simplelayout_schemas import \
+    finalize_simplelayout_schema
 from zope.interface import implements
-
+from ftw.contentpage import _
+from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
+from Products.ATContentTypes.content.base import ATCTContent
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+from zope.i18n import translate
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -15,17 +20,137 @@ else:
     from Products.Archetypes import atapi
 
 schema = atapi.Schema((
-     atapi.BooleanField(
-                'showTitle',
-                schemata='default',
-                default=0,
-                widget=atapi.BooleanWidget(
-                    description="Show title",
-                    description_msgid="simplelayout_help_showtitle",
-                    label="Show Title",
-                    label_msgid="simplelayout_label_showtitle",
-                    i18n_domain="simplelayout",
-                    )),
+    atapi.BooleanField(
+        'showTitle',
+        schemata='default',
+        default=True,
+        widget=atapi.BooleanWidget(
+        label=_(u'label_show_title',
+                default=u'Show Title'))),
+
+    atapi.StringField(
+        name='addressTitle',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_addressTitle',
+                    default=u'Address Title'),
+            description=_(u'help_addressTitle',
+                          default=u''))),
+
+    atapi.StringField(
+        name='address',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_address',
+                    default=u'Address'),
+            description=_(u'help_address',
+                          default=u''))),
+
+    atapi.StringField(
+        name='extraAddressLine',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_extraAddressLine',
+                    default=u'Extra address line'),
+            description=_(u'help_extraAddressLine',
+                          default=u''))),
+
+    atapi.StringField(
+        name='zip',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_zip',
+                    default=u'ZIP'),
+            description=_(u'help_zip',
+                          default=u''))),
+
+    atapi.StringField(
+        name='city',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_city',
+                    default=u'City'),
+            description=_(u'help_city',
+                          default=u''))),
+
+    atapi.StringField(
+        name='country',
+        schemata='default',
+        default_method='getDefaultCountry',
+        widget=atapi.StringWidget(
+            label=_(u'label_country',
+                    default=u'Country'),
+            description=_(u'help_country',
+                          default=u''))),
+
+    atapi.StringField(
+        name='phone',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_phone',
+                    default=u'Phone'),
+            description=_(u'help_phone',
+                          default=u''))),
+
+    atapi.StringField(
+        name='fax',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_fax',
+                    default=u'Fax'),
+            description=_(u'help_fax',
+                          default=u''))),
+
+    atapi.StringField(
+        name='email',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_email',
+                    default=u'Email'),
+            description=_(u'help_email',
+                          default=u''))),
+
+    atapi.StringField(
+        'www',
+        schemata='default',
+        validators=('isURL',),
+        widget=atapi.StringWidget(
+            label=_(u'label_www', default='WWW'),
+            description=_(
+                u'help_www',
+                default='Please enter a website URL'))),
+
+    atapi.BooleanField(
+        name='showOpeningHours',
+        schemata='default',
+        widget=atapi.BooleanWidget(
+            label=_(u'label_showOpeningHours',
+                    default=u'Show opening hours'),
+            description=_(u'help_showOpeningHours',
+                          default=u''))),
+
+    atapi.TextField(
+        name='openingHours',
+        schemata='default',
+        default_output_type='text/html',
+        allowable_content_types=('text/html',),
+        widget=atapi.TextAreaWidget(
+            label=_(u'label_openingHours',
+                    default=u'Opening Hours'),
+            description=_(u'help_openingHours',
+                          default=u''))),
+
+    atapi.TextField(
+        name='directions',
+        schemata='default',
+        default_output_type='text/html',
+        allowable_content_types=('text/html',),
+        widget=atapi.TextAreaWidget(
+            label=_(u'label_directions',
+                    default=u'Directions'),
+            description=_(u'help_directions',
+                          default=u''))),
+
 ))
 
 
@@ -34,16 +159,32 @@ addressblock_schema = ATContentTypeSchema.copy() + schema.copy()
 addressblock_schema['excludeFromNav'].default = True
 addressblock_schema['excludeFromNav'].visible = -1
 addressblock_schema['title'].required = False
+addressblock_schema['title'].default_method = 'getDefaultTitle'
+
 finalize_simplelayout_schema(addressblock_schema)
+
 addressblock_schema['description'].widget.visible = {'edit': 0, 'view': 0}
+addressblock_schema['excludeFromNav'].visible = -1
 
 
-class AddressBlock(ATDocumentBase):
+class AddressBlock(ATCTContent, HistoryAwareMixin):
     """
     """
     security = ClassSecurityInfo()
     implements(IAddressBlock, ISimpleLayoutBlock)
     schema = addressblock_schema
 
+    security.declarePrivate('getDefaultCountry')
+    def getDefaultCountry(self):
+        """ Returns the default country defined in registry.
+        """
+        registry = getUtility(IRegistry)
+        return registry.get('ftw.contentpage.addressblock.defaultcountry',
+                            'Switzerland')
+
+    security.declarePrivate('getDefaultTitle')
+    def getDefaultTitle(self):
+        return translate(_(u'label_default_address',
+                 default=u'Address'))
 
 atapi.registerType(AddressBlock, config.PROJECTNAME)
