@@ -20,13 +20,11 @@ class MarkBase(object):
         if not IOrgUnitMarker.providedBy(self.parent):
             alsoProvides(self.parent, IOrgUnitMarker)
             self.parent.reindexObject(idxs=['object_provides'])
-            print "************MARK"
 
     def unmark(self):
         if IOrgUnitMarker.providedBy(self.parent):
             noLongerProvides(self.parent, IOrgUnitMarker)
             self.parent.reindexObject(idxs=['object_provides'])
-            print "************UN-MARK"
 
     def has_addressblock(self):
         result = self.parent.getFolderContents(
@@ -55,7 +53,6 @@ class AddMoveCopy(MarkBase):
         super(AddMoveCopy, self).__init__(obj, event)
         # Move
         if self.event.oldParent and self.event.newParent:
-            print "**************MOVE"
             self.mark()
 
             self.parent = self.event.oldParent
@@ -63,5 +60,4 @@ class AddMoveCopy(MarkBase):
 
         # Copy / Add
         if self.event.newParent and not self.event.oldParent:
-            print "**************COPY/ADD"
             self.mark()
