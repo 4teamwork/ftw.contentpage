@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="ftw.contentpage">
+
+    <subscriber
+        for="ftw.contentpage.interfaces.IAddressBlock
+              zope.app.container.interfaces.IObjectRemovedEvent"
+        handler=".mark_parent.UnMarkParent"
+        />
+
+    <!-- Move and copy -->
+    <subscriber
+        for="ftw.contentpage.interfaces.IAddressBlock
+             zope.app.container.interfaces.IObjectMovedEvent"
+        handler=".mark_parent.AddMoveCopy"
+        />
+
+
+</configure>

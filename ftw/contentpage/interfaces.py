@@ -7,3 +7,7 @@ class IContentPage(Interface):
 
 class IAddressBlock(Interface):
     """Marker interface for AddressBlocks"""
+
+
+class IOrgUnitMarker(Interface):
+    """Marker interface for AddressBlocks"""

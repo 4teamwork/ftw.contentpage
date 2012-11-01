@@ -1,5 +1,6 @@
 from ftw.testing.layer import ComponentRegistryLayer
 from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
@@ -61,3 +62,5 @@ class FtwContentPageLayer(PloneSandboxLayer):
 FTW_CONTENTPAGE_FIXTURE = FtwContentPageLayer()
 FTW_CONTENTPAGE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_CONTENTPAGE_FIXTURE, ), name="FtwContentPage:Integration")
+FTW_CONTENTPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FTW_CONTENTPAGE_FIXTURE, ), name="FtwContentPage:Functional")
