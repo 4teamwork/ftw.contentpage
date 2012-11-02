@@ -49,6 +49,17 @@ class TestOrgunitMarker(TestCase):
         self.assertTrue(self.catalog(
             {'object_procvides': IOrgUnitMarker.__identifier__}))
 
+    def test_add_addressblock_createobject(self):
+        # CreateObject triggers diffrent events than invokefactory
+        self._auth()
+        self.browser.open("%s/createObject?type_name=AddressBlock" %
+            self.contentpage.absolute_url())
+        self.browser.getControl('Save').click()
+
+        self.assertTrue(IOrgUnitMarker.providedBy(self.contentpage))
+        self.assertTrue(self.catalog(
+            {'object_procvides': IOrgUnitMarker.__identifier__}))
+
     def test_remove_addressblock(self):
         addressblock = self.contentpage.get(
             self.contentpage.invokeFactory('AddressBlock', 'addressblock'))

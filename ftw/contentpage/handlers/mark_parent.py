@@ -26,10 +26,10 @@ class MarkBase(object):
             noLongerProvides(self.parent, IOrgUnitMarker)
             self.parent.reindexObject(idxs=['object_provides'])
 
-    def has_addressblock(self):
+    def has_one_addressblock(self):
         result = self.parent.getFolderContents(
             contentFilter={'portal_type': ['AddressBlock']})
-        return bool(len(result) >= 1)
+        return bool(len(result) == 1)
 
     def is_triggered_by_addressblock(self):
         # Only Fire events on AddressBlocks
@@ -38,13 +38,20 @@ class MarkBase(object):
         return bool(self.event.object.portal_type == 'AddressBlock')
 
 
+class MarkParent(MarkBase):
+
+    def __init__(self, obj, event):
+        super(MarkParent, self).__init__(obj, event)
+        self.mark()
+
+
 class UnMarkParent(MarkBase):
     def __init__(self, obj, event):
         super(UnMarkParent, self).__init__(obj, event)
         if not self.is_triggered_by_addressblock():
             return
 
-        if not self.has_addressblock():
+        if not self.has_one_addressblock():
             self.unmark()
 
 
