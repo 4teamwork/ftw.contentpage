@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="egov.orgunit">
+
+  <head>
+    <metal:noborder fill-slot="top_slot"
+                    tal:define="dummy python:request.set('disable_border',1)" />
+  </head>
+
+  <body>
+
+    <div metal:fill-slot="main">
+      <metal:main-macro define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <h1 class="documentFirstHeading"
+            tal:content="context/pretty_title_or_id">Title or id</h1>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:block tal:condition="context/getDirections">
+          <div class="sl-text-wrapper">
+            <h2 i18n:translate="label_directions">Directions</h2>
+            <div tal:content="structure view/getDirectionsAsHTML" />
+          </div>
+        </tal:block>
+
+        <div tal:replace="structure view/address">Address</div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+      </metal:main-macro>
+    </div>
+
+  </body>
+</html>

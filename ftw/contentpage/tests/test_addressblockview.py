@@ -22,7 +22,7 @@ class TestAddressBlockView(MockTestCase):
         self.expect(self.context.getExtraAddressLine()).result(
             "Additional line")
 
-    def test_component_registered_view(self):
+    def test_component_registered_block_view(self):
         self.replay()
         self.assertNotEquals(getMultiAdapter(
             (self.context, self.request), name="block_view"),
@@ -32,6 +32,12 @@ class TestAddressBlockView(MockTestCase):
         self.replay()
         self.assertNotEquals(getMultiAdapter(
             (self.context, self.request), name="block_view-portlet"),
+            None)
+
+    def test_component_registered_detail_view(self):
+        self.replay()
+        self.assertNotEquals(getMultiAdapter(
+            (self.context, self.request), name="addressblock_detail_view"),
             None)
 
     def test_get_address_as_html(self):

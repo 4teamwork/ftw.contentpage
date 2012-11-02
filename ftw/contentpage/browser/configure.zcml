@@ -18,4 +18,11 @@
         template="addressblock_portlet_view.pt"
         permission="zope2.View" />
 
+    <browser:page
+        for="ftw.contentpage.interfaces.IAddressBlock"
+        name="addressblock_detail_view"
+        class=".addressblock_view.AddressBlockDetailView"
+        template="addressblock_detail_view.pt"
+        permission="zope2.View" />
+
 </configure>

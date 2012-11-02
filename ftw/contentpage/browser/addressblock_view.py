@@ -1,9 +1,12 @@
-from Products.Five.browser import BrowserView
 from Acquisition import aq_inner, aq_parent
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class AddressBlockView(BrowserView):
     """Block representation of AddressBlock"""
+
+    address_ptl = ViewPageTemplateFile('address.pt')
 
     def get_address_as_html(self):
         html = [self.context.getAddress()]
@@ -16,6 +19,9 @@ class AddressBlockView(BrowserView):
         """
         return self.context.getOpeningHours().replace('\n', '<br />')
 
+    def address(self):
+        return self.address_ptl()
+
 
 class AddressBlockPortletView(AddressBlockView):
     """Block representation of AddressBlock"""
@@ -25,3 +31,7 @@ class AddressBlockPortletView(AddressBlockView):
             contentFilter={'portal_type': 'ContentPage',
                            'id': 'team'})
         return bool(result)
+
+
+class AddressBlockDetailView(AddressBlockView):
+    """AddressBlock detail View"""
