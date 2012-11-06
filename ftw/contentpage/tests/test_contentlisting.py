@@ -71,6 +71,17 @@ class TestContentListing(TestCase):
         subpage.reindexObject()
         self.assertTrue(catalog({'categories': 'DEMO1'})[0])
 
+    def test_category_index_umlauts(self):
+        catalog = getToolByName(self.portal, 'portal_catalog')
+        subpage = self.contentpage.get(
+            self.contentpage.invokeFactory('ContentPage', 'subpage'))
+        subpage.processForm()
+        subpage.setTitle('Subpage title')
+        subpage.Schema()['categories'].set(subpage, 'WITH UTF8 \xc3\xa4')
+        subpage.reindexObject()
+        unique_values = catalog.Indexes['getCategories'].uniqueValues()
+        self.assertIn("WITH UTF8 \xc3\xa4", unique_values)
+
     def test_viewlet(self):
         viewlet = self._get_viewlet()[0]
         # Should be empty
@@ -79,7 +90,8 @@ class TestContentListing(TestCase):
         subpage = self.contentpage.get(
             self.contentpage.invokeFactory('ContentPage', 'subpage'))
         subpage.setTitle('Subpage')
-        subpage.Schema()['categories'].set(subpage, 'DEMO1')
+        # Test with umlauts
+        subpage.Schema()['categories'].set(subpage, '\xc3\xa4u\xc3\xa4')
         subpage.reindexObject()
         subpage2 = self.contentpage.get(
             self.contentpage.invokeFactory('ContentPage', 'subpage2'))
@@ -95,7 +107,7 @@ class TestContentListing(TestCase):
         viewlet = self._get_viewlet()[0]
         self.assertTrue(viewlet.available())
         self.assertEquals(viewlet.get_content(),
-                          [('DEMO1', [('Subpage',
+                          [('\xc3\xa4u\xc3\xa4', [('Subpage',
                                        subpage.absolute_url())]),
                            ('DEMO2', [('Subpage2',
                                        subpage2.absolute_url()),
@@ -104,10 +116,9 @@ class TestContentListing(TestCase):
         transaction.commit()
         self._auth()
         self.browser.open(self.contentpage.absolute_url())
-        self.assertIn('DEMO1', self.browser.contents)
+        self.assertIn('\xc3\xa4u\xc3\xa4', self.browser.contents)
         self.assertIn('DEMO2', self.browser.contents)
         self.assertIn('subelements-listing-element', self.browser.contents)
-
 
     def tearDown(self):
         super(TestContentListing, self).tearDown()

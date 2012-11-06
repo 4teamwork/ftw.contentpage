@@ -40,7 +40,7 @@
         />
 
     <!-- indexer -->
-    <adapter name="categories" factory=".indexer.categories" />
+    <adapter name="getCategories" factory=".indexer.categories" />
 
     <!-- Schema extender adapter for categorizable content -->
     <include package="archetypes.schemaextender" />

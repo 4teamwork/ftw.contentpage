@@ -20,8 +20,10 @@ class CategoriesExtender(object):
 
     fields = [CategoriesField(
         'categories',
-        multiValued=1,
-        searchable=True,
+        multiValued=True,
+        searchable=False,
+        accessor='getCategories',
+        roleBasedAdd=True,
         widget=KeywordWidget(
             label=_(u'label_categories', default=u'Categories'),
             description=_(u'help_tags',

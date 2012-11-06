@@ -6,4 +6,4 @@ ADD_PERMISSIONS = {
     'AddressBlock': 'ftw.contentpage: Add AddressBlock',
     }
 
-INDEXES = (('categories', 'KeywordIndex'), )
+INDEXES = (('getCategories', 'KeywordIndex'), )

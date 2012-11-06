@@ -31,6 +31,13 @@ class TestContentPageCreation(TestCase):
         _id = self.portal.invokeFactory('ContentPage', 'contentpage')
         self.assertIn(_id, self.portal.objectIds())
 
+        self._auth()
+        self.browser.open('%s/createObject?type_name=ContentPage' %
+            self.portal_url)
+        self.browser.getControl("Title").value = 'New ContentPage'
+        self.browser.getControl("Save").click()
+        self.assertIn("New ContentPage", self.browser.contents)
+
     def test_simplelayout_integration(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
