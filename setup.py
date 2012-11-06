@@ -33,7 +33,8 @@ setup(name='ftw.contentpage',
       extras_require=dict(tests=tests_require),
       install_requires=[
           'setuptools',
-          'simplelayout.base'
+          'simplelayout.base',
+          'archetypes.schemaextender',
       ],
       entry_points="""
       # -*- Entry points: -*-

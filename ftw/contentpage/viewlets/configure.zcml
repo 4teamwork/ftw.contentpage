@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ftw.contentpage">
+
+    <browser:viewlet
+        for="simplelayout.base.interfaces.IAdditionalListingEnabled"
+        name="ftw.contentpage.contentlisting"
+        manager="simplelayout.base.interfaces.ISimpleViewletListingProvider"
+        class=".contentlisting.ContentListingViewlet"
+        permission="zope2.View"
+        />
+
+</configure>

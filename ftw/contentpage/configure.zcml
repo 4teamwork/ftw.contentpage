@@ -17,6 +17,7 @@
     <include package=".content" />
     <include package=".browser" />
     <include package=".handlers" />
+    <include package=".viewlets" />
 
 
     <!-- <i18n:registerTranslations directory="locales" /> -->
@@ -29,5 +30,23 @@
         description="Create content the simplayout way"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+    
+    <!-- Register the import step -->
+    <genericsetup:importStep
+        name="ftw.contentpage"
+        title="ftw.contentpage custom import handlers"
+        description="Custom import steps for ftw.contentpage"
+        handler="ftw.contentpage.setuphandler.import_various"
+        />
+
+    <!-- indexer -->
+    <adapter name="categories" factory=".indexer.categories" />
+
+    <!-- Schema extender adapter for categorizable content -->
+    <include package="archetypes.schemaextender" />
+    <adapter factory=".extender.CategoriesExtender"
+         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+         name="ftw.contentpage.category.extender" />
+
 
 </configure>

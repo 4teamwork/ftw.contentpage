@@ -5,3 +5,5 @@ ADD_PERMISSIONS = {
     'ContentPage': 'ftw.contentpage: Add ContentPage',
     'AddressBlock': 'ftw.contentpage: Add AddressBlock',
     }
+
+INDEXES = (('categories', 'KeywordIndex'), )

@@ -1,6 +1,7 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from unittest2 import TestCase
 from simplelayout.base.interfaces import ISimpleLayoutCapable
+from simplelayout.base.interfaces import IAdditionalListingEnabled
 from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 import transaction
@@ -34,6 +35,7 @@ class TestContentPageCreation(TestCase):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
         ISimpleLayoutCapable.providedBy(contentpage)
+        IAdditionalListingEnabled.providedBy(contentpage)
 
     def test_simplelayout_view(self):
         _id = self.portal.invokeFactory('ContentPage', 'contentpage')
