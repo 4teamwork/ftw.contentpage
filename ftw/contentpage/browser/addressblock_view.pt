@@ -9,9 +9,14 @@
               <td class="addressText">
                 <div tal:replace="structure view/address">Address</div>
               </td>
+              <td class="addressMap">
+                <div id="kml-content-viewlet">
+                  <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
+                  <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
+                </div>
+              </td>
           </tr>
       </table>
-
     </div>
 
 </div>

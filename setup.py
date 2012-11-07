@@ -35,6 +35,7 @@ setup(name='ftw.contentpage',
           'setuptools',
           'simplelayout.base',
           'archetypes.schemaextender',
+          'ftw.geo',
       ],
       entry_points="""
       # -*- Entry points: -*-

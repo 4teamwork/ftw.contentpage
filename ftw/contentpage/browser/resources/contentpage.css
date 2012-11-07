@@ -1,0 +1,14 @@
+.addressTable {
+    width: 100%;
+}
+
+.addressText,
+.addressMap {
+    width: 50%;
+    vertical-align: top;
+}
+
+/*Hide overlay*/
+.olLayerGooglePoweredBy.olLayerGoogleV3.gmnoprint {
+    display: none;
+}

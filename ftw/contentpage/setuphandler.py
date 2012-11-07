@@ -1,6 +1,10 @@
-import logging
+from collective.geo.settings.interfaces import IGeoSettings
+from collective.geo.settings.interfaces import IGeoFeatureStyle
 from ftw.contentpage.config import INDEXES
+from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
+from zope.component import getUtility
+import logging
 
 LOGGER = logging.getLogger('ftw.contentpage')
 
@@ -30,6 +34,23 @@ def add_catalog_indexes(context):
         catalog.manage_reindexIndex(ids=indexables)
 
 
+def georef_settings(context):
+    """Import step to set up OrgUnit as georeferenceable type in
+    colllective.geo.settings.
+
+    This just adds a registry entry, but it can't be done through registry.xml
+    because at that point the OrgUnit type hasn't been registered yet.
+    """
+
+    registry = getUtility(IRegistry)
+    geo_content_types = registry.forInterface(
+        IGeoSettings).geo_content_types
+    registry.forInterface(
+        IGeoFeatureStyle).map_viewlet_position = 'fake-manager'
+    if not 'AddressBlock' in geo_content_types:
+        geo_content_types.append('AddressBlock')
+
+
 def import_various(context):
     """Import step for configuration that is not handled in xml files.
     """
@@ -38,3 +59,4 @@ def import_various(context):
         return
     site = context.getSite()
     add_catalog_indexes(site)
+    georef_settings(site)

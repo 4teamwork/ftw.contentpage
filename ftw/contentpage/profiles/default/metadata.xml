@@ -3,5 +3,6 @@
     <version>1000</version>
     <dependencies>
         <dependency>profile-simplelayout.base:default</dependency>
+        <dependency>profile-ftw.geo:default</dependency>
     </dependencies>
 </metadata>

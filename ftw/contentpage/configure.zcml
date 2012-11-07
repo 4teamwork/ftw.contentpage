@@ -48,5 +48,14 @@
          provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
          name="ftw.contentpage.category.extender" />
 
+    <!-- Register ftw.geo adapter -->
+    <adapter factory=".geo.AddressBlockLocationAdapter" />
+    <adapter
+        for="ftw.contentpage.interfaces.IAddressBlockView
+            zope.interface.Interface
+            zope.interface.Interface
+            zope.interface.Interface"
+        factory="collective.geo.kml.browser.viewlets.KMLMapViewletLayers"
+    />
 
 </configure>

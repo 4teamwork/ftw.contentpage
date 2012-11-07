@@ -1,17 +1,18 @@
 from AccessControl import ClassSecurityInfo
-from ftw.contentpage.interfaces import IAddressBlock
-from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from simplelayout.base.interfaces import ISimpleLayoutBlock
+from ftw.contentpage import _
 from ftw.contentpage import config
+from ftw.contentpage.interfaces import IAddressBlock
+from ftw.geo.interfaces import IGeocodableLocation
+from plone.registry.interfaces import IRegistry
+from Products.ATContentTypes.content.base import ATCTContent
+from Products.ATContentTypes.content.schemata import ATContentTypeSchema
+from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
+from simplelayout.base.interfaces import ISimpleLayoutBlock
 from simplelayout.types.common.content.simplelayout_schemas import \
     finalize_simplelayout_schema
-from zope.interface import implements
-from ftw.contentpage import _
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATContentTypes.content.base import ATCTContent
 from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
 from zope.i18n import translate
+from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -171,7 +172,7 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
     """
     """
     security = ClassSecurityInfo()
-    implements(IAddressBlock, ISimpleLayoutBlock)
+    implements(IAddressBlock, ISimpleLayoutBlock, IGeocodableLocation)
     schema = addressblock_schema
 
     security.declarePrivate('getDefaultCountry')

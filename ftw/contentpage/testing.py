@@ -34,12 +34,30 @@ class FtwContentPageLayer(PloneSandboxLayer):
         import ftw.contentpage
         import simplelayout.base
         import simplelayout.types.common
+        import ftw.geo
+        import collective.geo.settings
+        import collective.geo.openlayers
+        import collective.geo.geographer
+        import collective.geo.contentlocations
+        import collective.geo.kml
 
         xmlconfig.file('configure.zcml', ftw.contentpage,
                        context=configurationContext)
         xmlconfig.file('configure.zcml', simplelayout.base,
                        context=configurationContext)
         xmlconfig.file('configure.zcml', simplelayout.types.common,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', ftw.geo,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', collective.geo.settings,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', collective.geo.openlayers,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', collective.geo.geographer,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', collective.geo.contentlocations,
+                       context=configurationContext)
+        xmlconfig.file('configure.zcml', collective.geo.kml,
                        context=configurationContext)
 
         # installProduct() is *only* necessary for packages outside

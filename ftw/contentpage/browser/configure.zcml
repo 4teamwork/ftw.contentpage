@@ -4,6 +4,11 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.contentpage">
 
+    <browser:resourceDirectory
+        name="ftw.contentpage.resources"
+        directory="resources"
+        />
+
     <browser:page
         for="ftw.contentpage.interfaces.IAddressBlock"
         name="block_view"

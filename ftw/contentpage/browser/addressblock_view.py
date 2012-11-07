@@ -1,10 +1,13 @@
 from Acquisition import aq_inner, aq_parent
+from ftw.contentpage.interfaces import IAddressBlockView
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.interface import implements
 
 
 class AddressBlockView(BrowserView):
     """Block representation of AddressBlock"""
+    implements(IAddressBlockView)
 
     address_ptl = ViewPageTemplateFile('address.pt')
 
