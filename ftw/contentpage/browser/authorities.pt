@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ftw.contentpage">
+
+<body>
+
+    <div metal:fill-slot="content-core">
+      <metal:main-macro define-macro="content-core">
+
+
+    <div id="authorities">
+      <div class="listing-column-left">
+            <div class="listing-block" tal:repeat="result python: view.contents()['leftcolumn']">
+                <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title">Title</a></h2>
+                <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
+                    <ul class="subelements-listing" tal:condition="content_items">
+                        <li tal:repeat="item content_items">
+                            <a tal:attributes="href item/getURL;
+                                               title result/Title"
+                               tal:content="item/Title" class="subelements-listing-element">Title</a>
+                           <span class="divider" tal:condition="not:repeat/item/end"></span>
+                        </li>
+                    </ul>
+              </tal:block>
+         </div>
+     </div>
+
+      <div class="listing-column-right">
+            <div class="listing-block" tal:repeat="result python: view.contents()['rightcolumn']">
+                <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title">Title</a></h2>
+                <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
+                    <ul class="subelements-listing" tal:condition="content_items">
+                        <li tal:repeat="item content_items">
+                            <a tal:attributes="href item/getURL;
+                                               title result/Title"
+                               tal:content="item/Title" class="subelements-listing-element">Title</a>
+                           <span class="divider" tal:condition="not:repeat/item/end"></span>
+                        </li>
+                    </ul>
+              </tal:block>
+         </div>
+       </div>
+      </div>
+
+      <div class="visualClear">&nbsp;</div>
+
+      </metal:main-macro>
+      </div>
+</body>
+</html>

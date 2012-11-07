@@ -24,6 +24,7 @@
     <property name="default_view">simplelayout</property>
     <property name="view_methods">
         <element value="simplelayout" />
+        <element value="authorities_view" />
     </property>
     <alias from="(Default)" to="(dynamic view)" />
     <alias from="edit" to="atct_edit" />

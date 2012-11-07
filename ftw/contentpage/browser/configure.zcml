@@ -9,6 +9,7 @@
         directory="resources"
         />
 
+    <!-- AddressBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IAddressBlock"
         name="block_view"
@@ -29,5 +30,14 @@
         class=".addressblock_view.AddressBlockDetailView"
         template="addressblock_detail_view.pt"
         permission="zope2.View" />
+
+
+    <!-- Contentpage listing views -->
+     <browser:page
+        for="ftw.contentpage.interfaces.IContentPage"
+        name="authorities_view"
+        class=".authorities.AuthoritiesView"
+        permission="zope2.View"
+        template="authorities.pt" />
 
 </configure>
