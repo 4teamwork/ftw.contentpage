@@ -18,7 +18,6 @@ class AddressBlockLocationAdapter(object):
         """Build a geocodable location string from the OrgUnits address
         related fields.
         """
-        import ipdb; ipdb.set_trace()
         street = ' '.join([self.context.getAddress().strip(),
                   self.context.getExtraAddressLine().strip()])
         # Remove Postfach form street, otherwise Google geocoder API will

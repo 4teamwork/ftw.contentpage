@@ -22,9 +22,8 @@ class MarkBase(object):
             self.parent.reindexObject(idxs=['object_provides'])
 
     def unmark(self):
-        if IOrgUnitMarker.providedBy(self.parent):
-            noLongerProvides(self.parent, IOrgUnitMarker)
-            self.parent.reindexObject(idxs=['object_provides'])
+        noLongerProvides(self.parent, IOrgUnitMarker)
+        self.parent.reindexObject(idxs=['object_provides'])
 
     def has_one_addressblock(self):
         result = self.parent.getFolderContents(

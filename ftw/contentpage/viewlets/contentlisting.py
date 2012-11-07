@@ -21,13 +21,12 @@ class ContentListingViewlet(ViewletBase):
         resultmap = {}
         for obj in contents:
             categories = obj.Schema()['categories'].get(obj)
-            if categories:
 
-                for cat in categories:
-                    if cat not in resultmap:
-                        resultmap[cat] = []
-                    resultmap[cat].append((obj.title_or_id(),
-                                           obj.absolute_url(), ))
+            for cat in categories:
+                if cat not in resultmap:
+                    resultmap[cat] = []
+                resultmap[cat].append((obj.title_or_id(),
+                                       obj.absolute_url(), ))
 
         for value in resultmap.values():
             value.sort()

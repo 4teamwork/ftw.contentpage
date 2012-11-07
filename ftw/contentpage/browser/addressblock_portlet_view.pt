@@ -12,24 +12,21 @@
               </tal:block>
           </a>
         </li>
-        <li>
+        <li tal:condition="context/getShowOpeningHours">
            <a href="" tal:attributes="href string:${context/absolute_url}/addressblock_detail_view">
-              <tal:block condition="context/getShowOpeningHours"
-                         i18n:translate="contactportlet_open_times">
+              <tal:block i18n:translate="contactportlet_open_times">
                 Open times
               </tal:block>
           </a>
         </li>
-        <li>
+        <li tal:condition="context/getEmail">
           <a tal:attributes="href string:${context/absolute_url}/feedback_view"
-             i18n:translate="contactportlet_contcat_form"
-             tal:condition="context/getEmail">
+             i18n:translate="contactportlet_contcat_form">
             Contact Form
           </a>
         </li>
-        <li>
-          <a tal:attributes="href string:../team"
-             tal:condition="view/has_team">
+        <li tal:condition="view/has_team">
+          <a tal:attributes="href string:../team">
             Team
           </a>
         </li>
