@@ -34,6 +34,7 @@ setup(name='ftw.contentpage',
       install_requires=[
           'setuptools',
           'simplelayout.base',
+          'simplelayout.portlet.dropzone',
           'archetypes.schemaextender',
           'ftw.geo',
       ],
