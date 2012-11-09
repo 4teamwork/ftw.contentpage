@@ -24,5 +24,11 @@
         handler=".mark_parent.AddMoveCopy"
         />
 
+    <!-- Don't display map in default viewlets for Addressblocks -->
+    <subscriber
+        for="ftw.contentpage.interfaces.IAddressBlock
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".geo_config.initializeCustomFeatureStyles"
+        />
 
 </configure>
