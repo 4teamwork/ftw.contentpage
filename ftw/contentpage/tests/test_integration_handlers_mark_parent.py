@@ -142,3 +142,4 @@ class TestOrgunitMarker(TestCase):
         super(TestOrgunitMarker, self).tearDown()
         portal = self.layer['portal']
         portal.manage_delObjects(['contentpage', 'contentpage2'])
+        transaction.commit()

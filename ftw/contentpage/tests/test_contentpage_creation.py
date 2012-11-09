@@ -1,4 +1,4 @@
-from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
+from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from unittest2 import TestCase
 from simplelayout.base.interfaces import ISimpleLayoutCapable
 from simplelayout.base.interfaces import IAdditionalListingEnabled
@@ -9,7 +9,7 @@ import transaction
 
 class TestContentPageCreation(TestCase):
 
-    layer = FTW_CONTENTPAGE_INTEGRATION_TESTING
+    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 
     def setUp(self):
         super(TestContentPageCreation, self).setUp()
@@ -54,3 +54,6 @@ class TestContentPageCreation(TestCase):
 
     def tearDown(self):
         super(TestContentPageCreation, self).tearDown()
+        portal = self.layer['portal']
+        if 'contentpage' in portal.objectIds():
+            portal.manage_delObjects(['contentpage'])

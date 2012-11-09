@@ -1,4 +1,4 @@
-from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
+from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from unittest2 import TestCase
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from plone.testing.z2 import Browser
@@ -11,7 +11,7 @@ import transaction
 
 class TestAddressBlockCreation(TestCase):
 
-    layer = FTW_CONTENTPAGE_INTEGRATION_TESTING
+    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 
     def setUp(self):
         super(TestAddressBlockCreation, self).setUp()
