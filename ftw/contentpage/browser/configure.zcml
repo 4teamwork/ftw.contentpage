@@ -31,6 +31,13 @@
         template="addressblock_detail_view.pt"
         permission="zope2.View" />
 
+    <!-- Feedback form -->
+    <browser:page
+        for="ftw.contentpage.interfaces.IAddressBlock"
+        name="feedback_view"
+        class=".feedback.FeedbackView"
+        permission="zope2.View"
+        />
 
     <!-- Contentpage listing views -->
      <browser:page

@@ -3,6 +3,7 @@ from zope.interface import noLongerProvides
 from zope.interface import alsoProvides
 from Acquisition import aq_parent
 from Acquisition import aq_inner
+from borg.localrole.interfaces import IFactoryTempFolder
 
 
 class MarkBase(object):
@@ -57,6 +58,11 @@ class UnMarkParent(MarkBase):
 class AddMoveCopy(MarkBase):
     def __init__(self, obj, event):
         super(AddMoveCopy, self).__init__(obj, event)
+
+        # Do nothing if we are in the factory
+        if IFactoryTempFolder.providedBy(self.parent):
+            return None
+
         # Move
         if self.event.oldParent and self.event.newParent:
             self.mark()

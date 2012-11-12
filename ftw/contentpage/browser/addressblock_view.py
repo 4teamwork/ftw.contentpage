@@ -22,6 +22,11 @@ class AddressBlockView(BrowserView):
         """
         return self.context.getOpeningHours().replace('\n', '<br />')
 
+    def get_directions_as_html(self):
+        """returns the opening hours as html
+        """
+        return str(self.context.getDirections()).replace('\n', '<br />')
+
     def address(self):
         return self.address_ptl()
 
