@@ -32,4 +32,4 @@ Copyright
 
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
-``ftw.tooltip`` is licensed under GNU General Public License, version 2.
+``ftw.contentpage`` is licensed under GNU General Public License, version 2.
