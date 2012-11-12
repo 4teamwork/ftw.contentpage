@@ -10,4 +10,5 @@ def initializeCustomFeatureStyles(obj, event):
     """
     custom_styles = queryAdapter(obj, IGeoCustomFeatureStyle)
     custom_styles.set('use_custom_styles', True)
+    custom_styles.set('map_height', '30em')
     custom_styles.set('map_viewlet_position', 'fake-manager')  # Don't display

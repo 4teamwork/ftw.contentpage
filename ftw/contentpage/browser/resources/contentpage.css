@@ -1,11 +1,13 @@
-.addressTable {
-    width: 100%;
+.template-addressblock_detail_view .addressText,
+.template-addressblock_detail_view .addressMap {
+    width:100%;
 }
 
-.addressText,
-.addressMap {
+.sl-text-wrapper .addressText,
+.sl-text-wrapper .addressMap {
     width: 50%;
     vertical-align: top;
+    float:left;
 }
 
 /*Hide overlay*/

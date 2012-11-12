@@ -4,19 +4,15 @@
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
 
     <div class="sl-text-wrapper">
-      <table class="addressTable">
-          <tr>
-              <td class="addressText">
-                <div tal:replace="structure view/address">Address</div>
-              </td>
-              <td class="addressMap">
-                <div id="kml-content-viewlet">
-                  <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
-                  <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
-                </div>
-              </td>
-          </tr>
-      </table>
+      <div class="addressText">
+        <div tal:replace="structure view/address">Address</div>
+      </div>
+      <div class="addressMap">
+        <div id="kml-content-viewlet">
+          <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
+          <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
+        </div>
+      </div>
     </div>
 
 </div>
