@@ -38,6 +38,19 @@ class TestContentPageCreation(TestCase):
         self.browser.getControl("Save").click()
         self.assertIn("New ContentPage", self.browser.contents)
 
+    def test_getavailablelayouts(self):
+        contentpage = self.portal.get(
+            self.portal.invokeFactory('ContentPage', 'contentpage'))
+        mid = 'authorities_view'
+        self.assertIn((mid, mid), contentpage.getAvailableLayouts())
+
+        subpage = contentpage.get(
+            contentpage.invokeFactory('ContentPage', 'subpage'))
+
+        # authorities_view should no be available, check comment on
+        # ftw.contentpage.content.contentpage -> getAvailableLayouts
+        self.assertNotIn((mid, mid), subpage.getAvailableLayouts())
+
     def test_simplelayout_integration(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
