@@ -17,4 +17,11 @@
         />
   </class>
 
+  <class class=".listingblock.ListingBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IAddressBlock"
+        />
+  </class>
+
 </configure>

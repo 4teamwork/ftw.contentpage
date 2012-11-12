@@ -9,6 +9,10 @@ class IAddressBlock(Interface):
     """Marker interface for AddressBlocks"""
 
 
+class IListingBlock(Interface):
+    """Marker interface for AddressBlocks"""
+
+
 class IAddressBlockView(Interface):
     """Marker interface for AddressBlocks"""
 

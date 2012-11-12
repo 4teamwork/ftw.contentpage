@@ -19,6 +19,7 @@
         <element value="Link"/>
         <element value="Image"/>
         <element value="AddressBlock"/>
+        <element value="ListingBlock"/>
     </property>
     <property name="allow_discussion">False</property>
     <property name="default_view">simplelayout</property>

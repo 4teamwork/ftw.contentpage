@@ -9,5 +9,9 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
+    <permission name="ftw.contentpage: Add ListingBlock" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
   </permissions>
 </rolemap>

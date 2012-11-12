@@ -1,0 +1,11 @@
+<div class="simplelayout-block-wrapper ListingBlock" id="#"
+     tal:attributes="id here/id">
+    <a tal:attributes="name here/id" ></a>
+    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
+
+    <div class="sl-text-wrapper">
+      <div tal:replace="structure view/render_table">Table</div>
+    </div>
+
+</div>
+<span class="visualClear">&nbsp;</span>

@@ -3,5 +3,6 @@
   <factorytypes>
     <type portal_type="ContentPage" />
     <type portal_type="AddressBlock" />
+    <type portal_type="ListingBlock" />
   </factorytypes>
 </object>

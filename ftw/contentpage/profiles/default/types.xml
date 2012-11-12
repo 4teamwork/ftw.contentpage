@@ -4,4 +4,6 @@
     meta_type="Factory-based Type Information with dynamic views" />
   <object name="AddressBlock"
     meta_type="Factory-based Type Information with dynamic views" />
+  <object name="ListingBlock"
+    meta_type="Factory-based Type Information with dynamic views" />
 </object>
