@@ -1,11 +1,9 @@
-from Products.Five.browser import BrowserView
-from zope.component import queryUtility
-from zope.component import getMultiAdapter
-from ftw.table.interfaces import ITableGenerator
-from ftw.table.interfaces import ITableSource
-from ftw.table.catalog_source import DefaultCatalogTableSourceConfig
 from ftw.contentpage import _
 from ftw.table import helper
+from ftw.table.interfaces import ITableGenerator
+from Products.Five.browser import BrowserView
+from zope.component import queryUtility
+from Products.CMFPlone.utils import getToolByName
 
 
 class ListingBlockView(BrowserView):
@@ -13,13 +11,11 @@ class ListingBlockView(BrowserView):
 
     def __init__(self, context, request):
         super(ListingBlockView, self).__init__(context, request)
-        self.depth = 1
-        self.types = ['File', 'Image']
-        self.sort_order = 'asc'
         self.sort_on = 'sortable_title'
+        self.sort_order = 'asc'
 
-    @property
-    def columns(self):
+
+    def _columns(self):
         columns = (
             {'column': 'Title',
              'column_title': _(u'column_title', default=u'Title'),
@@ -32,46 +28,26 @@ class ListingBlockView(BrowserView):
              'width': 80})
         return columns
 
-
-
     @property
-    def table_source(self):
-        try:
-            return self._table_source
-        except AttributeError:
-            self._table_source = getMultiAdapter((self, self.request),
-                                                 ITableSource)
-            return self._table_source
+    def _build_query(self):
+        query = {}
+        path = '/'.join(self.context.getPhysicalPath())
+        query['path'] = {'query': path, 'depth': 1}
+        query['portal_type'] = self._get_addable_types()
+        query['sort_on'] = 'sortable_title'
+        query['sort_order'] = 'asc'
+        return query
 
-    def update(self):
-        # build the query
-        query = self.table_source.build_query()
-
-        # search
-        results = self.table_source.search_results(query)
-        results = self.custom_sort(results, self.sort_on, self.sort_reverse)
-
-        self.contents = results
-
-    def custom_sort(self, results, sort_on, sort_reverse):
-        """Custom sort method.
-        """
-
-        if getattr(self, '_custom_sort_method', None) is not None:
-            results = self._custom_sort_method(results, sort_on, sort_reverse)
-
-        return results
+    def _get_addable_types(self):
+        return [fti.id for fti in self.context.allowedContentTypes()]
 
     def render_table(self):
-        self.update()
 
+        catalog = getToolByName(self.context, 'portal_catalog')
         generator = queryUtility(ITableGenerator, 'ftw.tablegenerator')
-
-        return generator.generate(self.contents,
-                                  self.columns,
+        result = catalog(self._build_query)
+        return generator.generate(result,
+                                  self._columns(),
                                   sortable=True,
-                                  selected=(self.sort_on, self.sort_order))
-
-    def update_config(self):
-        DefaultCatalogTableSourceConfig.update_config(self)
-        self.filter_path = '/'.join(self.context.getPhysicalPath())
+                                  selected=(self._build_query['sort_on'],
+                                            self._build_query['sort_order']))
