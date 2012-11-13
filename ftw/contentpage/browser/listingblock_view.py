@@ -8,13 +8,13 @@ from ftw.contentpage import _
 from ftw.table import helper
 
 
-class ListingBlockView(BrowserView, DefaultCatalogTableSourceConfig):
+class ListingBlockView(BrowserView):
     """Block representation of ListingBlock"""
 
     def __init__(self, context, request):
         super(ListingBlockView, self).__init__(context, request)
         self.depth = 1
-        self.types = ['File', 'Document', 'Link', 'Image']
+        self.types = ['File', 'Image']
         self.sort_order = 'asc'
         self.sort_on = 'sortable_title'
 
@@ -31,6 +31,8 @@ class ListingBlockView(BrowserView, DefaultCatalogTableSourceConfig):
              'transform': helper.readable_date,
              'width': 80})
         return columns
+
+
 
     @property
     def table_source(self):

@@ -14,3 +14,7 @@
 .olLayerGooglePoweredBy.olLayerGoogleV3.gmnoprint {
     display: none;
 }
+
+.simplelayout-block-wrapper.ListingBlock table.listing {
+    width:100%;
+}
