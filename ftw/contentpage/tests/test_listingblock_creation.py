@@ -3,6 +3,8 @@ from unittest2 import TestCase
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from zope.component import queryMultiAdapter
+from StringIO import StringIO
 import transaction
 
 
@@ -55,6 +57,21 @@ class TestListingBlockCreation(TestCase):
         self.assertIn(listingblock.getId(), self.browser.contents)
         self.assertIn('simplelayout-block-wrapper ListingBlock',
                       self.browser.contents)
+
+    def test_listing_block_table_render(self):
+        listingblock = self._create_listingblock()
+        _file = listingblock.get(
+            listingblock.invokeFactory('File', 'file'))
+        dummy = StringIO("DATA")
+        dummy.filename = 'dummy.pdf'
+        _file.setFile(dummy)
+        _file.setTitle("Dummy PDF")
+        _file.processForm()
+
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name='block_view')
+        self.assertIn("Dummy PDF", view.render_table())
+        self.assertIn("pdf.png", view.render_table())
 
     def test_addressblock_default_title(self):
         listingblock = self._create_listingblock()

@@ -41,6 +41,7 @@ setup(name='ftw.contentpage',
           'simplelayout.portlet.dropzone',
           'archetypes.schemaextender',
           'ftw.geo',
+          'ftw.table',
       ],
 
       entry_points="""
