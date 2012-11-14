@@ -14,7 +14,6 @@ class ListingBlockView(BrowserView):
         self.sort_on = 'sortable_title'
         self.sort_order = 'asc'
 
-
     def _columns(self):
         columns = (
             {'column': 'Title',
