@@ -47,12 +47,19 @@
         permission="zope2.View"
         template="authorities.pt" />
 
-    <!-- ListingBlock view -->
+    <!-- ListingBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IListingBlock"
         name="block_view"
         class=".listingblock_view.ListingBlockView"
         template="listingblock_view.pt"
+        permission="zope2.View" />
+
+    <browser:page
+        for="ftw.contentpage.interfaces.IListingBlock"
+        name="block_view-gallery"
+        class=".listingblock_gallery_view.ListingBlockGalleryView"
+        template="listingblock_gallery_view.pt"
         permission="zope2.View" />
 
 

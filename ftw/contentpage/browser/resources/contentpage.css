@@ -18,3 +18,23 @@
 .simplelayout-block-wrapper.ListingBlock table.listing {
     width:100%;
 }
+
+.simplelayout-block-wrapper.ListingBlock .gallery {
+    clear:both;
+}
+
+.simplelayout-block-wrapper.ListingBlock .gallery .box{
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    float:left;
+}
+
+.simplelayout-block-wrapper.ListingBlock .gallery .box .frame{
+    width:130px;
+    height:130px;
+    display:table-cell;
+    overflow: hidden;
+    vertical-align: middle;
+    background-color: #eee;
+    border:1px solid #ddd;
+}
