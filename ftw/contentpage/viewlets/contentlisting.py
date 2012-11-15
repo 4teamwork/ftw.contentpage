@@ -17,8 +17,10 @@ class ContentListingViewlet(ViewletBase):
                                                   full_objects=True)
         return self._create_resultmap(contents)
 
-    def _create_resultmap(self, contents=[]):
+    def _create_resultmap(self, contents=None):
         resultmap = {}
+        if not contents:
+            return []
         for obj in contents:
             categories = obj.Schema()['categories'].get(obj)
 

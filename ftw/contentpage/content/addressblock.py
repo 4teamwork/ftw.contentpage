@@ -169,8 +169,7 @@ addressblock_schema['excludeFromNav'].visible = -1
 
 
 class AddressBlock(ATCTContent, HistoryAwareMixin):
-    """
-    """
+
     security = ClassSecurityInfo()
     implements(IAddressBlock, ISimpleLayoutBlock, IGeocodableLocation)
     schema = addressblock_schema
