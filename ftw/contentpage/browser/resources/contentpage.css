@@ -30,8 +30,6 @@
 }
 
 .simplelayout-block-wrapper.ListingBlock .gallery .box .frame{
-    width:130px;
-    height:130px;
     display:table-cell;
     overflow: hidden;
     vertical-align: middle;

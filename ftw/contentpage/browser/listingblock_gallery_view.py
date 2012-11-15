@@ -12,9 +12,8 @@ class ListingBlockGalleryView(BrowserView):
         return query
 
     def get_images(self):
-        return self.context.getFolderContents(
-            contentFilter=self._build_query,
-            full_objects=True)
+        return self.context.listFolderContents(
+            contentFilter=self._build_query)
 
     def _get_box_boundaries(self):
         sizes = getAllowedSizes()
