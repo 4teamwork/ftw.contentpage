@@ -62,12 +62,12 @@
   <permission value="Modify portal content"/>
  </action>
  <action title="Default" action_id="sl-dummy-dummy-dummy" category="sl-layouts"
-    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-right.gif"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-list.gif"
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Portlet" action_id="sl-dummy-dummy-gallery" category="sl-layouts"
-    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-blank.gif"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-gallery.gif"
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>
  </action>
