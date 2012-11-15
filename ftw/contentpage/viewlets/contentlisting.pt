@@ -2,14 +2,14 @@
      tal:condition="view/available">
 
     <tal:loop repeat="category view/get_content">
-        <h2 tal:content="python:category[0]">Category</h2>
+        <h2 tal:content="python:category[0]"><!-- Category --></h2>
         <ul class="subelements-listing">
             <li tal:repeat="item python:category[1]">
                 <a class="subelements-listing-element"
                     tal:attributes="href python:item[1];
                                     title python:item[0]"
                     tal:content="python:item[0]">
-                    Title
+                    <!-- Title -->
                 </a>
                 <span class="divider" tal:condition="not:repeat/item/end"></span>
             </li>
