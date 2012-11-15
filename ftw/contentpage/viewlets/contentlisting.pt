@@ -11,6 +11,7 @@
                     tal:content="python:item[0]">
                     Title
                 </a>
+                <span class="divider" tal:condition="not:repeat/item/end"></span>
             </li>
         </ul>
     </tal:loop>

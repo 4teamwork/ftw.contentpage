@@ -65,7 +65,8 @@ class FeedbackForm(form.Form):
         return self.request.RESPONSE.redirect(url)
 
     def send_feedback(self, recipient, subject, message, sender):
-        """Send a feedback email to the email address defined in orgunit.
+        """Send a feedback email to the email address defined in
+        the addressblock.
         """
         mh = getToolByName(self.context, 'MailHost')
         portal = getToolByName(self.context, 'portal_url').getPortalObject()

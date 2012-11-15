@@ -35,11 +35,11 @@ def add_catalog_indexes(context):
 
 
 def georef_settings(context):
-    """Import step to set up OrgUnit as georeferenceable type in
+    """Import step to set up AddressBlock as georeferenceable type in
     colllective.geo.settings.
 
     This just adds a registry entry, but it can't be done through registry.xml
-    because at that point the OrgUnit type hasn't been registered yet.
+    because at that point the AddressBlock type hasn't been registered yet.
     """
 
     registry = getUtility(IRegistry)

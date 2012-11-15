@@ -1,4 +1,4 @@
-<div class="simplelayout-block-wrapper AddressBlock" id="#"
+<div i18n:domain="ftw.contentpage" class="simplelayout-block-wrapper AddressBlock" id="#"
      tal:attributes="id here/id">
     <a tal:attributes="name here/id" ></a>
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
@@ -26,7 +26,7 @@
           </a>
         </li>
         <li tal:condition="view/has_team">
-          <a tal:attributes="href string:../team">
+          <a tal:attributes="href string:../team" i18n:translate="label_team">
             Team
           </a>
         </li>

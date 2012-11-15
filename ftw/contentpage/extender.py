@@ -24,7 +24,7 @@ class CategoriesExtender(object):
         roleBasedAdd=True,
         widget=KeywordWidget(
             label=_(u'label_categories', default=u'Categories'),
-            description=_(u'help_tags',
+            description=_(u'help_categories',
                           default=u'Category for contentlisting'),
         ),
     ), ]

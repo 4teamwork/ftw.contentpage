@@ -15,7 +15,7 @@ class AddressBlockLocationAdapter(object):
         self.context = context
 
     def getLocationString(self):
-        """Build a geocodable location string from the OrgUnits address
+        """Build a geocodable location string from the AddressBlocks address
         related fields.
         """
         street = ' '.join([self.context.getAddress().strip(),

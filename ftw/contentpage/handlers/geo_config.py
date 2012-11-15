@@ -3,10 +3,11 @@ from zope.component import queryAdapter
 
 
 def initializeCustomFeatureStyles(obj, event):
-    """Initializes IGeoCustomFeatureStyle for OrgUnits upon object creation.
+    """Initializes IGeoCustomFeatureStyle for AddressBlocks
+    upon object creation.
 
-    For OrgUnits we don't want to display the map viewlet in one of the default
-    viewlet managers but only in the custom 'contact_view'.
+    For AddressBlocks we don't want to display the map viewlet in one of the
+    default viewlet managers but only in the custom 'contact_view'.
     """
     custom_styles = queryAdapter(obj, IGeoCustomFeatureStyle)
     custom_styles.set('use_custom_styles', True)

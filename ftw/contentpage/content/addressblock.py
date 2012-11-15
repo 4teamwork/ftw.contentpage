@@ -34,45 +34,35 @@ schema = atapi.Schema((
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_addressTitle',
-                    default=u'Address Title'),
-            description=_(u'help_addressTitle',
-                          default=u''))),
+                    default=u'Address Title'))),
 
     atapi.StringField(
         name='address',
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_address',
-                    default=u'Address'),
-            description=_(u'help_address',
-                          default=u''))),
+                    default=u'Address'))),
 
     atapi.StringField(
         name='extraAddressLine',
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_extraAddressLine',
-                    default=u'Extra address line'),
-            description=_(u'help_extraAddressLine',
-                          default=u''))),
+                    default=u'Extra address line'))),
 
     atapi.StringField(
         name='zip',
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_zip',
-                    default=u'ZIP'),
-            description=_(u'help_zip',
-                          default=u''))),
+                    default=u'ZIP'))),
 
     atapi.StringField(
         name='city',
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_city',
-                    default=u'City'),
-            description=_(u'help_city',
-                          default=u''))),
+                    default=u'City'))),
 
     atapi.StringField(
         name='country',
@@ -80,9 +70,7 @@ schema = atapi.Schema((
         default_method='getDefaultCountry',
         widget=atapi.StringWidget(
             label=_(u'label_country',
-                    default=u'Country'),
-            description=_(u'help_country',
-                          default=u''))),
+                    default=u'Country'))),
 
     atapi.StringField(
         name='phone',
@@ -107,9 +95,7 @@ schema = atapi.Schema((
         schemata='default',
         widget=atapi.StringWidget(
             label=_(u'label_email',
-                    default=u'Email'),
-            description=_(u'help_email',
-                          default=u''))),
+                    default=u'Email'))),
 
     atapi.StringField(
         'www',

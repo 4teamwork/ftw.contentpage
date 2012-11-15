@@ -2,7 +2,7 @@
 <registry>
     <record name="ftw.contentpage.addressblock.defaultcountry">
         <field type="plone.registry.field.TextLine">
-            <title>Default country used in orgunits.</title>
+            <title>Default country used in addressblocks.</title>
         </field>
         <value>Switzerland</value>
     </record>

@@ -1,4 +1,4 @@
-<div class="simplelayout-block-wrapper AddressBlock" id="#"
+<div i18n:domain="ftw.contentpage" class="simplelayout-block-wrapper AddressBlock" id="#"
      tal:attributes="id here/id">
     <a tal:attributes="name here/id" ></a>
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>

@@ -1,0 +1,224 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-11-15 10:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+msgid "AddressBlock"
+msgstr "AdressenBlock"
+
+#: ./ftw/contentpage/profiles/default/types/ContentPage.xml
+msgid "ContentPage"
+msgstr "Inhaltsseite"
+
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+msgid "ListingBlock"
+msgstr "Auflistungsblock"
+
+#: ./ftw/contentpage/browser/feedback.py:42
+msgid "Send Mail"
+msgstr "Senden"
+
+#. Default: "Name"
+#: ./ftw/contentpage/browser/feedback.py:25
+msgid "Sender_Name"
+msgstr "Name"
+
+#. Default: "Cancel"
+#: ./ftw/contentpage/browser/feedback.py:57
+msgid "button_cancel"
+msgstr "Abbrechen"
+
+#. Default: "modified"
+#: ./ftw/contentpage/browser/listingblock_view.py:25
+msgid "column_modified"
+msgstr "Bearbeitet"
+
+#. Default: "Title"
+#: ./ftw/contentpage/browser/listingblock_view.py:20
+msgid "column_title"
+msgstr "Titel"
+
+#. Default: "Address / Map"
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:10
+msgid "contactportlet_address_map"
+msgstr "Adresse und Karte"
+
+#. Default: "Contact Form"
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:23
+msgid "contactportlet_contcat_form"
+msgstr "Kontaktformular"
+
+#. Default: "Open times"
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:17
+msgid "contactportlet_open_times"
+msgstr "Öffnungszeiten"
+
+#. Default: "Category for contentlisting"
+#: ./ftw/contentpage/extender.py:27
+msgid "help_categories"
+msgstr "Definieren Sie unter welcher Kategorie diese Inhaltsseite erscheinen soll"
+
+#: ./ftw/contentpage/content/addressblock.py:138
+msgid "help_directions"
+msgstr "So finden Sie uns"
+
+#: ./ftw/contentpage/content/addressblock.py:90
+msgid "help_fax"
+msgstr ""
+
+#: ./ftw/contentpage/content/addressblock.py:127
+msgid "help_openingHours"
+msgstr ""
+
+#: ./ftw/contentpage/content/addressblock.py:81
+msgid "help_phone"
+msgstr ""
+
+#: ./ftw/contentpage/content/addressblock.py:116
+msgid "help_showOpeningHours"
+msgstr "Definieren Sie, ob die Öffnungszeiten angezeigt werden sollen"
+
+#. Default: "Please enter a website URL"
+#: ./ftw/contentpage/content/addressblock.py:106
+msgid "help_www"
+msgstr "Geben Sie eine Internet Adresse an (inkl. http://, https://, etc.)"
+
+#. Default: "The email was sent."
+#: ./ftw/contentpage/browser/feedback.py:53
+msgid "info_email_sent"
+msgstr "E-Mail wurde versendet."
+
+#. Default: "Address"
+#: ./ftw/contentpage/content/addressblock.py:43
+msgid "label_address"
+msgstr "Adresse"
+
+#. Default: "Address Title"
+#: ./ftw/contentpage/content/addressblock.py:36
+msgid "label_addressTitle"
+msgstr "Adresstitel"
+
+#. Default: "Categories"
+#: ./ftw/contentpage/extender.py:26
+msgid "label_categories"
+msgstr "Kategorie"
+
+#. Default: "City"
+#: ./ftw/contentpage/content/addressblock.py:64
+msgid "label_city"
+msgstr "Ort"
+
+#. Default: "Country"
+#: ./ftw/contentpage/content/addressblock.py:72
+msgid "label_country"
+msgstr "Land"
+
+#. Default: "Address"
+#: ./ftw/contentpage/content/addressblock.py:173
+msgid "label_default_address"
+msgstr "Adresse"
+
+#. Default: "Downloads"
+#: ./ftw/contentpage/content/listingblock.py:57
+msgid "label_default_downloads"
+msgstr "Downloads"
+
+#. Default: "Directions"
+#: ./ftw/contentpage/browser/address.pt:38
+#: ./ftw/contentpage/content/addressblock.py:136
+msgid "label_directions"
+msgstr "Anfahrt"
+
+#. Default: "Email"
+#: ./ftw/contentpage/content/addressblock.py:97
+msgid "label_email"
+msgstr "E-Mail"
+
+#. Default: "Extra address line"
+#: ./ftw/contentpage/content/addressblock.py:50
+msgid "label_extraAddressLine"
+msgstr "Zusätzliche Adresszeile"
+
+#. Default: "Fax"
+#: ./ftw/contentpage/content/addressblock.py:88
+msgid "label_fax"
+msgstr "Fax"
+
+#. Default: "Message"
+#: ./ftw/contentpage/browser/feedback.py:32
+msgid "label_message"
+msgstr "Nachricht"
+
+#. Default: "Opening Hours"
+#: ./ftw/contentpage/browser/address.pt:33
+#: ./ftw/contentpage/content/addressblock.py:125
+msgid "label_openingHours"
+msgstr "Öffnungszeiten"
+
+#. Default: "Phone"
+#: ./ftw/contentpage/content/addressblock.py:79
+msgid "label_phone"
+msgstr "Telefon"
+
+#. Default: "Send Feedback"
+#: ./ftw/contentpage/browser/feedback.py:37
+msgid "label_send_feedback"
+msgstr "Kontaktformular"
+
+#. Default: "Show opening hours"
+#: ./ftw/contentpage/content/addressblock.py:114
+msgid "label_showOpeningHours"
+msgstr "Öffnungszeiten anzeigen"
+
+#. Default: "Show Title"
+#: ./ftw/contentpage/content/addressblock.py:29
+#: ./ftw/contentpage/content/listingblock.py:24
+msgid "label_show_title"
+msgstr "Titel anzeigen?"
+
+#. Default: "Subject"
+#: ./ftw/contentpage/browser/feedback.py:30
+msgid "label_subject"
+msgstr "Betreff"
+
+#. Default: "Team"
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:29
+msgid "label_team"
+msgstr "Team"
+
+#. Default: "WWW"
+#: ./ftw/contentpage/content/addressblock.py:105
+msgid "label_www"
+msgstr "URL"
+
+#. Default: "ZIP"
+#: ./ftw/contentpage/content/addressblock.py:57
+msgid "label_zip"
+msgstr "PLZ"
+
+#. Default: "E-Mail"
+#: ./ftw/contentpage/browser/feedback.py:27
+msgid "mail_address"
+msgstr "E-Mail"
+
+#. Default: "Fax ${num}"
+#: ./ftw/contentpage/browser/address.pt:16
+msgid "text_fax"
+msgstr "Fax ${num}"
+
+#. Default: "Tel. ${num}"
+#: ./ftw/contentpage/browser/address.pt:9
+msgid "text_phone"
+msgstr "Tel. ${num}"
+
+
