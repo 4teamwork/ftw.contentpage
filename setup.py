@@ -42,6 +42,7 @@ setup(name='ftw.contentpage',
           'archetypes.schemaextender',
           'ftw.geo',
           'ftw.table',
+          'ftw.colorbox',
       ],
 
       entry_points="""

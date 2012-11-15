@@ -6,7 +6,7 @@
     <div class="sl-text-wrapper">
       <div class="gallery">
         <div class="box" tal:repeat="img python:view.get_images()">
-            <div class="frame" tal:define="width python:str(view._get_box_boundaries()[0])+'px';
+            <div class="frame sl-img-wrapper" tal:define="width python:str(view._get_box_boundaries()[0])+'px';
                                            height python:str(view._get_box_boundaries()[1])+'px'"
                   tal:attributes="style string:width:${width};;height:${height}">
                 <a href="#" 
