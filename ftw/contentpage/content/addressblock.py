@@ -1,6 +1,7 @@
 from AccessControl import ClassSecurityInfo
 from ftw.contentpage import _
 from ftw.contentpage import config
+from ftw.contentpage.content.schema import finalize
 from ftw.contentpage.interfaces import IAddressBlock
 from ftw.geo.interfaces import IGeocodableLocation
 from plone.registry.interfaces import IRegistry
@@ -8,8 +9,6 @@ from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from simplelayout.types.common.content.simplelayout_schemas import \
-    finalize_simplelayout_schema
 from zope.component import getUtility
 from zope.i18n import translate
 from zope.interface import implements
@@ -143,15 +142,11 @@ schema = atapi.Schema((
 
 addressblock_schema = ATContentTypeSchema.copy() + schema.copy()
 
-addressblock_schema['excludeFromNav'].default = True
-addressblock_schema['excludeFromNav'].visible = -1
 addressblock_schema['title'].required = False
 addressblock_schema['title'].default_method = 'getDefaultTitle'
 
-finalize_simplelayout_schema(addressblock_schema)
-
-addressblock_schema['description'].widget.visible = {'edit': 0, 'view': 0}
-addressblock_schema['excludeFromNav'].visible = -1
+# Finalize schema
+finalize(addressblock_schema, hide=['description'])
 
 
 class AddressBlock(ATCTContent, HistoryAwareMixin):

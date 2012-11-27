@@ -2,6 +2,7 @@ from AccessControl import ClassSecurityInfo
 from ftw.contentpage import _
 from ftw.contentpage.config import PROJECTNAME
 from ftw.contentpage.interfaces import IListingBlock
+from ftw.contentpage.content.schema import finalize
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
@@ -34,10 +35,10 @@ schemata.finalizeATCTSchema(
 )
 
 
-listing_block_schema['excludeFromNav'].default = True
-listing_block_schema['excludeFromNav'].visible = -1
 listing_block_schema['title'].required = False
 listing_block_schema['title'].default_method = 'getDefaultTitle'
+
+finalize(listing_block_schema)
 
 
 class ListingBlock(folder.ATFolder):
