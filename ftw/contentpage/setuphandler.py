@@ -1,8 +1,12 @@
-from collective.geo.settings.interfaces import IGeoSettings
 from collective.geo.settings.interfaces import IGeoFeatureStyle
+from collective.geo.settings.interfaces import IGeoSettings
 from ftw.contentpage.config import INDEXES
+from plone.portlets.constants import CONTENT_TYPE_CATEGORY
+from plone.portlets.interfaces import IPortletManager
+from plone.portlets.storage import PortletAssignmentMapping
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
+from simplelayout.portlet.dropzone.portlets import drop_zone_portlet
 from zope.component import getUtility
 import logging
 
@@ -51,6 +55,17 @@ def georef_settings(context):
         geo_content_types.append('AddressBlock')
 
 
+def set_dropzone_as_type_portlet(self):
+    manager = getUtility(IPortletManager, name=u"plone.rightcolumn")
+    cat = manager[CONTENT_TYPE_CATEGORY]
+    if 'ContentPage' not in cat:
+        cat['ContentPage'] = PortletAssignmentMapping()
+    mapping = cat['ContentPage']
+    if 'simplelayout-dropzone-portlet' not in mapping:
+        mapping['simplelayout-dropzone-portlet'] = \
+            drop_zone_portlet.Assignment()
+
+
 def import_various(context):
     """Import step for configuration that is not handled in xml files.
     """
@@ -60,3 +75,4 @@ def import_various(context):
     site = context.getSite()
     add_catalog_indexes(site)
     georef_settings(site)
+    set_dropzone_as_type_portlet(site)

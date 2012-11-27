@@ -33,7 +33,7 @@
     
     <!-- Register the import step -->
     <genericsetup:importStep
-        name="ftw.contentpage"
+        name="ftw.contentpage.custom"
         title="ftw.contentpage custom import handlers"
         description="Custom import steps for ftw.contentpage"
         handler="ftw.contentpage.setuphandler.import_various"
