@@ -1,9 +1,9 @@
-from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
-from ftw.contentpage.content.schema import finalize
 from ftw.contentpage.content.schema import DEFAULT_TO_HIDE
+from ftw.contentpage.content.schema import finalize
+from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from unittest2 import TestCase
 from Products.CMFCore.permissions import ManagePortal
+from unittest2 import TestCase
 
 
 class TestAddressBlockCreation(TestCase):
@@ -21,7 +21,8 @@ class TestAddressBlockCreation(TestCase):
 
         for name in DEFAULT_TO_HIDE:
             if name in schema:
-                self.assertEqual(ManagePortal, schema[name].write_permission)
+                self.assertEquals(ManagePortal, schema[name].write_permission)
+                self.assertEquals(-1, schema[name].widget.visible)
 
         self.assertTrue(schema['excludeFromNav'].default)
 
@@ -29,13 +30,15 @@ class TestAddressBlockCreation(TestCase):
         schema = ATContentTypeSchema.copy()
         finalize(schema, hide=['title'])
 
-        self.assertEqual(ManagePortal, schema['title'].write_permission)
+        self.assertEquals(ManagePortal, schema['title'].write_permission)
+        self.assertEquals(-1, schema['title'].widget.visible)
 
     def test_finalize_schema_do_not_hide(self):
         schema = ATContentTypeSchema.copy()
         finalize(schema, show=['subject'])
 
         self.assertNotEqual(ManagePortal, schema['subject'].write_permission)
+        self.assertNotEquals(-1, schema['subject'].widget.visible)
 
     def test_finalize_schema_show_inextisting_field(self):
         schema = ATContentTypeSchema.copy()

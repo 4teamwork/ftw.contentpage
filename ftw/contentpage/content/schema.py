@@ -23,6 +23,8 @@ def finalize(schema, show=None, hide=None):
     for name in to_hide:
         if name in schema:
             field = schema[name]
+            schema.changeSchemataForField(name, 'default')
+            field.widget.visible = -1
             field.write_permission = ManagePortal
 
     # Hide from navigation by default
