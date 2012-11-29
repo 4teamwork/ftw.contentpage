@@ -84,6 +84,9 @@ class TestListingBlockViews(TestCase):
         self.assertEquals(column['column'], 'Title')
         self.assertEquals(column['sort_index'], 'sortable_title')
 
+        # Get inexisting column
+        column = view._get_column('Dummy')
+        self.assertIsNone(column)
 
     def test_listing_block_filtered_columns(self):
         listingblock = self._create_listingblock()
@@ -92,6 +95,16 @@ class TestListingBlockViews(TestCase):
         columns = view._filtered_columns()
         self.assertEquals(len(view.columns()), 5)
         self.assertEquals(len(columns), 3)
+
+    def test_listing_block_filtered_wrong_column_name(self):
+        listingblock = self._create_listingblock()
+        listingblock.setTableColumns(['Dummy'])
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name="block_view")
+        listingblock
+        columns = view._filtered_columns()
+        self.assertEquals(len(view.columns()), 5)
+        self.assertEquals(len(columns), 0)
 
     def test_scale_installed(self):
         listingblock = self._create_listingblock()

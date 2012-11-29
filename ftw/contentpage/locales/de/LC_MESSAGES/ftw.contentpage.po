@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-15 10:15+0000\n"
+"POT-Creation-Date: 2012-11-29 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,11 @@ msgstr ""
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
 msgstr "AdressenBlock"
+
+#. Default: "Columns"
+#: ./ftw/contentpage/content/listingblock.py:35
+msgid "Columns"
+msgstr "Spalten"
 
 #: ./ftw/contentpage/profiles/default/types/ContentPage.xml
 msgid "ContentPage"
@@ -38,15 +43,30 @@ msgstr "Name"
 msgid "button_cancel"
 msgstr "Abbrechen"
 
+#. Default: "creater"
+#: ./ftw/contentpage/browser/listingblock_view.py:36
+msgid "column_creater"
+msgstr "Ersteller"
+
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:25
+#: ./ftw/contentpage/browser/listingblock_view.py:31
 msgid "column_modified"
 msgstr "Bearbeitet"
 
+#. Default: "size"
+#: ./ftw/contentpage/browser/listingblock_view.py:41
+msgid "column_size"
+msgstr "Grösse"
+
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:20
+#: ./ftw/contentpage/browser/listingblock_view.py:26
 msgid "column_title"
 msgstr "Titel"
+
+#. Default: "Type"
+#: ./ftw/contentpage/browser/listingblock_view.py:20
+msgid "column_type"
+msgstr "Typ"
 
 #. Default: "Address / Map"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:10
@@ -68,28 +88,28 @@ msgstr "Öffnungszeiten"
 msgid "help_categories"
 msgstr "Definieren Sie unter welcher Kategorie diese Inhaltsseite erscheinen soll"
 
-#: ./ftw/contentpage/content/addressblock.py:138
+#: ./ftw/contentpage/content/addressblock.py:137
 msgid "help_directions"
 msgstr "So finden Sie uns"
 
-#: ./ftw/contentpage/content/addressblock.py:90
+#: ./ftw/contentpage/content/addressblock.py:89
 msgid "help_fax"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:127
+#: ./ftw/contentpage/content/addressblock.py:126
 msgid "help_openingHours"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:81
+#: ./ftw/contentpage/content/addressblock.py:80
 msgid "help_phone"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:116
+#: ./ftw/contentpage/content/addressblock.py:115
 msgid "help_showOpeningHours"
 msgstr "Definieren Sie, ob die Öffnungszeiten angezeigt werden sollen"
 
 #. Default: "Please enter a website URL"
-#: ./ftw/contentpage/content/addressblock.py:106
+#: ./ftw/contentpage/content/addressblock.py:105
 msgid "help_www"
 msgstr "Geben Sie eine Internet Adresse an (inkl. http://, https://, etc.)"
 
@@ -99,12 +119,12 @@ msgid "info_email_sent"
 msgstr "E-Mail wurde versendet."
 
 #. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:43
+#: ./ftw/contentpage/content/addressblock.py:42
 msgid "label_address"
 msgstr "Adresse"
 
 #. Default: "Address Title"
-#: ./ftw/contentpage/content/addressblock.py:36
+#: ./ftw/contentpage/content/addressblock.py:35
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
@@ -114,43 +134,43 @@ msgid "label_categories"
 msgstr "Kategorie"
 
 #. Default: "City"
-#: ./ftw/contentpage/content/addressblock.py:64
+#: ./ftw/contentpage/content/addressblock.py:63
 msgid "label_city"
 msgstr "Ort"
 
 #. Default: "Country"
-#: ./ftw/contentpage/content/addressblock.py:72
+#: ./ftw/contentpage/content/addressblock.py:71
 msgid "label_country"
 msgstr "Land"
 
 #. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:173
+#: ./ftw/contentpage/content/addressblock.py:168
 msgid "label_default_address"
 msgstr "Adresse"
 
 #. Default: "Downloads"
-#: ./ftw/contentpage/content/listingblock.py:57
+#: ./ftw/contentpage/content/listingblock.py:69
 msgid "label_default_downloads"
 msgstr "Downloads"
 
 #. Default: "Directions"
 #: ./ftw/contentpage/browser/address.pt:38
-#: ./ftw/contentpage/content/addressblock.py:136
+#: ./ftw/contentpage/content/addressblock.py:135
 msgid "label_directions"
 msgstr "Anfahrt"
 
 #. Default: "Email"
-#: ./ftw/contentpage/content/addressblock.py:97
+#: ./ftw/contentpage/content/addressblock.py:96
 msgid "label_email"
 msgstr "E-Mail"
 
 #. Default: "Extra address line"
-#: ./ftw/contentpage/content/addressblock.py:50
+#: ./ftw/contentpage/content/addressblock.py:49
 msgid "label_extraAddressLine"
 msgstr "Zusätzliche Adresszeile"
 
 #. Default: "Fax"
-#: ./ftw/contentpage/content/addressblock.py:88
+#: ./ftw/contentpage/content/addressblock.py:87
 msgid "label_fax"
 msgstr "Fax"
 
@@ -161,12 +181,12 @@ msgstr "Nachricht"
 
 #. Default: "Opening Hours"
 #: ./ftw/contentpage/browser/address.pt:33
-#: ./ftw/contentpage/content/addressblock.py:125
+#: ./ftw/contentpage/content/addressblock.py:124
 msgid "label_openingHours"
 msgstr "Öffnungszeiten"
 
 #. Default: "Phone"
-#: ./ftw/contentpage/content/addressblock.py:79
+#: ./ftw/contentpage/content/addressblock.py:78
 msgid "label_phone"
 msgstr "Telefon"
 
@@ -176,13 +196,13 @@ msgid "label_send_feedback"
 msgstr "Kontaktformular"
 
 #. Default: "Show opening hours"
-#: ./ftw/contentpage/content/addressblock.py:114
+#: ./ftw/contentpage/content/addressblock.py:113
 msgid "label_showOpeningHours"
 msgstr "Öffnungszeiten anzeigen"
 
 #. Default: "Show Title"
-#: ./ftw/contentpage/content/addressblock.py:29
-#: ./ftw/contentpage/content/listingblock.py:24
+#: ./ftw/contentpage/content/addressblock.py:28
+#: ./ftw/contentpage/content/listingblock.py:25
 msgid "label_show_title"
 msgstr "Titel anzeigen?"
 
@@ -197,12 +217,12 @@ msgid "label_team"
 msgstr "Team"
 
 #. Default: "WWW"
-#: ./ftw/contentpage/content/addressblock.py:105
+#: ./ftw/contentpage/content/addressblock.py:104
 msgid "label_www"
 msgstr "URL"
 
 #. Default: "ZIP"
-#: ./ftw/contentpage/content/addressblock.py:57
+#: ./ftw/contentpage/content/addressblock.py:56
 msgid "label_zip"
 msgstr "PLZ"
 
@@ -220,5 +240,3 @@ msgstr "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
-
-
