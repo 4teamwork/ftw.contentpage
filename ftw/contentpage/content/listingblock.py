@@ -24,6 +24,17 @@ schema = atapi.Schema((
         widget=atapi.BooleanWidget(
         label=_(u'label_show_title',
                 default=u'Show Title'))),
+
+    atapi.LinesField(
+        'tableColumns',
+        schemata='default',
+        required=True,
+        default=('getContentType', 'Title', 'modified'),
+        vocabulary='getColumns',
+        widget=atapi.InAndOutWidget(
+        label=_(u'Columns',
+                default=u'Columns'))),
+
 ))
 
 listing_block_schema = folder.ATFolderSchema.copy() + schema.copy()
@@ -58,5 +69,12 @@ class ListingBlock(folder.ATFolder):
         return translate(_(u'label_default_downloads',
                  default=u'Downloads'))
 
+    security.declarePrivate('getColumns')
+    def getColumns(self):
+        display_list = atapi.DisplayList()
+        view = self.restrictedTraverse('@@block_view')
+        for col in view.columns():
+            display_list.add(col['column'], col['column_title'])
+        return display_list
 
 atapi.registerType(ListingBlock, PROJECTNAME)

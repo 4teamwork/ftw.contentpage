@@ -76,6 +76,23 @@ class TestListingBlockViews(TestCase):
         self.assertIn("Dummy PDF", view.render_table())
         self.assertIn("pdf.png", view.render_table())
 
+    def test_listing_block_get_column(self):
+        listingblock = self._create_listingblock()
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name="block_view")
+        column = view._get_column('Title')
+        self.assertEquals(column['column'], 'Title')
+        self.assertEquals(column['sort_index'], 'sortable_title')
+
+
+    def test_listing_block_filtered_columns(self):
+        listingblock = self._create_listingblock()
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name="block_view")
+        columns = view._filtered_columns()
+        self.assertEquals(len(view.columns()), 5)
+        self.assertEquals(len(columns), 3)
+
     def test_scale_installed(self):
         listingblock = self._create_listingblock()
         _image = listingblock.get(

@@ -14,17 +14,33 @@ class ListingBlockView(BrowserView):
         self.sort_on = 'sortable_title'
         self.sort_order = 'asc'
 
-    def _columns(self):
+    def columns(self):
         columns = (
+            {'column': 'getContentType',
+             'column_title': _(u'column_type', default=u'Type'),
+             'sort_index': 'getContentType',
+             'transform': helper.link(icon=True, tooltip=True,
+                                      icon_only=True)},
+
             {'column': 'Title',
              'column_title': _(u'column_title', default=u'Title'),
              'sort_index': 'sortable_title',
-             'transform': helper.link(icon=True, tooltip=True)},
+             'transform': helper.link(icon=False, tooltip=True)},
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
              'transform': helper.readable_date,
-             'width': 80})
+             },
+
+            {'column': 'Creator',
+             'column_title': _(u'column_creater', default=u'creater'),
+             'transform': helper.readable_author,
+             },
+
+            {'column': 'getObjSize',
+             'column_title': _(u'column_size', default=u'size'),
+             #'transform': helper.readable_size,
+             })
         return columns
 
     @property
@@ -40,13 +56,29 @@ class ListingBlockView(BrowserView):
     def _get_addable_types(self):
         return [fti.id for fti in self.context.allowedContentTypes()]
 
+    def _get_column(self, column):
+        for col in self.columns():
+            if column == col['column']:
+                return col
+        return None
+
+    def _filtered_columns(self):
+        filtered = []
+
+        for col in self.context.getTableColumns():
+            column = self._get_column(col)
+            if column:
+                filtered.append(column)
+
+        return filtered
+
     def render_table(self):
 
         catalog = getToolByName(self.context, 'portal_catalog')
         generator = queryUtility(ITableGenerator, 'ftw.tablegenerator')
         result = catalog(self._build_query)
         return generator.generate(result,
-                                  self._columns(),
+                                  self._filtered_columns(),
                                   sortable=True,
                                   selected=(self._build_query['sort_on'],
                                             self._build_query['sort_order']))

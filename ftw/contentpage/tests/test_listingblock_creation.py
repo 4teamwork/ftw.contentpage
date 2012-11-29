@@ -60,6 +60,15 @@ class TestListingBlockCreation(TestCase):
         listingblock = self._create_listingblock()
         self.assertTrue(listingblock.getExcludeFromNav())
 
+    def test_get_columns(self):
+        listingblock = self._create_listingblock()
+        self.assertEquals(listingblock.getColumns().keys(),
+                          ['getContentType', 'Title', 'modified', 'Creator',
+                           'getObjSize'])
+        self.assertEquals(listingblock.getColumns().values(),
+                          ['column_type', 'column_title', 'column_modified',
+                           'column_creater', 'column_size'])
+
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()
         portal = self.layer['portal']

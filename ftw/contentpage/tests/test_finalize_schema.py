@@ -22,7 +22,8 @@ class TestAddressBlockCreation(TestCase):
         for name in DEFAULT_TO_HIDE:
             if name in schema:
                 self.assertEquals(ManagePortal, schema[name].write_permission)
-                self.assertEquals(-1, schema[name].widget.visible)
+                self.assertEquals({'view': 'invisible', 'edit': 'invisible'},
+                                  schema[name].widget.visible)
 
         self.assertTrue(schema['excludeFromNav'].default)
 
@@ -31,14 +32,16 @@ class TestAddressBlockCreation(TestCase):
         finalize(schema, hide=['title'])
 
         self.assertEquals(ManagePortal, schema['title'].write_permission)
-        self.assertEquals(-1, schema['title'].widget.visible)
+        self.assertEquals({'view': 'invisible', 'edit': 'invisible'},
+                          schema['title'].widget.visible)
 
     def test_finalize_schema_do_not_hide(self):
         schema = ATContentTypeSchema.copy()
         finalize(schema, show=['subject'])
 
         self.assertNotEqual(ManagePortal, schema['subject'].write_permission)
-        self.assertNotEquals(-1, schema['subject'].widget.visible)
+        self.assertNotEquals({'view': 'invisible', 'edit': 'invisible'},
+                             schema['subject'].widget.visible)
 
     def test_finalize_schema_show_inextisting_field(self):
         schema = ATContentTypeSchema.copy()
