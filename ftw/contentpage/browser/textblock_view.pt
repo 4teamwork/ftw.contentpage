@@ -18,7 +18,7 @@
                                         "
                                         tal:omit-tag="not: here/getImageClickable|nothing"
                     >
-                        <img tal:replace="structure view/getImageTag" />
+                        <img tal:replace="structure view/get_image_tag" />
                     </a>
                     <p tal:condition="image_desc"
                        tal:content="context/getImageCaption">Caption</p>

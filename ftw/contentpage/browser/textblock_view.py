@@ -19,17 +19,10 @@ class TextBlockView(BrowserView):
 
     def get_css_klass(self):
         layout = self.image_layout
-        if layout is None:
-            return 'sl-img-no-image'
-        cssclass = 'sl-img-' + layout
-        return cssclass
+        return 'sl-img-' + layout
 
     def has_image(self):
-        #check for a 'image' field in schemata
-        if getattr(self.context.aq_explicit, 'getImage', False):
-            if self.context.getImage():
-                return True
-        return False
+        return bool(self.context.getImage())
 
     def get_image_tag(self):
         alt = unicode(self.context.getImageAltText(),
@@ -46,20 +39,17 @@ class TextBlockView(BrowserView):
         img_attrs = image_util.get_image_attributes(self.context)
         scales = queryMultiAdapter((self.context, self.request), name="images")
 
-        if self.context.getField('image'):
-            if img_attrs['width'] == 0 and img_attrs['height'] == 0:
-                # either there is no image or we use a layout such as
-                # "no-image" which does not show the image - we do not
-                # need to create a scale in this case nor to return a
-                # <img> HTML tag.
-                return ''
+        if img_attrs['width'] == 0 and img_attrs['height'] == 0:
+            # either there is no image or we use a layout such as
+            # "no-image" which does not show the image - we do not
+            # need to create a scale in this case nor to return a
+            # <img> HTML tag.
+            return ''
 
-            return scales.scale(
-                'image',
-                width=img_attrs['width'],
-                height=img_attrs['height']).tag(title=title, alt=alt)
-
-        return ''
+        return scales.scale(
+            'image',
+            width=img_attrs['width'],
+            height=img_attrs['height']).tag(title=title, alt=alt)
 
     def image_wrapper_style(self):
         """ sets width of the div wrapping the image, so the
@@ -75,7 +65,3 @@ class TextBlockView(BrowserView):
     def get_block_height(self):
         height = self.blockconf.block_height
         return  height and '%spx' % height or ''
-
-    @property
-    def wtool(self):
-        return getToolByName(self.context, 'portal_workflow')

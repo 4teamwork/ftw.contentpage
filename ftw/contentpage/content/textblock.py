@@ -97,7 +97,7 @@ class TextBlock(ATCTContent, HistoryAwareMixin):
     """
     security = ClassSecurityInfo()
     implements(ITextBlock, ISimpleLayoutBlock)
-    textblock_schema
+    schema = textblock_schema
 
     #Special workarround for empty titles, otherwise we have "[...]"
     #results in the search function
@@ -111,24 +111,9 @@ class TextBlock(ATCTContent, HistoryAwareMixin):
                     'text/plain',
                     new_value).getData().replace('\r', '').replace('\n', '')
                 crop = self.restrictedTraverse('@@plone').cropText
-                cropped = crop(converted, 30)
-                field.set(self, cropped.lstrip())
+                cropped = crop(converted, 30, '')
+                field.set(self, cropped.strip())
         else:
             field.set(self, value)
-
-    security.declareProtected(View, 'tag')
-    def tag(self, **kwargs):
-        """Generate image tag using the api of the ImageField
-        """
-        if 'title' not in kwargs:
-            if self.getImageAltText():
-                kwargs['title'] = self.getImageAltText()
-            elif self.getImageCaption():
-                kwargs['title'] = self.getImageCaption()
-            else:
-                kwargs['title'] = self.Title()
-        if 'alt' not in kwargs:
-            kwargs['alt'] = self.getImageAltText()
-        return self.getField('image').tag(self, **kwargs)
 
 atapi.registerType(TextBlock, config.PROJECTNAME)

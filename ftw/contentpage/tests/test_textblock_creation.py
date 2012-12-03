@@ -3,12 +3,12 @@ from simplelayout.base.interfaces import ISimpleLayoutBlock
 from unittest2 import TestCase
 
 
-class TestAddressBlockCreation(TestCase):
+class TestTextBlockCreation(TestCase):
 
     layer = FTW_CONTENTPAGE_INTEGRATION_TESTING
 
     def setUp(self):
-        super(TestAddressBlockCreation, self).setUp()
+        super(TestTextBlockCreation, self).setUp()
         self.portal = self.layer['portal']
         self.portal_url = self.portal.portal_url()
 
@@ -35,7 +35,22 @@ class TestAddressBlockCreation(TestCase):
         textblock = self._create_textblock()
         ISimpleLayoutBlock.providedBy(textblock)
 
+    def test_set_title(self):
+        textblock = self._create_textblock()
+        textblock.REQUEST.set('text', '<p>text</p>')
+        textblock.setTitle(None)
+        self.assertEquals(textblock.Title(), 'text')
+
+        textblock.setTitle('title')
+        self.assertEquals(textblock.Title(), 'title')
+
+        # Crop after 30 chars
+        text = "*" * 35
+        textblock.REQUEST.set('text', text)
+        textblock.setTitle(None)
+        self.assertEquals(textblock.Title(), "*" * 30)
+
     def tearDown(self):
-        super(TestAddressBlockCreation, self).tearDown()
+        super(TestTextBlockCreation, self).tearDown()
         portal = self.layer['portal']
         portal.manage_delObjects(['contentpage'])
