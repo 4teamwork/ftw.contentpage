@@ -17,6 +17,10 @@ class IAddressBlockView(Interface):
     """Marker interface for AddressBlocks"""
 
 
+class ITextBlock(Interface):
+    """Marker interface for TextBlocks"""
+
+
 class IOrgUnitMarker(Interface):
     """Marker interface for AddressBlocks"""
 

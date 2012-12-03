@@ -24,4 +24,11 @@
         />
   </class>
 
+  <class class=".textblock.TextBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ITextBlock"
+        />
+  </class>
+
 </configure>

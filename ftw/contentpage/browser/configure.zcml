@@ -62,5 +62,13 @@
         template="listingblock_gallery_view.pt"
         permission="zope2.View" />
 
+    <!-- TextBlock view -->
+    <browser:page
+        for="ftw.contentpage.interfaces.ITextBlock"
+        name="block_view"
+        class=".textblock_view.TextBlockView"
+        template="textblock_view.pt"
+        permission="zope2.View" />
+
 
 </configure>
