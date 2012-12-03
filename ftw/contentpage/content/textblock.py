@@ -2,7 +2,6 @@ from AccessControl import ClassSecurityInfo
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from zope.interface import implements
@@ -93,7 +92,7 @@ finalize(textblock_schema)
 
 
 class TextBlock(ATCTContent, HistoryAwareMixin):
-    """
+    """Textblock for Contentpage
     """
     security = ClassSecurityInfo()
     implements(ITextBlock, ISimpleLayoutBlock)

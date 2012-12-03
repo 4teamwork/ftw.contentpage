@@ -1,5 +1,4 @@
 from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
 from simplelayout.base.interfaces import IBlockConfig
 from zope.component import getUtility
