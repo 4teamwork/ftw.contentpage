@@ -4,6 +4,8 @@ from ftw.upgrade import UpgradeStep
 from zope.interface import alsoProvides
 from zope.interface import noLongerProvides
 from ftw.contentpage.interfaces import ITextBlock
+from ftw.contentpage.interfaces import IContentPage
+from Acquisition import aq_parent
 
 
 class MigrateParagraphs(UpgradeStep):
@@ -32,6 +34,8 @@ class MigrateParagraphs(UpgradeStep):
         result = list(result)
         with ProgressLogger('Migrate Paragraphs', result) as step:
             for obj in result:
+                if not IContentPage.providedBy(aq_parent(obj)):
+                    continue
                 self.migrate_class(obj, TextBlock)
                 obj.portal_type = 'TextBlock'
 
