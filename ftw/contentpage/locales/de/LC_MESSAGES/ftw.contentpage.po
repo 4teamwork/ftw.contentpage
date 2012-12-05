@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-29 09:16+0000\n"
+"POT-Creation-Date: 2012-12-05 10:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,9 +25,27 @@ msgstr "Spalten"
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "External Edit"
+msgstr "Extern bearbeiten"
+
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "References"
+msgstr "Referenzen"
 
 #: ./ftw/contentpage/browser/feedback.py:42
 msgid "Send Mail"
@@ -37,6 +55,16 @@ msgstr "Senden"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
 msgstr "Name"
+
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "TextBlock"
+msgstr "TextBlock"
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "View"
+msgstr "Anzeigen"
 
 #. Default: "Cancel"
 #: ./ftw/contentpage/browser/feedback.py:57
@@ -82,6 +110,16 @@ msgstr "Kontaktformular"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:17
 msgid "contactportlet_open_times"
 msgstr "Öffnungszeiten"
+
+#. Default: "Enter an alternative text for the image"
+#: ./ftw/contentpage/content/textblock.py:79
+msgid "description_image_alt_text"
+msgstr "Geben Sie einen alternative Text für das Bild ein, z.B für Screenreader. Falls kein alternativer Text angegeben wird, wird der Bildtitel verwendet."
+
+#. Default: "Opens image in an overlay"
+#: ./ftw/contentpage/content/textblock.py:60
+msgid "description_image_clickable"
+msgstr "Öffnet das Bild in einem Overlay"
 
 #. Default: "Category for contentlisting"
 #: ./ftw/contentpage/extender.py:27
@@ -174,6 +212,26 @@ msgstr "Zusätzliche Adresszeile"
 msgid "label_fax"
 msgstr "Fax"
 
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:50
+msgid "label_image"
+msgstr "Bild"
+
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:77
+msgid "label_image_alt_text"
+msgstr "Alternativer Text"
+
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:69
+msgid "label_image_caption"
+msgstr "Bildtitel"
+
+#. Default: "Image clickable"
+#: ./ftw/contentpage/content/textblock.py:58
+msgid "label_image_clickable"
+msgstr "Bild anklickbar"
+
 #. Default: "Message"
 #: ./ftw/contentpage/browser/feedback.py:32
 msgid "label_message"
@@ -203,6 +261,7 @@ msgstr "Öffnungszeiten anzeigen"
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
 #: ./ftw/contentpage/content/listingblock.py:25
+#: ./ftw/contentpage/content/textblock.py:27
 msgid "label_show_title"
 msgstr "Titel anzeigen?"
 
@@ -215,6 +274,11 @@ msgstr "Betreff"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:29
 msgid "label_team"
 msgstr "Team"
+
+#. Default: "Text"
+#: ./ftw/contentpage/content/textblock.py:37
+msgid "label_text"
+msgstr "Text"
 
 #. Default: "WWW"
 #: ./ftw/contentpage/content/addressblock.py:104
@@ -240,3 +304,5 @@ msgstr "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
+
+

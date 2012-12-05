@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-29 09:16+0000\n"
+"POT-Creation-Date: 2012-12-05 10:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,8 +30,26 @@ msgstr ""
 msgid "ContentPage"
 msgstr ""
 
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "Edit"
+msgstr ""
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "External Edit"
+msgstr ""
+
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 msgid "ListingBlock"
+msgstr ""
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "References"
 msgstr ""
 
 #: ./ftw/contentpage/browser/feedback.py:42
@@ -41,6 +59,16 @@ msgstr ""
 #. Default: "Name"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
+msgstr ""
+
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "TextBlock"
+msgstr ""
+
+#: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
+#: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
+#: ./ftw/contentpage/profiles/default/types/TextBlock.xml
+msgid "View"
 msgstr ""
 
 #. Default: "Cancel"
@@ -86,6 +114,16 @@ msgstr ""
 #. Default: "Open times"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:17
 msgid "contactportlet_open_times"
+msgstr ""
+
+#. Default: "Enter an alternative text for the image"
+#: ./ftw/contentpage/content/textblock.py:79
+msgid "description_image_alt_text"
+msgstr ""
+
+#. Default: "Opens image in an overlay"
+#: ./ftw/contentpage/content/textblock.py:60
+msgid "description_image_clickable"
 msgstr ""
 
 #. Default: "Category for contentlisting"
@@ -179,6 +217,26 @@ msgstr ""
 msgid "label_fax"
 msgstr ""
 
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:50
+msgid "label_image"
+msgstr ""
+
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:77
+msgid "label_image_alt_text"
+msgstr ""
+
+#. Default: "Image"
+#: ./ftw/contentpage/content/textblock.py:69
+msgid "label_image_caption"
+msgstr ""
+
+#. Default: "Image clickable"
+#: ./ftw/contentpage/content/textblock.py:58
+msgid "label_image_clickable"
+msgstr ""
+
 #. Default: "Message"
 #: ./ftw/contentpage/browser/feedback.py:32
 msgid "label_message"
@@ -208,6 +266,7 @@ msgstr ""
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
 #: ./ftw/contentpage/content/listingblock.py:25
+#: ./ftw/contentpage/content/textblock.py:27
 msgid "label_show_title"
 msgstr ""
 
@@ -219,6 +278,11 @@ msgstr ""
 #. Default: "Team"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:29
 msgid "label_team"
+msgstr ""
+
+#. Default: "Text"
+#: ./ftw/contentpage/content/textblock.py:37
+msgid "label_text"
 msgstr ""
 
 #. Default: "WWW"

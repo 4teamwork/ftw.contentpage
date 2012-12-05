@@ -66,7 +66,7 @@ image_schema = atapi.Schema((
         searchable=True,
         schemata='image',
         widget=atapi.StringWidget(
-            label=_(u'label_image',
+            label=_(u'label_image_caption',
                     default=u'Image'))),
 
     atapi.StringField(
