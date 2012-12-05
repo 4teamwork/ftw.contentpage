@@ -43,6 +43,7 @@ setup(name='ftw.contentpage',
           'ftw.geo',
           'ftw.table',
           'ftw.colorbox',
+          'ftw.upgrade',
       ],
 
       entry_points="""
