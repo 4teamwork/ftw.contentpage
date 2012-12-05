@@ -49,6 +49,29 @@ class TestTextBlockView(TestCase):
         self.assertIn('simplelayout-block-wrapper TextBlock',
                       self.browser.contents)
 
+    def test_show_title(self):
+        textblock = self._create_textblock()
+        test_title = 'This is the title'
+        textblock.setTitle(test_title)
+        view = queryMultiAdapter((textblock, textblock.REQUEST),
+                          name='block_view')
+
+        self.assertNotIn(test_title, view.index())
+
+        textblock.setShowTitle(True)
+        self.assertIn(test_title, view.index())
+
+    def test_text_not_required(self):
+        textblock = self._create_textblock()
+        test_text = 'This is the Text'
+        view = queryMultiAdapter((textblock, textblock.REQUEST),
+                          name='block_view')
+
+        self.assertNotIn(test_text, view.index())
+
+        textblock.setText(test_text)
+        self.assertIn(test_text, view.index())
+
     def test_has_image(self):
         textblock = self._create_textblock()
         self._auth()
