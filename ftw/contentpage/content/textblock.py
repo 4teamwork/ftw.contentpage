@@ -1,14 +1,15 @@
 from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATContentTypes.content.base import ATCTContent
-from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Products.CMFCore.utils import getToolByName
-from simplelayout.base.interfaces import ISimpleLayoutBlock
-from zope.interface import implements
 from ftw.contentpage import _
 from ftw.contentpage import config
 from ftw.contentpage.content.schema import finalize
 from ftw.contentpage.interfaces import ITextBlock
+from plone.app.blob.field import ImageField
+from Products.ATContentTypes.content.base import ATCTContent
+from Products.ATContentTypes.content.schemata import ATContentTypeSchema
+from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
+from Products.CMFCore.utils import getToolByName
+from simplelayout.base.interfaces import ISimpleLayoutBlock
+from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -40,7 +41,7 @@ default_schema = atapi.Schema((
 ))
 
 image_schema = atapi.Schema((
-    atapi.ImageField(
+    ImageField(
         name='image',
         required=False,
         original_size=config.ORIGINAL_SIZE,
