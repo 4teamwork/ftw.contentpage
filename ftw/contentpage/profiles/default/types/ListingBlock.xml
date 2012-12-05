@@ -43,11 +43,6 @@
   <permission value="Modify portal content"/>
   <permission value="Review portal content"/>
  </action>
- <action title="Download" action_id="download" category="object"
-    condition_expr="member" url_expr="string:${object_url}/download"
-    visible="False" i18n:attributes="title">
-  <permission value="View"/>
- </action>
  <action title="External Edit" action_id="external_edit" category="object"
     condition_expr="object/externalEditorEnabled"
     url_expr="string:${object_url}/external_edit" visible="False"
