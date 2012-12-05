@@ -25,8 +25,7 @@ class MigrateParagraphs(UpgradeStep):
         try:
             from simplelayout.types.common.interfaces import IParagraph
         except ImportError:
-            raise('Please install simplelayout.types.common to migrate '
-                  'Paragraphs to TextBlocks')
+            raise
 
         result = self.catalog_unrestricted_search(
             {'portal_type': 'Paragraph'}, full_objects=True)
