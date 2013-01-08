@@ -8,7 +8,7 @@ ADD_PERMISSIONS = {
     'TextBlock': 'ftw.contentpage: Add TextBlock',
 }
 
-INDEXES = (('getCategories', 'KeywordIndex'),
+INDEXES = (('getContentCategories', 'KeywordIndex'),
           ('getContentType', 'FieldIndex'))
 
 

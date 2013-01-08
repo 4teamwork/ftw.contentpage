@@ -20,7 +20,7 @@ class CategoriesExtender(object):
         'categories',
         multiValued=True,
         searchable=False,
-        accessor='getCategories',
+        accessor='getContentCategories',
         roleBasedAdd=True,
         widget=KeywordWidget(
             label=_(u'label_categories', default=u'Categories'),

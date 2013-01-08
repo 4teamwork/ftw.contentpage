@@ -79,7 +79,7 @@ class TestContentListing(TestCase):
         subpage.setTitle('Subpage title')
         subpage.Schema()['categories'].set(subpage, 'WITH UTF8 \xc3\xa4')
         subpage.reindexObject()
-        unique_values = catalog.Indexes['getCategories'].uniqueValues()
+        unique_values = catalog.Indexes['getContentCategories'].uniqueValues()
         self.assertIn("WITH UTF8 \xc3\xa4", unique_values)
 
     def test_viewlet(self):
