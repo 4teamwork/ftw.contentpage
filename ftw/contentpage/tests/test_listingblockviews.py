@@ -76,6 +76,28 @@ class TestListingBlockViews(TestCase):
         self.assertIn("Dummy PDF", view.render_table())
         self.assertIn("pdf.png", view.render_table())
 
+    def test_custom_table_template(self):
+        listingblock = self._create_listingblock()
+        _file = listingblock.get(
+            listingblock.invokeFactory('File', 'file'))
+        dummy = StringIO("DATA")
+        dummy.filename = 'dummy.pdf'
+        _file.setFile(dummy)
+        _file.setTitle("Dummy PDF")
+        _file.processForm()
+
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name='block_view')
+
+        # The table header (th) id value is implemented as css klass
+        self.assertNotIn('id="header-getContentType"', view.render_table())
+        self.assertNotIn('id="header-sortable_title"', view.render_table())
+        self.assertNotIn('id="header-modified"', view.render_table())
+
+        self.assertIn('class="header-getContentType', view.render_table())
+        self.assertIn('class="header-sortable_title', view.render_table())
+        self.assertIn('class="header-modified', view.render_table())
+
     def test_listing_block_get_column(self):
         listingblock = self._create_listingblock()
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
