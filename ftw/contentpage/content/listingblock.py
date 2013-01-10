@@ -61,6 +61,10 @@ class ListingBlock(folder.ATFolder):
     schema = listing_block_schema
     security = ClassSecurityInfo()
 
+    security.declarePublic('showAddMenu')
+    def showAddMenu(self):
+        return False
+
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
         return False

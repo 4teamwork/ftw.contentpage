@@ -49,6 +49,11 @@
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
+ <action title="MultiUpload" action_id="sl-multiupload" category="sl-actions"
+    icon_expr="string:${here/portal_url}/++resource++sl/icons//multiupload.png"
+    condition_expr="" url_expr="string:${object_url}/flashupload" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
  <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr="string:edit.gif"
     condition_expr="" url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
