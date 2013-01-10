@@ -6,6 +6,17 @@ from zope.component import queryUtility
 from Products.CMFPlone.utils import getToolByName
 
 
+def download_link(icon=True, classes=None, attrs=None, icon_only=False):
+
+    def _helper(item, value):
+        url = '%s/download' % item.getURL()
+        attrs = {}
+        attrs['href'] = url
+        return helper.linked(item, value, show_icon=icon,
+                           attrs=attrs, icon_only=icon_only)
+    return _helper
+
+
 class ListingBlockView(BrowserView):
     """Block representation of ListingBlock"""
 
@@ -19,13 +30,12 @@ class ListingBlockView(BrowserView):
             {'column': 'getContentType',
              'column_title': _(u'column_type', default=u'Type'),
              'sort_index': 'getContentType',
-             'transform': helper.link(icon=True, tooltip=True,
-                                      icon_only=True)},
+             'transform': download_link(icon=True, icon_only=True)},
 
             {'column': 'Title',
              'column_title': _(u'column_title', default=u'Title'),
              'sort_index': 'sortable_title',
-             'transform': helper.link(icon=False, tooltip=True)},
+             'transform': download_link(icon=False)},
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
@@ -39,7 +49,6 @@ class ListingBlockView(BrowserView):
 
             {'column': 'getObjSize',
              'column_title': _(u'column_size', default=u'size'),
-             #'transform': helper.readable_size,
              })
         return columns
 
