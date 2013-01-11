@@ -98,6 +98,10 @@ class TestListingBlockViews(TestCase):
         self.assertIn('class="header-sortable_title', view.render_table())
         self.assertIn('class="header-modified', view.render_table())
 
+        self.assertIn('class="column-getContentType', view.render_table())
+        self.assertIn('class="column-sortable_title', view.render_table())
+        self.assertIn('class="column-modified', view.render_table())
+
     def test_listing_block_get_column(self):
         listingblock = self._create_listingblock()
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
