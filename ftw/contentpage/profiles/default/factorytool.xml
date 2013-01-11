@@ -5,5 +5,7 @@
     <type portal_type="AddressBlock" />
     <type portal_type="ListingBlock" />
     <type portal_type="TextBlock" />
+    <type portal_type="News" />
+    <type portal_type="NewsFolder" />
   </factorytypes>
 </object>

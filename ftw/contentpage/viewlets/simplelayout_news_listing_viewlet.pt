@@ -1,0 +1,12 @@
+<div tal:define="results python:view.getSimpleLayoutContents()" class="simplelayout-content sl-news-content-listing">
+    <div class="onecolumn">
+        <tal:repeat repeat="result results">
+            <div tal:define="wrapperCSS python:view.getWrapperCss(result)"
+                 tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS;
+                                 id string:uid_${result/UID}"
+                 class="" 
+                 tal:content="structure python:view.renderBlockProvider(result)">block</div>
+        </tal:repeat>
+     </div>
+    <span class="visualClear">&nbsp;</span> 
+</div>

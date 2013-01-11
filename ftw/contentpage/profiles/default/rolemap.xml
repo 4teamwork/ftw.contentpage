@@ -13,5 +13,18 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
+    <permission name="ftw.contentpage: Add News"
+                acquire="True">
+      <role name="Contributor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+    </permission>
+    <permission name="ftw.contentpage: Add NewsFolder"
+                acquire="True">
+      <role name="Contributor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+    </permission>
+
   </permissions>
 </rolemap>

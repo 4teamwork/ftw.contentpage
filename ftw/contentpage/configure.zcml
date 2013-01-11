@@ -59,4 +59,13 @@
         factory="collective.geo.kml.browser.viewlets.KMLMapViewletLayers"
     />
 
+    <utility
+      component=".vocabularies.SubjectVocabulary"
+      name="ftw.contentpage.subjects"
+    />
+
+    <class class="ftw.contentpage.content.news.News">
+          <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
+    </class> 
+
 </configure>

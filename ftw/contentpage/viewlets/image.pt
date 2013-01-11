@@ -1,0 +1,7 @@
+<div class="simplelayoutNewsImage">
+    <div tal:define="img view/get_image" tal:condition="img" class="sl-img-wrapper">
+        <a tal:attributes="href string:${context/absolute_url}/image">
+            <tal:img tal:content="structure img" />
+        </a>
+    </div>
+</div>

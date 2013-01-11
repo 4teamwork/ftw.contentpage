@@ -1,0 +1,45 @@
+<div i18n:domain="plone"
+     class="newsListing"
+     tal:define="news view/get_news;
+                 toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+    <div tal:repeat="brain news" class="tileItem">
+        <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
+            <tal:img tal:content="structure python:view.get_img(brain)" />
+        </a>
+        <h2 class="tileHeadline">
+            <a class="summary url" tal:attributes="href brain/getURL"
+               tal:content="brain/Title"></a>
+        </h2>
+        <div class="byline">
+            <span class="dtstart"
+                  tal:content="python:toLocalizedTime(brain.effective)">
+                21.12.2012
+            </span>
+            <tal:name tal:define="creator python:view.get_creator(brain)"
+                      tal:condition="creator">
+              <span class="documentAuthor" i18n:translate="label_by_author">
+                by
+              <a href="#"
+                 tal:attributes="href creator"
+                 tal:content="python:creator.getProperty('fullname', '') or creator.id"
+                 i18n:name="author">
+                Bob Dobalina
+              </a>
+              </span>
+            </tal:name>
+        </div>
+        <p class="tileBody">
+            <span class="description"
+                  tal:content="brain/Description">
+            </span>
+        </p>
+        <p class="tileFooter">
+            <a tal:attributes="href brain/getURL"
+               i18n:translate="read_more">Read More&hellip;</a>
+        </p>
+        <div class="visualClear"><!-- --></div>
+    </div>
+
+    <p tal:condition="not:news" i18n:translate="text_not_content">Text</p>
+</div>

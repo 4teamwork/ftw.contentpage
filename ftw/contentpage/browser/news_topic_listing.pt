@@ -1,0 +1,129 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ftw.contentpage">
+
+<body>
+
+<div metal:fill-slot="main" class="SimplelayoutNewsListing">
+<metal:main_macro define-macro="main">
+    <metal:body define-macro="body_macro"
+                tal:define="kssClassesView context/@@kss_field_decorator_view;
+                            getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                            templateId template/getId">
+
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <metal:listingmacro define-macro="listing">
+        <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+                                   batch topicContents;">
+
+            <tal:default condition="topicContents" 
+                         define="folderContents topicContents">
+               <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
+                                    limit_display limit_display|request/limit_display|nothing;
+                                    more_url more_url|request/more_url|string:folder_contents;
+                                    is_a_topic python:here.portal_type=='Topic';
+                                    folderContents folderContents|nothing; folderContents python:folderContents or is_a_topic and here.queryCatalog(contentFilter, batch=True) or here.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+                                    use_view_action site_properties/typesUseViewActionInListings|python:();
+                                    over_limit python: limit_display and len(folderContents) > limit_display;
+                                    folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
+                                    batch folderContents;
+                                    show_about python:not isAnon or site_properties.allowAnonymousViewAbout;">
+
+                <tal:listing condition="folderContents">
+
+                    <div>
+                        <tal:entry tal:repeat="item folderContents">
+                        <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                                               item_id item/getId|item/id;
+                                               item_title_or_id item/pretty_title_or_id;
+                                               item_description item/Description;                                               
+                                               item_effective item/EffectiveDate;
+                                               item_effective python: item_effective or item.ModifiedDate();
+                                               item_wf_state item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
+                                               item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+                                               item_start item/start/ISO|item/StartDate|nothing;
+                                               item_end item/end/ISO|item/EndDate|nothing;">
+
+
+                                <h2>
+                                    <a href="#"
+                                       tal:attributes="href item_url;
+                                                       class string:${item_wf_state_class} url"
+                                       tal:content="item_title_or_id">
+                                        Item Title
+                                    </a>
+                                    <span class="discreet" tal:content="python:toLocalizedTime(item_effective,long_format=0)">
+                                      August 16, 2001 at 23:35:59
+                                    </span>
+                                </h2>
+
+                            <div class="SimplelayoutNewsDescription">
+                                <span tal:omit-tag="" tal:condition="not:item_description"> 
+                                    &nbsp; 
+                                </span> 
+                                <span class="description" tal:content="item_description">
+                                    description 
+                                </span> 
+                            </div>
+                        </tal:block>
+                        </tal:entry>
+                    </div>
+                
+                    
+                </tal:listing>
+
+                </tal:foldercontents>
+
+            </tal:default>
+
+
+
+            <p class="discreet"
+               tal:condition="python: not topicContents and here.listCriteria()"
+               i18n:domain="atcontenttypes"
+               i18n:translate="description_no_items_in_topic">
+                There are currently no results for this search.
+            </p>
+
+            <p class="discreet"
+               tal:condition="not: here/listCriteria"
+               i18n:domain="atcontenttypes"
+               i18n:translate="description_no_criteria_in_topic">
+                There are currently no criteria on which to search.
+                Please add them using the 'criteria' tab.
+            </p>
+
+            <!-- Navigation -->
+            <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+        </tal:topiccontents>
+        </metal:listingmacro>
+    </metal:body>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+</metal:main_macro>
+
+</div>
+
+</body>
+</html>

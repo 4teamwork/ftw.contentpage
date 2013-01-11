@@ -31,4 +31,18 @@
         />
   </class>
 
+  <class class=".news.News">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.INews"
+        />
+  </class>
+
+  <class class=".newsfolder.NewsFolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.INewsFolder"
+        />
+  </class>
+
 </configure>

@@ -6,6 +6,8 @@ ADD_PERMISSIONS = {
     'AddressBlock': 'ftw.contentpage: Add AddressBlock',
     'ListingBlock': 'ftw.contentpage: Add ListingBlock',
     'TextBlock': 'ftw.contentpage: Add TextBlock',
+    'News': 'ftw.contentpage: Add News',
+    'NewsFolder': 'ftw.contentpage: Add NewsFolder',
 }
 
 INDEXES = (('getContentCategories', 'KeywordIndex'),

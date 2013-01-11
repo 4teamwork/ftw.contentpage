@@ -27,3 +27,9 @@ class IOrgUnitMarker(Interface):
 
 class ICategorizable(Interface):
     """Marker interface for categorizable content"""
+
+class INews(Interface):
+    """"""
+
+class INewsFolder(Interface):
+    """"""
