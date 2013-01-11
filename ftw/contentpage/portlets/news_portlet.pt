@@ -1,0 +1,43 @@
+<dl class="portlet portletCollection newsTemplate"
+    i18n:domain="simplelayout"
+    tal:define="plone_view context/@@plone;
+                toLocalizedTime nocall:plone_view/toLocalizedTime;">
+
+    <dt class="portletHeader" tal:content="view/data/portlet_title">
+    </dt>
+    <tal:loop tal:repeat="brain view/get_news">
+        <dd class="portletItem"
+            tal:define="oddrow repeat/brain/odd"
+            tal:attributes="class python:'%s' %
+                                oddrow and 'portletItem even' or 'portletItem odd'">
+
+            <div class="newsImage"
+                tal:define="img python: view.tag_image(brain)" tal:condition="img" tal:content="structure img">
+            </div>
+            <div class="newsText">
+                    <div class="portletItemDate"
+                          tal:content="python:toLocalizedTime(brain.effective)">
+                        Date
+                    </div>
+
+                <span class="portletItemTitle" tal:content="brain/Title">
+                     Title
+                </span>
+                <div class="portletItemDescription"
+                     tal:content="brain/description">
+                    Description
+                </div>
+                <a class="portletItemMore"
+                   tal:attributes="href brain/getURL;"
+                   i18n:translate="label_readmore">
+                    Read more
+                </a>
+            </div>
+            <div class="visualClear"><!-- --></div>
+        </dd>
+    </tal:loop>
+
+    <dd class="portletFooter"><!-- -->
+    </dd>
+
+</dl>

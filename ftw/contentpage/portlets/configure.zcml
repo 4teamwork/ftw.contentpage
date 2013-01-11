@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ftw.contentpage">
+
+    <include package="plone.app.portlets" />
+
+     <plone:portlet
+         name="newsportlet"
+         interface=".news_portlet.INewsPortlet"
+         assignment=".news_portlet.Assignment"
+         view_permission="zope2.View"
+         renderer=".news_portlet.Renderer"
+         addview=".news_portlet.AddForm"
+         editview=".news_portlet.EditForm"
+         />
+
+</configure>
