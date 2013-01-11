@@ -14,7 +14,8 @@
     </thead>
     <tbody>
         <tr tal:repeat="content view/contents">
-            <td tal:repeat="col view/columns">
+            <td tal:repeat="col view/columns"
+                tal:attributes="class string:column-${col/sort_index}">
                 <tal:td replace="structure python: view.get_value(content, col)" />
             </td>
         </tr>
