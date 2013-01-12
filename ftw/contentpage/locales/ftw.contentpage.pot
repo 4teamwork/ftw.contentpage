@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-12-05 10:46+0000\n"
+"POT-Creation-Date: 2013-01-12 15:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,16 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.contentpage\n"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:82
+msgid "Add News Portlet"
+msgstr ""
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:49
+msgid "Classification Items"
 msgstr ""
 
 #. Default: "Columns"
@@ -46,6 +54,14 @@ msgstr ""
 msgid "ListingBlock"
 msgstr ""
 
+#: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
+msgid "NewsFolder"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:31
+msgid "Path"
+msgstr ""
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
@@ -63,6 +79,14 @@ msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:83
+msgid "This Portlet displays News"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:21
+msgid "Title"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
@@ -139,6 +163,10 @@ msgstr ""
 msgid "help_fax"
 msgstr ""
 
+#: ./ftw/contentpage/portlets/news_portlet.py:44
+msgid "help_only_context"
+msgstr ""
+
 #: ./ftw/contentpage/content/addressblock.py:126
 msgid "help_openingHours"
 msgstr ""
@@ -171,6 +199,11 @@ msgstr ""
 msgid "label_addressTitle"
 msgstr ""
 
+#. Default: "Cancel"
+#: ./ftw/contentpage/portlets/news_portlet.py:109
+msgid "label_cancel"
+msgstr ""
+
 #. Default: "Categories"
 #: ./ftw/contentpage/extender.py:26
 msgid "label_categories"
@@ -194,6 +227,10 @@ msgstr ""
 #. Default: "Downloads"
 #: ./ftw/contentpage/content/listingblock.py:69
 msgid "label_default_downloads"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:77
+msgid "label_desc_length"
 msgstr ""
 
 #. Default: "Directions"
@@ -242,6 +279,10 @@ msgstr ""
 msgid "label_message"
 msgstr ""
 
+#: ./ftw/contentpage/portlets/news_portlet.py:43
+msgid "label_only_context"
+msgstr ""
+
 #. Default: "Opening Hours"
 #: ./ftw/contentpage/browser/address.pt:33
 #: ./ftw/contentpage/content/addressblock.py:124
@@ -251,6 +292,20 @@ msgstr ""
 #. Default: "Phone"
 #: ./ftw/contentpage/content/addressblock.py:78
 msgid "label_phone"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:61
+msgid "label_quantity"
+msgstr ""
+
+#. Default: "Read more"
+#: ./ftw/contentpage/portlets/news_portlet.pt:30
+msgid "label_readmore"
+msgstr ""
+
+#. Default: "Save"
+#: ./ftw/contentpage/portlets/news_portlet.py:98
+msgid "label_save"
 msgstr ""
 
 #. Default: "Send Feedback"
@@ -263,6 +318,15 @@ msgstr ""
 msgid "label_showOpeningHours"
 msgstr ""
 
+#. Default: "Show Description"
+#: ./ftw/contentpage/portlets/news_portlet.py:73
+msgid "label_show_desc"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:26
+msgid "label_show_image"
+msgstr ""
+
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
 #: ./ftw/contentpage/content/listingblock.py:25
@@ -273,6 +337,10 @@ msgstr ""
 #. Default: "Subject"
 #: ./ftw/contentpage/browser/feedback.py:30
 msgid "label_subject"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:65
+msgid "label_subjects"
 msgstr ""
 
 #. Default: "Team"
@@ -308,5 +376,9 @@ msgstr ""
 #. Default: "Tel. ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:34
+msgid "xx"
 msgstr ""
 
