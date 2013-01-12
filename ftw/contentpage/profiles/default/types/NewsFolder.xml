@@ -5,7 +5,7 @@
    i18n:domain="ftw.contentpage">
  <property name="title" i18n:translate="">NewsFolder</property>
  <property name="description" i18n:translate=""></property>
- <property name="icon_expr">object/@@egov_icon/Folder</property>
+ <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">NewsFolder</property>
  <property name="product">ftw.contentpage</property>
  <property name="factory">addNewsFolder</property>
