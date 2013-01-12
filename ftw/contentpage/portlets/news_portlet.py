@@ -63,7 +63,6 @@ class INewsPortlet(IPortletDataProvider):
 
     subjects = schema.List(
         title=_(u'label_subjects'),
-        description=_(u'help_subjects'),
             value_type=schema.Choice(
                 title=_("xx"),
                 vocabulary='ftw.contentpage.subjects',
@@ -71,6 +70,12 @@ class INewsPortlet(IPortletDataProvider):
             )
        )
 
+    show_desc = schema.Bool(title=_(u'label_show_desc', 
+                                    default=u"Show Description"),
+        default=True)
+
+    desc_length = schema.Int(title=_(u'label_desc_length'),
+        default=50)
 
 class AddForm(form.AddForm):
     implements(IPortletAddForm)
@@ -131,6 +136,8 @@ class AddForm(form.AddForm):
             classification_items=data.get('classification_items', []),
             path=data.get('path', []),
             subjects=data.get('subjects', []),
+            show_desc=data.get('show_desc', False),
+            desc_length=data.get('desc_length', 50)
             )
 
 
@@ -139,7 +146,7 @@ class Assignment(base.Assignment):
 
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=[],
-                 path=[], subjects=[]):
+                 path=[], subjects=[], show_desc=False, desc_length=50):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -147,6 +154,8 @@ class Assignment(base.Assignment):
         self.classification_items = classification_items
         self.path = path
         self.subjects = subjects
+        self.show_desc = show_desc
+        self.desc_length = desc_length
 
     @property
     def title(self):
@@ -200,6 +209,9 @@ class Renderer(base.Renderer):
         results = catalog.searchResults(query)
         return results[0:self.data.quantity - 1]
 
+    def crop_desc(self, description):
+        ploneview = self.context.restrictedTraverse('@@plone')
+        return ploneview.cropText(description, self.data.desc_length)
 
 class EditForm(form.EditForm):
     implements(IPortletEditForm)

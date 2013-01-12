@@ -1,5 +1,5 @@
 <dl class="portlet portletCollection newsTemplate"
-    i18n:domain="simplelayout"
+    i18n:domain="ftw.contentpage"
     tal:define="plone_view context/@@plone;
                 toLocalizedTime nocall:plone_view/toLocalizedTime;">
 
@@ -20,12 +20,12 @@
                         Date
                     </div>
 
-                <span class="portletItemTitle" tal:content="brain/Title">
+                <div class="portletItemTitle" tal:content="brain/Title">
                      Title
-                </span>
+                </div>
                 <div class="portletItemDescription"
-                     tal:content="brain/description">
-                    Description
+                     tal:condition="python: brain.Description and view.data.show_desc">
+                    <div tal:content="python: view.crop_desc(brain.Description)" />                        
                 </div>
                 <a class="portletItemMore"
                    tal:attributes="href brain/getURL;"
