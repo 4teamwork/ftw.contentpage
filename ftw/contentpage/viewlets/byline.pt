@@ -1,7 +1,11 @@
-<div i18n:domain="plone"
-     class="simplelayoutNewsByLine documentByLine"
+<span i18n:domain="plone"
+     class="documentByLine"
+     id="plone-document-byline"
      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime"
      tal:condition="view/show">
+  <span class="documentState">
+    <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="view/getWorkflowState" i18n:translate=""/>
+  </span>
     <span class="documentAuthor">
         <tal:i18n i18n:translate="label_by_author">
             by <tal:creator content="view/creator" i18n:name="author" />
@@ -12,4 +16,4 @@
         <span i18n:translate="box_last_modified">last modified</span>
         <tal:modified tal:content="python:toLocalizedTime(context.modified(), long_format=1)" />
     </span>
-</div>
+</span>

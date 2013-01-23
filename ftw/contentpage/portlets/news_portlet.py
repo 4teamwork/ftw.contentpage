@@ -67,10 +67,11 @@ class INewsPortlet(IPortletDataProvider):
                 title=_("xx"),
                 vocabulary='ftw.contentpage.subjects',
 
-            )
+            ),
+        required = False
        )
 
-    show_desc = schema.Bool(title=_(u'label_show_desc', 
+    show_desc = schema.Bool(title=_(u'label_show_desc',
                                     default=u"Show Description"),
         default=True)
 
