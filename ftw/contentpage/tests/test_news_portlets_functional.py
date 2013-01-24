@@ -172,7 +172,6 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.getLink("News Portlet").click()
         self.browser.getControl(name="form.widgets.portlet_title").value = u""
         self.browser.getControl(name="form.buttons.apply").click()
-        self.browser.getLink("News Portlet").click()
         self.assertIn('<div class="error">Required input is missing.</div>', self.browser.contents)
 
     def test_image_viewlet(self):

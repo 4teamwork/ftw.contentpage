@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-12 15:26+0000\n"
+"POT-Creation-Date: 2013-01-24 14:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.contentpage\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:82
+#: ./ftw/contentpage/portlets/news_portlet.py:83
 msgid "Add News Portlet"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:83
+#: ./ftw/contentpage/portlets/news_portlet.py:84
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgid "label_addressTitle"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:109
+#: ./ftw/contentpage/portlets/news_portlet.py:110
 msgid "label_cancel"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "label_default_downloads"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:77
+#: ./ftw/contentpage/portlets/news_portlet.py:78
 msgid "label_desc_length"
 msgstr ""
 
@@ -299,12 +299,12 @@ msgid "label_quantity"
 msgstr ""
 
 #. Default: "Read more"
-#: ./ftw/contentpage/portlets/news_portlet.pt:30
+#: ./ftw/contentpage/portlets/news_portlet.pt:31
 msgid "label_readmore"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:98
+#: ./ftw/contentpage/portlets/news_portlet.py:99
 msgid "label_save"
 msgstr ""
 
@@ -319,7 +319,7 @@ msgid "label_showOpeningHours"
 msgstr ""
 
 #. Default: "Show Description"
-#: ./ftw/contentpage/portlets/news_portlet.py:73
+#: ./ftw/contentpage/portlets/news_portlet.py:74
 msgid "label_show_desc"
 msgstr ""
 

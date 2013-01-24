@@ -179,6 +179,11 @@ class Renderer(base.Renderer):
             return scaled_img.tag()
         return ''
 
+    @property
+    def available(self):
+        is_news = self.context.portal_type in ['News', 'NewsFolder']
+        return bool(self.get_news() and not is_news)
+
     def get_news(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         url_tool = getToolByName(self.context, 'portal_url')
