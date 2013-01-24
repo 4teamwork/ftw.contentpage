@@ -126,6 +126,8 @@ class AddForm(form.AddForm):
         self.fields['path'].widgetFactory = MultiContentTreeFieldWidget
         if not self.context.portal_types.get('ClassificationItem', None):
             self.fields['classification_items'].mode = interfaces.HIDDEN_MODE
+        else:
+            self.fields['classification_items'].mode = interfaces.INPUT_MODE
         super(AddForm, self).updateWidgets()
 
     def create(self, data):
