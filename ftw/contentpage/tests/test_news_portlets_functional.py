@@ -172,7 +172,6 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.getLink("News Portlet").click()
         self.browser.getControl(name="form.widgets.portlet_title").value = u""
         self.browser.getControl(name="form.buttons.apply").click()
-        self.assertEqual(self.portal.absolute_url()+'/@@manage-portlets', self.browser.url)
         self.browser.getLink("News Portlet").click()
         self.assertIn('<div class="error">Required input is missing.</div>', self.browser.contents)
 
@@ -211,4 +210,4 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.browser.getControl("label_only_context").selected = False
         self.browser.getControl(name="form.buttons.add").click()
-        self.assertIn('<div class="error">Required input is missing.</div>' in self.browser.contents)
+        self.assertIn('<div class="error">Required input is missing.</div>', self.browser.contents)
