@@ -40,6 +40,7 @@ class FtwContentPageLayer(PloneSandboxLayer):
         import collective.geo.geographer
         import collective.geo.contentlocations
         import collective.geo.kml
+        import plone.formwidget.contenttree
 
         xmlconfig.file('configure.zcml', ftw.contentpage,
                        context=configurationContext)
@@ -60,6 +61,9 @@ class FtwContentPageLayer(PloneSandboxLayer):
         xmlconfig.file('configure.zcml', collective.geo.kml,
                        context=configurationContext)
 
+        xmlconfig.file('configure.zcml', plone.formwidget.contenttree,
+                       context=configurationContext)
+
         # installProduct() is *only* necessary for packages outside
         # the Products.* namespace which are also declared as Zope 2
         # products, using <five:registerPackage /> in ZCML.
@@ -72,7 +76,6 @@ class FtwContentPageLayer(PloneSandboxLayer):
         applyProfile(portal, 'ftw.contentpage:default')
         applyProfile(portal, 'simplelayout.base:default')
         applyProfile(portal, 'simplelayout.types.common:default')
-
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
 
