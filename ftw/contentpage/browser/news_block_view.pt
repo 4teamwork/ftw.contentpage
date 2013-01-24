@@ -1,12 +1,10 @@
 <div class="#" id="#" i18n:domain="simplelayout"
                 tal:define="slclass view/get_css_klass;
                 text here/Description|nothing;
-                title here/Title | here/pretty_title_or_id;
                 fullblock python: text and ' sl-fullblock' or ''"
                 tal:attributes="id here/id;
                                 class string:simplelayout-block-wrapper ${slclass}${fullblock};
                                 style string:height:${view/get_block_height}">
-    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
     <a tal:attributes="name here/id" ></a>
         <div class="sl-img-wrapper" tal:condition="view/has_image"
              tal:attributes="style view/image_wrapper_style"
