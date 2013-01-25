@@ -1,4 +1,4 @@
-<div i18n:domain="plone"
+<div i18n:domain="ftw.contentpage"
      class="newsListing"
      tal:define="news view/get_news;
                  toLocalizedTime nocall:context/@@plone/toLocalizedTime">

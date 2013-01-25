@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-24 14:45+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2013-01-25 11:04+0000\n"
+"PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,6 +194,11 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
+#. Default: "by ${author}"
+#: ./ftw/contentpage/browser/news_result.pt:23
+msgid "label_by_author"
+msgstr ""
+
 #. Default: "Cancel"
 #: ./ftw/contentpage/portlets/news_portlet.py:110
 msgid "label_cancel"
@@ -363,10 +368,20 @@ msgstr "PLZ"
 msgid "mail_address"
 msgstr "E-Mail"
 
+#. Default: "Read More…"
+#: ./ftw/contentpage/browser/news_result.pt:38
+msgid "read_more"
+msgstr "Weiterlesen..."
+
 #. Default: "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:16
 msgid "text_fax"
 msgstr "Fax ${num}"
+
+#. Default: "Text"
+#: ./ftw/contentpage/browser/news_result.pt:44
+msgid "text_not_content"
+msgstr "Keine Inhalte"
 
 #. Default: "Tel. ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
@@ -376,5 +391,3 @@ msgstr "Tel. ${num}"
 #: ./ftw/contentpage/portlets/news_portlet.py:34
 msgid "xx"
 msgstr ""
-
-
