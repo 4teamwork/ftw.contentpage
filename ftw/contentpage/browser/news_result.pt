@@ -11,7 +11,7 @@
             <a class="summary url" tal:attributes="href brain/getURL"
                tal:content="brain/Title"></a>
         </h2>
-        <div class="byline">
+        <div class="documentByLine">
             <span class="dtstart"
                   tal:content="python:toLocalizedTime(brain.effective)">
                 21.12.2012
