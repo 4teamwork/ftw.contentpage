@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-25 11:04+0000\n"
+"POT-Creation-Date: 2013-01-29 06:55+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr "News Portlet Hinzufügen"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
-msgstr "AdressenBlock"
+msgstr "Adressenblock"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:49
 msgid "Classification Items"
@@ -51,7 +51,7 @@ msgstr "Auflistungsblock"
 
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
 msgid "NewsFolder"
-msgstr "News-Ordner"
+msgstr "Newsordner"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:31
 msgid "Path"
@@ -74,7 +74,7 @@ msgstr "Name"
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
-msgstr "TextBlock"
+msgstr "Textblock"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:84
 msgid "This Portlet displays News"
@@ -325,7 +325,7 @@ msgstr "Beschreibung anzeigen"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:26
 msgid "label_show_image"
-msgstr "Bild Anzeigen"
+msgstr "Bild anzeigen"
 
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
@@ -391,3 +391,5 @@ msgstr "Tel. ${num}"
 #: ./ftw/contentpage/portlets/news_portlet.py:34
 msgid "xx"
 msgstr ""
+
+
