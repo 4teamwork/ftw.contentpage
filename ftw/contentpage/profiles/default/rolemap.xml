@@ -13,6 +13,10 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
+    <permission name="ftw.contentpage: Add TextBlock" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="ftw.contentpage: Add News"
                 acquire="True">
       <role name="Contributor"/>
