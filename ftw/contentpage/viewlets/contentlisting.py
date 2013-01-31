@@ -12,7 +12,8 @@ class ContentListingViewlet(ViewletBase):
 
     @instance.memoize
     def get_content(self):
-        query = {'portal_type': 'ContentPage'}
+        query = {
+            'object_provides': 'ftw.contentpage.interfaces.ICategorizable'}
         contents = self.context.getFolderContents(contentFilter=query,
                                                   full_objects=True)
         return self._create_resultmap(contents)
