@@ -1,10 +1,10 @@
 Introduction
 ============
 
-``ftw.contentpage`` proviedes some content types optimized for organisations, 
-communities, associations, and more. 
+``ftw.contentpage`` proviedes some content types optimized for organisations,
+communities, associations, and more.
 
-It uses simplelayout to manage and display the content. 
+It uses simplelayout to manage and display the content.
 
 Installing
 ==========
@@ -27,22 +27,22 @@ Usage
 
 - ContentPage: Folderish type for the site structure. Contains the blocks
 - AddressBlock: AddressBlock contains address informations and it ``uses ftw.geo`` to render a map
-- ListingBlock: A folderish block, which lists files and images by default. Two block views are provided: Tabular listing and a gallery view.  
+- ListingBlock: A folderish block, which lists files and images by default. Two block views are provided: Tabular listing and a gallery view.
 
 **Special views:**
 
-There's a two-column and two-level overview called authorities_view, which displays a list of ContentPages with an AddressBlock. 
-If an AddressBlock is added to a ContentPage, it adds a marker interface on the ContentPage, so it's easy to recognize ContentPage's containing an AddressBlock. 
+There's a two-column and two-level overview called authorities_view, which displays a list of ContentPages with an AddressBlock.
+If an AddressBlock is added to a ContentPage, it adds a marker interface on the ContentPage, so it's easy to recognize ContentPage's containing an AddressBlock.
 
 **ContentListing viewlet:**
 
-The content listing viewlet is registered for all ContentPages. 
+The content listing viewlet is registered for all ContentPages.
 It shows categorized subcontent, within the ContentPage
-The categorization is done by a schemaextended field, so it's also possible to categorize your own or any other content. 
+The categorization is done by a schemaextended field, so it's also possible to categorize your own or any other content.
 
 Code example:
 
-:: 
+::
 
   <class class="dotted.name.to.my.class">
     <implements interface="ftw.contentpage.interfaces.ICategorizable" />
