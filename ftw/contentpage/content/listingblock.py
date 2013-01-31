@@ -1,12 +1,13 @@
 from AccessControl import ClassSecurityInfo
 from ftw.contentpage import _
 from ftw.contentpage.config import PROJECTNAME
-from ftw.contentpage.interfaces import IListingBlock
 from ftw.contentpage.content.schema import finalize
-from simplelayout.base.interfaces import ISimpleLayoutBlock
+from ftw.contentpage.interfaces import IListingBlock
+from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
-from zope.i18n import translate
+from simplelayout.base.interfaces import ISimpleLayoutBlock
+from zope.component import getUtility
 from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
@@ -60,14 +61,18 @@ class ListingBlock(folder.ATFolder):
     schema = listing_block_schema
     security = ClassSecurityInfo()
 
+    security.declarePublic('showAddMenu')
+    def showAddMenu(self):
+        return False
+
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
         return False
 
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):
-        return translate(_(u'label_default_downloads',
-                 default=u'Downloads'))
+        registry = getUtility(IRegistry)
+        return registry.get('ftw.contentpage.listingblock.defaulttitle', '')
 
     security.declarePrivate('getColumns')
     def getColumns(self):

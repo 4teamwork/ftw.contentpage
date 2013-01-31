@@ -19,8 +19,11 @@ setup(name='ftw.contentpage',
       # Get more strings from
       # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+        'Framework :: Plone',
+        'Framework :: Plone :: 4.1',
+        'Framework :: Plone :: 4.2',
+        'Programming Language :: Python',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         ],
 
       keywords='ftw contentpage',

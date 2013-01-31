@@ -1,14 +1,14 @@
-from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-from unittest2 import TestCase
+from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
+from plone.registry.interfaces import IRegistry
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from plone.testing.z2 import Browser
-from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
-import transaction
+from unittest2 import TestCase
+from zope.component import getUtility
+from plone.registry import Record, field
 
 
 class TestListingBlockCreation(TestCase):
 
-    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+    layer = FTW_CONTENTPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         super(TestListingBlockCreation, self).setUp()
@@ -19,22 +19,13 @@ class TestListingBlockCreation(TestCase):
             self.portal.invokeFactory('ContentPage', 'contentpage'))
         # Fire all necessary events
         self.contentpage.processForm()
-        transaction.commit()
-
-        # Browser setup
-        self.browser = Browser(self.layer['app'])
-        self.browser.handleErrors = False
-
-    def _auth(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-            TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
     def _create_listingblock(self):
         listingblock = self.contentpage.get(
             self.contentpage.invokeFactory('ListingBlock', 'listingblock'))
         # Fire all necessary events
         listingblock.processForm()
-        transaction.commit()
+
         return listingblock
 
     def test_fti(self):
@@ -47,14 +38,6 @@ class TestListingBlockCreation(TestCase):
     def test_simplelayout_integration(self):
         listingblock = self._create_listingblock()
         ISimpleLayoutBlock.providedBy(listingblock)
-
-    def test_addressblock_default_title(self):
-        listingblock = self._create_listingblock()
-        self.assertEquals('Downloads', listingblock.Title())
-
-        self._auth()
-        self.browser.open(self.contentpage.absolute_url())
-        self.assertIn('<h2>Downloads', self.browser.contents)
 
     def test_exclude_from_nav(self):
         listingblock = self._create_listingblock()
@@ -69,9 +52,21 @@ class TestListingBlockCreation(TestCase):
                           ['column_type', 'column_title', 'column_modified',
                            'column_creater', 'column_size'])
 
+    def test_default_title(self):
+        listingblock = self._create_listingblock()
+        # Default is empty
+        self.assertEquals(None, listingblock.Title())
+
+    def test_change_default_title(self):
+        registry = getUtility(IRegistry)
+        registry.records['ftw.contentpage.listingblock.defaulttitle'] = \
+            Record(field.TextLine(title=u"dummy", default=u"N/A"),
+                   value=u'Downloads')
+
+        listingblock = self._create_listingblock()
+        self.assertEquals('Downloads', listingblock.Title())
+
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()
         portal = self.layer['portal']
         portal.manage_delObjects(['contentpage'])
-
-        transaction.commit()

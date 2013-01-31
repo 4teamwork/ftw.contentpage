@@ -1,9 +1,21 @@
 from ftw.contentpage import _
 from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
-from Products.Five.browser import BrowserView
-from zope.component import queryUtility
 from Products.CMFPlone.utils import getToolByName
+from Products.Five.browser import BrowserView
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.component import queryUtility
+
+
+def download_link(icon=True, classes=None, attrs=None, icon_only=False):
+
+    def _helper(item, value):
+        url = '%s/download' % item.getURL()
+        attrs = {}
+        attrs['href'] = url
+        return helper.linked(item, value, show_icon=icon,
+                           attrs=attrs, icon_only=icon_only)
+    return _helper
 
 
 class ListingBlockView(BrowserView):
@@ -19,13 +31,12 @@ class ListingBlockView(BrowserView):
             {'column': 'getContentType',
              'column_title': _(u'column_type', default=u'Type'),
              'sort_index': 'getContentType',
-             'transform': helper.link(icon=True, tooltip=True,
-                                      icon_only=True)},
+             'transform': download_link(icon=True, icon_only=True)},
 
             {'column': 'Title',
              'column_title': _(u'column_title', default=u'Title'),
              'sort_index': 'sortable_title',
-             'transform': helper.link(icon=False, tooltip=True)},
+             'transform': download_link(icon=False)},
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
@@ -39,7 +50,6 @@ class ListingBlockView(BrowserView):
 
             {'column': 'getObjSize',
              'column_title': _(u'column_size', default=u'size'),
-             #'transform': helper.readable_size,
              })
         return columns
 
@@ -73,6 +83,11 @@ class ListingBlockView(BrowserView):
         return filtered
 
     def render_table(self):
+        # Use a custom table template, because we don't want a table header id.
+        # The id value is moved to a css klass.
+        # Reason: It's no allowed to have an id more than once (In case we
+        # have more than one Listingblock on one contentpage)
+        template = ViewPageTemplateFile('table-custom-template.pt')
 
         catalog = getToolByName(self.context, 'portal_catalog')
         generator = queryUtility(ITableGenerator, 'ftw.tablegenerator')
@@ -80,5 +95,6 @@ class ListingBlockView(BrowserView):
         return generator.generate(result,
                                   self._filtered_columns(),
                                   sortable=True,
+                                  template=template,
                                   selected=(self._build_query['sort_on'],
                                             self._build_query['sort_order']))

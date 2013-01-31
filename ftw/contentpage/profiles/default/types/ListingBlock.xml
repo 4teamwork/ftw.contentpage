@@ -22,7 +22,7 @@
   <element value="paragraph_view"/>
  </property>
  <property name="default_view_fallback">False</property>
- <alias from="(Default)" to="index_html"/>
+ <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
  <alias from="sharing" to="@@sharing"/>
  <alias from="view" to="(selected layout)"/>
@@ -47,6 +47,11 @@
     condition_expr="object/externalEditorEnabled"
     url_expr="string:${object_url}/external_edit" visible="False"
     i18n:attributes="title">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="MultiUpload" action_id="sl-multiupload" category="sl-actions"
+    icon_expr="string:${here/portal_url}/++resource++sl/icons//multiupload.png"
+    condition_expr="" url_expr="string:${object_url}/flashupload" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr="string:edit.gif"
