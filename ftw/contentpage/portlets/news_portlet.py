@@ -83,6 +83,11 @@ class AddForm(form.AddForm):
 
     fields = field.Fields(INewsPortlet)
 
+    def __init__(self, context, request):
+        super(AddForm, self).__init__(context, request)
+        self.status = None
+        self._finishedAdd = None
+
     def __call__(self):
         IPortletPermissionChecker(aq_parent(aq_inner(self.context)))()
         return super(AddForm, self).__call__()
@@ -146,15 +151,15 @@ class Assignment(base.Assignment):
     implements(INewsPortlet)
 
     def __init__(self, portlet_title="News", show_image=True,
-                 only_context=True, quantity=5, classification_items=[],
-                 path=[], subjects=[], show_desc=False, desc_length=50):
+                 only_context=True, quantity=5, classification_items=None,
+                 path=None, subjects=None, show_desc=False, desc_length=50):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
         self.quantity = quantity
-        self.classification_items = classification_items
-        self.path = path
-        self.subjects = subjects
+        self.classification_items = classification_items or []
+        self.path = path or []
+        self.subjects = subjects or []
         self.show_desc = show_desc
         self.desc_length = desc_length
 
@@ -195,7 +200,7 @@ class Renderer(base.Renderer):
         else:
             if self.data.path:
                 cat_path = []
-                for index, item in enumerate(self.data.path):
+                for item in self.data.path:
                     cat_path.append('/'.join([portal_path, item]))
                 query['path'] = {'query': cat_path}
 
@@ -226,6 +231,11 @@ class EditForm(form.EditForm):
     description = _(u'This Portlet displays News')
 
     fields = field.Fields(INewsPortlet)
+
+    def __init__(self, context, request):
+        super(EditForm, self).__init__(context, request)
+        self.status = None
+        self._finishedAdd = None
 
     def __call__(self):
         IPortletPermissionChecker(aq_parent(aq_inner(self.context)))()

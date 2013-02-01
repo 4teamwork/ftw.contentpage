@@ -36,7 +36,6 @@ class NewsListing(BrowserView):
         query['sort_on'] = 'effective'
         query['sort_order'] = 'reverse'
 
-
         end = self.request.form.get('end', '')
         if end:
             end = DateTime.DateTime(end).Date()
@@ -64,7 +63,7 @@ class NewsListing(BrowserView):
         """ Checks if the news have an image. If view is news_archive_listing
         return False, there we dont want to display images.
         """
-        if self.__name__=='news_archive_listing':
+        if self.__name__ == 'news_archive_listing':
             return False
         return bool(news.getObject().getImage())
 

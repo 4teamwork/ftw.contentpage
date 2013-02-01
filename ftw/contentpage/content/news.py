@@ -20,6 +20,7 @@ news_schema['effectiveDate'].default_method = 'getDefaultEffectiveDate'
 news_schema.changeSchemataForField('effectiveDate', 'default')
 news_schema.changeSchemataForField('expirationDate', 'default')
 
+
 class News(folder.ATFolder):
 
     implements(INews, ISimpleLayoutCapable)

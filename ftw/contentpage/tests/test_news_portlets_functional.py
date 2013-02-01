@@ -34,7 +34,7 @@ class TestNewsPortlets(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.browser = Browser(self.layer['portal'])
-        self.browser.handleErrors
+        self.browser.handleErrors = False
         self.newsfolder1 = self.portal.get(self.portal.invokeFactory(
                 'NewsFolder', 'newsfolder1', title="Newsfolder1"))
         self.newsfolder2 = self.portal.get(self.portal.invokeFactory(

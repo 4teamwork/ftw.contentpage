@@ -9,4 +9,3 @@ class SimpleLayoutNewsListingViewlet(SimpleLayoutListingViewlet):
     def getSimpleLayoutContents(self,):
         # Return just himself
         return [self.context, ]
-

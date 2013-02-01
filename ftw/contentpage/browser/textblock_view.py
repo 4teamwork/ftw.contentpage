@@ -63,4 +63,4 @@ class TextBlockView(BrowserView):
 
     def get_block_height(self):
         height = self.blockconf.block_height
-        return  height and '%spx' % height or ''
+        return height and '%spx' % height or ''

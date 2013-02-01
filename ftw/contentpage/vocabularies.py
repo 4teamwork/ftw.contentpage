@@ -4,6 +4,7 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.interface import directlyProvides
 from Products.CMFCore.utils import getToolByName
 
+
 def SubjectVocabulary(context):
     """Returns a vocabulary of the available suppliers
     """

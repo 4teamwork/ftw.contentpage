@@ -3,6 +3,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
 
+
 class NewsByline(content.DocumentBylineViewlet):
 
     template = ViewPageTemplateFile('byline.pt')
