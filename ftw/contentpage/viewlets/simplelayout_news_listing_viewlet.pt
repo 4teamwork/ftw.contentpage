@@ -4,9 +4,9 @@
             <div tal:define="wrapperCSS python:view.getWrapperCss(result)"
                  tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS;
                                  id string:uid_${result/UID}"
-                 class="" 
-                 tal:content="structure python:view.renderBlockProvider(result)">block</div>
+                 class=""
+                 tal:content="structure python:view.renderBlockProvider(result)" />
         </tal:repeat>
      </div>
-    <span class="visualClear">&nbsp;</span> 
+    <span class="visualClear">&nbsp;</span>
 </div>
