@@ -13,13 +13,10 @@
 
             <div class="newsText">
                     <div class="portletItemDate"
-                          tal:content="python:toLocalizedTime(brain.effective)">
-                        Date
-                    </div>
+                          tal:content="python:toLocalizedTime(brain.effective)" />
 
-                <div class="portletItemTitle" tal:content="brain/Title">
-                     Title
-                </div>
+                <div class="portletItemTitle" tal:content="brain/Title" />
+
                 <div class="portletItemDescription"
                      tal:condition="python: brain.Description and view.data.show_desc">
                     <div tal:content="python: view.crop_desc(brain.Description)" />

@@ -14,9 +14,9 @@
           here context;">
     <metal:block use-macro="context/rss_template/macros/master">
         <metal:block fill-slot="syndication">
-            <syn:updatePeriod>hourly</syn:updatePeriod>
+            <syn:updatePeriod tal:content="string:hourly" />
             <syn:updateFrequency>1</syn:updateFrequency>
-            <syn:updateBase tal:content="python:modules['DateTime'].DateTime().ISO()">2000-01-01T12:00+00:00</syn:updateBase>
+            <syn:updateBase tal:content="python:modules['DateTime'].DateTime().ISO()"><!--2000-01-01T12:00+00:00--></syn:updateBase>
         </metal:block>
     </metal:block>
 </tal:block>

@@ -31,7 +31,6 @@ class INewsPortlet(IPortletDataProvider):
         title=_(u"Path"),
         description=u"",
         value_type=schema.Choice(
-            title=_(u"xx"),
             source=PathSourceBinder(
                 navigation_tree_query={
                     'is_folderish': True},
@@ -49,7 +48,6 @@ class INewsPortlet(IPortletDataProvider):
         title=_(u"Classification Items"),
         description=u"",
         value_type=schema.Choice(
-            title=_(u"xx"),
             source=PathSourceBinder(
                 navigation_tree_query={
                     'portal_type': 'ClassificationItem'},
@@ -64,11 +62,10 @@ class INewsPortlet(IPortletDataProvider):
     subjects = schema.List(
         title=_(u'label_subjects'),
             value_type=schema.Choice(
-                title=_("xx"),
                 vocabulary='ftw.contentpage.subjects',
 
             ),
-        required = False
+        required=False
        )
 
     show_desc = schema.Bool(title=_(u'label_show_desc',
@@ -77,6 +74,7 @@ class INewsPortlet(IPortletDataProvider):
 
     desc_length = schema.Int(title=_(u'label_desc_length'),
         default=50)
+
 
 class AddForm(form.AddForm):
     implements(IPortletAddForm)
@@ -115,8 +113,8 @@ class AddForm(form.AddForm):
             self.request.response.redirect(nextURL)
         return ''
 
-    def add(self, object):
-        ob = self.context.add(object)
+    def add(self, object_):
+        ob = self.context.add(object_)
         self._finishedAdd = True
         return ob
 
@@ -220,6 +218,7 @@ class Renderer(base.Renderer):
     def crop_desc(self, description):
         ploneview = self.context.restrictedTraverse('@@plone')
         return ploneview.cropText(description, self.data.desc_length)
+
 
 class EditForm(form.EditForm):
     implements(IPortletEditForm)

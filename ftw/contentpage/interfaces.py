@@ -28,8 +28,10 @@ class IOrgUnitMarker(Interface):
 class ICategorizable(Interface):
     """Marker interface for categorizable content"""
 
+
 class INews(Interface):
-    """"""
+    """Marker interface for news type"""
+
 
 class INewsFolder(Interface):
-    """"""
+    """Marker interface for newsfolder type"""

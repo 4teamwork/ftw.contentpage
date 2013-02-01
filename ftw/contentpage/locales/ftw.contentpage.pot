@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-29 06:55+0000\n"
+"POT-Creation-Date: 2013-02-01 12:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.contentpage\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:83
+#: ./ftw/contentpage/portlets/news_portlet.py:80
 msgid "Add News Portlet"
 msgstr ""
 
@@ -25,12 +25,12 @@ msgstr ""
 msgid "AddressBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:49
+#: ./ftw/contentpage/portlets/news_portlet.py:48
 msgid "Classification Items"
 msgstr ""
 
 #. Default: "Columns"
-#: ./ftw/contentpage/content/listingblock.py:35
+#: ./ftw/contentpage/content/listingblock.py:36
 msgid "Columns"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:84
+#: ./ftw/contentpage/portlets/news_portlet.py:81
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -101,27 +101,27 @@ msgid "button_cancel"
 msgstr ""
 
 #. Default: "creater"
-#: ./ftw/contentpage/browser/listingblock_view.py:36
+#: ./ftw/contentpage/browser/listingblock_view.py:47
 msgid "column_creater"
 msgstr ""
 
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:31
+#: ./ftw/contentpage/browser/listingblock_view.py:42
 msgid "column_modified"
 msgstr ""
 
 #. Default: "size"
-#: ./ftw/contentpage/browser/listingblock_view.py:41
+#: ./ftw/contentpage/browser/listingblock_view.py:52
 msgid "column_size"
 msgstr ""
 
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:26
+#: ./ftw/contentpage/browser/listingblock_view.py:37
 msgid "column_title"
 msgstr ""
 
 #. Default: "Type"
-#: ./ftw/contentpage/browser/listingblock_view.py:20
+#: ./ftw/contentpage/browser/listingblock_view.py:32
 msgid "column_type"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "help_fax"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:44
+#: ./ftw/contentpage/portlets/news_portlet.py:43
 msgid "help_only_context"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:110
+#: ./ftw/contentpage/portlets/news_portlet.py:107
 msgid "label_cancel"
 msgstr ""
 
@@ -229,12 +229,7 @@ msgstr ""
 msgid "label_default_address"
 msgstr ""
 
-#. Default: "Downloads"
-#: ./ftw/contentpage/content/listingblock.py:69
-msgid "label_default_downloads"
-msgstr ""
-
-#: ./ftw/contentpage/portlets/news_portlet.py:78
+#: ./ftw/contentpage/portlets/news_portlet.py:75
 msgid "label_desc_length"
 msgstr ""
 
@@ -284,7 +279,7 @@ msgstr ""
 msgid "label_message"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:43
+#: ./ftw/contentpage/portlets/news_portlet.py:42
 msgid "label_only_context"
 msgstr ""
 
@@ -299,7 +294,7 @@ msgstr ""
 msgid "label_phone"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:61
+#: ./ftw/contentpage/portlets/news_portlet.py:59
 msgid "label_quantity"
 msgstr ""
 
@@ -309,7 +304,7 @@ msgid "label_readmore"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:99
+#: ./ftw/contentpage/portlets/news_portlet.py:96
 msgid "label_save"
 msgstr ""
 
@@ -324,7 +319,7 @@ msgid "label_showOpeningHours"
 msgstr ""
 
 #. Default: "Show Description"
-#: ./ftw/contentpage/portlets/news_portlet.py:74
+#: ./ftw/contentpage/portlets/news_portlet.py:71
 msgid "label_show_desc"
 msgstr ""
 
@@ -334,7 +329,7 @@ msgstr ""
 
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
-#: ./ftw/contentpage/content/listingblock.py:25
+#: ./ftw/contentpage/content/listingblock.py:26
 #: ./ftw/contentpage/content/textblock.py:27
 msgid "label_show_title"
 msgstr ""
@@ -344,7 +339,7 @@ msgstr ""
 msgid "label_subject"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:65
+#: ./ftw/contentpage/portlets/news_portlet.py:63
 msgid "label_subjects"
 msgstr ""
 
@@ -391,9 +386,5 @@ msgstr ""
 #. Default: "Tel. ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
-msgstr ""
-
-#: ./ftw/contentpage/portlets/news_portlet.py:34
-msgid "xx"
 msgstr ""
 

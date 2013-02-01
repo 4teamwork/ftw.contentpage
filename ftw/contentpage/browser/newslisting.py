@@ -1,7 +1,7 @@
 from zope.publisher.browser import BrowserView
 import DateTime
 from Products.CMFCore.utils import getToolByName
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class NewsListing(BrowserView):

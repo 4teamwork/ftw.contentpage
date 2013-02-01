@@ -7,6 +7,7 @@ from DateTime import DateTime
 from Products.Archetypes.atapi import registerType
 from ftw.contentpage.interfaces import INewsFolder
 
+
 class NewsFolder(folder.ATFolder):
 
     implements(INewsFolder, ISimpleLayoutCapable)
