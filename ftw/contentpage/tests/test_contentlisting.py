@@ -110,7 +110,7 @@ class TestContentListing(TestCase):
                           [('\xc3\xa4u\xc3\xa4', [('Subpage',
                                        subpage.absolute_url(), 'SubpageDescription')]),
                            ('DEMO2', [('Subpage2',
-                                       subpage2.absolute_url(), ''),
+                                       subpage2.absolute_url(), 'Subpage2'),
                                       ('Subpage3',
                                        subpage3.absolute_url(), 'OtherDescription')])])
         transaction.commit()

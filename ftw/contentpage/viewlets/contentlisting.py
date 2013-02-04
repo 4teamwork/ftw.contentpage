@@ -30,7 +30,7 @@ class ContentListingViewlet(ViewletBase):
                     resultmap[cat] = []
                 resultmap[cat].append((obj.title_or_id(),
                                        obj.absolute_url(),
-                                       obj.Description()))
+                                       obj.Description() or obj.title_or_id()))
 
         for value in resultmap.values():
             value.sort()
