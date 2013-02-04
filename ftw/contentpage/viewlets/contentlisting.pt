@@ -7,7 +7,7 @@
             <li tal:repeat="item python:category[1]">
                 <a class="subelements-listing-element"
                     tal:attributes="href python:item[1];
-                                    title python:item[0]"
+                                    title python:item[2]"
                     tal:content="python:item[0]">
                     <!-- Title -->
                 </a>

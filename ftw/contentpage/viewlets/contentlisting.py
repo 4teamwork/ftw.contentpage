@@ -29,7 +29,8 @@ class ContentListingViewlet(ViewletBase):
                 if cat not in resultmap:
                     resultmap[cat] = []
                 resultmap[cat].append((obj.title_or_id(),
-                                       obj.absolute_url(), ))
+                                       obj.absolute_url(),
+                                       obj.Description() or obj.title_or_id()))
 
         for value in resultmap.values():
             value.sort()

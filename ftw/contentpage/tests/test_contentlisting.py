@@ -88,7 +88,7 @@ class TestContentListing(TestCase):
         self.assertFalse(viewlet.available())
         # Create more content
         subpage = self.contentpage.get(
-            self.contentpage.invokeFactory('ContentPage', 'subpage'))
+            self.contentpage.invokeFactory('ContentPage', 'subpage', description='SubpageDescription'))
         subpage.setTitle('Subpage')
         # Test with umlauts
         subpage.Schema()['categories'].set(subpage, '\xc3\xa4u\xc3\xa4')
@@ -99,7 +99,7 @@ class TestContentListing(TestCase):
         subpage2.Schema()['categories'].set(subpage2, 'DEMO2')
         subpage2.reindexObject()
         subpage3 = self.contentpage.get(
-            self.contentpage.invokeFactory('ContentPage', 'subpage3'))
+            self.contentpage.invokeFactory('ContentPage', 'subpage3', description='OtherDescription'))
         subpage3.setTitle('Subpage3')
         subpage3.Schema()['categories'].set(subpage3, 'DEMO2')
         subpage3.reindexObject()
@@ -108,11 +108,11 @@ class TestContentListing(TestCase):
         self.assertTrue(viewlet.available())
         self.assertEquals(viewlet.get_content(),
                           [('\xc3\xa4u\xc3\xa4', [('Subpage',
-                                       subpage.absolute_url())]),
+                                       subpage.absolute_url(), 'SubpageDescription')]),
                            ('DEMO2', [('Subpage2',
-                                       subpage2.absolute_url()),
+                                       subpage2.absolute_url(), 'Subpage2'),
                                       ('Subpage3',
-                                       subpage3.absolute_url())])])
+                                       subpage3.absolute_url(), 'OtherDescription')])])
         transaction.commit()
         self._auth()
         self.browser.open(self.contentpage.absolute_url())
