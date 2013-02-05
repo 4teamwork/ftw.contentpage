@@ -11,12 +11,8 @@ def SubjectVocabulary(context):
     # context is the portal config options, whose context is the portal
     catalog = getToolByName(context, 'portal_catalog')
     terms = []
-    subject_index = None
-    for index in catalog.getIndexObjects():
-        if index.id == "Subject":
-            subject_index = index
-    for item in subject_index.items():
-        terms.append(SimpleTerm(value=item[0], token=item[0], title=item[0]))
+    for term in catalog.uniqueValuesFor("Subject"):
+        terms.append(SimpleTerm(value=term[0], token=term[0], title=term[0]))
     return vocabulary.SimpleVocabulary(terms)
 
 directlyProvides(SubjectVocabulary, IVocabularyFactory)
