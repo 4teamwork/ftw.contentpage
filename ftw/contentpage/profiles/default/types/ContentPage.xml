@@ -20,6 +20,7 @@
         <element value="Image"/>
         <element value="AddressBlock"/>
         <element value="ListingBlock"/>
+        <element value="NewsFolder"/>
     </property>
     <property name="allow_discussion">False</property>
     <property name="default_view">simplelayout</property>
