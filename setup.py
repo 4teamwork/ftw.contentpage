@@ -8,6 +8,7 @@ mainainter = 'Mathias Leimgruber'
 tests_require = ['ftw.testing',
                  'plone.app.testing',
                  'plone.mocktestcase',
+                 'plone.formwidget.contenttree'
                  ]
 
 setup(name='ftw.contentpage',
