@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-12-05 10:46+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2013-02-01 12:52+0000\n"
+"PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,12 +12,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:80
+msgid "Add News Portlet"
+msgstr "News Portlet Hinzufügen"
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
-msgstr "AdressenBlock"
+msgstr "Adressenblock"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:48
+msgid "Classification Items"
+msgstr "Themen"
 
 #. Default: "Columns"
-#: ./ftw/contentpage/content/listingblock.py:35
+#: ./ftw/contentpage/content/listingblock.py:36
 msgid "Columns"
 msgstr "Spalten"
 
@@ -41,6 +49,14 @@ msgstr "Extern bearbeiten"
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
 
+#: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
+msgid "NewsFolder"
+msgstr "Newsordner"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:31
+msgid "Path"
+msgstr "Pfad"
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
@@ -58,7 +74,15 @@ msgstr "Name"
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
-msgstr "TextBlock"
+msgstr "Textblock"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:81
+msgid "This Portlet displays News"
+msgstr "Ein Portlet um News darzustellen."
+
+#: ./ftw/contentpage/portlets/news_portlet.py:21
+msgid "Title"
+msgstr "Titel"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
@@ -72,27 +96,27 @@ msgid "button_cancel"
 msgstr "Abbrechen"
 
 #. Default: "creater"
-#: ./ftw/contentpage/browser/listingblock_view.py:36
+#: ./ftw/contentpage/browser/listingblock_view.py:47
 msgid "column_creater"
 msgstr "Ersteller"
 
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:31
+#: ./ftw/contentpage/browser/listingblock_view.py:42
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "size"
-#: ./ftw/contentpage/browser/listingblock_view.py:41
+#: ./ftw/contentpage/browser/listingblock_view.py:52
 msgid "column_size"
 msgstr "Grösse"
 
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:26
+#: ./ftw/contentpage/browser/listingblock_view.py:37
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/contentpage/browser/listingblock_view.py:20
+#: ./ftw/contentpage/browser/listingblock_view.py:32
 msgid "column_type"
 msgstr "Typ"
 
@@ -134,6 +158,10 @@ msgstr "So finden Sie uns"
 msgid "help_fax"
 msgstr ""
 
+#: ./ftw/contentpage/portlets/news_portlet.py:43
+msgid "help_only_context"
+msgstr "Wenn Ausgewählt, werden nur noch News aus dem Kontext des Benutzers dargestellt"
+
 #: ./ftw/contentpage/content/addressblock.py:126
 msgid "help_openingHours"
 msgstr ""
@@ -166,6 +194,16 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
+#. Default: "by ${author}"
+#: ./ftw/contentpage/browser/news_result.pt:23
+msgid "label_by_author"
+msgstr ""
+
+#. Default: "Cancel"
+#: ./ftw/contentpage/portlets/news_portlet.py:107
+msgid "label_cancel"
+msgstr ""
+
 #. Default: "Categories"
 #: ./ftw/contentpage/extender.py:26
 msgid "label_categories"
@@ -186,10 +224,9 @@ msgstr "Land"
 msgid "label_default_address"
 msgstr "Adresse"
 
-#. Default: "Downloads"
-#: ./ftw/contentpage/content/listingblock.py:69
-msgid "label_default_downloads"
-msgstr "Downloads"
+#: ./ftw/contentpage/portlets/news_portlet.py:75
+msgid "label_desc_length"
+msgstr "Länge der dargestellten Beschreibung"
 
 #. Default: "Directions"
 #: ./ftw/contentpage/browser/address.pt:38
@@ -237,6 +274,10 @@ msgstr "Bild anklickbar"
 msgid "label_message"
 msgstr "Nachricht"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:42
+msgid "label_only_context"
+msgstr "Nur in diesem Bereich"
+
 #. Default: "Opening Hours"
 #: ./ftw/contentpage/browser/address.pt:33
 #: ./ftw/contentpage/content/addressblock.py:124
@@ -248,6 +289,20 @@ msgstr "Öffnungszeiten"
 msgid "label_phone"
 msgstr "Telefon"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:59
+msgid "label_quantity"
+msgstr "Anzahl"
+
+#. Default: "Read more"
+#: ./ftw/contentpage/portlets/news_portlet.pt:31
+msgid "label_readmore"
+msgstr "Weiterlesen"
+
+#. Default: "Save"
+#: ./ftw/contentpage/portlets/news_portlet.py:96
+msgid "label_save"
+msgstr "Speichern"
+
 #. Default: "Send Feedback"
 #: ./ftw/contentpage/browser/feedback.py:37
 msgid "label_send_feedback"
@@ -258,9 +313,18 @@ msgstr "Kontaktformular"
 msgid "label_showOpeningHours"
 msgstr "Öffnungszeiten anzeigen"
 
+#. Default: "Show Description"
+#: ./ftw/contentpage/portlets/news_portlet.py:71
+msgid "label_show_desc"
+msgstr "Beschreibung anzeigen"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:26
+msgid "label_show_image"
+msgstr "Bild anzeigen"
+
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:28
-#: ./ftw/contentpage/content/listingblock.py:25
+#: ./ftw/contentpage/content/listingblock.py:26
 #: ./ftw/contentpage/content/textblock.py:27
 msgid "label_show_title"
 msgstr "Titel anzeigen?"
@@ -269,6 +333,10 @@ msgstr "Titel anzeigen?"
 #: ./ftw/contentpage/browser/feedback.py:30
 msgid "label_subject"
 msgstr "Betreff"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:63
+msgid "label_subjects"
+msgstr "Stichworte"
 
 #. Default: "Team"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:29
@@ -295,10 +363,20 @@ msgstr "PLZ"
 msgid "mail_address"
 msgstr "E-Mail"
 
+#. Default: "Read More…"
+#: ./ftw/contentpage/browser/news_result.pt:38
+msgid "read_more"
+msgstr "Weiterlesen..."
+
 #. Default: "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:16
 msgid "text_fax"
 msgstr "Fax ${num}"
+
+#. Default: "Text"
+#: ./ftw/contentpage/browser/news_result.pt:44
+msgid "text_not_content"
+msgstr "Keine Inhalte"
 
 #. Default: "Tel. ${num}"
 #: ./ftw/contentpage/browser/address.pt:9

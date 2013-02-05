@@ -7,7 +7,9 @@ mainainter = 'Mathias Leimgruber'
 
 tests_require = ['ftw.testing',
                  'plone.app.testing',
-                 'plone.mocktestcase', ]
+                 'plone.mocktestcase',
+                 'plone.formwidget.contenttree'
+                 ]
 
 setup(name='ftw.contentpage',
       version=version,
@@ -48,6 +50,7 @@ setup(name='ftw.contentpage',
           'ftw.table',
           'ftw.colorbox',
           'ftw.upgrade',
+          'plone.formwidget.contenttree',
       ],
 
       entry_points="""

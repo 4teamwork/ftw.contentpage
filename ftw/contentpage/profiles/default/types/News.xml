@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<object name="News"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="ftw.contentpage">
+ <property name="title">News</property>
+ <property name="description"></property>
+ <property name="content_icon">newsitem_icon.png</property>
+ <property name="content_meta_type">News</property>
+ <property name="product">ftw.contentpage</property>
+ <property name="factory">addNews</property>
+ <property name="immediate_view">simplelayout</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types" purge="False">
+  <element value="TextBlock"/>
+  <element value="File"/>
+  <element value="Link"/>
+  <element value="Image"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">simplelayout</property>
+ <property name="view_methods">
+  <element value="simplelayout"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="properties" to="base_metadata"/>
+ <alias from="sharing" to="folder_localrole_form"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}/view" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/properties"
+    visible="False">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="History" action_id="history" category="object"
+    condition_expr="" url_expr="string:${object_url}/atct_history"
+    visible="False">
+  <permission value="ATContentTypes: View history"/>
+ </action>
+ <action title="Squarish" action_id="sl-small" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout2.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Half" action_id="sl-middle" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout3.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Full" action_id="sl-full" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout1.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="No Image" action_id="sl-no-image" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout4.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Half-Right" action_id="sl-middle-right" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout3-right.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Squarish-Right" action_id="sl-small-right" category="sl-layouts"
+    condition_expr="" icon_expr="string:/++resource++sl/icons/sl-layout2-right.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+
+</object>

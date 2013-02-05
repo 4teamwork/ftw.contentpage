@@ -17,6 +17,7 @@
     <include package=".content" />
     <include package=".browser" />
     <include package=".handlers" />
+    <include package=".portlets" />
     <include package=".viewlets" />
     <include package=".upgrades" />
 
@@ -58,5 +59,14 @@
             zope.interface.Interface"
         factory="collective.geo.kml.browser.viewlets.KMLMapViewletLayers"
     />
+
+    <utility
+      component=".vocabularies.SubjectVocabulary"
+      name="ftw.contentpage.subjects"
+    />
+
+    <class class="ftw.contentpage.content.news.News">
+          <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
+    </class> 
 
 </configure>

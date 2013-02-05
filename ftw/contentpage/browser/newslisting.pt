@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+      <metal:block metal:fill-slot="head_slot">
+        <link rel="alternate" type="application/rss+xml" title="RSS" i18n:attributes="title" tal:attributes="href string:${context/absolute_url}/news_rss_listing"
+         />
+      </metal:block>
+
+<metal:slot fill-slot="style_slot">
+    <style type="text/css">
+        dl#plone-contentmenu-factories #news {
+            display: block !important;
+        }
+    </style>
+</metal:slot>
+
+<metal:js fill-slot="javascript_head_slot">
+    <script type="text/javascript">
+    jq(function(){
+        var inputs = jq('form#archiv_form input');
+        var result = jq('#news-result');
+        inputs.datepicker();
+        inputs.change(function(e){
+            result.addClass('loading');
+            result.load('./news_listing/news_result', jq('#archiv_form').serializeArray(), function(){result.removeClass('loading');});
+        });
+    });
+    </script>
+</metal:js>
+<metal:main fill-slot="content-core">
+<tal:define define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+<form id="archiv_form" action="./news_listing" method="get"
+      tal:condition="python:view.__name__!='news_archive_listing'"
+      tal:define="start python:toLocalizedTime(view.get_today(minus=30));
+                  end python:toLocalizedTime(view.get_today());">
+    <div class="dateFields">
+        <label for="start"><span i18n:translate="label_from">From</span>:</label><br />
+        <input type="text" name="start" size="8" id="start"
+               tal:attributes="value request/start|start" />
+    </div>
+    <div class="dateFields">
+        <label for="end"><span i18n:translate="label_to">To</span>:</label><br />
+        <input type="text" name="end" size="8" id="end"
+               tal:attributes="value request/end|end" />
+    </div>
+</form>
+<div class="visualClear"><!-- --></div>
+</tal:define>
+
+<div id="news-result" tal:content="structure view/news_result" />
+
+</metal:main>
+</html>
