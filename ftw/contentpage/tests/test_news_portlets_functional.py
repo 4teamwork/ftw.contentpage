@@ -108,6 +108,29 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertFalse('newsfolder2/news3' in self.browser.contents)
         self.assertFalse('newsfolder2/news4' in self.browser.contents)
 
+    def test_create_portlet_no_img(self):
+        self.browser.open(
+            self.portal.absolute_url() +
+            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            )
+        self.browser.getControl(
+            name="form.widgets.portlet_title").value = u"My Portlet"
+        #Get Control over the Query Field and enter a value.
+        self.browser.getControl(
+            name="form.widgets.path.widgets.query").value = u"ne"
+        #Click the Searchbutton
+        self.browser.getControl(
+            name="form.widgets.path.buttons.search").click()
+        # select the correct radio button over the Label.
+        #Remember to use the Text of the Label and not the id. It won't work.
+        self.browser.getControl("Newsfolder1").selected = True
+        self.browser.getControl("label_show_image").selected = False
+
+        self.browser.getControl("label_only_context").selected = False
+        self.browser.getControl(name="form.buttons.add").click()
+        self.browser.open(self.portal.newsfolder1.absolute_url())
+        self.assertNotIn('<div class="newsImage"', self.browser.contents)
+
     def test_create_portlet_crop_desc(self):
         self._create_portlet()
         self.browser.open(self.portal.absolute_url())
