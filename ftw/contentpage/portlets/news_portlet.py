@@ -114,9 +114,7 @@ class AddForm(form.AddForm):
                              name='cancel_add')
     def handleCancel(self, action):
         nextURL = self.nextURL()
-        if nextURL:
-            self.request.response.redirect(nextURL)
-        return ''
+        return self.request.response.redirect(nextURL)
 
     def add(self, object_):
         ob = self.context.add(object_)
@@ -261,17 +259,13 @@ class EditForm(form.EditForm):
             self.status = "No changes"
 
         nextURL = self.nextURL()
-        if nextURL:
-            self.request.response.redirect(nextURL)
-        return ''
+        return self.request.response.redirect(nextURL)
 
     @button.buttonAndHandler(_(u"label_cancel", default=u"Cancel"),
                              name='cancel_add')
     def handleCancel(self, action):
         nextURL = self.nextURL()
-        if nextURL:
-            self.request.response.redirect(nextURL)
-        return ''
+        return self.request.response.redirect(nextURL)
 
     def updateWidgets(self):
         self.fields['classification_items'].widgetFactory = \
