@@ -3,7 +3,7 @@ from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
 from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import queryUtility
 
 
