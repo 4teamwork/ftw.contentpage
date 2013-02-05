@@ -13,14 +13,14 @@
     <!-- Delete -->
     <subscriber
         for="ftw.contentpage.interfaces.IAddressBlock
-              zope.app.container.interfaces.IObjectRemovedEvent"
+              zope.lifecycleevent.interfaces.IObjectRemovedEvent"
         handler=".mark_parent.UnMarkParent"
         />
 
     <!-- Move and copy -->
     <subscriber
         for="ftw.contentpage.interfaces.IAddressBlock
-             zope.app.container.interfaces.IObjectMovedEvent"
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
         handler=".mark_parent.AddMoveCopy"
         />
 
