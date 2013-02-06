@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-01 12:52+0000\n"
+"POT-Creation-Date: 2013-02-06 12:32+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:80
+#: ./ftw/contentpage/portlets/news_portlet.py:89
 msgid "Add News Portlet"
 msgstr "News Portlet Hinzufügen"
 
@@ -76,7 +76,7 @@ msgstr "Name"
 msgid "TextBlock"
 msgstr "Textblock"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:81
+#: ./ftw/contentpage/portlets/news_portlet.py:90
 msgid "This Portlet displays News"
 msgstr "Ein Portlet um News darzustellen."
 
@@ -200,7 +200,7 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:107
+#: ./ftw/contentpage/portlets/news_portlet.py:121
 msgid "label_cancel"
 msgstr ""
 
@@ -294,12 +294,12 @@ msgid "label_quantity"
 msgstr "Anzahl"
 
 #. Default: "Read more"
-#: ./ftw/contentpage/portlets/news_portlet.pt:31
+#: ./ftw/contentpage/portlets/news_portlet.pt:28
 msgid "label_readmore"
 msgstr "Weiterlesen"
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:96
+#: ./ftw/contentpage/portlets/news_portlet.py:110
 msgid "label_save"
 msgstr "Speichern"
 
@@ -378,9 +378,12 @@ msgstr "Fax ${num}"
 msgid "text_not_content"
 msgstr "Keine Inhalte"
 
+#. Default: "You can not set a path and limit to context."
+#: ./ftw/contentpage/portlets/news_portlet.py:84
+msgid "text_path_and_area"
+msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
+
 #. Default: "Tel. ${num}"
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
-
-

@@ -12,7 +12,7 @@ from ftw.contentpage import _
 from z3c.form import form, button, field, interfaces
 from zope import schema
 from zope.component import getMultiAdapter
-from zope.interface import implements
+from zope.interface import implements, invariant, Invalid
 
 
 class INewsPortlet(IPortletDataProvider):
@@ -75,6 +75,14 @@ class INewsPortlet(IPortletDataProvider):
     desc_length = schema.Int(title=_(u'label_desc_length'),
         default=50)
 
+    @invariant
+    def is_either_path_or_area(obj):
+        """Checks if not both path and current area are defined.
+        """
+        if obj.only_context and obj.path:
+            raise Invalid(
+                _(u'text_path_and_area',
+                  default=u'You can not set a path and limit to context.'))
 
 class AddForm(form.AddForm):
     implements(IPortletAddForm)
