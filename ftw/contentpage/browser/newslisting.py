@@ -48,8 +48,8 @@ class NewsListing(BrowserView):
         scale = obj.restrictedTraverse('@@images')
         return scale.scale(
             'image',
-            width=200,
-            height=200).tag(**{'class': 'tileImage'})
+            width=100,
+            height=100).tag(**{'class': 'tileImage'})
 
 
 class NewsArchiveListing(NewsListing):
