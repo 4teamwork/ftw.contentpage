@@ -38,6 +38,10 @@
     visible="False">
   <permission value="Modify portal content"/>
  </action>
+  <action title="Edit" action_id="edit" category="object" condition_expr=""
+          url_expr="string:${object_url}/edit" visible="True">
+    <permission value="Modify portal content" />
+  </action>
  <action title="History" action_id="history" category="object"
     condition_expr="" url_expr="string:${object_url}/atct_history"
     visible="False">

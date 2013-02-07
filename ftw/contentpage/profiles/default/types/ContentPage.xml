@@ -36,6 +36,12 @@
             url_expr="string:${folder_url}/" visible="False">
         <permission value="View" />
     </action>
+
+  <action title="Edit" action_id="edit" category="object" condition_expr=""
+          url_expr="string:${object_url}/edit" visible="True">
+    <permission value="Modify portal content" />
+  </action>
+
     <action title="Upload" action_id="upload" category="folder_factories"
        condition_expr="object/@@display_upload/can_upload | nothing"
        url_expr="string:${object_url}/flashupload" visible="True">
