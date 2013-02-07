@@ -20,10 +20,10 @@
 
 <div i18n:domain="ftw.contentpage"
      class="newsListing"
-     tal:define="news view/get_news;
+     tal:define="batch view/batch;
                  toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
-    <div tal:repeat="brain news" class="tileItem">
+    <div tal:repeat="brain batch" class="tileItem">
         <h2 class="tileHeadline">
             <a class="summary url" tal:attributes="href brain/getURL"
                tal:content="brain/Title"></a>
@@ -61,8 +61,8 @@
         </p>
         <div class="visualClear"><!-- --></div>
     </div>
-
-    <p tal:condition="not:news" i18n:translate="text_not_content">Text</p>
+    <div metal:use-macro="context/batch_macros/macros/navigation" />
+    <p tal:condition="not:batch" i18n:translate="text_not_content">Text</p>
 </div>
 
 </metal:main>

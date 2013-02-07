@@ -1,3 +1,4 @@
+from Products.CMFPlone.PloneBatch import Batch
 from zope.publisher.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -11,6 +12,7 @@ class NewsListing(BrowserView):
     def __call__(self):
         if self.__name__ == 'news_rss_listing':
             return self.template_rss()
+        self.batch = Batch(self.get_news(), 20)
         return self.template()
 
     def get_creator(self, item):
