@@ -36,3 +36,10 @@
     background-color: #eee;
     border:1px solid #ddd;
 }
+
+/* @group news listing */
+.newsListing .tileItem img {
+  float: left;
+  padding: 1em 1em 1em 0;
+}
+/* @end */
