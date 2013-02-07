@@ -24,9 +24,6 @@
                  toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
     <div tal:repeat="brain news" class="tileItem">
-        <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
-            <tal:img tal:content="structure python:view.get_img(brain)" />
-        </a>
         <h2 class="tileHeadline">
             <a class="summary url" tal:attributes="href brain/getURL"
                tal:content="brain/Title"></a>
@@ -49,6 +46,10 @@
               </span>
             </tal:name>
         </div>
+        <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
+            <tal:img tal:content="structure python:view.get_img(brain)" />
+        </a>
+
         <p class="tileBody">
             <span class="description"
                   tal:content="brain/Description">
