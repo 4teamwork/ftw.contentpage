@@ -75,7 +75,6 @@
         name="news_listing"
         class=".newslisting.NewsListing"
         permission="zope.Public"
-        allowed_attributes="news_result get_news"
         />
 
     <browser:page
