@@ -10,9 +10,9 @@ class NewsListing(BrowserView):
     template_rss = ViewPageTemplateFile('newslisting_rss.pt')
 
     def __call__(self):
+        self.batch = Batch(self.get_news(), 20)
         if self.__name__ == 'news_rss_listing':
             return self.template_rss()
-        self.batch = Batch(self.get_news(), 20)
         return self.template()
 
     def get_creator(self, item):
