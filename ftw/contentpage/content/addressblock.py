@@ -161,7 +161,7 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
         """
         registry = getUtility(IRegistry)
         return registry.get('ftw.contentpage.addressblock.defaultcountry',
-                            'Switzerland')
+                            '')
 
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):

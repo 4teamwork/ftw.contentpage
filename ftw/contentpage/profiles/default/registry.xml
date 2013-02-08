@@ -3,12 +3,14 @@
     <record name="ftw.contentpage.addressblock.defaultcountry">
         <field type="plone.registry.field.TextLine">
             <title>Default country used in addressblocks.</title>
+            <required>False</required>
         </field>
         <value>Switzerland</value>
     </record>
     <record name="ftw.contentpage.listingblock.defaulttitle">
         <field type="plone.registry.field.TextLine">
             <title>Default title of a listingblock</title>
+            <required>False</required>
         </field>
         <value></value>
     </record>
