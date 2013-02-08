@@ -39,23 +39,3 @@ class TestNewsViews(unittest.TestCase):
             listing.get_img(brain)
             )
         self.assertEqual(listing.get_creator(brain).id, 'test_user_1_')
-
-    def test_news_listing_start(self):
-        date = datetime.datetime.now() - datetime.timedelta(15)
-        self.newsfolder.REQUEST.form['start'] = date.strftime('%d.%m.%Y')
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
-        self.assertEqual(len(listing.get_news()), 3)
-
-    def test_news_listing_end(self):
-        date = datetime.datetime.now() - datetime.timedelta(10)
-        self.newsfolder.REQUEST.form['end'] = date.strftime('%d.%m.%Y')
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
-        self.assertEqual(len(listing.get_news()), 2)
-
-    def test_news_listing_start_and_end(self):
-        end = datetime.datetime.now() - datetime.timedelta(10)
-        start = datetime.datetime.now() - datetime.timedelta(15)
-        self.newsfolder.REQUEST.form['end'] = end.strftime('%d.%m.%Y')
-        self.newsfolder.REQUEST.form['start'] = start.strftime('%d.%m.%Y')
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
-        self.assertEqual(len(listing.get_news()), 1)
