@@ -1,4 +1,4 @@
-<span i18n:domain="plone"
+<div i18n:domain="plone"
      class="documentByLine"
      id="plone-document-byline"
      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime"
@@ -16,4 +16,4 @@
         <span i18n:translate="box_last_modified">last modified</span>
         <tal:modified tal:content="python:toLocalizedTime(context.modified(), long_format=1)" />
     </span>
-</span>
+</div>
