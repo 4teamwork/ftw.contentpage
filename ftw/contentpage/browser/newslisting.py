@@ -10,7 +10,9 @@ class NewsListing(BrowserView):
     template_rss = ViewPageTemplateFile('newslisting_rss.pt')
 
     def __call__(self):
-        self.batch = Batch(self.get_news(), 20)
+        b_start = self.request.form.get('b_start',0)
+        self.batch = Batch(self.get_news(), 10,
+                           b_start)
         if self.__name__ == 'news_rss_listing':
             return self.template_rss()
         return self.template()
