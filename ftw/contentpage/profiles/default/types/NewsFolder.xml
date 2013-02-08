@@ -11,16 +11,15 @@
  <property name="factory">addNewsFolder</property>
  <property name="add_view_expr"></property>
  <property name="link_target"></property>
- <property name="immediate_view">news_archive_listing</property>
+ <property name="immediate_view">news_listing</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="News"/>
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">news_archive_listing</property>
+ <property name="default_view">news_listing</property>
  <property name="view_methods">
-  <element value="news_archive_listing"/>
   <element value="news_listing"/>
  </property>
  <property name="default_view_fallback">False</property>

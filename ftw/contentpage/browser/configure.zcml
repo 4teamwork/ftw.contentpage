@@ -79,13 +79,6 @@
 
     <browser:page
         for="*"
-        name="news_archive_listing"
-        class=".newslisting.NewsArchiveListing"
-        permission="zope.Public"
-        />
-
-    <browser:page
-        for="*"
         name="news_rss_listing"
         class=".newslisting.NewsListing"
         permission="zope.Public"

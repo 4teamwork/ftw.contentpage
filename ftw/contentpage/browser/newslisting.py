@@ -38,11 +38,8 @@ class NewsListing(BrowserView):
             return context.getFolderContents(query)
 
     def has_img(self, news):
-        """ Checks if the news have an image. If view is news_archive_listing
-        return False, there we dont want to display images.
+        """ Checks if the news have an image.
         """
-        if self.__name__ == 'news_archive_listing':
-            return False
         return bool(news.getObject().getImage())
 
     def get_img(self, news):
@@ -52,16 +49,3 @@ class NewsListing(BrowserView):
             'image',
             width=100,
             height=100).tag(**{'class': 'tileImage'})
-
-
-class NewsArchiveListing(NewsListing):
-
-    def get_news(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        if self.context.portal_type == 'Topic':
-            return self.context.queryCatalog()
-        return catalog(
-            portal_type='News',
-            path='/'.join(self.context.getPhysicalPath()),
-            sort_on='effective',
-            sort_order='reverse')
