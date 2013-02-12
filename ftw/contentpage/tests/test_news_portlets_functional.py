@@ -19,15 +19,6 @@ class TestNewsPortlets(unittest.TestCase):
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
-        #Get Control over the Query Field and enter a value.
-        self.browser.getControl(
-            name="form.widgets.path.widgets.query").value = u"ne"
-        #Click the Searchbutton
-        self.browser.getControl(
-            name="form.widgets.path.buttons.search").click()
-        # select the correct radio button over the Label.
-        #Remember to use the Text of the Label and not the id. It won't work.
-        self.browser.getControl("Newsfolder1").selected = True
 
         self.browser.getControl(name="form.buttons.add").click()
 
@@ -52,8 +43,7 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
                 TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
-
-    def test_create_portlet_only_context(self):
+    def test_area_path_validator(self):
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -64,15 +54,31 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.getControl(
             name="form.widgets.path.widgets.query").value = u"ne"
         #Click the Searchbutton
-
         self.browser.getControl(
             name="form.widgets.path.buttons.search").click()
         # select the correct radio button over the Label.
         #Remember to use the Text of the Label and not the id. It won't work.
         self.browser.getControl("Newsfolder1").selected = True
 
+        self.browser.getControl("label_only_context").selected = True
+        self.browser.getControl(name="form.buttons.add").click()
+
+        self.assertIn('You can not set a path and limit to context.',
+                      self.browser.contents)
+
+
+
+    def test_create_portlet_only_context(self):
+        self.browser.open(
+            self.portal.absolute_url() +
+            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            )
+        self.browser.getControl(
+            name="form.widgets.portlet_title").value = u"My Portlet"
+
         self.browser.getControl(name="form.buttons.add").click()
         self.browser.open(self.portal.absolute_url())
+
         self.assertIn('newsfolder1/news1', self.browser.contents)
         self.assertIn('newsfolder1/news2', self.browser.contents)
         self.assertIn('newsfolder2/news3', self.browser.contents)
