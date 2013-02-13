@@ -52,10 +52,12 @@ class TestContentListing(TestCase):
         self.assertTrue(len(self._get_viewlet()) == 1)
 
     def test_category_field(self):
-        self.assertIn('categories', self.contentpage.Schema())
-        self.contentpage.Schema()['categories'].set(self.contentpage, 'DEMO1')
+        self.assertIn('content_categories', self.contentpage.Schema())
+        self.contentpage.Schema()['content_categories'].set(
+            self.contentpage, 'DEMO1')
         self.assertEquals(
-            self.contentpage.Schema()['categories'].get(self.contentpage),
+            self.contentpage.Schema()['content_categories'].get(
+                self.contentpage),
             ('DEMO1',))
 
     def test_category_index(self):
@@ -67,9 +69,9 @@ class TestContentListing(TestCase):
             self.contentpage.invokeFactory('ContentPage', 'subpage'))
         subpage.processForm()
         subpage.setTitle('Subpage title')
-        subpage.Schema()['categories'].set(subpage, 'DEMO1')
+        subpage.Schema()['content_categories'].set(subpage, 'DEMO1')
         subpage.reindexObject()
-        self.assertTrue(catalog({'categories': 'DEMO1'})[0])
+        self.assertTrue(catalog({'content_categories': 'DEMO1'})[0])
 
     def test_category_index_umlauts(self):
         catalog = getToolByName(self.portal, 'portal_catalog')
@@ -77,7 +79,8 @@ class TestContentListing(TestCase):
             self.contentpage.invokeFactory('ContentPage', 'subpage'))
         subpage.processForm()
         subpage.setTitle('Subpage title')
-        subpage.Schema()['categories'].set(subpage, 'WITH UTF8 \xc3\xa4')
+        subpage.Schema()['content_categories'].set(
+            subpage, 'WITH UTF8 \xc3\xa4')
         subpage.reindexObject()
         unique_values = catalog.Indexes['getContentCategories'].uniqueValues()
         self.assertIn("WITH UTF8 \xc3\xa4", unique_values)
@@ -88,31 +91,34 @@ class TestContentListing(TestCase):
         self.assertFalse(viewlet.available())
         # Create more content
         subpage = self.contentpage.get(
-            self.contentpage.invokeFactory('ContentPage', 'subpage', description='SubpageDescription'))
+            self.contentpage.invokeFactory(
+                'ContentPage', 'subpage', description='SubpageDescription'))
         subpage.setTitle('Subpage')
         # Test with umlauts
-        subpage.Schema()['categories'].set(subpage, '\xc3\xa4u\xc3\xa4')
+        subpage.Schema()['content_categories'].set(
+            subpage, '\xc3\xa4u\xc3\xa4')
         subpage.reindexObject()
         subpage2 = self.contentpage.get(
             self.contentpage.invokeFactory('ContentPage', 'subpage2'))
         subpage2.setTitle('Subpage2')
-        subpage2.Schema()['categories'].set(subpage2, 'DEMO2')
+        subpage2.Schema()['content_categories'].set(subpage2, 'DEMO2')
         subpage2.reindexObject()
         subpage3 = self.contentpage.get(
-            self.contentpage.invokeFactory('ContentPage', 'subpage3', description='OtherDescription'))
+            self.contentpage.invokeFactory(
+                'ContentPage', 'subpage3', description='OtherDescription'))
         subpage3.setTitle('Subpage3')
-        subpage3.Schema()['categories'].set(subpage3, 'DEMO2')
+        subpage3.Schema()['content_categories'].set(subpage3, 'DEMO2')
         subpage3.reindexObject()
 
         viewlet = self._get_viewlet()[0]
         self.assertTrue(viewlet.available())
-        self.assertEquals(viewlet.get_content(),
-                          [('\xc3\xa4u\xc3\xa4', [('Subpage',
-                                       subpage.absolute_url(), 'SubpageDescription')]),
-                           ('DEMO2', [('Subpage2',
-                                       subpage2.absolute_url(), 'Subpage2'),
-                                      ('Subpage3',
-                                       subpage3.absolute_url(), 'OtherDescription')])])
+        self.assertEquals(
+            viewlet.get_content(),
+            [('\xc3\xa4u\xc3\xa4',
+                [('Subpage', subpage.absolute_url(), 'SubpageDescription')]),
+             ('DEMO2',
+                [('Subpage2', subpage2.absolute_url(), 'Subpage2'),
+                 ('Subpage3', subpage3.absolute_url(), 'OtherDescription')])])
         transaction.commit()
         self._auth()
         self.browser.open(self.contentpage.absolute_url())

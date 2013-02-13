@@ -17,7 +17,7 @@ class CategoriesExtender(object):
     implements(IOrderableSchemaExtender)
 
     fields = [CategoriesField(
-        'categories',
+        'content_categories',
         multiValued=True,
         searchable=False,
         accessor='getContentCategories',

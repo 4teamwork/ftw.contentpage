@@ -23,7 +23,7 @@ class ContentListingViewlet(ViewletBase):
         if not contents:
             return []
         for obj in contents:
-            categories = obj.Schema()['categories'].get(obj)
+            categories = obj.Schema()['content_categories'].get(obj)
 
             for cat in categories:
                 if cat not in resultmap:
