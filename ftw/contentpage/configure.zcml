@@ -32,7 +32,7 @@
         description="Create content the simplayout way"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-    
+
     <!-- Register the import step -->
     <genericsetup:importStep
         name="ftw.contentpage.custom"

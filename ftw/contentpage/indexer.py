@@ -4,4 +4,4 @@ from ftw.contentpage.interfaces import IContentPage
 
 @indexer(IContentPage)
 def categories(obj, **kw):
-    return obj.Schema()['categories'].get(obj)
+    return obj.Schema()['content_categories'].get(obj)
