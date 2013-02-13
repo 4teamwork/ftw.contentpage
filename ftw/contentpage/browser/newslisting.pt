@@ -16,40 +16,54 @@
     </style>
 </metal:slot>
 
-<metal:js fill-slot="javascript_head_slot">
-    <script type="text/javascript">
-    jq(function(){
-        var inputs = jq('form#archiv_form input');
-        var result = jq('#news-result');
-        inputs.datepicker();
-        inputs.change(function(e){
-            result.addClass('loading');
-            result.load('./news_listing/news_result', jq('#archiv_form').serializeArray(), function(){result.removeClass('loading');});
-        });
-    });
-    </script>
-</metal:js>
 <metal:main fill-slot="content-core">
-<tal:define define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-<form id="archiv_form" action="./news_listing" method="get"
-      tal:condition="python:view.__name__!='news_archive_listing'"
-      tal:define="start python:toLocalizedTime(view.get_today(minus=30));
-                  end python:toLocalizedTime(view.get_today());">
-    <div class="dateFields">
-        <label for="start"><span i18n:translate="label_from">From</span>:</label><br />
-        <input type="text" name="start" size="8" id="start"
-               tal:attributes="value request/start|start" />
-    </div>
-    <div class="dateFields">
-        <label for="end"><span i18n:translate="label_to">To</span>:</label><br />
-        <input type="text" name="end" size="8" id="end"
-               tal:attributes="value request/end|end" />
-    </div>
-</form>
-<div class="visualClear"><!-- --></div>
-</tal:define>
 
-<div id="news-result" tal:content="structure view/news_result" />
+<div i18n:domain="ftw.contentpage"
+     class="newsListing"
+     tal:define="batch view/batch;
+                 toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+    <div tal:repeat="brain batch" class="tileItem">
+        <h2 class="tileHeadline">
+            <a class="summary url" tal:attributes="href brain/getURL"
+               tal:content="brain/Title"></a>
+        </h2>
+        <div class="documentByLine">
+            <span class="dtstart"
+                  tal:content="python:toLocalizedTime(brain.effective)">
+                21.12.2012
+            </span>
+            <tal:name tal:define="creator python:view.get_creator(brain)"
+                      tal:condition="creator">
+              <span class="documentAuthor" i18n:translate="label_by_author">
+                by
+              <a href="#"
+                 tal:attributes="href creator"
+                 tal:content="python:creator.getProperty('fullname', '') or creator.id"
+                 i18n:name="author">
+                Bob Dobalina
+              </a>
+              </span>
+            </tal:name>
+        </div>
+        <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
+            <tal:img tal:content="structure python:view.get_img(brain)" />
+        </a>
+
+        <p class="tileBody">
+            <span class="description"
+                  tal:content="brain/Description">
+            </span>
+        </p>
+        <p class="tileFooter">
+            <a tal:attributes="href brain/getURL"
+               i18n:translate="read_more">Read More&hellip;</a>
+        </p>
+        <div class="visualClear"><!-- --></div>
+    </div>
+    <div metal:use-macro="context/batch_macros/macros/navigation" />
+    <p tal:condition="not:batch" i18n:translate="text_not_content">Text</p>
+</div>
 
 </metal:main>
 </html>
