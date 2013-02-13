@@ -64,11 +64,11 @@ class TestAddressBlockCreation(TestCase):
 
     def test_addressblock_default_title(self):
         addressblock = self._create_addressblock()
-        self.assertEquals(None, addressblock.Title())
+        self.assertEquals('Address', addressblock.Title())
 
         self._auth()
         self.browser.open(self.contentpage.absolute_url())
-        self.assertIn('<h2></h2>', self.browser.contents)
+        self.assertIn('<h2>Address', self.browser.contents)
 
     def test_addressblock_change_default_title(self):
         registry = getUtility(IRegistry)
