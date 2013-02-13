@@ -14,4 +14,11 @@
         </field>
         <value></value>
     </record>
+    <record name="ftw.contentpage.addressblock.defaulttitle">
+        <field type="plone.registry.field.TextLine">
+            <title>Default title of a listingblock</title>
+            <required>False</required>
+        </field>
+        <value></value>
+    </record>
 </registry>

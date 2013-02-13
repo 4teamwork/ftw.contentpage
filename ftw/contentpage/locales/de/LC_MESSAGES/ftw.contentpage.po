@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-06 12:32+0000\n"
+"POT-Creation-Date: 2013-02-13 07:47+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,7 +195,7 @@ msgid "label_addressTitle"
 msgstr "Adresstitel"
 
 #. Default: "by ${author}"
-#: ./ftw/contentpage/browser/news_result.pt:23
+#: ./ftw/contentpage/browser/newslisting.pt:40
 msgid "label_by_author"
 msgstr ""
 
@@ -218,11 +218,6 @@ msgstr "Ort"
 #: ./ftw/contentpage/content/addressblock.py:71
 msgid "label_country"
 msgstr "Land"
-
-#. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:168
-msgid "label_default_address"
-msgstr "Adresse"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:75
 msgid "label_desc_length"
@@ -364,7 +359,7 @@ msgid "mail_address"
 msgstr "E-Mail"
 
 #. Default: "Read More…"
-#: ./ftw/contentpage/browser/news_result.pt:38
+#: ./ftw/contentpage/browser/newslisting.pt:59
 msgid "read_more"
 msgstr "Weiterlesen..."
 
@@ -374,7 +369,7 @@ msgid "text_fax"
 msgstr "Fax ${num}"
 
 #. Default: "Text"
-#: ./ftw/contentpage/browser/news_result.pt:44
+#: ./ftw/contentpage/browser/newslisting.pt:65
 msgid "text_not_content"
 msgstr "Keine Inhalte"
 
@@ -387,3 +382,5 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
+
+
