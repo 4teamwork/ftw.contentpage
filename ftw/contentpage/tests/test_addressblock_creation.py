@@ -70,6 +70,20 @@ class TestAddressBlockCreation(TestCase):
         self.browser.open(self.contentpage.absolute_url())
         self.assertIn('<h2>Address', self.browser.contents)
 
+    def test_addressblock_change_default_title(self):
+        registry = getUtility(IRegistry)
+        registry.records['ftw.contentpage.addressblock.defaulttitle'] = \
+            Record(field.TextLine(title=u"dummy", default=u"N/A"),
+                   value=u'MyAddress')
+        transaction.commit()
+
+        addressblock = self._create_addressblock()
+        self.assertEquals('MyAddress', addressblock.Title())
+
+        self._auth()
+        self.browser.open(self.contentpage.absolute_url())
+        self.assertIn('<h2>MyAddress', self.browser.contents)
+
     def test_addressblock_change_title(self):
         addressblock = self._create_addressblock()
         addressblock.setTitle('New Title')
