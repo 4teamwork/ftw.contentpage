@@ -1,9 +1,8 @@
-<div class="#" id="#" i18n:domain="simplelayout"
+<div class="#" i18n:domain="simplelayout"
      tal:define="slclass view/get_css_klass;
                  text here/Description|nothing;
                  fullblock python: text and ' sl-fullblock' or ''"
-     tal:attributes="id here/id;
-                     class string:documentDescription simplelayout-block-wrapper ${slclass}${fullblock};
+     tal:attributes="class string:documentDescription simplelayout-block-wrapper ${slclass}${fullblock};
                      style string:height:${view/get_block_height}">
   <a tal:attributes="name here/id" ></a>
   <div class="sl-img-wrapper" tal:condition="view/has_image"
