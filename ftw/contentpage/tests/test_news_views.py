@@ -38,4 +38,4 @@ class TestNewsViews(unittest.TestCase):
             '<img src="http://nohost/plone/newsfolder/news/@@images/',
             listing.get_img(brain)
             )
-        self.assertEqual(listing.get_creator(brain).id, 'test_user_1_')
+        self.assertEqual(listing.get_creator(brain), 'test_user_1_')
