@@ -20,10 +20,15 @@ class NewsListing(BrowserView):
     def get_creator(self, item):
         memberid = item.Creator
         mt = getToolByName(self.context, 'portal_membership')
-        member = mt.getMemberById(memberid)
-        if member:
-            return member
-        return None
+        member_info = mt.getMemberInfo(memberid)
+        if member_info:
+            fullname = member_info.get('fullname', '')
+        else:
+            fullname = None
+        if fullname:
+            return fullname
+        else:
+            return memberid
 
     def get_news(self):
         """Get all news items"""
