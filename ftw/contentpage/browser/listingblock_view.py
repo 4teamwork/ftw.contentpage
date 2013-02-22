@@ -96,5 +96,6 @@ class ListingBlockView(BrowserView):
                                   self._filtered_columns(),
                                   sortable=True,
                                   template=template,
+                                  options={'table_title': self.context.title},
                                   selected=(self._build_query['sort_on'],
                                             self._build_query['sort_order']))
