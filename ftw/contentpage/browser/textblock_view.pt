@@ -4,7 +4,7 @@
                  title here/Title | here/pretty_title_or_id;
                  fullblock python: text and ' sl-fullblock' or ''"
      tal:attributes="class string:simplelayout-block-wrapper TextBlock ${slclass}${fullblock};
-                     style string:height:${view/get_block_height}">
+                     style string:${view/get_block_height}">
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
     <a tal:attributes="name here/id" ></a>
         <div class="sl-img-wrapper" tal:condition="view/has_image"
