@@ -32,6 +32,10 @@ class News(folder.ATFolder):
     def getDefaultEffectiveDate(self):
         return DateTime().Date()
 
+    security.declarePublic('showAddMenu')
+    def showAddMenu(self):
+        return False
+
     security.declarePublic('show_description')
     def show_description(self):
         return False
