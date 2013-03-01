@@ -46,22 +46,22 @@
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
- <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr="string:++resource++ftw.contentpage.resources/edit.png"
+ <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr=""
     condition_expr="" url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Delete" action_id="sl-delete" category="sl-actions"
-    condition_expr="" icon_expr="string:++resource++ftw.contentpage.resources/delete_icon.png"
+    condition_expr="" icon_expr=""
     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Default" action_id="sl-dummy-dummy-dummy" category="sl-layouts"
-    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-right.gif"
+    condition_expr="" icon_expr=""
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Portlet" action_id="sl-dummy-dummy-portlet" category="sl-layouts"
-    condition_expr="" icon_expr="string:${here/portal_url}/++resource++ftw.contentpage.resources/layout-blank.gif"
+    condition_expr="" icon_expr=""
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>
  </action>
