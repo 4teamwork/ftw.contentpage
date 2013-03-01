@@ -197,12 +197,12 @@ msgstr "Adresstitel"
 #. Default: "by ${author}"
 #: ./ftw/contentpage/browser/newslisting.pt:40
 msgid "label_by_author"
-msgstr ""
+msgstr "von ${author}"
 
 #. Default: "Cancel"
 #: ./ftw/contentpage/portlets/news_portlet.py:121
 msgid "label_cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #. Default: "Categories"
 #: ./ftw/contentpage/extender.py:26

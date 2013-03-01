@@ -37,12 +37,10 @@
                       tal:condition="creator">
               <span class="documentAuthor" i18n:translate="label_by_author">
                 by
-              <a href="#"
-                 tal:attributes="href creator"
-                 tal:content="python:creator.getProperty('fullname', '') or creator.id"
-                 i18n:name="author">
+              <span tal:content="creator"
+                    i18n:name="author">
                 Bob Dobalina
-              </a>
+              </span>
               </span>
             </tal:name>
         </div>
