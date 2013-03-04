@@ -5,10 +5,13 @@ from ftw.contentpage.interfaces import IOrgUnitMarker
 
 class AuthoritiesView(BrowserView):
 
+    sort_on = 'getObjPositionInParent'
+
     def contents(self):
         context = self.context
         results = context.getFolderContents(
-            {'object_provides': IOrgUnitMarker.__identifier__})
+            {'object_provides': IOrgUnitMarker.__identifier__,
+             'sort_on': self.sort_on})
         results = [res for res in results if not res.exclude_from_nav]
         contents = {}
         half = len(results) / 2
@@ -21,7 +24,7 @@ class AuthoritiesView(BrowserView):
         context = self.context
         catalog = getToolByName(context, 'portal_catalog')
         query = {}
-        query['sort_on'] = 'getObjPositionInParent'
+        query['sort_on'] = self.sort_on
         query['path'] = {'query': path, 'depth': 1}
         query['object_provides'] = IOrgUnitMarker.__identifier__
         results = catalog(**query)
