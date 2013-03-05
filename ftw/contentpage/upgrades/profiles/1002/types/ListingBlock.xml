@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<object name="ListingBlock"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="ftw.contentpage">
+ <action title="MultiUpload" action_id="sl-multiupload" category="sl-actions"
+    icon_expr=""
+    condition_expr="" url_expr="string:${object_url}/flashupload" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Edit" action_id="sl-edit" category="sl-actions" icon_expr=""
+    condition_expr="" url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Delete" action_id="sl-delete" category="sl-actions"
+    condition_expr="" icon_expr=""
+    url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Default" action_id="sl-dummy-dummy-dummy" category="sl-layouts"
+    condition_expr="" icon_expr=""
+    url_expr="string:${here/absolute_url}/block_control" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Portlet" action_id="sl-dummy-dummy-gallery" category="sl-layouts"
+    condition_expr="" icon_expr=""
+    url_expr="string:${here/absolute_url}/block_control" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>

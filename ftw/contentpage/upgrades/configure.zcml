@@ -22,5 +22,24 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1001 -> 1002 -->
+    <genericsetup:upgradeStep
+        title="Remove simplelayout action icon expressions"
+        description=""
+        source="1001"
+        destination="1002"
+        handler="ftw.contentpage.upgrades.to1002.RemoveIcons"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1002"
+        title="ftw.contentpage.upgrades.1002"
+        description=""
+        directory="profiles/1002"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>
