@@ -1,11 +1,11 @@
+from Products.CMFCore.utils import getToolByName
 from collective.geo.settings.interfaces import IGeoFeatureStyle
 from collective.geo.settings.interfaces import IGeoSettings
 from ftw.contentpage.config import INDEXES
+from plone.app.portlets.storage import PortletAssignmentMapping
 from plone.portlets.constants import CONTENT_TYPE_CATEGORY
 from plone.portlets.interfaces import IPortletManager
-from plone.portlets.storage import PortletAssignmentMapping
 from plone.registry.interfaces import IRegistry
-from Products.CMFCore.utils import getToolByName
 from simplelayout.portlet.dropzone.portlets import drop_zone_portlet
 from zope.component import getUtility
 import logging
