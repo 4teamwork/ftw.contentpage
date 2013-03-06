@@ -1,7 +1,7 @@
 Introduction
 ============
 
-``ftw.contentpage`` proviedes some content types optimized for organisations,
+``ftw.contentpage`` provides some content types optimized for organisations,
 communities, associations, and more.
 
 It uses simplelayout to manage and display the content.
