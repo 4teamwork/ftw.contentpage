@@ -10,8 +10,7 @@
         <div class="sl-img-wrapper" tal:condition="view/has_image"
              tal:attributes="style view/image_wrapper_style"
              tal:define="image_desc context/getImageCaption | context/Description">
-                    <a  target="_blank"
-                        tal:attributes="
+                    <a  tal:attributes="
                                         title image_desc;
                                         href string:${context/absolute_url}/image
                                         "
