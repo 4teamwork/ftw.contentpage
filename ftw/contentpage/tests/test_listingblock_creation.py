@@ -66,6 +66,19 @@ class TestListingBlockCreation(TestCase):
         listingblock = self._create_listingblock()
         self.assertEquals('Downloads', listingblock.Title())
 
+    def test_default_table_columns(self):
+        registry = getUtility(IRegistry)
+
+        registry.records[
+            'ftw.contentpage.listingblock.defaulttablecolumns'].value = \
+            (u'Creator', u'Title', u'BadColumn')
+
+        listingblock = self._create_listingblock()
+
+        self.assertIn(u'Creator', listingblock.getTableColumns())
+        self.assertIn(u'Title', listingblock.getTableColumns())
+        self.assertIn(u'BadColumn', listingblock.getTableColumns())
+
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()
         portal = self.layer['portal']

@@ -119,8 +119,10 @@ class TestListingBlockViews(TestCase):
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
                                  name="block_view")
         columns = view._filtered_columns()
+
         self.assertEquals(len(view.columns()), 5)
         self.assertEquals(len(columns), 3)
+
 
     def test_listing_block_filtered_wrong_column_name(self):
         listingblock = self._create_listingblock()
