@@ -7,7 +7,7 @@ from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from zope.component import getUtility
+from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
@@ -35,6 +35,31 @@ schema = atapi.Schema((
         widget=atapi.InAndOutWidget(
         label=_(u'Columns',
                 default=u'Columns'))),
+
+    atapi.StringField(
+        'sortOn',
+        required=True,
+        default="sortable_title",
+        vocabulary='getSortIndexVocabulary',
+        widget=atapi.SelectionWidget(
+            label=_(u'label_sort_on', default=u'Sort On'),
+            description=_(u'help_sort_on', default=u''),
+            format='select',
+        ),
+    ),
+
+    atapi.StringField(
+        'sortOrder',
+        required=True,
+        default="asc",
+        vocabulary=[('asc', _(u'label_ascending', default=u'Ascending')),
+                    ('desc', _(u'label_descending', default=u'Descending'))],
+        widget=atapi.SelectionWidget(
+            label=_(u'label_sort_order', default=u'Sort Order'),
+            description=_(u'help_sort_order', default=u''),
+            format='select',
+        ),
+    )
 
 ))
 
@@ -81,5 +106,17 @@ class ListingBlock(folder.ATFolder):
         for col in view.columns():
             display_list.add(col['column'], col['column_title'])
         return display_list
+
+    security.declarePrivate('getSortIndexVocabulary')
+    def getSortIndexVocabulary(self):
+        view = queryMultiAdapter((self, self.REQUEST), name=u'block_view')
+        voc = atapi.DisplayList()
+        for col in view.columns():
+            if 'sort_index' in col:
+                voc.add(col['sort_index'], _(u'label_%s' % col['sort_index'],
+                        default=col['sort_index']))
+        voc.add('getObjPositionInParent', _(u'label_position_in_folder',
+                default=u'Position in Folder'))
+        return voc
 
 atapi.registerType(ListingBlock, PROJECTNAME)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-02-13 07:47+0000\n"
+"POT-Creation-Date: 2013-03-15 14:17+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,27 +121,27 @@ msgid "column_type"
 msgstr "Typ"
 
 #. Default: "Address / Map"
-#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:10
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:9
 msgid "contactportlet_address_map"
 msgstr "Adresse und Karte"
 
 #. Default: "Contact Form"
-#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:23
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:22
 msgid "contactportlet_contcat_form"
 msgstr "Kontaktformular"
 
 #. Default: "Open times"
-#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:17
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:16
 msgid "contactportlet_open_times"
 msgstr "Öffnungszeiten"
 
 #. Default: "Enter an alternative text for the image"
-#: ./ftw/contentpage/content/textblock.py:79
+#: ./ftw/contentpage/content/textblock.py:82
 msgid "description_image_alt_text"
 msgstr "Geben Sie einen alternative Text für das Bild ein, z.B für Screenreader. Falls kein alternativer Text angegeben wird, wird der Bildtitel verwendet."
 
 #. Default: "Opens image in an overlay"
-#: ./ftw/contentpage/content/textblock.py:60
+#: ./ftw/contentpage/content/textblock.py:63
 msgid "description_image_clickable"
 msgstr "Öffnet das Bild in einem Overlay"
 
@@ -174,6 +174,14 @@ msgstr ""
 msgid "help_showOpeningHours"
 msgstr "Definieren Sie, ob die Öffnungszeiten angezeigt werden sollen"
 
+#: ./ftw/contentpage/content/listingblock.py:46
+msgid "help_sort_on"
+msgstr ""
+
+#: ./ftw/contentpage/content/listingblock.py:59
+msgid "help_sort_order"
+msgstr ""
+
 #. Default: "Please enter a website URL"
 #: ./ftw/contentpage/content/addressblock.py:105
 msgid "help_www"
@@ -184,6 +192,11 @@ msgstr "Geben Sie eine Internet Adresse an (inkl. http://, https://, etc.)"
 msgid "info_email_sent"
 msgstr "E-Mail wurde versendet."
 
+#. Default: "sort_index"
+#: ./ftw/contentpage/content/listingblock.py:116
+msgid "label_%ssort_index"
+msgstr ""
+
 #. Default: "Address"
 #: ./ftw/contentpage/content/addressblock.py:42
 msgid "label_address"
@@ -193,6 +206,11 @@ msgstr "Adresse"
 #: ./ftw/contentpage/content/addressblock.py:35
 msgid "label_addressTitle"
 msgstr "Adresstitel"
+
+#. Default: "Ascending"
+#: ./ftw/contentpage/content/listingblock.py:55
+msgid "label_ascending"
+msgstr "Aufsteigend"
 
 #. Default: "by ${author}"
 #: ./ftw/contentpage/browser/newslisting.pt:40
@@ -223,6 +241,11 @@ msgstr "Land"
 msgid "label_desc_length"
 msgstr "Länge der dargestellten Beschreibung"
 
+#. Default: "Descending"
+#: ./ftw/contentpage/content/listingblock.py:56
+msgid "label_descending"
+msgstr "Absteigend"
+
 #. Default: "Directions"
 #: ./ftw/contentpage/browser/address.pt:38
 #: ./ftw/contentpage/content/addressblock.py:135
@@ -244,23 +267,26 @@ msgstr "Zusätzliche Adresszeile"
 msgid "label_fax"
 msgstr "Fax"
 
+msgid "label_getContentType"
+msgstr "Typ"
+
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:50
+#: ./ftw/contentpage/content/textblock.py:53
 msgid "label_image"
 msgstr "Bild"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:77
+#: ./ftw/contentpage/content/textblock.py:80
 msgid "label_image_alt_text"
 msgstr "Alternativer Text"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:69
+#: ./ftw/contentpage/content/textblock.py:72
 msgid "label_image_caption"
 msgstr "Bildtitel"
 
 #. Default: "Image clickable"
-#: ./ftw/contentpage/content/textblock.py:58
+#: ./ftw/contentpage/content/textblock.py:61
 msgid "label_image_clickable"
 msgstr "Bild anklickbar"
 
@@ -283,6 +309,11 @@ msgstr "Öffnungszeiten"
 #: ./ftw/contentpage/content/addressblock.py:78
 msgid "label_phone"
 msgstr "Telefon"
+
+#. Default: "Position in Folder"
+#: ./ftw/contentpage/content/listingblock.py:118
+msgid "label_position_in_folder"
+msgstr "Ordnerreihenfolge"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:59
 msgid "label_quantity"
@@ -324,6 +355,19 @@ msgstr "Bild anzeigen"
 msgid "label_show_title"
 msgstr "Titel anzeigen?"
 
+#. Default: "Sort On"
+#: ./ftw/contentpage/content/listingblock.py:45
+msgid "label_sort_on"
+msgstr "Sortieren nach"
+
+#. Default: "Sort Order"
+#: ./ftw/contentpage/content/listingblock.py:58
+msgid "label_sort_order"
+msgstr "Sortierreihenfolge"
+
+msgid "label_sortable_title"
+msgstr "Titel"
+
 #. Default: "Subject"
 #: ./ftw/contentpage/browser/feedback.py:30
 msgid "label_subject"
@@ -334,12 +378,12 @@ msgid "label_subjects"
 msgstr "Stichworte"
 
 #. Default: "Team"
-#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:29
+#: ./ftw/contentpage/browser/addressblock_portlet_view.pt:28
 msgid "label_team"
 msgstr "Team"
 
 #. Default: "Text"
-#: ./ftw/contentpage/content/textblock.py:37
+#: ./ftw/contentpage/content/textblock.py:40
 msgid "label_text"
 msgstr "Text"
 
@@ -359,7 +403,7 @@ msgid "mail_address"
 msgstr "E-Mail"
 
 #. Default: "Read More…"
-#: ./ftw/contentpage/browser/newslisting.pt:59
+#: ./ftw/contentpage/browser/newslisting.pt:57
 msgid "read_more"
 msgstr "Weiterlesen..."
 
@@ -369,7 +413,7 @@ msgid "text_fax"
 msgstr "Fax ${num}"
 
 #. Default: "Text"
-#: ./ftw/contentpage/browser/newslisting.pt:65
+#: ./ftw/contentpage/browser/newslisting.pt:63
 msgid "text_not_content"
 msgstr "Keine Inhalte"
 
