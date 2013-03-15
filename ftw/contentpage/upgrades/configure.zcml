@@ -41,5 +41,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1002 -> 1003 -->
+    <genericsetup:upgradeStep
+        title="Add defaulttablecolumns key in registry"
+        description=""
+        source="1002"
+        destination="1003"
+        handler="ftw.contentpage.upgrades.to1003.AddRegistryEntry"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1003"
+        title="ftw.contentpage.upgrades.1003"
+        description=""
+        directory="profiles/1003"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
 </configure>
