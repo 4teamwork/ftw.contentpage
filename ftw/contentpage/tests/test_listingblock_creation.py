@@ -3,6 +3,7 @@ from plone.registry.interfaces import IRegistry
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from unittest2 import TestCase
 from zope.component import getUtility
+from zope.component import queryMultiAdapter
 from plone.registry import Record, field
 
 
@@ -75,9 +76,14 @@ class TestListingBlockCreation(TestCase):
 
         listingblock = self._create_listingblock()
 
-        self.assertIn(u'Creator', listingblock.getTableColumns())
-        self.assertIn(u'Title', listingblock.getTableColumns())
-        self.assertIn(u'BadColumn', listingblock.getTableColumns())
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name='block_view')
+
+        content = view.render_table()
+
+        self.assertIn(u'Creator', content)
+        self.assertIn(u'Title', content)
+        self.assertNotIn(u'BadColumn', content)
 
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()
