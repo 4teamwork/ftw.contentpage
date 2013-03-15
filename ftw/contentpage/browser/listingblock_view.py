@@ -58,7 +58,6 @@ class ListingBlockView(BrowserView):
         query = {}
         path = '/'.join(self.context.getPhysicalPath())
         query['path'] = {'query': path, 'depth': 1}
-        query['portal_type'] = self._get_addable_types()
         query['sort_on'] = self.context.getSortOn()
         query['sort_order'] = self.context.getSortOrder()
         return query
