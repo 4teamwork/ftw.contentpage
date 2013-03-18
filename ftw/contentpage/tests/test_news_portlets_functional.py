@@ -355,9 +355,9 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.assertEquals(
             renderer.archive_summary(),
-            [{'url': 'http://nohost/plone/archivefolder?archiv=2013/02/01',
+            [{'url': 'http://nohost/plone/archivefolder?archiv=2013/01/01',
               'number': 2,
-              'title': u'February 2013'},
+              'title': u'January 2013'},
              {'url': 'http://nohost/plone/archivefolder?archiv=2012/12/01',
               'number': 2,
               'title': u'December 2012'}])
