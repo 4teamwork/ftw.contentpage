@@ -9,7 +9,6 @@ import os
 import transaction
 
 
-
 class TestListingBlockViews(TestCase):
 
     layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
@@ -122,7 +121,6 @@ class TestListingBlockViews(TestCase):
 
         self.assertEquals(len(view.columns()), 5)
         self.assertEquals(len(columns), 3)
-
 
     def test_listing_block_filtered_wrong_column_name(self):
         listingblock = self._create_listingblock()

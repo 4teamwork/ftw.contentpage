@@ -80,8 +80,9 @@ class ListingBlock(folder.ATFolder):
         """
         registry = getUtility(IRegistry)
         return registry.get(
-            'ftw.contentpage.listingblock.defaulttablecolumns',)
-        
+            'ftw.contentpage.listingblock.defaulttablecolumns',
+            ('getContentType', 'Title', 'modified'))
+
     security.declarePrivate('getColumns')
     def getColumns(self):
         display_list = atapi.DisplayList()
