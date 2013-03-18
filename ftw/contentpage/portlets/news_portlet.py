@@ -75,6 +75,11 @@ class INewsPortlet(IPortletDataProvider):
     desc_length = schema.Int(title=_(u'label_desc_length'),
         default=50)
 
+    days = schema.Int(title=_(u'label_days', default="Days"),
+                      description=_(u'description_days',
+                                    default="Show news of the las x days."),
+                      default=0)
+
     @invariant
     def is_either_path_or_area(obj):
         """Checks if not both path and current area are defined.
@@ -83,6 +88,7 @@ class INewsPortlet(IPortletDataProvider):
             raise Invalid(
                 _(u'text_path_and_area',
                   default=u'You can not set a path and limit to context.'))
+
 
 class AddForm(form.AddForm):
     implements(IPortletAddForm)
