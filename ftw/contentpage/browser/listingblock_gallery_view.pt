@@ -3,7 +3,7 @@
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
 
     <div class="sl-text-wrapper">
-      <div class="gallery">
+      <div class="gallery clearfix">
         <div class="box" tal:repeat="img python:view.get_images()">
             <div class="frame sl-img-wrapper" tal:define="width python:str(view._get_box_boundaries()[0])+'px';
                                            height python:str(view._get_box_boundaries()[1])+'px'"
