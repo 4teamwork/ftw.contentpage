@@ -33,7 +33,7 @@
             <div tal:replace="structure view/address">Address</div>
           </div>
         </div>
-        <span class="visualClear">&nbsp;</span>
+        <div class="visualClear"><!-- --></div>
         
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
