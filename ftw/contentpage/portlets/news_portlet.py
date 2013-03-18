@@ -24,8 +24,8 @@ class INewsPortlet(IPortletDataProvider):
         default=u'')
 
     show_image = schema.Bool(title=_(u'label_show_image'),
-        required=True,
-        default=True)
+                             required=True,
+                             default=True)
 
     path = schema.List(
         title=_(u"Path"),
@@ -35,9 +35,9 @@ class INewsPortlet(IPortletDataProvider):
                 navigation_tree_query={
                     'is_folderish': True},
                 is_folderish=True),
-            ),
+        ),
         required=False,
-        )
+    )
 
     only_context = schema.Bool(title=_(u'label_only_context'),
                                description=_('help_only_context'),
@@ -52,28 +52,28 @@ class INewsPortlet(IPortletDataProvider):
                 navigation_tree_query={
                     'portal_type': 'ClassificationItem'},
                 portal_type='ClassificationItem'),
-            ),
+        ),
         required=False,
-        )
+    )
 
     quantity = schema.Int(title=_(u'label_quantity'),
                           default=5)
 
     subjects = schema.List(
         title=_(u'label_subjects'),
-            value_type=schema.Choice(
-                vocabulary='ftw.contentpage.subjects',
+        value_type=schema.Choice(
+            vocabulary='ftw.contentpage.subjects',
 
-            ),
+        ),
         required=False
-       )
+    )
 
     show_desc = schema.Bool(title=_(u'label_show_desc',
                                     default=u"Show Description"),
-        default=True)
+                            default=True)
 
     desc_length = schema.Int(title=_(u'label_desc_length'),
-        default=50)
+                             default=50)
 
     days = schema.Int(title=_(u'label_days', default="Days"),
                       description=_(u'description_days',
@@ -156,7 +156,7 @@ class AddForm(form.AddForm):
             subjects=data.get('subjects', []),
             show_desc=data.get('show_desc', False),
             desc_length=data.get('desc_length', 50)
-            )
+        )
 
 
 class Assignment(base.Assignment):
