@@ -30,7 +30,7 @@ schema = atapi.Schema((
         'tableColumns',
         schemata='default',
         required=True,
-        default=('getContentType', 'Title', 'modified'),
+        default_method="getDefaultTableColumns",
         vocabulary='getColumns',
         widget=atapi.InAndOutWidget(
         label=_(u'Columns',
@@ -98,6 +98,15 @@ class ListingBlock(folder.ATFolder):
     def getDefaultTitle(self):
         registry = getUtility(IRegistry)
         return registry.get('ftw.contentpage.listingblock.defaulttitle', '')
+
+    security.declarePrivate('getDefaultTableColumns')
+    def getDefaultTableColumns(self):
+        """ Returns the default table columns defined in registry.
+        """
+        registry = getUtility(IRegistry)
+        return registry.get(
+            'ftw.contentpage.listingblock.defaulttablecolumns',
+            ('getContentType', 'Title', 'modified'))
 
     security.declarePrivate('getColumns')
     def getColumns(self):

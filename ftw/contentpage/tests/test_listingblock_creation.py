@@ -3,6 +3,7 @@ from plone.registry.interfaces import IRegistry
 from simplelayout.base.interfaces import ISimpleLayoutBlock
 from unittest2 import TestCase
 from zope.component import getUtility
+from zope.component import queryMultiAdapter
 from plone.registry import Record, field
 
 
@@ -65,6 +66,24 @@ class TestListingBlockCreation(TestCase):
 
         listingblock = self._create_listingblock()
         self.assertEquals('Downloads', listingblock.Title())
+
+    def test_default_table_columns(self):
+        registry = getUtility(IRegistry)
+
+        registry.records[
+            'ftw.contentpage.listingblock.defaulttablecolumns'].value = \
+            (u'Creator', u'Title', u'BadColumn')
+
+        listingblock = self._create_listingblock()
+
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name='block_view')
+
+        content = view.render_table()
+
+        self.assertIn(u'Creator', content)
+        self.assertIn(u'Title', content)
+        self.assertNotIn(u'BadColumn', content)
 
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()

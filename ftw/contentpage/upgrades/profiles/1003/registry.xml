@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+    <record name="ftw.contentpage.listingblock.defaulttablecolumns">
+        <field type="plone.registry.field.Tuple">
+            <title>Default table columns</title>
+            <required>True</required>
+			<value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>
+	        <element>getContentType</element>
+	        <element>Title</element>
+	        <element>modified</element>
+		</value>
+    </record>
+</registry>
