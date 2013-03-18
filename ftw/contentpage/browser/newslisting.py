@@ -7,16 +7,16 @@ from zope.publisher.browser import BrowserView
 
 
 def extend_query_by_date(query, datestring):
-        try:
-            start = DateTime(datestring)
-        except dtSytaxError:
-            return
-        end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
-                                     start.month() % 12 + 1, 1))
-        end = end - 1
-        query['effective'] = {'query': (start.earliestTime(),
-                                        end.latestTime()),
-                              'range': 'minmax'}
+    try:
+        start = DateTime(datestring)
+    except dtSytaxError:
+        return
+    end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
+                                 start.month() % 12 + 1, 1))
+    end = end - 1
+    query['effective'] = {'query': (start.earliestTime(),
+                                    end.latestTime()),
+                          'range': 'minmax'}
 
 
 class NewsListing(BrowserView):
