@@ -1,5 +1,8 @@
 from DateTime import DateTime
-from ftw.contentpage.portlets.news_portlet import Assignment, Renderer
+from ftw.contentpage.portlets.news_portlet import Assignment as NewsAssignment
+from ftw.contentpage.portlets.news_portlet import Renderer as NewsRenderer
+from ftw.contentpage.portlets.news_archive_portlet import Assignment
+from ftw.contentpage.portlets.news_archive_portlet import Renderer
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.portlets.interfaces import IPortletManager
@@ -294,22 +297,67 @@ class TestNewsPortlets(unittest.TestCase):
 
     def test_days_no_filter(self):
         context = self.portal
-        portlet = Assignment(days=0, only_context=False)
+        portlet = NewsAssignment(days=0, only_context=False)
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
-        renderer = Renderer(context, context.REQUEST, BrowserView,
-                            manager, portlet)
+        renderer = NewsRenderer(context, context.REQUEST, BrowserView,
+                                manager, portlet)
         self.assertEquals(len(renderer.get_news()), 4, 'Expect all 4 news')
 
     def test_days_filter(self):
         context = self.portal
-        portlet = Assignment(days=5, only_context=False)
+        portlet = NewsAssignment(days=5, only_context=False)
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
-        renderer = Renderer(context, context.REQUEST, BrowserView,
-                            manager, portlet)
+        renderer = NewsRenderer(context, context.REQUEST, BrowserView,
+                                manager, portlet)
 
         self.assertEquals(len(renderer.get_news()), 2, 'Expect 2 news')
 
-        portlet = Assignment(days=28, only_context=False)
-        renderer = Renderer(context, context.REQUEST, BrowserView,
-                            manager, portlet)
+        portlet = NewsAssignment(days=28, only_context=False)
+        renderer = NewsRenderer(context, context.REQUEST, BrowserView,
+                                manager, portlet)
         self.assertEquals(len(renderer.get_news()), 3, 'Expect 3 news')
+
+    def test_archive_portlet_empty(self):
+        # Separate test for the archive portlet, because we need static dates
+        archivefolder = self.portal.get(self.portal.invokeFactory(
+                'NewsFolder', 'archivefolder', title="Archive Test"))
+
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        portlet = Assignment()
+        renderer = Renderer(archivefolder, archivefolder.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertFalse(renderer.available,
+                         'Did no expect an archive portlet')
+
+    def test_archive_portlet(self):
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+
+        archivefolder = self.portal.get(self.portal.invokeFactory(
+                'NewsFolder', 'archivefolder', title="Archive Test"))
+
+        archivefolder.invokeFactory(
+            'News', 'news1', effectiveDate=DateTime('2013/01/20'))
+        archivefolder.invokeFactory(
+            'News', 'news2',
+            effectiveDate=DateTime('2013/01/21'))
+        archivefolder.invokeFactory(
+            'News', 'news3', effectiveDate=DateTime('2012/12/20'))
+        archivefolder.invokeFactory(
+            'News', 'news4', effectiveDate=DateTime('2012/12/21'))
+
+        portlet = Assignment()
+        renderer = Renderer(archivefolder, archivefolder.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertTrue(renderer.available,
+                        'There should be an archive portlet')
+
+        self.assertEquals(
+            renderer.archive_summary(),
+            [{'url': 'http://nohost/plone/archivefolder?archiv=2013/02/01',
+              'number': 2,
+              'title': u'February 2013'},
+             {'url': 'http://nohost/plone/archivefolder?archiv=2012/12/01',
+              'number': 2,
+              'title': u'December 2012'}])

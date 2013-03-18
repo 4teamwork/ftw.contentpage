@@ -16,4 +16,13 @@
          editview=".news_portlet.EditForm"
          />
 
+     <plone:portlet
+         name="newsarchiveportlet"
+         interface=".news_archive_portlet.INewsArchivePortlet"
+         assignment=".news_archive_portlet.Assignment"
+         view_permission="zope2.View"
+         renderer=".news_archive_portlet.Renderer"
+         addview=".news_archive_portlet.AddForm"
+         />
+
 </configure>

@@ -6,4 +6,10 @@
    title="News Portlet"
    description=""
    />
+
+ <portlet
+   addview="newsarchiveportlet"
+   title="News Archive Portlet"
+   description=""
+   />
 </portlets>
