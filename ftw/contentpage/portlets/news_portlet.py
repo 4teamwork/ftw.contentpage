@@ -1,4 +1,6 @@
 from Acquisition import aq_parent, aq_inner
+from DateTime import DateTime
+from ftw.contentpage import _
 from plone.app.portlets.browser.interfaces import IPortletAddForm
 from plone.app.portlets.browser.interfaces import IPortletEditForm
 from plone.app.portlets.interfaces import IPortletPermissionChecker
@@ -8,7 +10,6 @@ from plone.formwidget.contenttree import PathSourceBinder
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.contentpage import _
 from z3c.form import form, button, field, interfaces
 from zope import schema
 from zope.component import getMultiAdapter
@@ -78,7 +79,8 @@ class INewsPortlet(IPortletDataProvider):
     days = schema.Int(title=_(u'label_days', default="Days"),
                       description=_(u'description_days',
                                     default="Show news of the las x days."),
-                      default=0)
+                      default=0,
+                      required=True)
 
     @invariant
     def is_either_path_or_area(obj):
@@ -155,7 +157,8 @@ class AddForm(form.AddForm):
             path=data.get('path', []),
             subjects=data.get('subjects', []),
             show_desc=data.get('show_desc', False),
-            desc_length=data.get('desc_length', 50)
+            desc_length=data.get('desc_length', 50),
+            days=data.get('days', 0)
         )
 
 
@@ -164,7 +167,8 @@ class Assignment(base.Assignment):
 
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=None,
-                 path=None, subjects=None, show_desc=False, desc_length=50):
+                 path=None, subjects=None, show_desc=False, desc_length=50,
+                 days=0):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -174,6 +178,7 @@ class Assignment(base.Assignment):
         self.subjects = subjects or []
         self.show_desc = show_desc
         self.desc_length = desc_length
+        self.days = days
 
     @property
     def title(self):
@@ -226,6 +231,10 @@ class Renderer(base.Renderer):
 
         if self.data.subjects:
             query['Subject'] = self.data.subjects
+
+        if self.data.days > 0:
+            date = DateTime() - self.data.days
+            query['effective'] = {'query': date, 'range': 'min'}
 
         query['sort_on'] = 'effective'
         query['sort_order'] = 'descending'

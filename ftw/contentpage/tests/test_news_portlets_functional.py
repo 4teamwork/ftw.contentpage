@@ -1,11 +1,16 @@
-import unittest2 as unittest
+from DateTime import DateTime
+from ftw.contentpage.portlets.news_portlet import Assignment, Renderer
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-import transaction
-from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
-import os
-from Products.CMFCore.utils import getToolByName
+from plone.portlets.interfaces import IPortletManager
+from plone.testing.z2 import Browser
 from Products.CMFCore.TypesTool import FactoryTypeInformation
+from Products.CMFCore.utils import getToolByName
+from Products.Five.browser import BrowserView
+from zope.component import getUtility
+import os
+import transaction
+import unittest2 as unittest
 
 
 class TestNewsPortlets(unittest.TestCase):
@@ -35,10 +40,17 @@ class TestNewsPortlets(unittest.TestCase):
             'news1',
             description="This Description must be longer than 50 chars"
             " so we are able to test if it will be croped",
-            image=open("%s/dummy.png" % os.path.split(__file__)[0], 'r'))
-        self.newsfolder1.invokeFactory('News', 'news2')
-        self.newsfolder2.invokeFactory('News', 'news3')
-        self.newsfolder2.invokeFactory('News', 'news4')
+            image=open("%s/dummy.png" % os.path.split(__file__)[0], 'r'),
+            effectiveDate=DateTime() - 1)  # Yesterday
+        self.newsfolder1.invokeFactory(
+            'News', 'news2',
+            effectiveDate=DateTime() - 15)  # Few days ago
+        self.newsfolder2.invokeFactory(
+            'News', 'news3',
+            effectiveDate=DateTime() - 100)  # Old News
+        self.newsfolder2.invokeFactory(
+            'News', 'news4',
+            effectiveDate=DateTime() + 5)  # Further news
         transaction.commit()
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
                 TEST_USER_NAME, TEST_USER_PASSWORD, ))
@@ -65,8 +77,6 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.assertIn('You can not set a path and limit to context.',
                       self.browser.contents)
-
-
 
     def test_create_portlet_only_context(self):
         self.browser.open(
@@ -281,3 +291,25 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.getControl(name="form.buttons.add").click()
         self.assertIn('<div class="error">Required input is missing.</div>',
                       self.browser.contents)
+
+    def test_days_no_filter(self):
+        context = self.portal
+        portlet = Assignment(days=0, only_context=False)
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        renderer = Renderer(context, context.REQUEST, BrowserView,
+                            manager, portlet)
+        self.assertEquals(len(renderer.get_news()), 4, 'Expect all 4 news')
+
+    def test_days_filter(self):
+        context = self.portal
+        portlet = Assignment(days=5, only_context=False)
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        renderer = Renderer(context, context.REQUEST, BrowserView,
+                            manager, portlet)
+
+        self.assertEquals(len(renderer.get_news()), 2, 'Expect 2 news')
+
+        portlet = Assignment(days=28, only_context=False)
+        renderer = Renderer(context, context.REQUEST, BrowserView,
+                            manager, portlet)
+        self.assertEquals(len(renderer.get_news()), 3, 'Expect 3 news')
