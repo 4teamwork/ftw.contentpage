@@ -357,7 +357,9 @@ class TestNewsPortlets(unittest.TestCase):
             renderer.archive_summary(),
             [{'url': 'http://nohost/plone/archivefolder?archiv=2013/01/01',
               'number': 2,
+              'mark': False,
               'title': u'January 2013'},
              {'url': 'http://nohost/plone/archivefolder?archiv=2012/12/01',
               'number': 2,
+              'mark': False,
               'title': u'December 2012'}])
