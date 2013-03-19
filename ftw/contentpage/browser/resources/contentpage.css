@@ -43,3 +43,10 @@
   padding: 1em 1em 1em 0;
 }
 /* @end */
+
+
+/* @group archive portlet */
+.portletArchiveNews .highlight a {
+  font-weight: bold;
+}
+/* @end */

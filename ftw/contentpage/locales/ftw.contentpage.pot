@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-15 14:17+0000\n"
+"POT-Creation-Date: 2013-03-18 13:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.contentpage\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:89
+#: ./ftw/contentpage/portlets/news_portlet.py:95
 msgid "Add News Portlet"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:90
+#: ./ftw/contentpage/portlets/news_portlet.py:96
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -135,6 +135,11 @@ msgstr ""
 #. Default: "Open times"
 #: ./ftw/contentpage/browser/addressblock_portlet_view.pt:16
 msgid "contactportlet_open_times"
+msgstr ""
+
+#. Default: "Show news of the las x days."
+#: ./ftw/contentpage/portlets/news_portlet.py:79
+msgid "description_days"
 msgstr ""
 
 #. Default: "Enter an alternative text for the image"
@@ -195,7 +200,7 @@ msgid "info_email_sent"
 msgstr ""
 
 #. Default: "sort_index"
-#: ./ftw/contentpage/content/listingblock.py:116
+#: ./ftw/contentpage/content/listingblock.py:125
 msgid "label_%ssort_index"
 msgstr ""
 
@@ -220,7 +225,7 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:121
+#: ./ftw/contentpage/portlets/news_portlet.py:127
 msgid "label_cancel"
 msgstr ""
 
@@ -237,6 +242,11 @@ msgstr ""
 #. Default: "Country"
 #: ./ftw/contentpage/content/addressblock.py:71
 msgid "label_country"
+msgstr ""
+
+#. Default: "Days"
+#: ./ftw/contentpage/portlets/news_portlet.py:78
+msgid "label_days"
 msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:75
@@ -313,7 +323,7 @@ msgid "label_phone"
 msgstr ""
 
 #. Default: "Position in Folder"
-#: ./ftw/contentpage/content/listingblock.py:118
+#: ./ftw/contentpage/content/listingblock.py:127
 msgid "label_position_in_folder"
 msgstr ""
 
@@ -327,7 +337,7 @@ msgid "label_readmore"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:110
+#: ./ftw/contentpage/portlets/news_portlet.py:116
 msgid "label_save"
 msgstr ""
 
@@ -420,7 +430,7 @@ msgid "text_not_content"
 msgstr ""
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:84
+#: ./ftw/contentpage/portlets/news_portlet.py:89
 msgid "text_path_and_area"
 msgstr ""
 

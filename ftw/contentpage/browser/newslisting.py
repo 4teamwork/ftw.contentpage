@@ -1,7 +1,22 @@
-from Products.CMFPlone.PloneBatch import Batch
-from zope.publisher.browser import BrowserView
+from DateTime import DateTime
+from DateTime.interfaces import SyntaxError as dtSytaxError
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.publisher.browser import BrowserView
+
+
+def extend_query_by_date(query, datestring):
+    try:
+        start = DateTime(datestring)
+    except dtSytaxError:
+        return
+    end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
+                                 start.month() % 12 + 1, 1))
+    end = end - 1
+    query['effective'] = {'query': (start.earliestTime(),
+                                    end.latestTime()),
+                          'range': 'minmax'}
 
 
 class NewsListing(BrowserView):
@@ -10,7 +25,7 @@ class NewsListing(BrowserView):
     template_rss = ViewPageTemplateFile('newslisting_rss.pt')
 
     def __call__(self):
-        b_start = self.request.form.get('b_start',0)
+        b_start = self.request.form.get('b_start', 0)
         self.batch = Batch(self.get_news(), 10,
                            b_start)
         if self.__name__ == 'news_rss_listing':
@@ -38,6 +53,11 @@ class NewsListing(BrowserView):
         query['portal_type'] = 'News'
         query['sort_on'] = 'effective'
         query['sort_order'] = 'reverse'
+
+        # Implement archive functionality - used by the archive portlet
+        datestring = self.request.form.get('archiv')
+        if datestring:
+            extend_query_by_date(query, datestring)
 
         if ct == 'Topic':
             return context.queryCatalog()

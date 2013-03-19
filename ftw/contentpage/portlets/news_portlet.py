@@ -1,4 +1,6 @@
 from Acquisition import aq_parent, aq_inner
+from DateTime import DateTime
+from ftw.contentpage import _
 from plone.app.portlets.browser.interfaces import IPortletAddForm
 from plone.app.portlets.browser.interfaces import IPortletEditForm
 from plone.app.portlets.interfaces import IPortletPermissionChecker
@@ -8,7 +10,6 @@ from plone.formwidget.contenttree import PathSourceBinder
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.contentpage import _
 from z3c.form import form, button, field, interfaces
 from zope import schema
 from zope.component import getMultiAdapter
@@ -24,8 +25,8 @@ class INewsPortlet(IPortletDataProvider):
         default=u'')
 
     show_image = schema.Bool(title=_(u'label_show_image'),
-        required=True,
-        default=True)
+                             required=True,
+                             default=True)
 
     path = schema.List(
         title=_(u"Path"),
@@ -35,9 +36,9 @@ class INewsPortlet(IPortletDataProvider):
                 navigation_tree_query={
                     'is_folderish': True},
                 is_folderish=True),
-            ),
+        ),
         required=False,
-        )
+    )
 
     only_context = schema.Bool(title=_(u'label_only_context'),
                                description=_('help_only_context'),
@@ -52,28 +53,34 @@ class INewsPortlet(IPortletDataProvider):
                 navigation_tree_query={
                     'portal_type': 'ClassificationItem'},
                 portal_type='ClassificationItem'),
-            ),
+        ),
         required=False,
-        )
+    )
 
     quantity = schema.Int(title=_(u'label_quantity'),
                           default=5)
 
     subjects = schema.List(
         title=_(u'label_subjects'),
-            value_type=schema.Choice(
-                vocabulary='ftw.contentpage.subjects',
+        value_type=schema.Choice(
+            vocabulary='ftw.contentpage.subjects',
 
-            ),
+        ),
         required=False
-       )
+    )
 
     show_desc = schema.Bool(title=_(u'label_show_desc',
                                     default=u"Show Description"),
-        default=True)
+                            default=True)
 
     desc_length = schema.Int(title=_(u'label_desc_length'),
-        default=50)
+                             default=50)
+
+    days = schema.Int(title=_(u'label_days', default="Days"),
+                      description=_(u'description_days',
+                                    default="Show news of the las x days."),
+                      default=0,
+                      required=True)
 
     @invariant
     def is_either_path_or_area(obj):
@@ -83,6 +90,7 @@ class INewsPortlet(IPortletDataProvider):
             raise Invalid(
                 _(u'text_path_and_area',
                   default=u'You can not set a path and limit to context.'))
+
 
 class AddForm(form.AddForm):
     implements(IPortletAddForm)
@@ -149,8 +157,9 @@ class AddForm(form.AddForm):
             path=data.get('path', []),
             subjects=data.get('subjects', []),
             show_desc=data.get('show_desc', False),
-            desc_length=data.get('desc_length', 50)
-            )
+            desc_length=data.get('desc_length', 50),
+            days=data.get('days', 0)
+        )
 
 
 class Assignment(base.Assignment):
@@ -158,7 +167,8 @@ class Assignment(base.Assignment):
 
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=None,
-                 path=None, subjects=None, show_desc=False, desc_length=50):
+                 path=None, subjects=None, show_desc=False, desc_length=50,
+                 days=0):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -168,6 +178,7 @@ class Assignment(base.Assignment):
         self.subjects = subjects or []
         self.show_desc = show_desc
         self.desc_length = desc_length
+        self.days = days
 
     @property
     def title(self):
@@ -220,6 +231,10 @@ class Renderer(base.Renderer):
 
         if self.data.subjects:
             query['Subject'] = self.data.subjects
+
+        if self.data.days > 0:
+            date = DateTime() - self.data.days
+            query['effective'] = {'query': date, 'range': 'min'}
 
         query['sort_on'] = 'effective'
         query['sort_order'] = 'descending'

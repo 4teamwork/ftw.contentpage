@@ -1,0 +1,28 @@
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    tal:omit-tag="python: True"
+    i18n:domain="ftw.contentpage">
+
+    <div class="portletWrapper">
+        <dl class="portlet portletArchiveNews">
+
+            <dt class="portletHeader">
+                <span i18n:translate="">
+                    Archive
+                </span>
+            </dt>
+
+            <dd class="portletItem">
+                <ul>
+                    <li tal:repeat="item view/archive_summary" tal:attributes="class python:item['mark'] and 'highlight' or ''">
+                        <a tal:attributes="href item/url;
+title item/title"
+                           tal:content="python: '%s (%s)' % (item['title'], item['number'])" i18n:translate=""/>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</html>
