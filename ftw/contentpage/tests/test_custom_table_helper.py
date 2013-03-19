@@ -12,10 +12,12 @@ class TestCustomTableHelper(MockTestCase):
 
         self.brain = self.stub()
         self.expect(self.brain.getURL()).result('/brain/url')
+        self.expect(self.brain.Description).result('Description')
 
     def test_download_link(self):
         self.replay()
         # Only test if download is appended to the url
         self.assertIn(
-            '<a href="%s/download">Title</a>' % self.brain.getURL(),
-            download_link(icon=False)(self.brain, 'Title'))
+            '<a href="%s/download" title="Description">'
+            'Title</a>' % self.brain.getURL(),
+                download_link(icon=False)(self.brain, 'Title'))
