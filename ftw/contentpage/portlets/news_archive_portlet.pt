@@ -6,7 +6,7 @@
     i18n:domain="ftw.contentpage">
 
     <div class="portletWrapper">
-        <dl class="portlet portletBlogArchive">
+        <dl class="portlet portletArchiveNews">
 
             <dt class="portletHeader">
                 <span i18n:translate="">
@@ -16,7 +16,7 @@
 
             <dd class="portletItem">
                 <ul>
-                    <li tal:repeat="item view/archive_summary">
+                    <li tal:repeat="item view/archive_summary" tal:attributes="class python:item['mark'] and 'highlight' or ''">
                         <a tal:attributes="href item/url;
 title item/title"
                            tal:content="python: '%s (%s)' % (item['title'], item['number'])" i18n:translate=""/>

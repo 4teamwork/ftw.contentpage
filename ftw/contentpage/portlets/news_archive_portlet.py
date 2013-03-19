@@ -62,8 +62,8 @@ class Renderer(base.Renderer):
         query['portal_type'] = 'News'
 
         archive_counts = {}
-        blog_entries = catalog(**query)
-        for entry in blog_entries:
+        entries = catalog(**query)
+        for entry in entries:
             year_month = entry.effective.strftime('%Y/%m')
             if year_month in archive_counts:
                 archive_counts[year_month] += 1
@@ -74,11 +74,12 @@ class Renderer(base.Renderer):
         ac_keys = archive_counts.keys()
         ac_keys.sort(reverse=True)
         for year_month in ac_keys:
+            date = '%s/01' % year_month
             archive_summary.append(dict(
                 title=self.zLocalizedTime(DateTime('%s/01' % year_month)),
                 number=archive_counts[year_month],
-                url='%s?archiv=%s/01' % (self.context.absolute_url(),
-                                         year_month),
+                url='%s?archiv=%s' % (self.context.absolute_url(), date),
+                mark=self.request.get('archiv') == date,
             ))
         return archive_summary
 
