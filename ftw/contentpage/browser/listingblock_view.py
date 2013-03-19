@@ -13,6 +13,7 @@ def download_link(icon=True, classes=None, attrs=None, icon_only=False):
         url = '%s/download' % item.getURL()
         attrs = {}
         attrs['href'] = url
+        attrs['title'] = item.Description
         return helper.linked(item, value, show_icon=icon,
                            attrs=attrs, icon_only=icon_only)
     return _helper
