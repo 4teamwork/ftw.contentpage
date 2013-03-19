@@ -68,12 +68,14 @@ class TestListingBlockViews(TestCase):
         dummy.filename = 'dummy.pdf'
         _file.setFile(dummy)
         _file.setTitle("Dummy PDF")
+        _file.setDescription('Dummy description')
         _file.processForm()
 
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
                                  name='block_view')
         self.assertIn("Dummy PDF", view.render_table())
         self.assertIn("pdf.png", view.render_table())
+        self.assertIn("Dummy description", view.render_table())
 
     def test_custom_table_template(self):
         listingblock = self._create_listingblock()
