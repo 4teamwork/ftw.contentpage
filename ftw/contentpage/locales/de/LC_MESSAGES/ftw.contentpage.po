@@ -138,7 +138,7 @@ msgstr "Öffnungszeiten"
 #. Default: "Show news of the las x days."
 #: ./ftw/contentpage/portlets/news_portlet.py:79
 msgid "description_days"
-msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschrenkung."
+msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschränkung."
 
 #. Default: "Enter an alternative text for the image"
 #: ./ftw/contentpage/content/textblock.py:82
