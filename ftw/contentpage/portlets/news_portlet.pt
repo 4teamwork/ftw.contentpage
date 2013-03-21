@@ -7,10 +7,11 @@
     </dt>
     <tal:loop tal:repeat="brain view/get_news">
         <dd class="portletItem"
-            tal:define="oddrow repeat/brain/odd"
-            tal:attributes="class python:'%s' %
-                                oddrow and 'portletItem even' or 'portletItem odd'">
-
+            tal:define="oddrow repeat/brain/odd;
+                        lastrow repeat/brain/_last"
+            tal:attributes="class python:'%s%s' % (
+                            lastrow and 'lastItem ' or '',
+                            oddrow and 'portletItem even' or 'portletItem odd')">
             <div class="newsText">
                     <div class="portletItemDate"
                           tal:content="python:toLocalizedTime(brain.effective)" />
