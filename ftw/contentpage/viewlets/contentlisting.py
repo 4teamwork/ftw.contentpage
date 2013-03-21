@@ -13,6 +13,7 @@ class ContentListingViewlet(ViewletBase):
     @instance.memoize
     def get_content(self):
         query = {
+            'sort_on': 'sortable_title',
             'object_provides': 'ftw.contentpage.interfaces.ICategorizable'}
         contents = self.context.getFolderContents(contentFilter=query,
                                                   full_objects=True)
