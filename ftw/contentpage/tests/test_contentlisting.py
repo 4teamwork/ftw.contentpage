@@ -112,19 +112,41 @@ class TestContentListing(TestCase):
 
         viewlet = self._get_viewlet()[0]
         self.assertTrue(viewlet.available())
-        self.assertEquals(
-            viewlet.get_content(),
-            [('\xc3\xa4u\xc3\xa4',
+
+        self.assertIn(
+            ('\xc3\xa4u\xc3\xa4',
                 [('Subpage', subpage.absolute_url(), 'SubpageDescription')]),
-             ('DEMO2',
+            viewlet.get_content())
+
+        self.assertIn(
+            ('DEMO2',
                 [('Subpage2', subpage2.absolute_url(), 'Subpage2'),
-                 ('Subpage3', subpage3.absolute_url(), 'OtherDescription')])])
+                 ('Subpage3', subpage3.absolute_url(), 'OtherDescription')]),
+            viewlet.get_content())
+
         transaction.commit()
+
         self._auth()
         self.browser.open(self.contentpage.absolute_url())
         self.assertIn('\xc3\xa4u\xc3\xa4', self.browser.contents)
         self.assertIn('DEMO2', self.browser.contents)
         self.assertIn('subelements-listing-element', self.browser.contents)
+
+    def test_sort_order(self):
+
+        self.contentpage.get(
+            self.contentpage.invokeFactory('ContentPage', 'page1', title="AB",
+                content_categories="CONTENT")).processForm()
+        self.contentpage.get(
+            self.contentpage.invokeFactory('ContentPage', 'page2', title="ZZ",
+                content_categories="CONTENT")).processForm()
+        self.contentpage.get(
+            self.contentpage.invokeFactory('ContentPage', 'page3', title="aa",
+                content_categories="CONTENT")).processForm()
+
+        viewlet = self._get_viewlet()[0]
+        self.assertEquals([item[0] for item in viewlet.get_content()[0][1]],
+            ['aa', 'AB', 'ZZ'])
 
     def tearDown(self):
         super(TestContentListing, self).tearDown()

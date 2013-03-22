@@ -13,6 +13,7 @@ class ContentListingViewlet(ViewletBase):
     @instance.memoize
     def get_content(self):
         query = {
+            'sort_on': 'sortable_title',
             'object_provides': 'ftw.contentpage.interfaces.ICategorizable'}
         contents = self.context.getFolderContents(contentFilter=query,
                                                   full_objects=True)
@@ -32,7 +33,4 @@ class ContentListingViewlet(ViewletBase):
                                        obj.absolute_url(),
                                        obj.Description() or obj.title_or_id()))
 
-        for value in resultmap.values():
-            value.sort()
-        # Return result sorted by title_or_id
-        return sorted(resultmap.items(), key=lambda item: item[1][0])
+        return resultmap.items()
