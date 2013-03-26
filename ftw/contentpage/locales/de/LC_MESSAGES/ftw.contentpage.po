@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-18 13:41+0000\n"
+"POT-Creation-Date: 2013-03-26 07:27+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:95
+#: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "Add News Portlet"
 msgstr "News Portlet Hinzufügen"
 
@@ -20,7 +20,11 @@ msgstr "News Portlet Hinzufügen"
 msgid "AddressBlock"
 msgstr "Adressenblock"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:48
+#: ./ftw/contentpage/portlets/news_archive_portlet.pt:12
+msgid "Archive"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:49
 msgid "Classification Items"
 msgstr "Themen"
 
@@ -53,7 +57,7 @@ msgstr "Auflistungsblock"
 msgid "NewsFolder"
 msgstr "Newsordner"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:31
+#: ./ftw/contentpage/portlets/news_portlet.py:32
 msgid "Path"
 msgstr "Pfad"
 
@@ -76,11 +80,11 @@ msgstr "Name"
 msgid "TextBlock"
 msgstr "Textblock"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:96
+#: ./ftw/contentpage/portlets/news_portlet.py:98
 msgid "This Portlet displays News"
 msgstr "Ein Portlet um News darzustellen."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:21
+#: ./ftw/contentpage/portlets/news_portlet.py:22
 msgid "Title"
 msgstr "Titel"
 
@@ -96,27 +100,27 @@ msgid "button_cancel"
 msgstr "Abbrechen"
 
 #. Default: "creater"
-#: ./ftw/contentpage/browser/listingblock_view.py:47
+#: ./ftw/contentpage/browser/listingblock_view.py:49
 msgid "column_creater"
 msgstr "Ersteller"
 
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:42
+#: ./ftw/contentpage/browser/listingblock_view.py:43
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "size"
-#: ./ftw/contentpage/browser/listingblock_view.py:52
+#: ./ftw/contentpage/browser/listingblock_view.py:54
 msgid "column_size"
 msgstr "Grösse"
 
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:37
+#: ./ftw/contentpage/browser/listingblock_view.py:38
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/contentpage/browser/listingblock_view.py:32
+#: ./ftw/contentpage/browser/listingblock_view.py:33
 msgid "column_type"
 msgstr "Typ"
 
@@ -136,7 +140,7 @@ msgid "contactportlet_open_times"
 msgstr "Öffnungszeiten"
 
 #. Default: "Show news of the las x days."
-#: ./ftw/contentpage/portlets/news_portlet.py:79
+#: ./ftw/contentpage/portlets/news_portlet.py:80
 msgid "description_days"
 msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschränkung."
 
@@ -163,7 +167,7 @@ msgstr "So finden Sie uns"
 msgid "help_fax"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:43
+#: ./ftw/contentpage/portlets/news_portlet.py:44
 msgid "help_only_context"
 msgstr "Wenn Ausgewählt, werden nur noch News aus dem Kontext des Benutzers dargestellt"
 
@@ -223,7 +227,7 @@ msgid "label_by_author"
 msgstr "von ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:127
+#: ./ftw/contentpage/portlets/news_portlet.py:129
 msgid "label_cancel"
 msgstr "Abbrechen"
 
@@ -243,11 +247,11 @@ msgid "label_country"
 msgstr "Land"
 
 #. Default: "Days"
-#: ./ftw/contentpage/portlets/news_portlet.py:78
+#: ./ftw/contentpage/portlets/news_portlet.py:79
 msgid "label_days"
 msgstr "Anzahl Tage"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:75
+#: ./ftw/contentpage/portlets/news_portlet.py:76
 msgid "label_desc_length"
 msgstr "Länge der dargestellten Beschreibung"
 
@@ -305,7 +309,10 @@ msgstr "Bild anklickbar"
 msgid "label_message"
 msgstr "Nachricht"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:42
+msgid "label_modified"
+msgstr "Bearbeitungsdatum"
+
+#: ./ftw/contentpage/portlets/news_portlet.py:43
 msgid "label_only_context"
 msgstr "Nur in diesem Bereich"
 
@@ -325,17 +332,17 @@ msgstr "Telefon"
 msgid "label_position_in_folder"
 msgstr "Ordnerreihenfolge"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:59
+#: ./ftw/contentpage/portlets/news_portlet.py:60
 msgid "label_quantity"
 msgstr "Anzahl"
 
 #. Default: "Read more"
-#: ./ftw/contentpage/portlets/news_portlet.pt:28
+#: ./ftw/contentpage/portlets/news_portlet.pt:29
 msgid "label_readmore"
 msgstr "Weiterlesen"
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:116
+#: ./ftw/contentpage/portlets/news_portlet.py:118
 msgid "label_save"
 msgstr "Speichern"
 
@@ -350,11 +357,11 @@ msgid "label_showOpeningHours"
 msgstr "Öffnungszeiten anzeigen"
 
 #. Default: "Show Description"
-#: ./ftw/contentpage/portlets/news_portlet.py:71
+#: ./ftw/contentpage/portlets/news_portlet.py:72
 msgid "label_show_desc"
 msgstr "Beschreibung anzeigen"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:26
+#: ./ftw/contentpage/portlets/news_portlet.py:27
 msgid "label_show_image"
 msgstr "Bild anzeigen"
 
@@ -383,7 +390,7 @@ msgstr "Titel"
 msgid "label_subject"
 msgstr "Betreff"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:63
+#: ./ftw/contentpage/portlets/news_portlet.py:64
 msgid "label_subjects"
 msgstr "Stichworte"
 
@@ -428,7 +435,7 @@ msgid "text_not_content"
 msgstr "Keine Inhalte"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:89
+#: ./ftw/contentpage/portlets/news_portlet.py:91
 msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 

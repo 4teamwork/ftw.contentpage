@@ -41,6 +41,7 @@ class ListingBlockView(BrowserView):
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
+             'sort_index': 'modified',
              'transform': helper.readable_date,
              },
 
