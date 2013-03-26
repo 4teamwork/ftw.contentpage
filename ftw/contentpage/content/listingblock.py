@@ -52,8 +52,8 @@ schema = atapi.Schema((
         'sortOrder',
         required=True,
         default="asc",
-        vocabulary=[('asc', _(u'label_ascending', default=u'Ascending')),
-                    ('desc', _(u'label_descending', default=u'Descending'))],
+        vocabulary=[('ascending', _(u'label_ascending', default=u'Ascending')),
+                    ('descending', _(u'label_descending', default=u'Descending'))],
         widget=atapi.SelectionWidget(
             label=_(u'label_sort_order', default=u'Sort Order'),
             description=_(u'help_sort_order', default=u''),
