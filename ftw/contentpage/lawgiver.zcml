@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:lawgiver="http://namespaces.zope.org/lawgiver"
+    i18n_domain="ftw.contentpage">
+
+    <include package="ftw.lawgiver" file="meta.zcml" />
+
+    <lawgiver:map_permissions
+        action_group="add"
+        permissions="ftw.contentpage: Add ContentPage,
+                     ftw.contentpage: Add News,
+                     ftw.contentpage: Add NewsFolder"
+        />
+
+
+    <lawgiver:map_permissions
+        action_group="edit"
+        permissions="ftw.contentpage: Add AddressBlock,
+                     ftw.contentpage: Add ListingBlock,
+                     ftw.contentpage: Add TextBlock"
+        />
+
+
+</configure>

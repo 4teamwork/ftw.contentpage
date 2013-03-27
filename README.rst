@@ -61,6 +61,12 @@ So the layout has the following structure:
 This way it's possible to display content below the content listing viewlet (by drag'n'drop)
 
 
+**ftw.lawgiver support**
+
+``ftw.contentpage`` supports ``ftw.lawgiver``
+
+Check: https://github.com/4teamwork/ftw.lawgiver
+
 
 Links
 =====
