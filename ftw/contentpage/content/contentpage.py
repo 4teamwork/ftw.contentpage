@@ -2,6 +2,7 @@ from AccessControl import ClassSecurityInfo
 from ftw.contentpage.config import PROJECTNAME
 from ftw.contentpage.interfaces import ICategorizable
 from ftw.contentpage.interfaces import IContentPage
+from ftw.contentpage.content.textblock import image_schema
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from simplelayout.base.interfaces import IAdditionalListingEnabled
@@ -18,7 +19,7 @@ else:
     from Products.Archetypes import atapi
 
 
-ContentPageSchema = folder.ATFolderSchema.copy()
+ContentPageSchema = folder.ATFolderSchema.copy() + image_schema.copy()
 
 schemata.finalizeATCTSchema(
     ContentPageSchema,
