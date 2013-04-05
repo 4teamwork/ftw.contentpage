@@ -8,7 +8,9 @@ ADD_PERMISSIONS = {
     'TextBlock': 'ftw.contentpage: Add TextBlock',
     'News': 'ftw.contentpage: Add News',
     'NewsFolder': 'ftw.contentpage: Add NewsFolder',
-}
+    'Event': 'ftw.contentpage: Add EventFolder',
+    'EventFolder': 'ftw.contentpage: Add EventFolder',
+    }
 
 INDEXES = (('getContentCategories', 'KeywordIndex'),
           ('getContentType', 'FieldIndex'))

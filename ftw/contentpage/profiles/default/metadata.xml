@@ -6,5 +6,6 @@
         <dependency>profile-simplelayout.portlet.dropzone:default</dependency>
         <dependency>profile-ftw.geo:default</dependency>
         <dependency>profile-plone.formwidget.contenttree:default</dependency>
+        <dependency>profile-ftw.calendarwidget:default</dependency>
     </dependencies>
 </metadata>

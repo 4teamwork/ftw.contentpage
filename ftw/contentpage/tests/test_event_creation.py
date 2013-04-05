@@ -1,0 +1,42 @@
+import unittest2 as unittest
+from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+import transaction
+from simplelayout.base.interfaces import ISimpleLayoutCapable
+from plone.testing.z2 import Browser
+from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from StringIO import StringIO
+import os
+
+class TestEvent(unittest.TestCase):
+
+    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.eventfolder = self.portal.get(self.portal.invokeFactory('EventFolder', 'eventfolder'))
+        transaction.commit()
+        self.browser = Browser(self.layer['app'])
+        self.browser.handleErrors = False
+
+    def test_creation(self):
+        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
+                TEST_USER_NAME, TEST_USER_PASSWORD, ))
+        self.browser.open(self.eventfolder.absolute_url()+'/createObject?type_name=Event')
+        self.browser.getControl(name = 'title').value = 'A Title'
+        self.browser.getControl(name = 'endDate_minute').value = ['20']
+        self.browser.getControl(name = 'endDate_hour').value = ['08']
+        self.browser.getControl(name = 'endDate_day').value = ['20']
+        self.browser.getControl(name = 'endDate_month').value = ['05']
+        self.browser.getControl(name = 'endDate_year').value = ['2013']
+
+        self.browser.getControl(name = 'startDate_minute').value = ['20']
+        self.browser.getControl(name = 'startDate_hour').value = ['07']
+        self.browser.getControl(name = 'startDate_day').value = ['20']
+        self.browser.getControl(name = 'startDate_month').value = ['05']
+        self.browser.getControl(name = 'startDate_year').value = ['2013']
+        self.browser.getControl(name = 'location').value = 'D\xc3\xbcbendorf'
+        self.browser.getControl(name='form.button.save').click()
+        self.assertEqual(self.browser.url, 'http://nohost/plone/eventfolder/a-title/')
+        event = self.eventfolder.get('a-title')
+        self.assertEqual(event.location.encode('utf-8'), 'D\xc3\xbcbendorf')
+        self.assertEqual(event.getDate(), '20.05.2013 07:20 - 08:20')

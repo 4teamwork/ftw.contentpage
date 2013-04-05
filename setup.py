@@ -51,7 +51,8 @@ setup(name='ftw.contentpage',
           'ftw.colorbox',
           'ftw.upgrade',
           'plone.formwidget.contenttree',
-      ],
+          'ftw.calendarwidget',
+          ],
 
       entry_points="""
       # -*- Entry points: -*-
