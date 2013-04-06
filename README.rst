@@ -68,6 +68,12 @@ This way it's possible to display content below the content listing viewlet (by 
 Check: https://github.com/4teamwork/ftw.lawgiver
 
 
+Compatibility
+-------------
+
+Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2` or `4.3`.
+
+
 Links
 =====
 
