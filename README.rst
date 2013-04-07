@@ -27,7 +27,7 @@ Usage
 
 - ContentPage: Folderish type for the site structure. Contains the blocks
 - AddressBlock: AddressBlock contains address informations and it ``uses ftw.geo`` to render a map
-- ListingBlock: A folderish block, which lists files and images by default. Two block views are provided: Tabular listing and a gallery view. The columns of the file listing are configurable per block. The default set of columns is configured through the the registry (plone.app.registry)
+- ListingBlock: A folderish block, which lists files and images by default. Two block views are provided: Tabular listing and a gallery view. The columns of the file listing are configurable per block. The default set of columns is configured through the the registry (plone.app.registry). The default sort order of the Listingblock file listing can be configured per block.
 
 **Special views:**
 
