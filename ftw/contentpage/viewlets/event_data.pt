@@ -1,5 +1,5 @@
 <div i18n:domain="ftw.contentpage">
-  <tal:img tal:condition="python:view.has_img()" tal:content="structure python:view.get_img(brain)" />
+  <tal:img tal:condition="python:view.has_img()" tal:content="structure python:view.get_img()" />
   <div tal:condition="brain/start"><span i18n:translate="">Date: </span><span tal:content="context/getDate" /></div>
   <div tal:condition="brain/location"><span i18n:translate="">Location: </span><span tal:content="context/location" /></div>
   <tal:img tal:condition="view/has_img" tal:content="structure view/get_img" />
