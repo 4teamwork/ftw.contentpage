@@ -9,8 +9,10 @@ from AccessControl import ClassSecurityInfo
 from ftw.contentpage.interfaces import IEvent
 from ftw.contentpage.config import PROJECTNAME
 from Products.ATContentTypes.utils import DT2dt
+from ftw.contentpage.content.textblock import image_schema
 
-EventSchema = ContentPageSchema.copy() + atapi.Schema((
+
+EventSchema = ContentPageSchema.copy() + image_schema.copy() + atapi.Schema((
     atapi.DateTimeField('startDate',
         required=True,
         searchable=False,
