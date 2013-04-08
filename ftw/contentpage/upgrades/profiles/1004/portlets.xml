@@ -1,0 +1,5 @@
+<portlet
+  addview="eventarchive"
+  title="Event Archive Portlet"
+  description=""
+  />
