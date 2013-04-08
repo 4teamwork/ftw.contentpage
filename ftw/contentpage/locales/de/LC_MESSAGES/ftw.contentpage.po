@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 07:27+0000\n"
-"PO-Revision-Date: 2013-01-25 12:11+0100\n"
+"POT-Creation-Date: 2013-04-08 10:08+0000\n"
+"PO-Revision-Date: 2013-04-08 12:09+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,11 +37,28 @@ msgstr "Spalten"
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
+#: ./ftw/contentpage/browser/eventlisting.pt:34
+#: ./ftw/contentpage/viewlets/event_data.pt:3
+msgid "Date:"
+msgstr "Datum:"
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "Edit"
 msgstr "Bearbeiten"
+
+#: ./ftw/contentpage/profiles/default/types/EventPage.xml
+msgid "Event"
+msgstr "Veranstaltung"
+
+#: ./ftw/contentpage/profiles/default/types/EventFolder.xml
+msgid "EventFolder"
+msgstr "Veranstaltungsordner"
+
+#: ./ftw/contentpage/portlets/event_archive.pt:12
+msgid "Events"
+msgstr "Veranstaltungen"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
@@ -52,6 +69,11 @@ msgstr "Extern bearbeiten"
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
+
+#: ./ftw/contentpage/browser/eventlisting.pt:35
+#: ./ftw/contentpage/viewlets/event_data.pt:4
+msgid "Location:"
+msgstr "Ort:"
 
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
 msgid "NewsFolder"
@@ -163,6 +185,15 @@ msgstr "Definieren Sie unter welcher Kategorie diese Inhaltsseite erscheinen sol
 msgid "help_directions"
 msgstr "So finden Sie uns"
 
+#. Default: "Date and Time, when the event ends."
+#: ./ftw/contentpage/content/event.py:35
+msgid "help_end"
+msgstr "Datum und Zeit, wann dieser Termin endet."
+
+#: ./ftw/contentpage/content/event.py:52
+msgid "help_event_location"
+msgstr ""
+
 #: ./ftw/contentpage/content/addressblock.py:89
 msgid "help_fax"
 msgstr ""
@@ -190,6 +221,16 @@ msgstr ""
 #: ./ftw/contentpage/content/listingblock.py:59
 msgid "help_sort_order"
 msgstr ""
+
+#. Default: "Date and Time, when the event begins."
+#: ./ftw/contentpage/content/event.py:23
+msgid "help_start"
+msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
+
+#. Default: "Event lasts whole day"
+#: ./ftw/contentpage/content/event.py:45
+msgid "help_whole_day"
+msgstr "Veranstaltung dauert den ganzen Tag."
 
 #. Default: "Please enter a website URL"
 #: ./ftw/contentpage/content/addressblock.py:105
@@ -270,6 +311,21 @@ msgstr "Anfahrt"
 #: ./ftw/contentpage/content/addressblock.py:96
 msgid "label_email"
 msgstr "E-Mail"
+
+#. Default: "Event Ends"
+#: ./ftw/contentpage/content/event.py:34
+msgid "label_event_end"
+msgstr "Veranstaltung Enddatum"
+
+#. Default: "Event Location"
+#: ./ftw/contentpage/content/event.py:51
+msgid "label_event_location"
+msgstr "Veranstaltunsort"
+
+#. Default: "Event Starts"
+#: ./ftw/contentpage/content/event.py:22
+msgid "label_event_start"
+msgstr "Veranstaltungsanfang"
 
 #. Default: "Extra address line"
 #: ./ftw/contentpage/content/addressblock.py:49
@@ -404,6 +460,11 @@ msgstr "Team"
 msgid "label_text"
 msgstr "Text"
 
+#. Default: "Whole day event"
+#: ./ftw/contentpage/content/event.py:44
+msgid "label_whole_day_event"
+msgstr "Ganztägige Veranstaltung"
+
 #. Default: "WWW"
 #: ./ftw/contentpage/content/addressblock.py:104
 msgid "label_www"
@@ -430,6 +491,7 @@ msgid "text_fax"
 msgstr "Fax ${num}"
 
 #. Default: "Text"
+#: ./ftw/contentpage/browser/eventlisting.pt:38
 #: ./ftw/contentpage/browser/newslisting.pt:63
 msgid "text_not_content"
 msgstr "Keine Inhalte"
@@ -443,5 +505,3 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
-
-
