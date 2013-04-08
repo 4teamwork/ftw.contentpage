@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-04-08 10:08+0000\n"
-"PO-Revision-Date: 2013-04-08 12:09+0200\n"
+"PO-Revision-Date: 2013-04-08 16:34+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -315,12 +315,12 @@ msgstr "E-Mail"
 #. Default: "Event Ends"
 #: ./ftw/contentpage/content/event.py:34
 msgid "label_event_end"
-msgstr "Veranstaltung Enddatum"
+msgstr "Veranstaltungsende"
 
 #. Default: "Event Location"
 #: ./ftw/contentpage/content/event.py:51
 msgid "label_event_location"
-msgstr "Veranstaltunsort"
+msgstr "Veranstaltungsort"
 
 #. Default: "Event Starts"
 #: ./ftw/contentpage/content/event.py:22
