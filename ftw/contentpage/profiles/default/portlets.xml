@@ -12,4 +12,11 @@
    title="News Archive Portlet"
    description=""
    />
+
+ <portlet
+   addview="eventarchive"
+   title="Event Archive Portlet"
+   description=""
+   />
+
 </portlets>
