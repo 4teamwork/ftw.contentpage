@@ -15,7 +15,7 @@ class TestEvent(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.eventfolder = self.portal.get(self.portal.invokeFactory('EventFolder', 'eventfolder'))
-        self.event = self.eventfolder.get(self.eventfolder.invokeFactory('Event', 'event'))
+        self.event = self.eventfolder.get(self.eventfolder.invokeFactory('EventPage', 'event'))
         transaction.commit()
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False

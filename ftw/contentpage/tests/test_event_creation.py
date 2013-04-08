@@ -21,7 +21,7 @@ class TestEvent(unittest.TestCase):
     def test_creation(self):
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
                 TEST_USER_NAME, TEST_USER_PASSWORD, ))
-        self.browser.open(self.eventfolder.absolute_url()+'/createObject?type_name=Event')
+        self.browser.open(self.eventfolder.absolute_url()+'/createObject?type_name=EventPage')
         self.browser.getControl(name = 'title').value = 'A Title'
         self.browser.getControl(name = 'endDate_minute').value = ['20']
         self.browser.getControl(name = 'endDate_hour').value = ['08']
