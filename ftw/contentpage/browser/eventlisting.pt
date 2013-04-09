@@ -27,7 +27,7 @@
     <div tal:condition="brain/location"><span i18n:translate="">Location: </span><span tal:content="brain/location" /></div>
     <div class="visualClear"><!-- --></div>
     </div>
-    <p tal:condition="not:brains" i18n:translate="text_not_content">Text</p>
+    <p tal:condition="not:brains" i18n:translate="text_not_content">No Contents</p>
 </div>
 
 </metal:main>
