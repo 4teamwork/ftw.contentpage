@@ -14,12 +14,19 @@ class EventListing(BrowserView):
     def getEvents(self):
         if not self.request.get('archiv'):
             cat = getToolByName(self.context, 'portal_catalog')
-            query = {'path':'/'.join(self.context.getPhysicalPath()), 'portal_type':'EventPage', 'sort_on':'start', 'sort_limit':5}
+            query = {'path': '/'.join(self.context.getPhysicalPath()),
+                     'portal_type': 'EventPage',
+                     'sort_on': 'start',
+                     'sort_limit': 5
+                     }
             events = cat.searchResults(query)
             return events[0:5]
         else:
             cat = getToolByName(self.context, 'portal_catalog')
-            query = {'path':'/'.join(self.context.getPhysicalPath()), 'portal_type':'EventPage', 'sort_on':'start'}
+            query = {'path': '/'.join(self.context.getPhysicalPath()),
+                     'portal_type': 'EventPage',
+                     'sort_on': 'start'
+                     }
             extend_query_by_date(query, self.request.get('archiv'))
             events = cat.searchResults(query)
             return events
@@ -39,6 +46,7 @@ class EventListing(BrowserView):
             'image',
             width=100,
             height=100).tag(**{'class': 'tileImage'})
+
 
 def extend_query_by_date(query, datestring):
     try:

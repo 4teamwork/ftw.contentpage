@@ -59,6 +59,7 @@ finalizeATCTSchema(EventSchema)
 # finalizeATCTSchema moves 'location' into 'categories', we move it back:
 EventSchema.changeSchemataForField('location', 'default')
 
+
 class Event(ContentPage):
     implements(IEvent)
 
@@ -77,7 +78,8 @@ class Event(ContentPage):
             if start_date == end_date:
                 return start_date + ' ' + start_time + ' - ' + end_time
             else:
-                return start_date + ' ' + start_time + ' - ' + end_date + ' ' + end_time
+                return start_date + ' ' + start_time + ' -\
+ ' + end_date + ' ' + end_time
         else:
             return start_date
 

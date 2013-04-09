@@ -1,5 +1,6 @@
 from ftw.upgrade import UpgradeStep
 
+
 class AddEventType(UpgradeStep):
     """Installs the profile which adds a registry entry for default
      table columns

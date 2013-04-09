@@ -4,6 +4,7 @@ from Products.CMFPlone.i18nl10n import monthname_msgid
 from Products.CMFPlone.utils import base_hasattr
 from zope.i18n import translate
 
+
 def zLocalizedTime(request, time, long_format=False):
     """Convert time to localized time
     """
@@ -12,6 +13,7 @@ def zLocalizedTime(request, time, long_format=False):
                       context=request)
 
     return u"%s %s" % (month, time.strftime('%Y'))
+
 
 def archive_summary(context, request, contenttype, datefield):
     """Returns an ordered list of summary infos per month."""
@@ -43,7 +45,8 @@ def archive_summary(context, request, contenttype, datefield):
         for year_month in ac_keys:
             date = '%s/01' % year_month
             archive_summary.append(dict(
-                    title=zLocalizedTime(request, DateTime('%s/01' % year_month)),
+                    title=zLocalizedTime(request,
+                                         DateTime('%s/01' % year_month)),
                     number=archive_counts[year_month],
                     url='%s?archiv=%s' % (context.absolute_url(), date),
                     mark=request.get('archiv') == date,

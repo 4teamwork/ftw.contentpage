@@ -32,12 +32,16 @@ class Renderer(base.Renderer):
         self.data = data
         self.request = request
 
-
     @memoize
     def archive_summary(self):
-        return archive_summary(self.context, self.request, 'EventPage', 'start')
+        return archive_summary(self.context,
+                               self.request,
+                               'EventPage',
+                               'start'
+                               )
 
     render = ViewPageTemplateFile('event_archive.pt')
+
 
 class AddForm(base.NullAddForm):
 
