@@ -17,7 +17,8 @@ class EventListing(BrowserView):
             query = {'path': '/'.join(self.context.getPhysicalPath()),
                      'portal_type': 'EventPage',
                      'sort_on': 'start',
-                     'sort_limit': 5
+                     'sort_limit': 5,
+                     'start':{'query':DateTime(), 'range': 'min'}
                      }
             events = cat.searchResults(query)
             return events[0:5]
