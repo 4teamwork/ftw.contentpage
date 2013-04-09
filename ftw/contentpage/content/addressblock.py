@@ -166,6 +166,10 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):
         registry = getUtility(IRegistry)
-        return registry.get('ftw.contentpage.addressblock.defaulttitle', '')
+
+        return translate(
+            registry.get('ftw.contentpage.addressblock.defaulttitle', ''),
+            domain='ftw.contentpage',
+            context=self.REQUEST)
 
 atapi.registerType(AddressBlock, config.PROJECTNAME)

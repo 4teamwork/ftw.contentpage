@@ -22,3 +22,6 @@ msgstr ""
 
 msgid "label_modified"
 msgstr ""
+
+msgid "Address"
+msgstr ""
