@@ -10,6 +10,11 @@ from ftw.contentpage.interfaces import IEvent
 from ftw.contentpage.config import PROJECTNAME
 from Products.ATContentTypes.utils import DT2dt
 from ftw.contentpage.content.textblock import image_schema
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone.public import registerType
+else:
+    from Products.Archetypes.atapi import registerType
 
 
 EventSchema = ContentPageSchema.copy() + image_schema.copy() + atapi.Schema((
@@ -83,4 +88,4 @@ class Event(ContentPage):
         else:
             return start_date
 
-atapi.registerType(Event, PROJECTNAME)
+registerType(Event, PROJECTNAME)
