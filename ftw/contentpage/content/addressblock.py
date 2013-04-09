@@ -160,8 +160,12 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
         """ Returns the default country defined in registry.
         """
         registry = getUtility(IRegistry)
-        return registry.get('ftw.contentpage.addressblock.defaultcountry',
-                            '')
+        return translate(
+            registry.get('ftw.contentpage.addressblock.defaultcountry',
+                            ''),
+            domain='ftw.contentpage',
+            context=self.REQUEST)
+
 
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):

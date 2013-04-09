@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-09 07:44+0000\n"
+"POT-Creation-Date: 2013-04-09 07:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,9 @@ msgstr ""
 #. Default: "Name"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
+msgstr ""
+
+msgid "Switzerland"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
