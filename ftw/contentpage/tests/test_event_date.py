@@ -1,12 +1,9 @@
-import unittest2 as unittest
-from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-import transaction
-from simplelayout.base.interfaces import ISimpleLayoutCapable
-from plone.testing.z2 import Browser
-from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
-from StringIO import StringIO
-import os
 from DateTime import DateTime
+from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from plone.testing.z2 import Browser
+import transaction
+import unittest2 as unittest
+
 
 class TestEvent(unittest.TestCase):
 
@@ -14,12 +11,13 @@ class TestEvent(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.eventfolder = self.portal.get(self.portal.invokeFactory('EventFolder', 'eventfolder'))
-        self.event = self.eventfolder.get(self.eventfolder.invokeFactory('EventPage', 'event'))
+        self.eventfolder = self.portal.get(
+            self.portal.invokeFactory('EventFolder', 'eventfolder'))
+        self.event = self.eventfolder.get(
+            self.eventfolder.invokeFactory('EventPage', 'event'))
         transaction.commit()
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
-
 
     def test_event_date_single_day(self):
         self.event.startDate = DateTime(2013, 05, 30, 18, 00)
