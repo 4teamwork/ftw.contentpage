@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 07:27+0000\n"
+"POT-Creation-Date: 2013-04-09 07:49+0000\n"
 "PO-Revision-Date: 2013-01-25 12:11+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,9 @@ msgstr ""
 #: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "Add News Portlet"
 msgstr "News Portlet Hinzufügen"
+
+msgid "Address"
+msgstr "Adresse"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
@@ -75,6 +78,9 @@ msgstr "Senden"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
 msgstr "Name"
+
+msgid "Switzerland"
+msgstr "Schweiz"
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
@@ -443,5 +449,3 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
-
-
