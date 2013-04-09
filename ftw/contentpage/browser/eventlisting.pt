@@ -3,14 +3,6 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="ftw.contentpage">
 
-<metal:slot fill-slot="style_slot">
-    <style type="text/css">
-        dl#plone-contentmenu-factories #event {
-            display: block !important;
-        }
-    </style>
-</metal:slot>
-
 <metal:main fill-slot="content-core">
 
 <div i18n:domain="ftw.contentpage"
