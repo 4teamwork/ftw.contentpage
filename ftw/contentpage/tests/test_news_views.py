@@ -1,5 +1,5 @@
 from DateTime import DateTime
-from ftw.contentpage.browser.newslisting import extend_query_by_date
+from ftw.contentpage.browser.baselisting import extend_query_by_date
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.testing.z2 import Browser
 import datetime
@@ -12,14 +12,14 @@ class TestExtendQueryByDate(unittest.TestCase):
 
     def test_extend_query_by_date(self):
         query = {}
-        extend_query_by_date(query, '2012/12/01')
+        extend_query_by_date(query, '2012/12/01', 'effective')
         self.assertEquals(query,
             {'effective':
                 {'query': (DateTime('2012/12/01').earliestTime(),
                            DateTime('2012/12/31').latestTime()),
                  'range': 'minmax'}})
 
-        extend_query_by_date(query, '2013/02/01')
+        extend_query_by_date(query, '2013/02/01', 'effective')
         self.assertEquals(query,
             {'effective':
                 {'query': (DateTime('2013/02/01').earliestTime(),
@@ -28,7 +28,7 @@ class TestExtendQueryByDate(unittest.TestCase):
 
         # fallback
         query = {}
-        extend_query_by_date(query, 'not a date')
+        extend_query_by_date(query, 'not a date', 'effective')
         self.assertEquals(query, {})
 
 
@@ -63,8 +63,8 @@ class TestNewsViews(unittest.TestCase):
 
     def test_news_listing_view_no_restriction(self):
         listing = self.newsfolder.restrictedTraverse("@@news_listing")
-        self.assertEqual(len(listing.get_news()), 4)
-        brain = listing.get_news()[0]
+        self.assertEqual(len(listing.get_items()), 4)
+        brain = listing.get_items()[0]
         self.assertEqual(brain.Title, 'My News')
         self.assertTrue(listing.has_img(brain))
         self.assertIn(

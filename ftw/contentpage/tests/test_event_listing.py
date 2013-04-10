@@ -19,8 +19,8 @@ class TestEventListing(unittest.TestCase):
         self.portal = self.layer['portal']
         self.eventfolder = self.portal.get(self.portal.invokeFactory('EventFolder', 'eventfolder'))
         self.eventfolder.invokeFactory('EventPage', 'event1', title="Event1",
-                                       startDate=DateTime(2013, 05, 20, 10, 00),
-                                       endDate=DateTime(2013, 05, 20, 11, 00),
+                                       startDate=DateTime(2013, 03, 20, 10, 00),
+                                       endDate=DateTime(2013, 03, 20, 11, 00),
                                        location = "Bern")
 
         self.eventfolder.invokeFactory('EventPage', 'event2', title="Event2",
@@ -53,31 +53,31 @@ class TestEventListing(unittest.TestCase):
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
 
-    def test_listing_length(self):
+    def test_listing_no_past_events(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
-        events = view.getEvents()
+        events = view.get_items()
         self.assertEqual(len(events), 5)
 
     def test_listing_sort(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
-        events = view.getEvents()
+        events = view.get_items()
         for index, event in enumerate(events):
             if not index == len(events) -1:
                 self.assertTrue(event.start < events[index + 1].start)
 
     def test_listing_archive(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
-        view.request['archiv'] = '2013/06/01'
-        events = view.getEvents()
+        self.portal.REQUEST['archiv'] = '2013/06/01'
+        events = view.get_items()
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0].start, DateTime(2013, 06, 28, 10, 00))
 
 
     def test_has_img(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
-        events = view.getEvents()
+        events = view.get_items()
         self.assertFalse(view.has_img(events[0]))
-        self.assertTrue(view.has_img(events[2]))
+        self.assertTrue(view.has_img(events[1]))
 
     def test_browser(self):
         self.browser.open(self.eventfolder.absolute_url())
