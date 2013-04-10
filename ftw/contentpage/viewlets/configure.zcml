@@ -28,4 +28,12 @@
         permission="zope2.View"
         />
 
+    <browser:viewlet
+        for="ftw.contentpage.interfaces.IEvent"
+        name="ftw.contentpage.event.eventdata"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        class=".event_data.EventDataViewlet"
+        permission="zope2.View"
+        />
+
 </configure>

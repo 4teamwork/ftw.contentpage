@@ -60,4 +60,22 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:upgradeStep
+        title="Add Event type"
+        description=""
+        source="1003"
+        destination="1004"
+        handler="ftw.contentpage.upgrades.to1004.AddEventType"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1004"
+        title="ftw.contentpage.upgrades.1004"
+        description=""
+        directory="profiles/1004"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>

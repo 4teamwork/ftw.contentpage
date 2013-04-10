@@ -5,24 +5,21 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
 from ftw.contentpage.portlets.base_archive_portlet import archive_summary
 
-class INewsArchivePortlet(IPortletDataProvider):
+
+class IEventArchive(IPortletDataProvider):
     """Archive portlet interface.
 """
 
 
 class Assignment(base.Assignment):
-    implements(INewsArchivePortlet)
+    implements(IEventArchive)
 
     @property
     def title(self):
-        return "News Archive Portlet"
+        return "Event Archive Portlet"
 
 
 class Renderer(base.Renderer):
-    def __init__(self, context, request, view, manager, data):
-        self.context = context
-        self.data = data
-        self.request = request
 
     @property
     def available(self):
@@ -30,12 +27,20 @@ class Renderer(base.Renderer):
         """
         return bool(self.archive_summary())
 
+    def __init__(self, context, request, view, manager, data):
+        self.context = context
+        self.data = data
+        self.request = request
+
     @memoize
     def archive_summary(self):
-        """Returns an ordered list of summary infos per month."""
-        return archive_summary(self.context, self.request, 'News', 'effective')
+        return archive_summary(self.context,
+                               self.request,
+                               'EventPage',
+                               'start'
+                               )
 
-    render = ViewPageTemplateFile('news_archive_portlet.pt')
+    render = ViewPageTemplateFile('event_archive.pt')
 
 
 class AddForm(base.NullAddForm):

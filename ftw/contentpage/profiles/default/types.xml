@@ -12,5 +12,9 @@
              meta_type="Factory-based Type Information with dynamic views"/>
   <object name="NewsFolder"
              meta_type="Factory-based Type Information with dynamic views"/>
+  <object name="EventPage"
+             meta_type="Factory-based Type Information with dynamic views"/>
+  <object name="EventFolder"
+             meta_type="Factory-based Type Information with dynamic views"/>
 
 </object>

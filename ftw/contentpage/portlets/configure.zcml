@@ -25,4 +25,13 @@
          addview=".news_archive_portlet.AddForm"
          />
 
+     <plone:portlet
+         name="eventarchive"
+         interface=".event_archive.IEventArchive"
+         assignment=".event_archive.Assignment"
+         view_permission="zope2.View"
+         renderer=".event_archive.Renderer"
+         addview=".event_archive.AddForm"
+         />
+
 </configure>
