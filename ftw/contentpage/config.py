@@ -8,7 +8,7 @@ ADD_PERMISSIONS = {
     'TextBlock': 'ftw.contentpage: Add TextBlock',
     'News': 'ftw.contentpage: Add News',
     'NewsFolder': 'ftw.contentpage: Add NewsFolder',
-    'Event': 'ftw.contentpage: Add EventFolder',
+    'Event': 'ftw.contentpage: Add Event',
     'EventFolder': 'ftw.contentpage: Add EventFolder',
     }
 
