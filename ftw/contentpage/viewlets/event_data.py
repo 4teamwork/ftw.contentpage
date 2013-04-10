@@ -15,3 +15,11 @@ class EventDataViewlet(ViewletBase):
             'image',
             width=100,
             height=100).tag(**{'class': 'tileImage'})
+
+    def get_large_img_link(self):
+        scale = self.context.restrictedTraverse('@@images')
+        img = scale.scale(
+            'image',
+            scale='large'
+            )
+        return img.absolute_url()
