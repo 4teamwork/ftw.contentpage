@@ -19,8 +19,8 @@ def extend_query_by_date(query, datestring, date_field):
                           'range': 'minmax'}
     return query
 
-class BaseListing(BrowserView):
 
+class BaseListing(BrowserView):
 
     def __call__(self):
         b_start = self.request.form.get('b_start', 0)
