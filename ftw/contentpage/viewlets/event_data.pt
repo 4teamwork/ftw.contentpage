@@ -1,6 +1,8 @@
 <div i18n:domain="ftw.contentpage">
-  <a tal:attributes="href view/get_large_img_link" class="colorboxLink">
-  <tal:img tal:condition="view/has_img" tal:content="structure view/get_img" />
+  <a tal:condition="view/has_img"
+     tal:attributes="href view/get_large_img_link"
+     class="colorboxLink">
+  <tal:img tal:content="structure view/get_img" />
   </a>
   <div tal:condition="context/start"><span i18n:translate="">Date: </span><span tal:content="context/getDate" /></div>
   <div tal:condition="context/location"><span i18n:translate="">Location: </span><span tal:content="context/location" /></div>
