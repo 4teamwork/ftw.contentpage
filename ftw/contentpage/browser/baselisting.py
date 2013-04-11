@@ -2,7 +2,6 @@ from DateTime import DateTime
 from DateTime.interfaces import SyntaxError as dtSytaxError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.publisher.browser import BrowserView
 
 
@@ -21,6 +20,10 @@ def extend_query_by_date(query, datestring, date_field):
 
 
 class BaseListing(BrowserView):
+
+    def __init__(self, context, request):
+        super(BaseListing, self).__init__(context, request)
+        self.batch = None
 
     def __call__(self):
         b_start = self.request.form.get('b_start', 0)

@@ -5,6 +5,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
 from ftw.contentpage.portlets.base_archive_portlet import archive_summary
 
+
 class INewsArchivePortlet(IPortletDataProvider):
     """Archive portlet interface.
 """

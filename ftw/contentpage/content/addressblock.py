@@ -166,7 +166,6 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
             domain='ftw.contentpage',
             context=self.REQUEST)
 
-
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):
         registry = getUtility(IRegistry)

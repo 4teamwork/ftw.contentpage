@@ -19,6 +19,7 @@ def archive_summary(context, request, contenttype, datefield):
     """Returns an ordered list of summary infos per month."""
     catalog = getToolByName(context, 'portal_catalog')
     query = {}
+    archive_summary = []
     if base_hasattr(context, 'getTranslations'):
         roots = context.getTranslations(
             review_state=False).values()
@@ -39,7 +40,6 @@ def archive_summary(context, request, contenttype, datefield):
             else:
                 archive_counts[year_month] = 1
 
-        archive_summary = []
         ac_keys = archive_counts.keys()
         ac_keys.sort(reverse=True)
         for year_month in ac_keys:
