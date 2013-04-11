@@ -7,6 +7,7 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from StringIO import StringIO
 import os
 
+
 class TestEvent(unittest.TestCase):
 
     layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
@@ -14,6 +15,7 @@ class TestEvent(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.eventfolder = self.portal.get(self.portal.invokeFactory('EventFolder', 'eventfolder'))
+        self.eventfolder.processForm()
         transaction.commit()
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
