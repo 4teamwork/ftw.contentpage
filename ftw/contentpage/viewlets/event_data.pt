@@ -4,7 +4,19 @@
      class="colorboxLink">
   <tal:img tal:content="structure view/get_img" />
   </a>
-  <div tal:condition="context/start"><span i18n:translate="">Date: </span><span tal:content="context/getDate" /></div>
-  <div tal:condition="context/location"><span i18n:translate="">Location: </span><span tal:content="context/location" /></div>
+    <table class="vertical listing">
+      <tr tal:condition="context/start">
+        <th i18n:translate="">
+          Date:
+        </th>
+        <td tal:content="context/getDate" />
+      </tr>
+      <tr tal:condition="context/location">
+        <th i18n:translate="">
+          Location:
+        </th>
+        <td tal:content="context/location" />
+      </tr>
+    </table>
   <div class="visualClear"><!-- --></div>
 </div>
