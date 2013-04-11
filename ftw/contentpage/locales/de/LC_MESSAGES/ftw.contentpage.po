@@ -185,7 +185,7 @@ msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 #. Default: "Category for contentlisting"
 #: ./ftw/contentpage/extender.py:27
 msgid "help_categories"
-msgstr "Definieren Sie, unter welchen Kategorien diese Inhaltsseite erscheinen soll"
+msgstr "Definieren Sie, unter welchen Kategorien diese Inhaltsseite abgelegt werden soll"
 
 #: ./ftw/contentpage/content/addressblock.py:137
 msgid "help_directions"
@@ -194,7 +194,7 @@ msgstr "So finden Sie uns"
 #. Default: "Date and Time, when the event ends."
 #: ./ftw/contentpage/content/event.py:35
 msgid "help_end"
-msgstr "Datum und Zeit, wann diese Veranstaltung endet."
+msgstr "Datum und Zeit, wann diese Veranstaltung endet"
 
 #: ./ftw/contentpage/content/event.py:52
 msgid "help_event_location"
