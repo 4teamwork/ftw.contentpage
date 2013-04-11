@@ -93,10 +93,10 @@
         />
 
     <browser:page
-        for="ftw.contentpage.interfaces.INews"
+        for="ftw.contentpage.interfaces.ITeaser"
         name="block_view"
-        template="news_block_view.pt"
-        class=".news_block_view.NewsBlockView"
+        template="teaser_block_view.pt"
+        class=".teaser_block_view.NewsBlockView"
         permission="zope2.View" />
 
 

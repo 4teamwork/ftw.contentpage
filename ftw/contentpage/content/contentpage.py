@@ -6,6 +6,8 @@ from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from simplelayout.base.interfaces import IAdditionalListingEnabled
 from simplelayout.base.interfaces import ISimpleLayoutCapable
+from ftw.contentpage.content.textblock import image_schema
+from ftw.contentpage.interfaces import ITeaser
 from zope.interface import implements
 from Acquisition import aq_parent
 from Acquisition import aq_inner
@@ -18,7 +20,7 @@ else:
     from Products.Archetypes import atapi
 
 
-ContentPageSchema = folder.ATFolderSchema.copy()
+ContentPageSchema = folder.ATFolderSchema.copy() + image_schema.copy()
 
 schemata.finalizeATCTSchema(
     ContentPageSchema,
@@ -30,7 +32,7 @@ schemata.finalizeATCTSchema(
 class ContentPage(folder.ATFolder):
     """A simplelayout content page"""
     implements(IContentPage, ICategorizable, ISimpleLayoutCapable,
-               IAdditionalListingEnabled)
+               IAdditionalListingEnabled, ITeaser)
 
     meta_type = "ContentPage"
     schema = ContentPageSchema

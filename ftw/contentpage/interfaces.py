@@ -43,3 +43,7 @@ class IEvent(Interface):
 
 class IEventFolder(Interface):
     """Marker interface for Event Type"""
+
+
+class ITeaser(Interface):
+    """Markter interface for the teaser functionality"""

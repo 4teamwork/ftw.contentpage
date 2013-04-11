@@ -6,6 +6,7 @@ from ftw.contentpage.interfaces import INews
 from Products.ATContentTypes.content import folder
 from simplelayout.base.interfaces import ISimpleLayoutCapable
 from ftw.contentpage.content.textblock import image_schema
+from ftw.contentpage.interfaces import ITeaser
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
     from Products.LinguaPlone.public import registerType
@@ -24,7 +25,7 @@ news_schema.moveField('image', after='description')
 
 class News(folder.ATFolder):
 
-    implements(INews, ISimpleLayoutCapable)
+    implements(INews, ISimpleLayoutCapable, ITeaser)
     security = ClassSecurityInfo()
 
     schema = news_schema
