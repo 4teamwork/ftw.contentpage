@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<object name="EventPage"
+        meta_type="Factory-based Type Information with dynamic views"
+        i18n:domain="ftw.contentpage" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    <property name="title" i18n:translate="">Event</property>
+    <property name="description"
+              i18n:translate=""></property>
+    <property name="content_meta_type">EventPage</property>
+    <property name="content_icon">folder_icon.gif</property>
+    <property name="product">ftw.contentpage</property>
+    <property name="factory">addEventPage</property>
+    <property name="immediate_view">atct_edit</property>
+    <property name="global_allow">False</property>
+    <property name="filter_content_types">True</property>
+    <property name="allowed_content_types" purge="False">
+        <element value="TextBlock"/>
+        <element value="File"/>
+        <element value="Link"/>
+        <element value="Image"/>
+        <element value="AddressBlock"/>
+        <element value="ListingBlock"/>
+    </property>
+    <property name="allow_discussion">False</property>
+    <property name="default_view">simplelayout</property>
+    <property name="view_methods">
+        <element value="simplelayout" />
+        <element value="authorities_view" />
+    </property>
+    <alias from="(Default)" to="(dynamic view)" />
+    <alias from="edit" to="atct_edit" />
+    <alias from="sharing" to="@@sharing" />
+    <alias from="view" to="(selected layout)" />
+    <action title="View" action_id="view" category="object" condition_expr=""
+            url_expr="string:${folder_url}/" visible="False">
+        <permission value="View" />
+    </action>
+
+  <action title="Edit" action_id="edit" category="object" condition_expr=""
+          url_expr="string:${object_url}/edit" visible="True">
+    <permission value="Modify portal content" />
+  </action>
+
+    <action title="Upload" action_id="upload" category="folder_factories"
+       condition_expr="object/@@display_upload/can_upload | nothing"
+       url_expr="string:${object_url}/flashupload" visible="True">
+     <permission value="Modify portal content"/>
+    </action>
+</object>

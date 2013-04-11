@@ -78,4 +78,22 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:upgradeStep
+        title="Add Rolemap entrys"
+        description=""
+        source="1004"
+        destination="1005"
+        handler="ftw.contentpage.upgrades.to1005.AddRoleMapEntrys"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1005"
+        title="ftw.contentpage.upgrades.1005"
+        description=""
+        directory="profiles/1005"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
