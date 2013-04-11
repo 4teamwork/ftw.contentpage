@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-08 10:08+0000\n"
-"PO-Revision-Date: 2013-04-08 16:34+0200\n"
+"POT-Creation-Date: 2013-04-11 16:07+0000\n"
+"PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -11,6 +11,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: ./ftw/contentpage/browser/eventlisting.pt:26
+msgid "&nbsp;"
+msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "Add News Portlet"
@@ -25,7 +29,7 @@ msgstr "Adressenblock"
 
 #: ./ftw/contentpage/portlets/news_archive_portlet.pt:12
 msgid "Archive"
-msgstr ""
+msgstr "Archiv"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:49
 msgid "Classification Items"
@@ -40,10 +44,17 @@ msgstr "Spalten"
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
-#: ./ftw/contentpage/browser/eventlisting.pt:34
-#: ./ftw/contentpage/viewlets/event_data.pt:3
+#: ./ftw/contentpage/browser/eventlisting.pt:38
+msgid "Date"
+msgstr "Datum"
+
+#: ./ftw/contentpage/viewlets/event_data.pt:9
 msgid "Date:"
 msgstr "Datum:"
+
+#: ./ftw/contentpage/browser/eventlisting.pt:50
+msgid "Description"
+msgstr "Beschreibung"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
@@ -52,10 +63,12 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 #: ./ftw/contentpage/profiles/default/types/EventPage.xml
+#: ./ftw/contentpage/upgrades/profiles/1004/types/EventPage.xml
 msgid "Event"
 msgstr "Veranstaltung"
 
 #: ./ftw/contentpage/profiles/default/types/EventFolder.xml
+#: ./ftw/contentpage/upgrades/profiles/1004/types/EventFolder.xml
 msgid "EventFolder"
 msgstr "Veranstaltungsordner"
 
@@ -73,8 +86,11 @@ msgstr "Extern bearbeiten"
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
 
-#: ./ftw/contentpage/browser/eventlisting.pt:35
-#: ./ftw/contentpage/viewlets/event_data.pt:4
+#: ./ftw/contentpage/browser/eventlisting.pt:44
+msgid "Location"
+msgstr "Ort"
+
+#: ./ftw/contentpage/viewlets/event_data.pt:15
 msgid "Location:"
 msgstr "Ort:"
 
@@ -192,11 +208,11 @@ msgid "help_directions"
 msgstr "So finden Sie uns"
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/event.py:35
+#: ./ftw/contentpage/content/event.py:42
 msgid "help_end"
 msgstr "Datum und Zeit, wann dieser Termin endet."
 
-#: ./ftw/contentpage/content/event.py:52
+#: ./ftw/contentpage/content/event.py:61
 msgid "help_event_location"
 msgstr ""
 
@@ -229,12 +245,12 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/event.py:23
+#: ./ftw/contentpage/content/event.py:29
 msgid "help_start"
 msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/event.py:45
+#: ./ftw/contentpage/content/event.py:53
 msgid "help_whole_day"
 msgstr "Veranstaltung dauert den ganzen Tag."
 
@@ -319,17 +335,17 @@ msgid "label_email"
 msgstr "E-Mail"
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/event.py:34
+#: ./ftw/contentpage/content/event.py:41
 msgid "label_event_end"
 msgstr "Veranstaltungsende"
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/event.py:51
+#: ./ftw/contentpage/content/event.py:60
 msgid "label_event_location"
 msgstr "Veranstaltungsort"
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/event.py:22
+#: ./ftw/contentpage/content/event.py:28
 msgid "label_event_start"
 msgstr "Veranstaltungsanfang"
 
@@ -467,7 +483,7 @@ msgid "label_text"
 msgstr "Text"
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/event.py:44
+#: ./ftw/contentpage/content/event.py:52
 msgid "label_whole_day_event"
 msgstr "Ganztägige Veranstaltung"
 
@@ -496,9 +512,10 @@ msgstr "Weiterlesen..."
 msgid "text_fax"
 msgstr "Fax ${num}"
 
-#. Default: "Text"
-#: ./ftw/contentpage/browser/eventlisting.pt:38
+#. Default: "No Contents"
+#: ./ftw/contentpage/browser/eventlisting.pt:57
 #: ./ftw/contentpage/browser/newslisting.pt:63
+#, fuzzy
 msgid "text_not_content"
 msgstr "Keine Inhalte"
 
