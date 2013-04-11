@@ -7,6 +7,9 @@ Changelog
 - Add Event type.
   [tschanzt]
 
+- Updated German translations
+  [phabegger]
+
 
 1.0 (2013-04-10)
 ----------------
