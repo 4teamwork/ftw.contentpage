@@ -56,5 +56,13 @@ class ContentPage(folder.ATFolder):
             result.remove((mid, mid))
         return result
 
+    security.declarePublic('showAddMenu')
+    def showAddMenu(self):
+        return False
+
+    security.declarePublic('show_description')
+    def show_description(self):
+        return False
+
 
 atapi.registerType(ContentPage, PROJECTNAME)
