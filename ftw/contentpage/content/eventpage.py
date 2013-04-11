@@ -6,7 +6,7 @@ from ftw.calendarwidget.browser.widgets import FtwCalendarWidget
 from ftw.contentpage import _
 from zope.interface import implements
 from AccessControl import ClassSecurityInfo
-from ftw.contentpage.interfaces import IEvent
+from ftw.contentpage.interfaces import IEventPage
 from ftw.contentpage.config import PROJECTNAME
 from Products.ATContentTypes.utils import DT2dt
 from ftw.contentpage.content.textblock import image_schema
@@ -68,10 +68,10 @@ finalizeATCTSchema(EventSchema)
 EventSchema.changeSchemataForField('location', 'default')
 
 
-class Event(ContentPage):
-    implements(IEvent)
+class EventPage(ContentPage):
+    implements(IEventPage)
 
-    meta_type = "Event"
+    meta_type = "EventPage"
     schema = EventSchema
     security = ClassSecurityInfo()
 
@@ -92,4 +92,4 @@ class Event(ContentPage):
         else:
             return start_date
 
-registerType(Event, PROJECTNAME)
+registerType(EventPage, PROJECTNAME)
