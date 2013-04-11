@@ -4,6 +4,10 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Fill content-core slot instead of main slot and
+  show edit-bar.
+  [mathias.leimgruber]
+
 - Add Event type.
   [tschanzt]
 
