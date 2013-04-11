@@ -9,7 +9,9 @@
         action_group="add"
         permissions="ftw.contentpage: Add ContentPage,
                      ftw.contentpage: Add News,
-                     ftw.contentpage: Add NewsFolder"
+                     ftw.contentpage: Add NewsFolder,
+                     ftw.contentpage: Add EventFolder,
+                     ftw.contentpage: Add EventPage"
         />
 
 
