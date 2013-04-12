@@ -505,7 +505,6 @@ msgstr "Fax ${num}"
 #. Default: "No Contents"
 #: ./ftw/contentpage/browser/eventlisting.pt:51
 #: ./ftw/contentpage/browser/newslisting.pt:63
-#, fuzzy
 msgid "text_not_content"
 msgstr "Keine Inhalte"
 
