@@ -1,5 +1,7 @@
 from DateTime import DateTime
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from Products.Five.browser import BrowserView
 from pyquery import PyQuery
@@ -109,3 +111,21 @@ class TestEventListing(unittest.TestCase):
         self.assertIn('@@images', viewlet.get_img())
         self.assertIn('class="tileImage"', viewlet.get_img())
         self.assertIn('@@images', viewlet.get_large_img_link())
+
+    def test_event_archive_portlet(self):
+        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
+            TEST_USER_NAME, TEST_USER_PASSWORD, ))
+
+        self.browser.open(
+            '%s/++contextportlets++plone.leftcolumn/+/eventarchive' %
+            self.eventfolder.absolute_url())
+
+        self.browser.open(self.eventfolder.absolute_url())
+
+        pq = PyQuery(self.browser.contents)
+        self.assertTrue(pq('.portlet.portletArchiveEventPage'),
+            'We added one, so there sould be a EventArchive portlet')
+
+        self.assertEquals(
+            len(pq('.portlet.portletArchiveEventPage .portletItem li')), 3,
+            'Expect three entries in the events archive portlet')

@@ -46,7 +46,8 @@
 
 
 /* @group archive portlet */
-.portletArchiveNews .highlight a {
+.portletArchiveNews .highlight a,
+.portletArchiveEventPage .highlight a {
   font-weight: bold;
 }
 /* @end */

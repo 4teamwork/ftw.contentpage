@@ -6,7 +6,7 @@
     i18n:domain="ftw.contentpage">
 
     <div class="portletWrapper">
-        <dl class="portlet portletArchiveNews">
+        <dl class="portlet portletArchiveEventPage">
 
             <dt class="portletHeader">
                 <span i18n:translate="">
