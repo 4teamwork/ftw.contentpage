@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="ftw.contentpage">
+
+    <!-- Teaser image -->
+    <permission
+        id="ftw.contentpage.teaser.image.contentpage"
+        title="ftw.contentpage: Edit teaser image on ContentPage"
+        />
+
+    <permission
+        id="ftw.contentpage.teaser.image.eventpage"
+        title="ftw.contentpage: Edit teaser image on EventPage"
+        />
+
+    <permission
+        id="ftw.contentpage.teaser.image.news"
+        title="ftw.contentpage: Edit teaser image on News"
+        />
+
+</configure>

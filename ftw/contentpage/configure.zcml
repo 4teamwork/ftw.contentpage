@@ -15,6 +15,7 @@
 
     <!-- Include the sub-packages that use their own configure.zcml files. -->
 
+    <include file="permissions.zcml" />
     <include package=".content" />
     <include package=".browser" />
     <include package=".handlers" />
