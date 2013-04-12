@@ -1,8 +1,8 @@
 from ftw.upgrade import UpgradeStep
 
 
-class UpdateRolemap(UpgradeStep):
-    """Update rolemap
+class UpdateRolemapAndFactoryTool(UpgradeStep):
+    """Update rolemap and factory tool
     """
 
     def __call__(self):

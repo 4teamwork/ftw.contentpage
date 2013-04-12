@@ -104,7 +104,7 @@
         description=""
         source="1005"
         destination="1006"
-        handler="ftw.contentpage.upgrades.to1006.UpdateRolemap"
+        handler="ftw.contentpage.upgrades.to1006.UpdateRolemapAndFactoryTool"
         profile="ftw.contentpage:default"
         />
 
