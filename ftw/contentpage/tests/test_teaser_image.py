@@ -45,5 +45,18 @@ class TestTeaserImage(TestCase):
         self.assertFalse(ITeaser.providedBy(self.page),
             'Old Page should not provide ITeaser interface')
 
+    def test_not_show_teaser(self):
+        # No image, no description - no teaser
+        self._auth()
+        self.browser.open(self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertFalse(
+            pq('.simplelayout-content.sl-teaser-content-listing'),
+            'There should be no simplelayout teaser viewlet')
 
-
+        self.browser.open(self.page.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertFalse(
+            pq('.simplelayout-content.sl-teaser-content-listing'),
+            'There should be no simplelayout teaser viewlet on old '
+            'simplelayout pages')
