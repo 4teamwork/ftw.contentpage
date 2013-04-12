@@ -14,7 +14,7 @@ msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "Add News Portlet"
-msgstr "News Portlet Hinzufügen"
+msgstr "News Portlet hinzufügen"
 
 msgid "Address"
 msgstr "Adresse"
@@ -25,7 +25,7 @@ msgstr "Adressenblock"
 
 #: ./ftw/contentpage/portlets/news_archive_portlet.pt:12
 msgid "Archive"
-msgstr ""
+msgstr "Archiv"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:49
 msgid "Classification Items"
@@ -67,7 +67,7 @@ msgstr "Veranstaltungen"
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "External Edit"
-msgstr "Extern bearbeiten"
+msgstr "Mit externem Editor bearbeiten"
 
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 msgid "ListingBlock"
@@ -110,7 +110,7 @@ msgstr "Textblock"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:98
 msgid "This Portlet displays News"
-msgstr "Ein Portlet um News darzustellen."
+msgstr "Ein Portlet, um News darzustellen."
 
 #: ./ftw/contentpage/portlets/news_portlet.py:22
 msgid "Title"
@@ -175,17 +175,17 @@ msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschränkun
 #. Default: "Enter an alternative text for the image"
 #: ./ftw/contentpage/content/textblock.py:82
 msgid "description_image_alt_text"
-msgstr "Geben Sie einen alternative Text für das Bild ein, z.B für Screenreader. Falls kein alternativer Text angegeben wird, wird der Bildtitel verwendet."
+msgstr "Geben Sie den Alternativtext für das Bild ein. Der Alternativtext richtet sich an Benutzer und Endgeräte, die den Bildinhalt nicht wahrnehmen oder nicht darstellen können, und sollte also wörtlich als Alternative zum Bild formuliert sein. Falls kein Alternativtext angegeben wird, wird der Bildtitel verwendet."
 
 #. Default: "Opens image in an overlay"
 #: ./ftw/contentpage/content/textblock.py:63
 msgid "description_image_clickable"
-msgstr "Öffnet das Bild in einem Overlay"
+msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 
 #. Default: "Category for contentlisting"
 #: ./ftw/contentpage/extender.py:27
 msgid "help_categories"
-msgstr "Definieren Sie unter welcher Kategorie diese Inhaltsseite erscheinen soll"
+msgstr "Definieren Sie, unter welchen Kategorien diese Inhaltsseite abgelegt werden soll"
 
 #: ./ftw/contentpage/content/addressblock.py:137
 msgid "help_directions"
@@ -194,7 +194,7 @@ msgstr "So finden Sie uns"
 #. Default: "Date and Time, when the event ends."
 #: ./ftw/contentpage/content/event.py:35
 msgid "help_end"
-msgstr "Datum und Zeit, wann dieser Termin endet."
+msgstr "Datum und Zeit, wann diese Veranstaltung endet"
 
 #: ./ftw/contentpage/content/event.py:52
 msgid "help_event_location"
@@ -206,11 +206,11 @@ msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:44
 msgid "help_only_context"
-msgstr "Wenn Ausgewählt, werden nur noch News aus dem Kontext des Benutzers dargestellt"
+msgstr "Wenn ausgewählt, werden nur noch News aus dem aktuellen Bereich dargestellt"
 
 #: ./ftw/contentpage/content/addressblock.py:126
 msgid "help_openingHours"
-msgstr ""
+msgstr "Es gelten die folgenden Öffnungszeiten"
 
 #: ./ftw/contentpage/content/addressblock.py:80
 msgid "help_phone"
@@ -218,7 +218,7 @@ msgstr ""
 
 #: ./ftw/contentpage/content/addressblock.py:115
 msgid "help_showOpeningHours"
-msgstr "Definieren Sie, ob die Öffnungszeiten angezeigt werden sollen"
+msgstr "Definieren Sie, ob die Hinweise zu den Öffnungszeiten angezeigt werden sollen"
 
 #: ./ftw/contentpage/content/listingblock.py:46
 msgid "help_sort_on"
@@ -236,12 +236,12 @@ msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
 #. Default: "Event lasts whole day"
 #: ./ftw/contentpage/content/event.py:45
 msgid "help_whole_day"
-msgstr "Veranstaltung dauert den ganzen Tag."
+msgstr "Die Veranstaltung dauert den ganzen Tag."
 
 #. Default: "Please enter a website URL"
 #: ./ftw/contentpage/content/addressblock.py:105
 msgid "help_www"
-msgstr "Geben Sie eine Internet Adresse an (inkl. http://, https://, etc.)"
+msgstr "Geben Sie eine Internetadresse an (inkl. http://, https://, etc.)"
 
 #. Default: "The email was sent."
 #: ./ftw/contentpage/browser/feedback.py:53
@@ -300,7 +300,7 @@ msgstr "Anzahl Tage"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:76
 msgid "label_desc_length"
-msgstr "Länge der dargestellten Beschreibung"
+msgstr "Maximale Zeichenanzahl der News-Beschreibung, die dargestellt werden sollen"
 
 #. Default: "Descending"
 #: ./ftw/contentpage/content/listingblock.py:56
@@ -336,7 +336,7 @@ msgstr "Veranstaltungsanfang"
 #. Default: "Extra address line"
 #: ./ftw/contentpage/content/addressblock.py:49
 msgid "label_extraAddressLine"
-msgstr "Zusätzliche Adresszeile"
+msgstr "Adresszusatz"
 
 #. Default: "Fax"
 #: ./ftw/contentpage/content/addressblock.py:87
@@ -354,7 +354,7 @@ msgstr "Bild"
 #. Default: "Image"
 #: ./ftw/contentpage/content/textblock.py:80
 msgid "label_image_alt_text"
-msgstr "Alternativer Text"
+msgstr "Alternativtext"
 
 #. Default: "Image"
 #: ./ftw/contentpage/content/textblock.py:72
@@ -364,7 +364,7 @@ msgstr "Bildtitel"
 #. Default: "Image clickable"
 #: ./ftw/contentpage/content/textblock.py:61
 msgid "label_image_clickable"
-msgstr "Bild anklickbar"
+msgstr "Bild auch als Overlay darstellbar machen"
 
 #. Default: "Message"
 #: ./ftw/contentpage/browser/feedback.py:32
