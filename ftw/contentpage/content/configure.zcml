@@ -45,17 +45,17 @@
         />
   </class>
 
-  <class class=".event.Event">
+  <class class=".eventpage.EventPage">
     <require
         permission="zope2.View"
-        interface="..interfaces.INews"
+        interface="..interfaces.IEventPage"
         />
   </class>
 
   <class class=".eventfolder.EventFolder">
     <require
         permission="zope2.View"
-        interface="..interfaces.INewsFolder"
+        interface="..interfaces.IEventFolder"
         />
   </class>
 
