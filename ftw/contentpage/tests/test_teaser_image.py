@@ -119,3 +119,21 @@ class TestTeaserImage(TestCase):
             pq('.simplelayout-content.sl-teaser-content-listing'),
             'There should be still no simplelayout teaser viewlet on old '
             'simplelayout pages')
+
+    def test_teaser_field_permission(self):
+        self._auth()
+        self.browser.open("%s/edit" % self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertTrue(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect an image field (teaser)')
+
+        permissions = 'ftw.contentpage: Edit teaser image on ContentPage'
+        self.contentpage.manage_permission(permissions, roles=[],
+            acquire=False)
+        self.contentpage.reindexObjectSecurity()
+        transaction.commit()
+
+        self.browser.open("%s/edit" % self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertFalse(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect NO an image field (teaser)')

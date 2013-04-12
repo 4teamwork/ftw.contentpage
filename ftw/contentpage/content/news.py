@@ -24,8 +24,8 @@ news_schema.moveField('image', after='description')
 
 # Protect the teaser image with a specific permission
 permission = "ftw.contentpage: Edit teaser image on News"
-for field in image_schema.fields():
-    field.write_permission = permission
+for name in image_schema.keys():
+    news_schema[name].write_permission = permission
 
 
 class News(contentpage.ContentPage):

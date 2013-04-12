@@ -30,8 +30,8 @@ schemata.finalizeATCTSchema(
 
 # Protect the teaser image with a specific permission
 permission = "ftw.contentpage: Edit teaser image on ContentPage"
-for field in image_schema.fields():
-    field.write_permission = permission
+for name in image_schema.keys():
+    ContentPageSchema[name].write_permission = permission
 
 
 class ContentPage(folder.ATFolder):
