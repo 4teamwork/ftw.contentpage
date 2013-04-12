@@ -5,6 +5,17 @@ Changelog
 ----------------
 
 - Add teaser image functionality to contenpage.
+  [mathias.leimgruber]
+
+- Updated German translations
+  [phabegger]
+
+- Fill content-core slot instead of main slot and
+  show edit-bar.
+  [mathias.leimgruber]
+
+- Add Event type.
+  [tschanzt]
 
 
 1.0 (2013-04-10)

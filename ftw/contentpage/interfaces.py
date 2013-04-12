@@ -37,7 +37,7 @@ class INewsFolder(Interface):
     """Marker interface for newsfolder type"""
 
 
-class IEvent(Interface):
+class IEventPage(Interface):
     """Marker interface for Event Type"""
 
 

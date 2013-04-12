@@ -29,7 +29,7 @@
         />
 
     <browser:viewlet
-        for="ftw.contentpage.interfaces.IEvent"
+        for="ftw.contentpage.interfaces.IEventPage"
         name="ftw.contentpage.event.eventdata"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
         class=".event_data.EventDataViewlet"

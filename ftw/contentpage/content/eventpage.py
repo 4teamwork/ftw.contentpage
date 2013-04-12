@@ -5,7 +5,7 @@ from ftw.contentpage.config import PROJECTNAME
 from ftw.contentpage.content.contentpage import ContentPage
 from ftw.contentpage.content.contentpage import ContentPageSchema
 from ftw.contentpage.content.textblock import image_schema
-from ftw.contentpage.interfaces import IEvent
+from ftw.contentpage.interfaces import IEventPage
 from Products.Archetypes import atapi
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
@@ -74,10 +74,10 @@ for name in image_schema.keys():
     EventSchema[name].write_permission = permission
 
 
-class Event(ContentPage):
-    implements(IEvent)
+class EventPage(ContentPage):
+    implements(IEventPage)
 
-    meta_type = "Event"
+    meta_type = "EventPage"
     schema = EventSchema
     security = ClassSecurityInfo()
 
@@ -98,4 +98,4 @@ class Event(ContentPage):
         else:
             return start_date
 
-registerType(Event, PROJECTNAME)
+registerType(EventPage, PROJECTNAME)
