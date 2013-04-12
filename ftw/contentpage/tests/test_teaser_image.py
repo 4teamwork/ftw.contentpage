@@ -120,7 +120,7 @@ class TestTeaserImage(TestCase):
             'There should be still no simplelayout teaser viewlet on old '
             'simplelayout pages')
 
-    def test_teaser_field_permission(self):
+    def test_teaser_field_permission_contentpage(self):
         self._auth()
         self.browser.open("%s/edit" % self.contentpage.absolute_url())
         pq = PyQuery(self.browser.contents)
@@ -134,6 +134,60 @@ class TestTeaserImage(TestCase):
         transaction.commit()
 
         self.browser.open("%s/edit" % self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertFalse(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect NO an image field (teaser)')
+
+    def test_teaser_field_permission_eventpage(self):
+        eventfolder = self.portal.get(self.portal.invokeFactory(
+            'EventFolder', 'eventfolder'))
+        eventfolder.processForm()
+
+        eventpage = eventfolder.get(
+            eventfolder.invokeFactory('EventPage', 'eventpage'))
+        eventpage.processForm()
+        transaction.commit()
+
+        self._auth()
+        self.browser.open("%s/edit" % eventpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertTrue(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect an image field (teaser)')
+
+        permissions = 'ftw.contentpage: Edit teaser image on EventPage'
+        eventpage.manage_permission(permissions, roles=[],
+            acquire=False)
+        eventpage.reindexObjectSecurity()
+        transaction.commit()
+
+        self.browser.open("%s/edit" % eventpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertFalse(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect NO an image field (teaser)')
+
+    def test_teaser_field_permission_news(self):
+        newsfolder = self.portal.get(self.portal.invokeFactory(
+            'NewsFolder', 'newsfolder'))
+        newsfolder.processForm()
+
+        news = newsfolder.get(
+            newsfolder.invokeFactory('News', 'news'))
+        news.processForm()
+        transaction.commit()
+
+        self._auth()
+        self.browser.open("%s/edit" % news.absolute_url())
+        pq = PyQuery(self.browser.contents)
+        self.assertTrue(pq('#fieldset-image .ArchetypesImageWidget'),
+            'Expect an image field (teaser)')
+
+        permissions = 'ftw.contentpage: Edit teaser image on News'
+        news.manage_permission(permissions, roles=[],
+            acquire=False)
+        news.reindexObjectSecurity()
+        transaction.commit()
+
+        self.browser.open("%s/edit" % news.absolute_url())
         pq = PyQuery(self.browser.contents)
         self.assertFalse(pq('#fieldset-image .ArchetypesImageWidget'),
             'Expect NO an image field (teaser)')
