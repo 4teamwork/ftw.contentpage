@@ -1,7 +1,7 @@
 <div i18n:domain="ftw.contentpage">
     <table class="vertical plain">
       <tr tal:condition="view/has_img">
-        <th tal:condition="context/start" i18n:translate="">
+        <th tal:condition="context/start">
           &nbsp;
         </th>
         <td>
@@ -15,7 +15,7 @@
       </tr>
 
       <tr tal:condition="context/start">
-        <th tal:condition="context/start" i18n:translate="">
+        <th i18n:translate="">
           Date
         </th>
         <td tal:content="context/getDate" />

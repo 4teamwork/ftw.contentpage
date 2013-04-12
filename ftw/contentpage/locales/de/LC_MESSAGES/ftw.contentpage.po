@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-11 16:07+0000\n"
+"POT-Creation-Date: 2013-04-12 08:14+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,10 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-
-#: ./ftw/contentpage/browser/eventlisting.pt:26
-msgid "&nbsp;"
-msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "Add News Portlet"
@@ -44,15 +40,12 @@ msgstr "Spalten"
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
-#: ./ftw/contentpage/browser/eventlisting.pt:38
+#: ./ftw/contentpage/browser/eventlisting.pt:32
+#: ./ftw/contentpage/viewlets/event_data.pt:18
 msgid "Date"
 msgstr "Datum"
 
-#: ./ftw/contentpage/viewlets/event_data.pt:9
-msgid "Date:"
-msgstr "Datum:"
-
-#: ./ftw/contentpage/browser/eventlisting.pt:50
+#: ./ftw/contentpage/browser/eventlisting.pt:44
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -86,13 +79,10 @@ msgstr "Extern bearbeiten"
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
 
-#: ./ftw/contentpage/browser/eventlisting.pt:44
+#: ./ftw/contentpage/browser/eventlisting.pt:38
+#: ./ftw/contentpage/viewlets/event_data.pt:24
 msgid "Location"
 msgstr "Ort"
-
-#: ./ftw/contentpage/viewlets/event_data.pt:15
-msgid "Location:"
-msgstr "Ort:"
 
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
 msgid "NewsFolder"
@@ -513,7 +503,7 @@ msgid "text_fax"
 msgstr "Fax ${num}"
 
 #. Default: "No Contents"
-#: ./ftw/contentpage/browser/eventlisting.pt:57
+#: ./ftw/contentpage/browser/eventlisting.pt:51
 #: ./ftw/contentpage/browser/newslisting.pt:63
 #, fuzzy
 msgid "text_not_content"
@@ -528,3 +518,5 @@ msgstr "Sie k√∂nnen keinen Pfad definieren und gleichzeitig den Bereich einschr√
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
+
+
