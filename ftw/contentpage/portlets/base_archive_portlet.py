@@ -34,7 +34,10 @@ def archive_summary(context, request, contenttype, datefield):
         archive_counts = {}
         entries = catalog(**query)
         for entry in entries:
-            year_month = getattr(entry, datefield).strftime('%Y/%m')
+            value = getattr(entry, datefield)
+            if not value:
+                continue
+            year_month = value.strftime('%Y/%m')
             if year_month in archive_counts:
                 archive_counts[year_month] += 1
             else:
