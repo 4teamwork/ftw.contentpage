@@ -1,17 +1,17 @@
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from ftw.contentpage.config import PROJECTNAME
+from ftw.contentpage.content.textblock import image_schema
 from ftw.contentpage.interfaces import ICategorizable
 from ftw.contentpage.interfaces import IContentPage
+from ftw.contentpage.interfaces import ITeaser
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.CMFCore.permissions import View
 from simplelayout.base.interfaces import IAdditionalListingEnabled
 from simplelayout.base.interfaces import ISimpleLayoutCapable
-from ftw.contentpage.content.textblock import image_schema
-from ftw.contentpage.interfaces import ITeaser
 from zope.interface import implements
-from Acquisition import aq_parent
-from Acquisition import aq_inner
-from Products.CMFCore.permissions import View
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -27,6 +27,11 @@ schemata.finalizeATCTSchema(
     folderish=True,
     moveDiscussion=False,
 )
+
+# Protect the teaser image with a specific permission
+permission = "ftw.contentpage: Edit teaser image on ContentPage"
+for field in image_schema.fields():
+    field.write_permission = permission
 
 
 class ContentPage(folder.ATFolder):
