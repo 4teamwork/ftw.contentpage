@@ -60,6 +60,7 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1003 -> 1004 -->
     <genericsetup:upgradeStep
         title="Add Event type"
         description=""
@@ -78,6 +79,7 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1004 -> 1005 -->
     <genericsetup:upgradeStep
         title="Add Rolemap entrys"
         description=""
@@ -92,6 +94,25 @@
         title="ftw.contentpage.upgrades.1005"
         description=""
         directory="profiles/1005"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <!-- 1005 -> 1006 -->
+    <genericsetup:upgradeStep
+        title="Update rolempa by teaser edit permissions"
+        description=""
+        source="1005"
+        destination="1006"
+        handler="ftw.contentpage.upgrades.to1006.UpdateRolemap"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1006"
+        title="ftw.contentpage.upgrades.1006"
+        description=""
+        directory="profiles/1006"
         for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
