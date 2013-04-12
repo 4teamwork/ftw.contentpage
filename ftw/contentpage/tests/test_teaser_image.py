@@ -1,10 +1,11 @@
+from ftw.contentpage.interfaces import ITeaser
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from Products.CMFCore.utils import getToolByName
 from pyquery import PyQuery
+from StringIO import StringIO
 from unittest2 import TestCase
-from ftw.contentpage.interfaces import ITeaser
 import transaction
 
 
@@ -60,3 +61,60 @@ class TestTeaserImage(TestCase):
             pq('.simplelayout-content.sl-teaser-content-listing'),
             'There should be no simplelayout teaser viewlet on old '
             'simplelayout pages')
+
+    def test_show_teaser__description(self):
+        self.contentpage.setDescription('qwerty')
+        self.page.setDescription('qwerty')
+
+        transaction.commit()
+
+        self._auth()
+        self.browser.open(self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+
+        wrapper = pq('.simplelayout-content.sl-teaser-content-listing')
+        self.assertTrue(
+            wrapper,
+            'There should be the teaser viewlet')
+        self.assertEquals(
+            wrapper.find('.sl-text-wrapper')[0].text, 'qwerty')
+
+        self.browser.open(self.page.absolute_url())
+        pq = PyQuery(self.browser.contents)
+
+        self.assertFalse(
+            pq('.simplelayout-content.sl-teaser-content-listing'),
+            'There should be still no simplelayout teaser viewlet on old '
+            'simplelayout pages')
+
+    def test_show_teaser__image(self):
+        self.contentpage.setImage(
+            StringIO('GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00'
+                '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
+                '\x01\x00\x00\x02\x02D\x01\x00;'))
+
+        self.assertNotIn('image', self.page.Schema(),
+            'There should be no image field on old simplelayout pages')
+
+        transaction.commit()
+
+        self._auth()
+        self.browser.open(self.contentpage.absolute_url())
+        pq = PyQuery(self.browser.contents)
+
+        wrapper = pq('.simplelayout-content.sl-teaser-content-listing')
+        self.assertTrue(
+            wrapper,
+            'There should be the teaser viewlet')
+        self.assertTrue(
+            wrapper.find('.sl-img-wrapper'), 'No image found')
+
+        self.browser.open(self.page.absolute_url())
+        pq = PyQuery(self.browser.contents)
+
+        self.assertFalse(
+            pq('.simplelayout-content.sl-teaser-content-listing'),
+            'There should be still no simplelayout teaser viewlet on old '
+            'simplelayout pages')
+
+
