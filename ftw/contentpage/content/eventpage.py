@@ -92,4 +92,9 @@ class EventPage(ContentPage):
         else:
             return start_date
 
+    security.declarePublic('show_description')
+    def show_description(self):
+        return False
+
+
 registerType(EventPage, PROJECTNAME)

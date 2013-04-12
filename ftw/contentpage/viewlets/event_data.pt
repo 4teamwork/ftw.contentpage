@@ -1,9 +1,4 @@
 <div i18n:domain="ftw.contentpage">
-<metal:content-description fill-slot="content-description">
-  <metal:content-description define-macro="content-description">
-    <!— no description —>
-  </metal:content-description>
-</metal:content-description>
     <table class="vertical plain">
       <tr tal:condition="view/has_img">
         <th tal:condition="context/start">
