@@ -15,20 +15,39 @@
             <a class="summary url" tal:attributes="href brain/getURL"
                tal:content="brain/Title"></a>
         </h2>
-        <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
+    <table class="vertical plain">
+      <tr tal:condition="python: view.has_img(brain)">
+        <th tal:condition="brain/start">
+          &nbsp;
+        </th>
+        <td>
+          <a tal:attributes="href brain/getURL">
             <tal:img tal:content="structure python:view.get_img(brain)" />
         </a>
 
-        <p class="tileBody">
-            <span class="description"
-                  tal:content="brain/Description">
-            </span>
-        </p>
-    <div tal:condition="brain/start"><span i18n:translate="">Date: </span><span tal:content="python: view.getDate(brain)" /></div>
-    <div tal:condition="brain/location"><span i18n:translate="">Location: </span><span tal:content="brain/location" /></div>
+        </td>
+      </tr>
+
+      <tr tal:condition="brain/start">
+        <th i18n:translate="">
+          Date
+        </th>
+        <td tal:content="python: view.getDate(brain)" />
+      </tr>
+      <tr tal:condition="brain/location">
+        <th i18n:translate="">
+          Location
+        </th>
+        <td tal:content="brain/location" />
+      </tr>
+      <tr tal:condition="brain/Description">
+        <th i18n:translate="">Description</th>
+        <td tal:content="brain/Description" />
+      </tr>
+    </table>
     <div class="visualClear"><!-- --></div>
     </div>
-    <div metal:use-macro="context/batch_macros/macros/navigation" />
+<div metal:use-macro="context/batch_macros/macros/navigation" />
     <p tal:condition="not:batch" i18n:translate="text_not_content">No Contents</p>
 </div>
 

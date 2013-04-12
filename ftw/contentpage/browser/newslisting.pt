@@ -60,7 +60,7 @@
         <div class="visualClear"><!-- --></div>
     </div>
     <div metal:use-macro="context/batch_macros/macros/navigation" />
-    <p tal:condition="not:batch" i18n:translate="text_not_content">Text</p>
+    <p tal:condition="not:batch" i18n:translate="text_not_content">No Contents</p>
 </div>
 
 </metal:main>

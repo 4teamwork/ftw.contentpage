@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-08 10:08+0000\n"
+"POT-Creation-Date: 2013-04-12 08:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,9 +42,13 @@ msgstr ""
 msgid "ContentPage"
 msgstr ""
 
-#: ./ftw/contentpage/browser/eventlisting.pt:34
-#: ./ftw/contentpage/viewlets/event_data.pt:3
-msgid "Date:"
+#: ./ftw/contentpage/browser/eventlisting.pt:32
+#: ./ftw/contentpage/viewlets/event_data.pt:18
+msgid "Date"
+msgstr ""
+
+#: ./ftw/contentpage/browser/eventlisting.pt:44
+msgid "Description"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
@@ -54,10 +58,12 @@ msgid "Edit"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/EventPage.xml
+#: ./ftw/contentpage/upgrades/profiles/1004/types/EventPage.xml
 msgid "Event"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/EventFolder.xml
+#: ./ftw/contentpage/upgrades/profiles/1004/types/EventFolder.xml
 msgid "EventFolder"
 msgstr ""
 
@@ -75,9 +81,9 @@ msgstr ""
 msgid "ListingBlock"
 msgstr ""
 
-#: ./ftw/contentpage/browser/eventlisting.pt:35
-#: ./ftw/contentpage/viewlets/event_data.pt:4
-msgid "Location:"
+#: ./ftw/contentpage/browser/eventlisting.pt:38
+#: ./ftw/contentpage/viewlets/event_data.pt:24
+msgid "Location"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
@@ -194,11 +200,11 @@ msgid "help_directions"
 msgstr ""
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/event.py:35
+#: ./ftw/contentpage/content/event.py:42
 msgid "help_end"
 msgstr ""
 
-#: ./ftw/contentpage/content/event.py:52
+#: ./ftw/contentpage/content/event.py:61
 msgid "help_event_location"
 msgstr ""
 
@@ -231,12 +237,12 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/event.py:23
+#: ./ftw/contentpage/content/event.py:29
 msgid "help_start"
 msgstr ""
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/event.py:45
+#: ./ftw/contentpage/content/event.py:53
 msgid "help_whole_day"
 msgstr ""
 
@@ -321,17 +327,17 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/event.py:34
+#: ./ftw/contentpage/content/event.py:41
 msgid "label_event_end"
 msgstr ""
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/event.py:51
+#: ./ftw/contentpage/content/event.py:60
 msgid "label_event_location"
 msgstr ""
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/event.py:22
+#: ./ftw/contentpage/content/event.py:28
 msgid "label_event_start"
 msgstr ""
 
@@ -469,7 +475,7 @@ msgid "label_text"
 msgstr ""
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/event.py:44
+#: ./ftw/contentpage/content/event.py:52
 msgid "label_whole_day_event"
 msgstr ""
 
@@ -498,8 +504,8 @@ msgstr ""
 msgid "text_fax"
 msgstr ""
 
-#. Default: "Text"
-#: ./ftw/contentpage/browser/eventlisting.pt:38
+#. Default: "No Contents"
+#: ./ftw/contentpage/browser/eventlisting.pt:51
 #: ./ftw/contentpage/browser/newslisting.pt:63
 msgid "text_not_content"
 msgstr ""
