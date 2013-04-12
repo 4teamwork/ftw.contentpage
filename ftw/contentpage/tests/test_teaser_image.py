@@ -79,6 +79,9 @@ class TestTeaserImage(TestCase):
         self.assertEquals(
             wrapper.find('.sl-text-wrapper')[0].text, 'qwerty')
 
+        self.assertEquals(len(pq('.documentDescription')), 1,
+            'The default description should appear only once')
+
         self.browser.open(self.page.absolute_url())
         pq = PyQuery(self.browser.contents)
 
@@ -116,5 +119,3 @@ class TestTeaserImage(TestCase):
             pq('.simplelayout-content.sl-teaser-content-listing'),
             'There should be still no simplelayout teaser viewlet on old '
             'simplelayout pages')
-
-
