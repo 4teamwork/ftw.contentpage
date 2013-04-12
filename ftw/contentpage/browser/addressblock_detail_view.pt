@@ -6,20 +6,10 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ftw.contentpage">
 
-  <head>
-    <metal:noborder fill-slot="top_slot"
-                    tal:define="dummy python:request.set('disable_border',1)" />
-  </head>
-
   <body>
 
-    <div metal:fill-slot="main">
-      <metal:main-macro define-macro="main">
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <h1 class="documentFirstHeading"
-            tal:content="context/pretty_title_or_id"><!-- Title --></h1>
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
+    <div metal:fill-slot="content-core">
+      <metal:content-macro define-macro="content-core">
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
         <div class="addressWrapper">
@@ -34,10 +24,8 @@
           </div>
         </div>
         <div class="visualClear"><!-- --></div>
-        
-        <div tal:replace="structure provider:plone.belowcontentbody" />
 
-      </metal:main-macro>
+      </metal:content-macro>
     </div>
 
   </body>
