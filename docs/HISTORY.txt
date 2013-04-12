@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Add more test for EventPage.
+  [mathias.leimgruber]
+
 - Add teaser image functionality for contenpage.
   [mathias.leimgruber]
 

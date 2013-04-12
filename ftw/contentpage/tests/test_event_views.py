@@ -1,7 +1,10 @@
 from DateTime import DateTime
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.testing.z2 import Browser
+from Products.Five.browser import BrowserView
 from pyquery import PyQuery
+from zope.component import queryMultiAdapter
+from zope.viewlet.interfaces import IViewletManager
 import os
 import transaction
 import unittest2 as unittest
@@ -14,7 +17,7 @@ class TestEventListing(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.eventfolder = self.portal.get(
-          self.portal.invokeFactory('EventFolder', 'eventfolder'))
+        self.portal.invokeFactory('EventFolder', 'eventfolder'))
         self.eventfolder.invokeFactory('EventPage', 'event1', title="Event1",
                                        startDate=DateTime(
                                            2013, 03, 20, 10, 00),
@@ -87,3 +90,22 @@ class TestEventListing(unittest.TestCase):
         self.assertEqual(element.attr('alt'), 'Event3')
         self.assertEqual(element.attr('title'), 'Event3')
         self.assertEqual(element.attr('width'), '100')
+
+    def test_event_data_viewlet(self):
+        event = self.eventfolder.get('event3')  # has an image
+        view = BrowserView(event, event.REQUEST)
+        manager_name = 'plone.abovecontentbody'
+        manager = queryMultiAdapter((event, event.REQUEST, view),
+            IViewletManager,
+            manager_name)
+        self.failUnless(manager)
+        # Set up viewlets
+        manager.update()
+        name = 'ftw.contentpage.event.eventdata'
+        viewlet = [v for v in manager.viewlets if v.__name__ == name][0]
+
+        self.assertTrue(viewlet.has_img(), 'Expect an image')
+
+        self.assertIn('@@images', viewlet.get_img())
+        self.assertIn('class="tileImage"', viewlet.get_img())
+        self.assertIn('@@images', viewlet.get_large_img_link())
