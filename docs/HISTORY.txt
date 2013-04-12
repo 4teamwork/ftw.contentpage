@@ -4,7 +4,7 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Add teaser image functionality to contenpage.
+- Add teaser image functionality for contenpage.
   [mathias.leimgruber]
 
 - Updated German translations
