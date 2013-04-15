@@ -7,6 +7,7 @@ from ftw.contentpage.interfaces import INews
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 from zope.interface import implements
 
+
 if HAS_LINGUA_PLONE:
     from Products.LinguaPlone.public import registerType
 else:

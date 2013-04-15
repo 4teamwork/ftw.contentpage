@@ -6,6 +6,7 @@ from Products.ATContentTypes.content import folder
 from simplelayout.base.interfaces import ISimpleLayoutCapable
 from zope.interface import implements
 
+
 if HAS_LINGUA_PLONE:
     from Products.LinguaPlone.public import registerType
 else:

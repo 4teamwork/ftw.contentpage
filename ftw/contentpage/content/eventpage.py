@@ -12,6 +12,7 @@ from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.ATContentTypes.utils import DT2dt
 from zope.interface import implements
 
+
 if HAS_LINGUA_PLONE:
     from Products.LinguaPlone.public import registerType
 else:
