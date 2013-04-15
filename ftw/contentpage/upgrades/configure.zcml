@@ -100,7 +100,7 @@
 
     <!-- 1005 -> 1006 -->
     <genericsetup:upgradeStep
-        title="Update rolempa by teaser edit permissions"
+        title="Update rolemap by teaser edit permissions / Update types actions / Update factorytool"
         description=""
         source="1005"
         destination="1006"
