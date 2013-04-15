@@ -10,6 +10,9 @@ Changelog
 - Add teaser image functionality for contenpage.
   [mathias.leimgruber]
 
+- Browserviews should not be public.
+  [Julian Infanger]
+
 - Updated German translations
   [phabegger]
 
