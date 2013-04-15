@@ -74,21 +74,21 @@
         for="*"
         name="news_listing"
         class=".newslisting.NewsListing"
-        permission="zope.Public"
+        permission="zope2.View"
         />
 
     <browser:page
         for="*"
         name="event_listing"
         class=".eventlisting.EventListing"
-        permission="zope.Public"
+        permission="zope2.View"
         />
 
     <browser:page
         for="*"
         name="news_rss_listing"
         class=".newslisting.NewsListing"
-        permission="zope.Public"
+        permission="zope2.View"
         allowed_attributes="news_result get_news"
         />
 
