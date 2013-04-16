@@ -1,9 +1,4 @@
-from DateTime import DateTime
-from DateTime.interfaces import SyntaxError as dtSytaxError
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.publisher.browser import BrowserView
 from ftw.contentpage.browser.baselisting import BaseListing
 
 

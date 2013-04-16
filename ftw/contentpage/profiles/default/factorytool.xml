@@ -7,5 +7,7 @@
     <type portal_type="TextBlock" />
     <type portal_type="News" />
     <type portal_type="NewsFolder" />
+    <type portal_type="EventPage" />
+    <type portal_type="EventFolder" />
   </factorytypes>
 </object>

@@ -15,6 +15,7 @@
 
     <!-- Include the sub-packages that use their own configure.zcml files. -->
 
+    <include file="permissions.zcml" />
     <include package=".content" />
     <include package=".browser" />
     <include package=".handlers" />
@@ -70,5 +71,25 @@
     <class class="ftw.contentpage.content.news.News">
           <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
     </class>
+
+    <!-- Block config for ITeaser -->
+   <adapter
+        provides="simplelayout.base.interfaces.IBlockConfig"
+        for="ftw.contentpage.interfaces.ITeaser"
+        factory="simplelayout.base.block_config.BlockConfig" />
+
+   <!-- Teaser block config init/edit event -->
+   <subscriber
+       for="ftw.contentpage.interfaces.ITeaser
+            Products.Archetypes.interfaces.IObjectInitializedEvent"
+       handler="simplelayout.base.events.set_initial_layout"
+       />
+
+   <subscriber
+       for="ftw.contentpage.interfaces.ITeaser
+            Products.Archetypes.interfaces.IObjectEditedEvent"
+       handler="simplelayout.base.events.set_initial_layout"
+       />
+
 
 </configure>

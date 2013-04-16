@@ -1,23 +1,25 @@
-from ftw.contentpage.content.contentpage import ContentPage
-from ftw.contentpage.content.contentpage import ContentPageSchema
-from Products.Archetypes import atapi
-from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+from AccessControl import ClassSecurityInfo
 from ftw.calendarwidget.browser.widgets import FtwCalendarWidget
 from ftw.contentpage import _
-from zope.interface import implements
-from AccessControl import ClassSecurityInfo
-from ftw.contentpage.interfaces import IEventPage
 from ftw.contentpage.config import PROJECTNAME
-from Products.ATContentTypes.utils import DT2dt
+from ftw.contentpage.content.contentpage import ContentPage
+from ftw.contentpage.content.contentpage import ContentPageSchema
 from ftw.contentpage.content.textblock import image_schema
+from ftw.contentpage.interfaces import IEventPage
+from Products.Archetypes import atapi
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+from Products.ATContentTypes.utils import DT2dt
+from zope.interface import implements
+
+
 if HAS_LINGUA_PLONE:
     from Products.LinguaPlone.public import registerType
 else:
     from Products.Archetypes.atapi import registerType
 
 
-EventSchema = ContentPageSchema.copy() + image_schema.copy() + atapi.Schema((
+EventSchema = ContentPageSchema.copy() + atapi.Schema((
     atapi.DateTimeField(
         'startDate',
         required=True,
@@ -66,6 +68,11 @@ EventSchema = ContentPageSchema.copy() + image_schema.copy() + atapi.Schema((
 finalizeATCTSchema(EventSchema)
 # finalizeATCTSchema moves 'location' into 'categories', we move it back:
 EventSchema.changeSchemataForField('location', 'default')
+
+# Protect the teaser image with a specific permission
+permission = "ftw.contentpage: Edit teaser image on EventPage"
+for name in image_schema.keys():
+    EventSchema[name].write_permission = permission
 
 
 class EventPage(ContentPage):

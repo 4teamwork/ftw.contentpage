@@ -5,6 +5,21 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
+    <permission name="ftw.contentpage: Edit teaser image on ContentPage" acquire="False">
+      <role name="Manager" />
+      <role name="Editor" />
+      <role name="Owner" />
+    </permission>
+    <permission name="ftw.contentpage: Edit teaser image on EventPage" acquire="False">
+      <role name="Manager" />
+      <role name="Editor" />
+      <role name="Owner" />
+    </permission>
+    <permission name="ftw.contentpage: Edit teaser image on News" acquire="False">
+      <role name="Manager" />
+      <role name="Editor" />
+      <role name="Owner" />
+    </permission>
     <permission name="ftw.contentpage: Add AddressBlock" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />

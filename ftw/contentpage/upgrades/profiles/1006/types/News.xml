@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<object name="News"
+        meta_type="Factory-based Type Information with dynamic views"
+        i18n:domain="ftw.contentpage" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+ <action title="Squarish" action_id="sl-small" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout2.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+ <action title="Half" action_id="sl-middle" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout3.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+ <action title="Full" action_id="sl-full" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout1.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+ <action title="No Image" action_id="sl-no-image" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout4.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+ <action title="Half-Right" action_id="sl-middle-right" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout3-right.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+ <action title="Squarish-Right" action_id="sl-small-right" category="sl-layouts"
+    condition_expr="" icon_expr="string:${here/portal_url}/++resource++sl/icons/sl-layout2-right.gif"
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="ftw.contentpage: Edit teaser image on News"/>
+ </action>
+
+</object>

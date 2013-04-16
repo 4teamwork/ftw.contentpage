@@ -1,0 +1,24 @@
+<tal:if condition="view/image_layout">
+  <div class="#" i18n:domain="simplelayout"
+       tal:define="slclass view/get_css_klass;
+                   text here/Description|nothing;
+                   fullblock python: text and ' sl-fullblock' or ''"
+       tal:attributes="class string:documentDescription simplelayout-block-wrapper ${slclass}${fullblock} clearfix;
+                       style string:${view/get_block_height}">
+    <a tal:attributes="name here/id" ></a>
+    <div class="sl-img-wrapper" tal:condition="view/has_image"
+         tal:attributes="style view/image_wrapper_style"
+         tal:define="image_desc context/getImageCaption | context/Description">
+      <a  target="_blank"
+          tal:attributes="title image_desc;
+                          href string:${context/absolute_url}/image"
+          tal:omit-tag="not: here/getImageClickable|nothing">
+        <img tal:replace="structure view/get_image_tag" />
+      </a>
+      <p tal:condition="image_desc"
+         tal:content="context/getImageCaption">Caption</p>
+    </div>
+    <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
+  </div>
+  <div class="visualClear"><!-- --></div>
+</tal:if>

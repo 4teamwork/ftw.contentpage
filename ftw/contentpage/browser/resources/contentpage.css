@@ -46,7 +46,14 @@
 
 
 /* @group archive portlet */
-.portletArchiveNews .highlight a {
+.portletArchiveNews .highlight a,
+.portletArchiveEventPage .highlight a {
   font-weight: bold;
+}
+/* @end */
+
+/* @group Teaser image */
+#content .sl-teaser-content-listing .sl-controls .sl-obj-actions > li.document-action-dragme {
+  display: none;
 }
 /* @end */

@@ -4,7 +4,7 @@ import os
 import transaction
 from plone.testing.z2 import Browser
 from zope.viewlet.interfaces import IViewletManager
-from ftw.contentpage.browser.news_block_view import NewsBlockView
+from Products.Five.browser import BrowserView
 from zope.component import queryMultiAdapter
 from Products.CMFCore.utils import getToolByName
 
@@ -29,7 +29,7 @@ class TestByline(unittest.TestCase):
 
 
     def _get_viewlet(self):
-        view = NewsBlockView(self.news, self.news.REQUEST)
+        view = BrowserView(self.news, self.news.REQUEST)
         manager_name = 'plone.belowcontenttitle'
         manager = queryMultiAdapter(
             (self.news, self.news.REQUEST, view),

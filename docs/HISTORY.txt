@@ -4,8 +4,17 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Add more test for EventPage.
+  [mathias.leimgruber]
+
+- Add teaser image functionality for contenpage.
+  [mathias.leimgruber]
+
 - Browserviews should not be public.
   [Julian Infanger]
+
+- Updated German translations
+  [phabegger]
 
 - Fill content-core slot instead of main slot and
   show edit-bar.
@@ -13,9 +22,6 @@ Changelog
 
 - Add Event type.
   [tschanzt]
-
-- Updated German translations
-  [phabegger]
 
 
 1.0 (2013-04-10)

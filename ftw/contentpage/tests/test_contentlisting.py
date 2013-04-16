@@ -6,8 +6,6 @@ from Products.CMFCore.utils import getToolByName
 from simplelayout.base.views import SimpleLayoutView
 from unittest2 import TestCase
 from zope.viewlet.interfaces import IViewletManager
-
-
 from zope.component import queryMultiAdapter
 import transaction
 

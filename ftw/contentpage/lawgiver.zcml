@@ -19,7 +19,10 @@
         action_group="edit"
         permissions="ftw.contentpage: Add AddressBlock,
                      ftw.contentpage: Add ListingBlock,
-                     ftw.contentpage: Add TextBlock"
+                     ftw.contentpage: Add TextBlock,
+                     ftw.contentpage: Edit teaser image on ContentPage,
+                     ftw.contentpage: Edit teaser image on EventPage,
+                     ftw.contentpage: Edit teaser image on News"
         />
 
 
