@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Fix AddressBlock FTI - Change (Default) alias to (dynamic view).
+  [mathias.leimgruber]
+
 - Add more test for EventPage.
   [mathias.leimgruber]
 

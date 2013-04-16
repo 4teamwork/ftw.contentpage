@@ -117,4 +117,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1006 -> 1007 -->
+    <genericsetup:upgradeStep
+        title="Fix AddressBlock FTI - Change (Default) alias"
+        description=""
+        source="1006"
+        destination="1007"
+        handler="ftw.contentpage.upgrades.to1007.UpdateAddressBlockFTI"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1007"
+        title="ftw.contentpage.upgrades.1007"
+        description=""
+        directory="profiles/1007"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
