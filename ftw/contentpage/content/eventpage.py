@@ -85,20 +85,19 @@ class EventPage(ContentPage):
     def getDate(self):
         start = DT2dt(self.start())
         start_date = start.date().strftime('%d.%m.%Y')
-        start_time = start.time().strftime('%H:%M')
-        end = DT2dt(self.end())
-        end_date = end.date().strftime('%d.%m.%Y')
-        end_time = end.time().strftime('%H:%M')
-
-        if self.getWholeDay():
+        if not self.getWholeDay():
+            start_time = start.time().strftime('%H:%M')
+            end = DT2dt(self.end())
+            end_date = end.date().strftime('%d.%m.%Y')
+            end_time = end.time().strftime('%H:%M')
+            # XXX not readable us %(dict)s
             if start_date == end_date:
-                return start_date
-            return '%s - %s' % (start_date, end_date)
-
-        if start_date == end_date:
-            return '%s %s - %s ' % (start_date, start_time, end_time)
-        return '%s %s - %s %s ' % (
-            start_date, start_time, end_date, end_time)
+                return start_date + ' ' + start_time + ' - ' + end_time
+            else:
+                return start_date + ' ' + start_time + ' -\
+ ' + end_date + ' ' + end_time
+        else:
+            return start_date
 
     security.declarePublic('show_description')
     def show_description(self):
