@@ -136,4 +136,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1007 -> 1008 -->
+    <genericsetup:upgradeStep
+        title="Remove Workflow from TextBlock, ListingBlock, AddressBlock"
+        description=""
+        source="1007"
+        destination="1008"
+        handler="ftw.contentpage.upgrades.to1008.RemoveWorkflowFromBlocks"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1008"
+        title="ftw.contentpage.upgrades.1008"
+        description=""
+        directory="profiles/1008"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
