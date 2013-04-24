@@ -89,7 +89,6 @@ textblock_schema = ATContentTypeSchema.copy() + \
     default_schema.copy() + image_schema.copy()
 
 textblock_schema['title'].required = False
-textblock_schema['title'].searchable = 0
 textblock_schema['text'].widget.filter_buttons = ('image', )
 
 finalize(textblock_schema)

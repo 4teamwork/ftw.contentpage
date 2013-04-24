@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Make textblock title searchable.
+  [Julian Infanger]
+
 - Fix AddressBlock FTI - Change (Default) alias to (dynamic view).
   [mathias.leimgruber]
 
