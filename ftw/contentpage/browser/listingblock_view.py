@@ -64,9 +64,6 @@ class ListingBlockView(BrowserView):
         query['sort_order'] = self.context.getSortOrder()
         return query
 
-    def _get_addable_types(self):
-        return [fti.id for fti in self.context.allowedContentTypes()]
-
     def _get_column(self, column):
         for col in self.columns():
             if column == col['column']:
