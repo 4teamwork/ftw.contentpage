@@ -19,7 +19,7 @@ def archive_summary(context, request, contenttype, datefield):
     """Returns an ordered list of summary infos per month."""
     catalog = getToolByName(context, 'portal_catalog')
     query = {}
-    archive_summary = []
+    result = []
     if base_hasattr(context, 'getTranslations'):
         roots = context.getTranslations(
             review_state=False).values()
@@ -47,11 +47,11 @@ def archive_summary(context, request, contenttype, datefield):
     ac_keys.sort(reverse=True)
     for year_month in ac_keys:
         date = '%s/01' % year_month
-        archive_summary.append(dict(
+        result.append(dict(
                 title=zLocalizedTime(request,
                                      DateTime('%s/01' % year_month)),
                 number=archive_counts[year_month],
                 url='%s?archiv=%s' % (context.absolute_url(), date),
                 mark=request.get('archiv') == date,
                 ))
-    return archive_summary
+    return result
