@@ -19,7 +19,7 @@ def archive_summary(context, request, contenttype, datefield):
     """Returns an ordered list of summary infos per month."""
     catalog = getToolByName(context, 'portal_catalog')
     query = {}
-    archive_summary = []
+    result = []
     if base_hasattr(context, 'getTranslations'):
         roots = context.getTranslations(
             review_state=False).values()
@@ -28,30 +28,30 @@ def archive_summary(context, request, contenttype, datefield):
     else:
         root_path = '/'.join(context.getPhysicalPath())
 
-        query['path'] = root_path
-        query['portal_type'] = contenttype
+    query['path'] = root_path
+    query['portal_type'] = contenttype
 
-        archive_counts = {}
-        entries = catalog(**query)
-        for entry in entries:
-            value = getattr(entry, datefield)
-            if not value:
-                continue
-            year_month = value.strftime('%Y/%m')
-            if year_month in archive_counts:
-                archive_counts[year_month] += 1
-            else:
-                archive_counts[year_month] = 1
+    archive_counts = {}
+    entries = catalog(**query)
+    for entry in entries:
+        value = getattr(entry, datefield)
+        if not value:
+            continue
+        year_month = value.strftime('%Y/%m')
+        if year_month in archive_counts:
+            archive_counts[year_month] += 1
+        else:
+            archive_counts[year_month] = 1
 
-        ac_keys = archive_counts.keys()
-        ac_keys.sort(reverse=True)
-        for year_month in ac_keys:
-            date = '%s/01' % year_month
-            archive_summary.append(dict(
-                    title=zLocalizedTime(request,
-                                         DateTime('%s/01' % year_month)),
-                    number=archive_counts[year_month],
-                    url='%s?archiv=%s' % (context.absolute_url(), date),
-                    mark=request.get('archiv') == date,
-                    ))
-        return archive_summary
+    ac_keys = archive_counts.keys()
+    ac_keys.sort(reverse=True)
+    for year_month in ac_keys:
+        date = '%s/01' % year_month
+        result.append(dict(
+                title=zLocalizedTime(request,
+                                     DateTime('%s/01' % year_month)),
+                number=archive_counts[year_month],
+                url='%s?archiv=%s' % (context.absolute_url(), date),
+                mark=request.get('archiv') == date,
+                ))
+    return result

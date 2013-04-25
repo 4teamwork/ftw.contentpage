@@ -58,6 +58,10 @@ class TestListingBlockCreation(TestCase):
         # Default is empty
         self.assertEquals(None, listingblock.Title())
 
+    def test_can_set_default_page(self):
+        listingblock = self._create_listingblock()
+        self.assertFalse(listingblock.canSetDefaultPage())
+
     def test_change_default_title(self):
         registry = getUtility(IRegistry)
         registry.records['ftw.contentpage.listingblock.defaulttitle'] = \
@@ -84,6 +88,13 @@ class TestListingBlockCreation(TestCase):
         self.assertIn(u'Creator', content)
         self.assertIn(u'Title', content)
         self.assertNotIn(u'BadColumn', content)
+
+    def test_sort_index_vocabulary(self):
+        listingblock = self._create_listingblock()
+
+        self.assertEquals(listingblock.getSortIndexVocabulary().keys(),
+            ['getContentType', 'sortable_title', 'modified',
+             'getObjPositionInParent'])
 
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()

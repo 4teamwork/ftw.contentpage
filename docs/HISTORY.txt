@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Improve test coverage
+  [mathias.leimgruber]
+
 - Make textblock title searchable.
   [Julian Infanger]
 

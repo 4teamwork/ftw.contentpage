@@ -1,8 +1,8 @@
 from DateTime import DateTime
-from ftw.contentpage.portlets.news_portlet import Assignment as NewsAssignment
-from ftw.contentpage.portlets.news_portlet import Renderer as NewsRenderer
 from ftw.contentpage.portlets.news_archive_portlet import Assignment
 from ftw.contentpage.portlets.news_archive_portlet import Renderer
+from ftw.contentpage.portlets.news_portlet import Assignment as NewsAssignment
+from ftw.contentpage.portlets.news_portlet import Renderer as NewsRenderer
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.portlets.interfaces import IPortletManager
@@ -10,6 +10,7 @@ from plone.testing.z2 import Browser
 from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from pyquery import PyQuery
 from zope.component import getUtility
 import os
 import transaction
@@ -363,3 +364,21 @@ class TestNewsPortlets(unittest.TestCase):
               'number': 2,
               'mark': False,
               'title': u'December 2012'}])
+
+    def test_news_archive_portlet(self):
+        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
+            TEST_USER_NAME, TEST_USER_PASSWORD, ))
+
+        self.browser.open(
+            '%s/++contextportlets++plone.leftcolumn/+/newsarchiveportlet' %
+            self.newsfolder1.absolute_url())
+
+        self.browser.open(self.newsfolder1.absolute_url())
+
+        pq = PyQuery(self.browser.contents)
+        self.assertTrue(pq('.portlet.portletArchiveNews'),
+            'We added one, so there sould be a EventArchive portlet')
+
+        self.assertEquals(
+            len(pq('.portlet.portletArchiveNews .portletItem li')), 1,
+            'Expect one entry in the events archive portlet')
