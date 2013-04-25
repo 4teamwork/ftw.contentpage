@@ -85,6 +85,13 @@ class TestListingBlockCreation(TestCase):
         self.assertIn(u'Title', content)
         self.assertNotIn(u'BadColumn', content)
 
+    def test_sort_index_vocabulary(self):
+        listingblock = self._create_listingblock()
+
+        self.assertEquals(listingblock.getSortIndexVocabulary().keys(),
+            ['getContentType', 'sortable_title', 'modified',
+             'getObjPositionInParent'])
+
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()
         portal = self.layer['portal']
