@@ -58,6 +58,10 @@ class TestListingBlockCreation(TestCase):
         # Default is empty
         self.assertEquals(None, listingblock.Title())
 
+    def test_can_set_default_page(self):
+        listingblock = self._create_listingblock()
+        self.assertFalse(listingblock.canSetDefaultPage())
+
     def test_change_default_title(self):
         registry = getUtility(IRegistry)
         registry.records['ftw.contentpage.listingblock.defaulttitle'] = \
