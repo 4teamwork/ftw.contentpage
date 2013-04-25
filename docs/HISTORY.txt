@@ -7,6 +7,10 @@ Changelog
 - Make textblock title searchable.
   [Julian Infanger]
 
+- Do not assign any workflow to TextBlock, AddressBlock and ListingBlock
+  Provide an upgrade step, which removes the currently assigned workflow.
+  [mathias.leimgruber]
+
 - Fix AddressBlock FTI - Change (Default) alias to (dynamic view).
   [mathias.leimgruber]
 
