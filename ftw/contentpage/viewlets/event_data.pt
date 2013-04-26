@@ -4,7 +4,7 @@
         <th i18n:translate="">
           Date
         </th>
-        <td tal:content="context/getDate" />
+        <td tal:content="view/get_date" />
       </tr>
       <tr tal:condition="context/location">
         <th i18n:translate="">

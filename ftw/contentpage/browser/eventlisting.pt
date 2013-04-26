@@ -32,7 +32,7 @@
         <th i18n:translate="">
           Date
         </th>
-        <td tal:content="python: view.getDate(brain)" />
+        <td tal:content="python: view.get_date(brain)" />
       </tr>
       <tr tal:condition="brain/location">
         <th i18n:translate="">
