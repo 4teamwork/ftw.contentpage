@@ -44,6 +44,15 @@
 }
 /* @end */
 
+/* @group news block */
+
+.newsPublicationDate {
+  color: #666666;
+  font-size: 85%;
+  margin-bottom: 1em;
+}
+
+/* @end */
 
 /* @group archive portlet */
 .portletArchiveNews .highlight a,

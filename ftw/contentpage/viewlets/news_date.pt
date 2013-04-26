@@ -1,0 +1,11 @@
+<tal:def i18n:domain="ftw.contentpage"
+         condition="context/effective"
+         define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+  <div class="newsPublicationDate">
+    <span class="publishedOn"
+          i18n:translate="label_published_on">
+      Published on:
+    </span>
+    <span tal:content="python:toLocalizedTime(context.effective())" />
+  </div>
+</tal:def>

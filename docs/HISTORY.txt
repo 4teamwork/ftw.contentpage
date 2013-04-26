@@ -4,6 +4,10 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+
+- Added publication date viewlet to news view.
+  [Julian Infanger]
+
 - Add custom date formatter for events.
   [mathias.leimgruber]
 

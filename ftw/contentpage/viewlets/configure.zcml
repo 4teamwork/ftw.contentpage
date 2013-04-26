@@ -29,6 +29,14 @@
         />
 
     <browser:viewlet
+        for="ftw.contentpage.interfaces.INews"
+        name="ftw.contentpage.news_date"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".news.NewsDate"
+        permission="zope2.View"
+        />
+
+    <browser:viewlet
         for="ftw.contentpage.interfaces.IEventPage"
         name="ftw.contentpage.event.eventdata"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
