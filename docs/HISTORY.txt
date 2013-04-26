@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Add custom date formatter for events.
+  [mathias.leimgruber]
+
 - Improve test coverage
   [mathias.leimgruber]
 

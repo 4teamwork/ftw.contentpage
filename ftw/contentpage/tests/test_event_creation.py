@@ -1,8 +1,9 @@
-import unittest2 as unittest
+from ftw.contentpage.browser.eventlisting import format_date
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-import transaction
-from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from plone.testing.z2 import Browser
+import transaction
+import unittest2 as unittest
 
 
 class TestEvent(unittest.TestCase):
@@ -40,4 +41,6 @@ class TestEvent(unittest.TestCase):
             'http://nohost/plone/eventfolder/a-title/')
         event = self.eventfolder.get('a-title')
         self.assertEqual(event.location.encode('utf-8'), 'D\xc3\xbcbendorf')
-        self.assertEqual(event.getDate(), '20.05.2013 07:20 - 08:20')
+        self.assertEqual(
+            format_date(event.start(), event.end(), event.getWholeDay()),
+            '20.05.2013 07:20 - 08:20')
