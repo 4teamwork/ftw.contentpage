@@ -4,6 +4,8 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+- Fixed condition for addrestitel in address templates.
+  [phgross]
 
 - Added publication date viewlet to news view.
   [Julian Infanger]
