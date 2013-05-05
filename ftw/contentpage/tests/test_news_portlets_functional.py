@@ -379,6 +379,6 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertTrue(pq('.portlet.portletArchiveNews'),
             'We added one, so there sould be a EventArchive portlet')
 
-        self.assertEquals(
+        self.assertGreater(
             len(pq('.portlet.portletArchiveNews .portletItem li')), 1,
-            'Expect one entry in the events archive portlet')
+            'Expect at least one entry in the events archive portlet')
