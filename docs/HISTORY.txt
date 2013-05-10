@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Fix content type on text fields of address block: use text/plain as input type.
+  [jone]
+
 - News listing view: handle news without effective date.
   [jone]
 
