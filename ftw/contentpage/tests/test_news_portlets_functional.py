@@ -346,6 +346,8 @@ class TestNewsPortlets(unittest.TestCase):
             'News', 'news3', effectiveDate=DateTime('2012/12/20'))
         archivefolder.invokeFactory(
             'News', 'news4', effectiveDate=DateTime('2012/12/21'))
+        archivefolder.invokeFactory(
+            'News', 'news5', effectiveDate=None)
 
         portlet = Assignment()
         renderer = Renderer(archivefolder, archivefolder.REQUEST, object(),

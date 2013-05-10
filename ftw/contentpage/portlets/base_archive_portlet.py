@@ -37,6 +37,10 @@ def archive_summary(context, request, contenttype, datefield):
         value = getattr(entry, datefield)
         if not value:
             continue
+
+        if value.year() <= 1900:
+            continue
+
         year_month = value.strftime('%Y/%m')
         if year_month in archive_counts:
             archive_counts[year_month] += 1
