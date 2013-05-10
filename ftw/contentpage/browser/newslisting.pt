@@ -30,7 +30,7 @@
         </h2>
         <div class="documentByLine">
             <span class="dtstart"
-                  tal:content="python:toLocalizedTime(brain.effective)">
+                  tal:content="python:brain.effective.year() > 1900 and toLocalizedTime(brain.effective) or ''">
                 21.12.2012
             </span>
             <tal:name tal:define="creator python:view.get_creator(brain)"
