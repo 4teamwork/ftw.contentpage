@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Change german transaltions.
+  [mathias.leimgruber]
+
 - Fix content type on text fields of address block: use text/plain as input type.
   [jone]
 

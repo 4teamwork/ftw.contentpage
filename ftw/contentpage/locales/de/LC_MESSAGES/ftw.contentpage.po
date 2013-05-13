@@ -192,7 +192,7 @@ msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 #. Default: "Category for contentlisting"
 #: ./ftw/contentpage/extender.py:27
 msgid "help_categories"
-msgstr "Definieren Sie, unter welchen Kategorien diese Inhaltsseite abgelegt werden soll"
+msgstr "Definieren Sie, unter welchen Rubrik diese Inhaltsseite abgelegt werden soll"
 
 #: ./ftw/contentpage/content/addressblock.py:137
 msgid "help_directions"
@@ -288,7 +288,7 @@ msgstr "Abbrechen"
 #. Default: "Categories"
 #: ./ftw/contentpage/extender.py:26
 msgid "label_categories"
-msgstr "Kategorie"
+msgstr "Rubrik"
 
 #. Default: "City"
 #: ./ftw/contentpage/content/addressblock.py:63
