@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-26 07:50+0000\n"
+"POT-Creation-Date: 2013-05-14 09:11+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:97
+#: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
 msgstr "News Portlet hinzufügen"
 
@@ -115,7 +115,7 @@ msgstr "Schweiz"
 msgid "TextBlock"
 msgstr "Textblock"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:98
+#: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
 
@@ -199,11 +199,11 @@ msgid "help_directions"
 msgstr "So finden Sie uns"
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/eventpage.py:44
+#: ./ftw/contentpage/content/eventpage.py:43
 msgid "help_end"
 msgstr "Datum und Zeit, wann diese Veranstaltung endet"
 
-#: ./ftw/contentpage/content/eventpage.py:63
+#: ./ftw/contentpage/content/eventpage.py:62
 msgid "help_event_location"
 msgstr ""
 
@@ -236,12 +236,12 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/eventpage.py:31
+#: ./ftw/contentpage/content/eventpage.py:30
 msgid "help_start"
 msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/eventpage.py:55
+#: ./ftw/contentpage/content/eventpage.py:54
 msgid "help_whole_day"
 msgstr "Die Veranstaltung dauert den ganzen Tag."
 
@@ -281,7 +281,7 @@ msgid "label_by_author"
 msgstr "von ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:129
+#: ./ftw/contentpage/portlets/news_portlet.py:133
 msgid "label_cancel"
 msgstr "Abbrechen"
 
@@ -326,17 +326,17 @@ msgid "label_email"
 msgstr "E-Mail"
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/eventpage.py:43
+#: ./ftw/contentpage/content/eventpage.py:42
 msgid "label_event_end"
 msgstr "Veranstaltungsende"
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/eventpage.py:62
+#: ./ftw/contentpage/content/eventpage.py:61
 msgid "label_event_location"
 msgstr "Veranstaltungsort"
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/eventpage.py:30
+#: ./ftw/contentpage/content/eventpage.py:29
 msgid "label_event_start"
 msgstr "Veranstaltungsanfang"
 
@@ -381,6 +381,11 @@ msgstr "Nachricht"
 msgid "label_modified"
 msgstr "Bearbeitungsdatum"
 
+#. Default: "Show more news link"
+#: ./ftw/contentpage/portlets/news_portlet.py:85
+msgid "label_more_news_link"
+msgstr "Link auf ältere Meldung darstellen"
+
 #: ./ftw/contentpage/portlets/news_portlet.py:43
 msgid "label_only_context"
 msgstr "Nur in diesem Bereich"
@@ -402,7 +407,7 @@ msgid "label_position_in_folder"
 msgstr "Ordnerreihenfolge"
 
 #. Default: "Published on:"
-#: ./ftw/contentpage/viewlets/news_date.pt:4
+#: ./ftw/contentpage/viewlets/news_date.pt:5
 msgid "label_published_on"
 msgstr "Publiziert:"
 
@@ -416,7 +421,7 @@ msgid "label_readmore"
 msgstr "Weiterlesen"
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:118
+#: ./ftw/contentpage/portlets/news_portlet.py:122
 msgid "label_save"
 msgstr "Speichern"
 
@@ -479,7 +484,7 @@ msgid "label_text"
 msgstr "Text"
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/eventpage.py:54
+#: ./ftw/contentpage/content/eventpage.py:53
 msgid "label_whole_day_event"
 msgstr "Ganztägige Veranstaltung"
 
@@ -498,6 +503,11 @@ msgstr "PLZ"
 msgid "mail_address"
 msgstr "E-Mail"
 
+#. Default: "More news"
+#: ./ftw/contentpage/portlets/news_portlet.pt:41
+msgid "more_news_link"
+msgstr "Ältere Meldungen anzeigen"
+
 #. Default: "Read More…"
 #: ./ftw/contentpage/browser/newslisting.pt:57
 msgid "read_more"
@@ -515,7 +525,7 @@ msgid "text_not_content"
 msgstr "Keine Inhalte"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:91
+#: ./ftw/contentpage/portlets/news_portlet.py:95
 msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 
@@ -523,3 +533,5 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:9
 msgid "text_phone"
 msgstr "Tel. ${num}"
+
+

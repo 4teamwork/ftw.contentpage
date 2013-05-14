@@ -58,7 +58,6 @@ class BaseListing(BrowserView):
             return context.queryCatalog()
         else:
             catalog = getToolByName(context, 'portal_catalog')
-            #Extend query with path
             query['path'] = '/'.join(context.getPhysicalPath())
             return catalog(query)
 
