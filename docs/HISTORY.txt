@@ -11,6 +11,9 @@ Changelog
 - Added helper javascript for start and end date widget.
   [Julian Infanger]
 
+- Search News and Evens recursively.
+  [mathias.leimgruber]
+
 - Change german transaltions.
   [mathias.leimgruber]
 

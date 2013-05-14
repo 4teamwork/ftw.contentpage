@@ -88,3 +88,7 @@ class TestNewsViews(unittest.TestCase):
 
         brain = listing.get_items()[0]
         self.assertEquals('Firstname Lastname', listing.get_creator(brain))
+
+    def test_news_listing_on_portal(self):
+        listing = self.portal.restrictedTraverse("@@news_listing")
+        self.assertEqual(len(listing.get_items()), 5)
