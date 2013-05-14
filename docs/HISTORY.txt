@@ -11,11 +11,11 @@ Changelog
   [Julian Infanger]
 
 - Add a configurable "Show more or show all News link" link into the footer of
-  the news portlet. It only shows up if the are news to show an if the
+  the news portlet. It only shows up if there are news to show and if the
   "Show all news" box is ticked.
   [mathias.leimgruber]
 
-- Search News and Evens recursively.
+- Search News and Events recursively.
   [mathias.leimgruber]
 
 - Change german transaltions.

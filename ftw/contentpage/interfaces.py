@@ -47,3 +47,11 @@ class IEventFolder(Interface):
 
 class ITeaser(Interface):
     """Markter interface for the teaser functionality"""
+
+
+class INewsListingView(Interface):
+    """Marker interface for the news listing view"""
+
+
+class IEventListingView(Interface):
+    """Marker interface for the news listing view"""

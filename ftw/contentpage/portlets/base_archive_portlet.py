@@ -15,7 +15,7 @@ def zLocalizedTime(request, time, long_format=False):
     return u"%s %s" % (month, time.strftime('%Y'))
 
 
-def archive_summary(context, request, contenttype, datefield):
+def archive_summary(context, request, contenttype, datefield, viewname):
     """Returns an ordered list of summary infos per month."""
     catalog = getToolByName(context, 'portal_catalog')
     query = {}
@@ -51,11 +51,13 @@ def archive_summary(context, request, contenttype, datefield):
     ac_keys.sort(reverse=True)
     for year_month in ac_keys:
         date = '%s/01' % year_month
+        url = '%s?archiv=%s' % ("%s/%s" % (context.absolute_url(), viewname),
+                                date)
         result.append(dict(
                 title=zLocalizedTime(request,
                                      DateTime('%s/01' % year_month)),
                 number=archive_counts[year_month],
-                url='%s?archiv=%s' % (context.absolute_url(), date),
+                url=url,
                 mark=request.get('archiv') == date,
                 ))
     return result

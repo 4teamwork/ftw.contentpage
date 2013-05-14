@@ -1,9 +1,10 @@
+from ftw.contentpage.interfaces import IEventListingView
+from ftw.contentpage.portlets.base_archive_portlet import archive_summary
 from plone.app.portlets.portlets import base
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
-from ftw.contentpage.portlets.base_archive_portlet import archive_summary
 
 
 class IEventArchive(IPortletDataProvider):
@@ -21,23 +22,32 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
 
-    @property
-    def available(self):
-        """Only show the portlet, if there are News
-        """
-        return bool(self.archive_summary())
-
     def __init__(self, context, request, view, manager, data):
         self.context = context
         self.data = data
         self.request = request
+        self.view = view
+
+    @property
+    def available(self):
+        """Only show the portlet:
+        - If there are Events
+        - If view is EventListing
+        """
+        has_events = bool(self.archive_summary())
+
+        if IEventListingView.providedBy(self.view):
+            return has_events
+        else:
+            return False
 
     @memoize
     def archive_summary(self):
         return archive_summary(self.context,
                                self.request,
                                'EventPage',
-                               'start'
+                               'start',
+                               'event_listing'
                                )
 
     render = ViewPageTemplateFile('event_archive.pt')
