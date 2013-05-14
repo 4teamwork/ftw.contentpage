@@ -82,6 +82,10 @@ class INewsPortlet(IPortletDataProvider):
                       default=0,
                       required=True)
 
+    more_news_link = schema.Bool(title=_(u'label_more_news_link',
+                                    default=u"Show more news link"),
+                            default=False)
+
     @invariant
     def is_either_path_or_area(obj):
         """Checks if not both path and current area are defined.
@@ -158,7 +162,8 @@ class AddForm(form.AddForm):
             subjects=data.get('subjects', []),
             show_desc=data.get('show_desc', False),
             desc_length=data.get('desc_length', 50),
-            days=data.get('days', 0)
+            days=data.get('days', 0),
+            more_news_link=data.get('more_news_link', 0)
         )
 
 
@@ -168,7 +173,7 @@ class Assignment(base.Assignment):
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=None,
                  path=None, subjects=None, show_desc=False, desc_length=50,
-                 days=0):
+                 days=0, more_news_link=0):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -179,6 +184,7 @@ class Assignment(base.Assignment):
         self.show_desc = show_desc
         self.desc_length = desc_length
         self.days = days
+        self.more_news_link = more_news_link
 
     @property
     def title(self):
@@ -202,9 +208,13 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         is_news = self.context.portal_type in ['News', 'NewsFolder']
-        return bool(self.get_news() and not is_news)
+        if self.show_more_news_link():
+            has_news = self.get_news(all_news=True)
+        else:
+            has_news = self.get_news()
+        return has_news and not is_news
 
-    def get_news(self):
+    def get_news(self, all_news=False):
         catalog = getToolByName(self.context, 'portal_catalog')
         url_tool = getToolByName(self.context, 'portal_url')
         portal_path = url_tool.getPortalPath()
@@ -232,7 +242,7 @@ class Renderer(base.Renderer):
         if self.data.subjects:
             query['Subject'] = self.data.subjects
 
-        if self.data.days > 0:
+        if self.data.days > 0 and not all_news:
             date = DateTime() - self.data.days
             query['effective'] = {'query': date, 'range': 'min'}
 
@@ -244,6 +254,9 @@ class Renderer(base.Renderer):
     def crop_desc(self, description):
         ploneview = self.context.restrictedTraverse('@@plone')
         return ploneview.cropText(description, self.data.desc_length)
+
+    def show_more_news_link(self):
+        return self.data.more_news_link
 
 
 class EditForm(form.EditForm):

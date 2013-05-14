@@ -384,3 +384,21 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertGreater(
             len(pq('.portlet.portletArchiveNews .portletItem li')), 1,
             'Expect at least one entry in the events archive portlet')
+
+    def test_newsportlet_more_news_link_disabled(self):
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        portlet = NewsAssignment()
+        renderer = NewsRenderer(self.portal, self.portal.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertFalse(renderer.show_more_news_link(),
+            'Expect that the "More News" link is invisible')
+
+    def test_newsportlet_more_news_link_enabled(self):
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        portlet = NewsAssignment(more_news_link=True)
+        renderer = NewsRenderer(self.portal, self.portal.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertTrue(renderer.show_more_news_link(),
+            'Expect that the "More News" link is visible')
