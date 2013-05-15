@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Added helper javascript for start and end date widget.
+  [Julian Infanger]
+
 - Change german transaltions.
   [mathias.leimgruber]
 

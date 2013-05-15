@@ -26,6 +26,7 @@ EventSchema = ContentPageSchema.copy() + atapi.Schema((
         accessor='start',
         languageIndependent=True,
         widget=FtwCalendarWidget(
+            helper_js=('++resource++ftw.contentpage.resources/start_end_date_helper.js',),
             label=_(u'label_event_start', default=u'Event Starts'),
             description=_(u'help_start',
                           default=u"Date and Time, when the event begins."),
