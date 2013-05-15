@@ -249,7 +249,7 @@ class Renderer(base.Renderer):
         query['sort_on'] = 'effective'
         query['sort_order'] = 'descending'
         results = catalog.searchResults(query)
-        return results[0:self.data.quantity - 1]
+        return results[:self.data.quantity]
 
     def crop_desc(self, description):
         ploneview = self.context.restrictedTraverse('@@plone')
