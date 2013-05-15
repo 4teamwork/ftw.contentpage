@@ -4,6 +4,10 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+
+- Add ListingBlock and AddressBlock to addable types of News.
+  [mathias.leimgruber]
+
 - Added helper javascript for start and end date widget.
   [Julian Infanger]
 

@@ -155,4 +155,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1008 -> 1009 -->
+    <genericsetup:upgradeStep
+        title="Add ListingBlock/AddressBlock to addable types of News"
+        description=""
+        source="1008"
+        destination="1009"
+        handler="ftw.contentpage.upgrades.to1009.UpdateNewsAddableTypes"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1009"
+        title="ftw.contentpage.upgrades.1009"
+        description=""
+        directory="profiles/1009"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>

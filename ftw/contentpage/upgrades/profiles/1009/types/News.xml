@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="News"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="ftw.contentpage">
+
+  <property name="allowed_content_types" purge="False">
+    <element value="AddressBlock"/>
+    <element value="ListingBlock"/>
+  </property>
+
+</object>
