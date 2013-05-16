@@ -397,7 +397,7 @@ class TestNewsPortlets(unittest.TestCase):
             'We added one, so there sould be a EventArchive portlet')
 
         self.assertGreater(
-            len(pq('.portlet.portletArchiveNews .portletItem li')), 1,
+            len(pq('.portlet.portletArchiveNews .portletItem li')), 0,
             'Expect at least one entry in the events archive portlet')
 
     def test_newsportlet_more_news_link_disabled(self):
