@@ -1,7 +1,7 @@
 from plone.indexer.decorator import indexer
-from ftw.contentpage.interfaces import IContentPage
+from ftw.contentpage.interfaces import ICategorizable
 
 
-@indexer(IContentPage)
+@indexer(ICategorizable)
 def categories(obj, **kw):
     return obj.Schema()['content_categories'].get(obj)
