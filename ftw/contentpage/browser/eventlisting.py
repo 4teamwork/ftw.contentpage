@@ -1,7 +1,9 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from DateTime import DateTime
 from ftw.contentpage.browser.baselisting import BaseListing
+from ftw.contentpage.interfaces import IEventListingView
 from Products.ATContentTypes.utils import DT2dt
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.interface import implements
 
 
 def format_date(start, end, wholeday):
@@ -22,6 +24,7 @@ def format_date(start, end, wholeday):
 
 
 class EventListing(BaseListing):
+    implements(IEventListingView)
 
     template = ViewPageTemplateFile("eventlisting.pt")
 

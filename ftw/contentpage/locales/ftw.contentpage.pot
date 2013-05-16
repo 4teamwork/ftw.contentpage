@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-26 07:50+0000\n"
+"POT-Creation-Date: 2013-05-14 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: ftw.contentpage\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:97
+#: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:98
+#: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -201,11 +201,11 @@ msgid "help_directions"
 msgstr ""
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/eventpage.py:44
+#: ./ftw/contentpage/content/eventpage.py:43
 msgid "help_end"
 msgstr ""
 
-#: ./ftw/contentpage/content/eventpage.py:63
+#: ./ftw/contentpage/content/eventpage.py:62
 msgid "help_event_location"
 msgstr ""
 
@@ -238,12 +238,12 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/eventpage.py:31
+#: ./ftw/contentpage/content/eventpage.py:30
 msgid "help_start"
 msgstr ""
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/eventpage.py:55
+#: ./ftw/contentpage/content/eventpage.py:54
 msgid "help_whole_day"
 msgstr ""
 
@@ -283,7 +283,7 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:129
+#: ./ftw/contentpage/portlets/news_portlet.py:133
 msgid "label_cancel"
 msgstr ""
 
@@ -328,17 +328,17 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/eventpage.py:43
+#: ./ftw/contentpage/content/eventpage.py:42
 msgid "label_event_end"
 msgstr ""
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/eventpage.py:62
+#: ./ftw/contentpage/content/eventpage.py:61
 msgid "label_event_location"
 msgstr ""
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/eventpage.py:30
+#: ./ftw/contentpage/content/eventpage.py:29
 msgid "label_event_start"
 msgstr ""
 
@@ -383,6 +383,11 @@ msgstr ""
 msgid "label_modified"
 msgstr ""
 
+#. Default: "Show more news link"
+#: ./ftw/contentpage/portlets/news_portlet.py:85
+msgid "label_more_news_link"
+msgstr ""
+
 #: ./ftw/contentpage/portlets/news_portlet.py:43
 msgid "label_only_context"
 msgstr ""
@@ -404,7 +409,7 @@ msgid "label_position_in_folder"
 msgstr ""
 
 #. Default: "Published on:"
-#: ./ftw/contentpage/viewlets/news_date.pt:4
+#: ./ftw/contentpage/viewlets/news_date.pt:5
 msgid "label_published_on"
 msgstr ""
 
@@ -418,7 +423,7 @@ msgid "label_readmore"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:118
+#: ./ftw/contentpage/portlets/news_portlet.py:122
 msgid "label_save"
 msgstr ""
 
@@ -481,7 +486,7 @@ msgid "label_text"
 msgstr ""
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/eventpage.py:54
+#: ./ftw/contentpage/content/eventpage.py:53
 msgid "label_whole_day_event"
 msgstr ""
 
@@ -498,6 +503,11 @@ msgstr ""
 #. Default: "E-Mail"
 #: ./ftw/contentpage/browser/feedback.py:27
 msgid "mail_address"
+msgstr ""
+
+#. Default: "More news"
+#: ./ftw/contentpage/portlets/news_portlet.pt:41
+msgid "more_news_link"
 msgstr ""
 
 #. Default: "Read More…"
@@ -517,7 +527,7 @@ msgid "text_not_content"
 msgstr ""
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:91
+#: ./ftw/contentpage/portlets/news_portlet.py:95
 msgid "text_path_and_area"
 msgstr ""
 

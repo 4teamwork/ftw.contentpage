@@ -4,12 +4,22 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-
 - Add ListingBlock and AddressBlock to addable types of News.
   [mathias.leimgruber]
 
 - Added helper javascript for start and end date widget.
   [Julian Infanger]
+
+- Fix news result quantity.
+  [mathias.leimgruber]
+
+- Add a configurable "Show more or show all News link" link into the footer of
+  the news portlet. It only shows up if there are news to show and if the
+  "Show all news" box is ticked.
+  [mathias.leimgruber]
+
+- Search News and Events recursively.
+  [mathias.leimgruber]
 
 - Change german transaltions.
   [mathias.leimgruber]

@@ -36,7 +36,14 @@
         </dd>
     </tal:loop>
 
-    <dd class="portletFooter"><!-- -->
+    <dd class="portletFooter">
+        <tal:morelink condition="view/show_more_news_link">
+            <a class="NewsMoreLink" title="More news"
+               tal:attributes="href string:${here/absolute_url}/@@news_listing"
+               i18n:attributes="title more_news_link"
+               i18n:translate="more_news_link">More News</a>
+        </tal:morelink>
+        <!-- -->
     </dd>
 
 </dl>

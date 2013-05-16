@@ -57,7 +57,9 @@ class BaseListing(BrowserView):
         if ct == 'Topic':
             return context.queryCatalog()
         else:
-            return context.getFolderContents(query)
+            catalog = getToolByName(context, 'portal_catalog')
+            query['path'] = '/'.join(context.getPhysicalPath())
+            return catalog(query)
 
     def has_img(self, brain):
         """ Checks if the news have an image.

@@ -54,7 +54,7 @@ Take a look at the `rolemap.xml` for details.
 
 ** Portlet **
 It's possible to enable an archive portlet for News and EventPages.
-It only works if the current container has News / EventPages.
+It only works if the current view is the news or event listing view.
 The portlet is not created by default.
 
 Code example:

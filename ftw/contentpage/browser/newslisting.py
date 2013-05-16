@@ -1,8 +1,11 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.contentpage.browser.baselisting import BaseListing
+from ftw.contentpage.interfaces import INewsListingView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.interface import implements
 
 
 class NewsListing(BaseListing):
+    implements(INewsListingView)
 
     template = ViewPageTemplateFile('newslisting.pt')
 

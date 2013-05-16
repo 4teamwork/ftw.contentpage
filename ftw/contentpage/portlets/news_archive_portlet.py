@@ -4,6 +4,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
 from ftw.contentpage.portlets.base_archive_portlet import archive_summary
+from ftw.contentpage.interfaces import INewsListingView
 
 
 class INewsArchivePortlet(IPortletDataProvider):
@@ -24,17 +25,26 @@ class Renderer(base.Renderer):
         self.context = context
         self.data = data
         self.request = request
+        self.view = view
 
     @property
     def available(self):
-        """Only show the portlet, if there are News
+        """Only show the portlet:
+        - If there are News
+        - If view is NewsListing
         """
-        return bool(self.archive_summary())
+        has_news = bool(self.archive_summary())
+
+        if INewsListingView.providedBy(self.view):
+            return has_news
+        else:
+            return False
 
     @memoize
     def archive_summary(self):
         """Returns an ordered list of summary infos per month."""
-        return archive_summary(self.context, self.request, 'News', 'effective')
+        return archive_summary(self.context, self.request, 'News', 'effective',
+                               'news_listing')
 
     render = ViewPageTemplateFile('news_archive_portlet.pt')
 
