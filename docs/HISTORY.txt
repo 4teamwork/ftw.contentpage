@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Fix content_categories index. Should be available on ICategorizable not
+  on IContentPage
+
 - Add ListingBlock and AddressBlock to addable types of News.
   [mathias.leimgruber]
 
