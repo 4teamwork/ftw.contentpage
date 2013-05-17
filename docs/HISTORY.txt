@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Sort content categories alphabetical.
+  [mathias.leimgruber]
+
 - Fix content_categories index. Should be available on ICategorizable not
   on IContentPage
 

@@ -33,4 +33,6 @@ class ContentListingViewlet(ViewletBase):
                                        obj.absolute_url(),
                                        obj.Description() or obj.title_or_id()))
 
-        return resultmap.items()
+        items = resultmap.items()
+        items.sort(key=lambda x: x[0].lower())
+        return items
