@@ -87,6 +87,7 @@ class TestContentListing(TestCase):
         viewlet = self._get_viewlet()[0]
         # Should be empty
         self.assertFalse(viewlet.available())
+
         # Create more content
         subpage = self.contentpage.get(
             self.contentpage.invokeFactory(
@@ -96,11 +97,13 @@ class TestContentListing(TestCase):
         subpage.Schema()['content_categories'].set(
             subpage, '\xc3\xa4u\xc3\xa4')
         subpage.reindexObject()
+
         subpage2 = self.contentpage.get(
             self.contentpage.invokeFactory('ContentPage', 'subpage2'))
         subpage2.setTitle('Subpage2')
         subpage2.Schema()['content_categories'].set(subpage2, 'DEMO2')
         subpage2.reindexObject()
+
         subpage3 = self.contentpage.get(
             self.contentpage.invokeFactory(
                 'ContentPage', 'subpage3', description='OtherDescription'))
@@ -129,6 +132,24 @@ class TestContentListing(TestCase):
         self.assertIn('\xc3\xa4u\xc3\xa4', self.browser.contents)
         self.assertIn('DEMO2', self.browser.contents)
         self.assertIn('subelements-listing-element', self.browser.contents)
+
+    def test_content_categories_sort_order(self):
+        viewlet = self._get_viewlet()[0]
+
+        self.contentpage.invokeFactory(
+            'ContentPage', 'subpage1', content_categories="aa")
+        self.contentpage.invokeFactory(
+            'ContentPage', 'subpage2', content_categories="ab")
+        self.contentpage.invokeFactory(
+            'ContentPage', 'subpage3', content_categories="zz")
+        self.contentpage.invokeFactory(
+            'ContentPage', 'subpage4', content_categories="AC")
+
+        expected_order = ['aa', 'ab', 'AC', 'zz']
+        contents = self.contentpage.objectValues()
+        order = [item[0] for item in viewlet._create_resultmap(contents)]
+
+        self.assertEquals(expected_order, order)
 
     def test_sort_order(self):
 
