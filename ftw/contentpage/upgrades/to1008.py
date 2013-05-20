@@ -14,6 +14,7 @@ class RemoveWorkflowFromBlocks(UpgradeStep):
     def remove_security_settings_from_blocks(self):
         query = {'portal_type': ['ListingBlock', 'AddressBlock', 'TextBlock']}
         for obj in self.catalog_unrestricted_search(query, full_objects=True):
-            for permission, _attrs in obj.ac_inherited_permissions(1):
+            for item in obj.ac_inherited_permissions(1):
+                permission = item[0]
                 obj.manage_permission(permission, roles=[], acquire=True)
                 obj.reindexObjectSecurity()
