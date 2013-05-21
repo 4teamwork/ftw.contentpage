@@ -1,11 +1,15 @@
 from plone.app.layout.viewlets import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize import instance
+from ftw.contentpage.interfaces import ISummaryListingEnabled
 
 
 class ContentListingViewlet(ViewletBase):
     """Lists content by categories"""
-    render = ViewPageTemplateFile('contentlisting.pt')
+    def render(self):
+        if ISummaryListingEnabled.providedBy(self.view):
+            return ViewPageTemplateFile('content_summary_listing.pt')(self)
+        return ViewPageTemplateFile('contentlisting.pt')(self)
 
     def available(self):
         return bool(self.get_content())
@@ -31,7 +35,7 @@ class ContentListingViewlet(ViewletBase):
                     resultmap[cat] = []
                 resultmap[cat].append((obj.title_or_id(),
                                        obj.absolute_url(),
-                                       obj.Description() or obj.title_or_id()))
+                                       obj.Description()))
 
         items = resultmap.items()
         items.sort(key=lambda x: x[0].lower())

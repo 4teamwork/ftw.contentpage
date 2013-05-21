@@ -121,7 +121,7 @@ class TestContentListing(TestCase):
 
         self.assertIn(
             ('DEMO2',
-                [('Subpage2', subpage2.absolute_url(), 'Subpage2'),
+                [('Subpage2', subpage2.absolute_url(), ''),
                  ('Subpage3', subpage3.absolute_url(), 'OtherDescription')]),
             viewlet.get_content())
 

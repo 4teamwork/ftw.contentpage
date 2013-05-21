@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.2.2 (unreleased)
-------------------
+1.3 (unreleased)
+----------------
+
+- Added simplelayout summary view to display more details in contentlisting.
+  [Julian Infanger]
 
 - Suggest the parents title for addresstitle in addressblock.
   Its the better way than just display it if no addresstitle is set.

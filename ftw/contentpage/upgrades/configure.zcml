@@ -174,4 +174,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1009 -> 1300-->
+    <genericsetup:upgradeStep
+        title="Adds simplelayout_summary view"
+        description=""
+        source="1009"
+        destination="1300"
+        handler="ftw.contentpage.upgrades.to1300.UpdateSLView"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1300"
+        title="ftw.contentpage.upgrades.1300"
+        description=""
+        directory="profiles/1300"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
