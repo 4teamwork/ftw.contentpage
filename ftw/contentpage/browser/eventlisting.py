@@ -1,4 +1,3 @@
-from DateTime import DateTime
 from ftw.contentpage.browser.baselisting import BaseListing
 from ftw.contentpage.interfaces import IEventListingView
 from Products.ATContentTypes.utils import DT2dt
@@ -29,6 +28,9 @@ class EventListing(BaseListing):
     template = ViewPageTemplateFile("eventlisting.pt")
 
     def get_items(self):
+        # When this import is moved to the top the tests will fail
+        # because of a "now()" patching problem in the test..
+        from DateTime import DateTime
         query = {'path': '/'.join(self.context.getPhysicalPath()),
                  'portal_type': 'EventPage',
                  'sort_on': 'start',

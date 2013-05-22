@@ -1,22 +1,26 @@
-from DateTime import DateTime
+from Products.Five.browser import BrowserView
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.testing import MockTestCase
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
-from Products.Five.browser import BrowserView
 from pyquery import PyQuery
 from zope.component import queryMultiAdapter
 from zope.viewlet.interfaces import IViewletManager
 import os
 import transaction
-import unittest2 as unittest
 
 
-class TestEventListing(unittest.TestCase):
+class TestEventListing(MockTestCase):
 
     layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 
     def setUp(self):
+        super(TestEventListing, self).setUp()
+        self.mock_current_time(2013, 05, 20, 10, 00)
+
+        from DateTime import DateTime
+
         self.portal = self.layer['portal']
         self.eventfolder = self.portal.get(
         self.portal.invokeFactory('EventFolder', 'eventfolder'))
@@ -60,6 +64,26 @@ class TestEventListing(unittest.TestCase):
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
 
+    def mock_current_time(self, *dtargs):
+        # since mocker is not able to replace (a.k.a monkeypatch)
+        # datetime.datetime.now directly, we need to make a proxy
+        # of the datetime class and mix it in by replacing the
+        # datetime module...
+        from datetime import datetime, timedelta
+        pydt_now = datetime(*dtargs)
+        pydt_class = self.mocker.proxy(datetime)
+        self.expect(pydt_class.now()).result(pydt_now).count(0, None)
+        pydt_mod = self.mocker.replace('datetime')
+        self.expect(pydt_mod.datetime).result(pydt_class).count(0, None)
+        self.expect(pydt_mod.timedelta).result(timedelta).count(0, None)
+
+        from DateTime import DateTime
+        zdt_now = DateTime(pydt_now)
+        zdt_mod = self.mocker.replace('DateTime')
+        self.expect(zdt_mod.DateTime()).result(zdt_now).count(0, None)
+
+        self.mocker.replay()
+
     def test_listing_no_past_events(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
         events = view.get_items()
@@ -77,6 +101,8 @@ class TestEventListing(unittest.TestCase):
         self.portal.REQUEST['archiv'] = '2013/06/01'
         events = view.get_items()
         self.assertEqual(len(events), 1)
+
+        from DateTime import DateTime
         self.assertEqual(events[0].start, DateTime(2013, 06, 28, 10, 00))
 
     def test_has_img(self):
