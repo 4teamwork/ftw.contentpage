@@ -1,8 +1,10 @@
+from StringIO import StringIO
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.imaging.utils import getAllowedSizes
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from plone.app.testing import login
+from plone.app.testing import logout
 from plone.testing.z2 import Browser
-from StringIO import StringIO
 from unittest2 import TestCase
 from zope.component import queryMultiAdapter
 import os
@@ -59,6 +61,15 @@ class TestListingBlockViews(TestCase):
         self.assertIn(listingblock.getId(), self.browser.contents)
         self.assertIn('simplelayout-block-wrapper ListingBlock',
                       self.browser.contents)
+
+    def test_empty_block_invisible_for_anonymous(self):
+        listingblock = self._create_listingblock()
+        logout()
+        view = queryMultiAdapter((listingblock, listingblock.REQUEST),
+                                 name="block_view")
+        self.assertEqual(
+            '', view().strip(),
+            'Listing block should not be visible for anonymous when empty.')
 
     def test_listing_block_table_render(self):
         listingblock = self._create_listingblock()
@@ -179,6 +190,7 @@ class TestListingBlockViews(TestCase):
     def tearDown(self):
         super(TestListingBlockViews, self).tearDown()
         portal = self.layer['portal']
+        login(portal, TEST_USER_NAME)
         portal.manage_delObjects(['contentpage'])
 
         transaction.commit()

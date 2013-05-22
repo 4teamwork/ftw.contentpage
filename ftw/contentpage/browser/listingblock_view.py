@@ -1,8 +1,8 @@
+from Products.CMFPlone.utils import getToolByName
+from Products.Five.browser import BrowserView
 from ftw.contentpage import _
 from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
-from Products.CMFPlone.utils import getToolByName
-from Products.Five.browser import BrowserView
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import queryUtility
 
@@ -55,6 +55,13 @@ class ListingBlockView(BrowserView):
              })
         return columns
 
+    def block_visible(self):
+        mtool = getToolByName(self.context, 'portal_membership')
+        if mtool.checkPermission('Modify portal content', self.context):
+            return True
+
+        return len(self.get_table_contents()) > 1
+
     @property
     def _build_query(self):
         query = {}
@@ -80,6 +87,10 @@ class ListingBlockView(BrowserView):
 
         return filtered
 
+    def get_table_contents(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        return catalog(self._build_query)
+
     def render_table(self):
         # Use a custom table template, because we don't want a table header id.
         # The id value is moved to a css klass.
@@ -87,10 +98,8 @@ class ListingBlockView(BrowserView):
         # have more than one Listingblock on one contentpage)
         template = ViewPageTemplateFile('table-custom-template.pt')
 
-        catalog = getToolByName(self.context, 'portal_catalog')
         generator = queryUtility(ITableGenerator, 'ftw.tablegenerator')
-        result = catalog(self._build_query)
-        return generator.generate(result,
+        return generator.generate(self.get_table_contents(),
                                   self._filtered_columns(),
                                   sortable=True,
                                   template=template,
