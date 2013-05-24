@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Use summary attribute in table instead of title.
+  [Julian Infanger]
+
 - Do not show the author in newslisting for anonymous user, if the property
   allowAnonymousViewAbout is not true.
   [Julian Infanger]
