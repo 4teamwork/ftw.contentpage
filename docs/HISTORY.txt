@@ -4,6 +4,10 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Do not show the author in newslisting for anonymous user, if the property
+  allowAnonymousViewAbout is not true.
+  [Julian Infanger]
+
 - Hide empty listing blocks for anonymous.
   [jone]
 
