@@ -33,16 +33,18 @@
                   tal:content="python:brain.effective.year() > 1900 and toLocalizedTime(brain.effective) or ''">
                 21.12.2012
             </span>
-            <tal:name tal:define="creator python:view.get_creator(brain)"
-                      tal:condition="creator">
-              <span class="documentAuthor" i18n:translate="label_by_author">
-                by
-              <span tal:content="creator"
-                    i18n:name="author">
-                Bob Dobalina
-              </span>
-              </span>
-            </tal:name>
+            <tal:show_author condition="view/show_author">
+              <tal:name tal:define="creator python:view.get_creator(brain)"
+                        tal:condition="creator">
+                <span class="documentAuthor" i18n:translate="label_by_author">
+                  by
+                  <span tal:content="creator"
+                        i18n:name="author">
+                    Bob Dobalina
+                  </span>
+                </span>
+              </tal:name>
+            </tal:show_author>
         </div>
         <a tal:attributes="href brain/getURL" tal:condition="python:view.has_img(brain)">
             <tal:img tal:content="structure python:view.get_img(brain)" />
