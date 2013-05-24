@@ -1,5 +1,5 @@
 <table tal:attributes="class view/css_mapping/table;
-                       title view/options/table_title|nothing">
+                       summary view/options/table_summary|nothing">
     <colgroup>
         <col tal:repeat="th view/columns"
              tal:attributes="class python:len(th['sort_index']) and 'col-'+th['sort_index'] or 'col'" />
