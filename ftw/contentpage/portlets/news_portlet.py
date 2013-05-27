@@ -197,7 +197,7 @@ class Renderer(base.Renderer):
     def tag_image(self, brain):
         if not self.data.show_image:
             return ''
-        obj = self.context.restrictedTraverse(brain.getPath())
+        obj = brain.getObject()
         scale = getMultiAdapter((obj, self.request), name=u"images")
         scaled_img = scale.scale('image', scale='thumb', direction='down')
 
