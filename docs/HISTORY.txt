@@ -4,6 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Do not show description field of textblock.
+  [mathias.leimgruber]
+
 - Use summary attribute in table instead of title.
   [Julian Infanger]
 
