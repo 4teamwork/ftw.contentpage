@@ -60,7 +60,7 @@ class ListingBlockView(BrowserView):
         if mtool.checkPermission('Modify portal content', self.context):
             return True
 
-        return len(self.get_table_contents()) > 1
+        return len(self.get_table_contents()) > 0
 
     @property
     def _build_query(self):
