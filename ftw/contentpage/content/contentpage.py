@@ -69,5 +69,12 @@ class ContentPage(folder.ATFolder):
     def show_description(self):
         return False
 
+    security.declarePrivate('copyLayoutFromParent')
+    def copyLayoutFromParent(self):
+        """Copies the layout from the parent object if it's of the same type.
+        """
+        # JUST DON'T DO THIS!
+        pass
+
 
 atapi.registerType(ContentPage, PROJECTNAME)
