@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.3 (unreleased)
-----------------
+1.2.1 (2013-06-03)
+------------------
 
 - Do not copy parent layout.
   [mathias.leimgruber]
