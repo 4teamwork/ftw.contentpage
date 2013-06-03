@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Do not copy parent layout.
+  [mathias.leimgruber]
+
 - Fix off-by-one error in listingblock.
   This caused that the listingblock was not displayed when only one item
   was in the listingblock and the block was not editable.
