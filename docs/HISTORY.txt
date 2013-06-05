@@ -4,7 +4,9 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Suggest the parents title for addresstitle in addressblock.
+  Its the better way than just display it if no addresstitle is set.
+  [Julian Infanger]
 
 
 1.2.1 (2013-06-03)
