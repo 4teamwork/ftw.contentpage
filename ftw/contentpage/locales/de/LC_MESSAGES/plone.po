@@ -14,3 +14,6 @@ msgstr ""
 
 msgid "authorities_view"
 msgstr "Organisationsübersicht"
+
+msgid "simplelayout_summary"
+msgstr "Simplelayout Zusammenfassung"

@@ -55,3 +55,7 @@ class INewsListingView(Interface):
 
 class IEventListingView(Interface):
     """Marker interface for the news listing view"""
+
+
+class ISummaryListingEnabled(Interface):
+    """Marker interface for the detail content listing view"""
