@@ -1,4 +1,6 @@
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent
+from borg.localrole.interfaces import IFactoryTempFolder
 from ftw.contentpage import _
 from ftw.contentpage import config
 from ftw.contentpage.content.schema import finalize
@@ -31,6 +33,7 @@ schema = atapi.Schema((
     atapi.StringField(
         name='addressTitle',
         schemata='default',
+        default_method='getDefaultAddressTitle',
         widget=atapi.StringWidget(
             label=_(u'label_addressTitle',
                     default=u'Address Title'))),
@@ -174,5 +177,12 @@ class AddressBlock(ATCTContent, HistoryAwareMixin):
             registry.get('ftw.contentpage.addressblock.defaulttitle', ''),
             domain='ftw.contentpage',
             context=self.REQUEST)
+
+    security.declarePrivate('getDefaultAddressTitle')
+    def getDefaultAddressTitle(self):
+        parent = aq_parent(self)
+        if IFactoryTempFolder.providedBy(parent):
+            parent = aq_parent(aq_parent(parent))
+        return parent.Title()
 
 atapi.registerType(AddressBlock, config.PROJECTNAME)

@@ -1,6 +1,8 @@
 <tal:block  i18n:domain="ftw.contentpage">
   <p>
-    <span tal:replace="python: context.getAddressTitle() and context.getAddressTitle() or context.aq_parent.Title()" /><br />
+    <tal:addresstitle condition="context/getAddressTitle">
+      <span tal:replace="context/getAddressTitle" /><br />
+    </tal:addresstitle>
     <span tal:replace="structure view/get_address_as_html" /><br />
     <span tal:replace="context/getZip" />
     <span tal:replace="context/getCity" /><br />
