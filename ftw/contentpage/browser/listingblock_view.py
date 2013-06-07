@@ -52,7 +52,13 @@ class ListingBlockView(BrowserView):
 
             {'column': 'getObjSize',
              'column_title': _(u'column_size', default=u'size'),
-             })
+             },
+
+            {'column': 'review_state',
+             'column_title': _(u'review_state', default=u'Review State'),
+             'transform': helper.translated_string(),
+             },
+            )
         return columns
 
     def block_visible(self):
