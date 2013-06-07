@@ -114,7 +114,7 @@ schema = atapi.Schema((
             label=_(u'label_www', default='WWW'),
             description=_(
                 u'help_www',
-                default='Please enter a website URL'))),
+                default='Please enter a website URL (include http://, https://, etc)'))),
 
     atapi.BooleanField(
         name='showOpeningHours',
