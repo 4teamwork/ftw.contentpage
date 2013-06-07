@@ -42,6 +42,9 @@ class TestListingBlockViews(TestCase):
         transaction.commit()
         return listingblock
 
+    def get_columns(self, columns):
+        return [col['column'] for col in columns]
+
     def test_listing_view_registration(self):
         listingblock = self._create_listingblock()
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
@@ -132,8 +135,13 @@ class TestListingBlockViews(TestCase):
                                  name="block_view")
         columns = view._filtered_columns()
 
-        self.assertEquals(len(view.columns()), 5)
-        self.assertEquals(len(columns), 3)
+        self.assertEquals(
+            ['getContentType', 'Title', 'modified', 'Creator',
+             'getObjSize', 'review_state'],
+            self.get_columns(view.columns()))
+        self.assertEquals(
+            ['getContentType', 'Title', 'modified'],
+            self.get_columns(columns))
 
     def test_listing_block_filtered_wrong_column_name(self):
         listingblock = self._create_listingblock()
@@ -142,8 +150,11 @@ class TestListingBlockViews(TestCase):
                                  name="block_view")
         listingblock
         columns = view._filtered_columns()
-        self.assertEquals(len(view.columns()), 5)
-        self.assertEquals(len(columns), 0)
+        self.assertEquals(
+            ['getContentType', 'Title', 'modified', 'Creator',
+             'getObjSize', 'review_state'],
+            self.get_columns(view.columns()))
+        self.assertEquals([], self.get_columns(columns))
 
     def test_scale_installed(self):
         listingblock = self._create_listingblock()
