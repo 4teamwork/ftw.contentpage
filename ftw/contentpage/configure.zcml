@@ -25,6 +25,9 @@
 
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
+    <!-- register interfaces so that they are available in manage_interfaces -->
+    <interface interface="ftw.contentpage.interfaces.IOrgUnitMarker" />
+
     <i18n:registerTranslations directory="locales" />
 
     <!-- Register the installation GenericSetup extension profile -->
