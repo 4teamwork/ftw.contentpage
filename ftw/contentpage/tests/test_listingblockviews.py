@@ -137,7 +137,7 @@ class TestListingBlockViews(TestCase):
 
         self.assertEquals(
             ['getContentType', 'Title', 'modified', 'Creator',
-             'getObjSize', 'review_state'],
+             'getObjSize', 'review_state', 'id'],
             self.get_columns(view.columns()))
         self.assertEquals(
             ['getContentType', 'Title', 'modified'],
@@ -152,7 +152,7 @@ class TestListingBlockViews(TestCase):
         columns = view._filtered_columns()
         self.assertEquals(
             ['getContentType', 'Title', 'modified', 'Creator',
-             'getObjSize', 'review_state'],
+             'getObjSize', 'review_state', 'id'],
             self.get_columns(view.columns()))
         self.assertEquals([], self.get_columns(columns))
 

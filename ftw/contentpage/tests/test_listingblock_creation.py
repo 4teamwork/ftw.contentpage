@@ -48,11 +48,11 @@ class TestListingBlockCreation(TestCase):
         listingblock = self._create_listingblock()
         self.assertEquals(
             ['getContentType', 'Title', 'modified', 'Creator',
-             'getObjSize', 'review_state'],
+             'getObjSize', 'review_state', 'id'],
             listingblock.getColumns().keys())
         self.assertEquals(
             ['column_type', 'column_title', 'column_modified',
-             'column_creater', 'column_size', 'review_state'],
+             'column_creater', 'column_size', 'review_state', 'ID'],
             listingblock.getColumns().values())
 
     def test_default_title(self):
