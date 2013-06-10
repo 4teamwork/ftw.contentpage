@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-07 11:56+0000\n"
+"POT-Creation-Date: 2013-06-10 09:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,6 +76,11 @@ msgstr ""
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "External Edit"
+msgstr ""
+
+#. Default: "ID"
+#: ./ftw/contentpage/browser/listingblock_view.py:63
+msgid "ID"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml

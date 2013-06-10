@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Add ID as column to listingblock.
+  [jone]
+
 - Add review state as column to listingblock.
   [Julian Infanger]
 
