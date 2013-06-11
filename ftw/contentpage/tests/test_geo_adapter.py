@@ -22,7 +22,6 @@ class TestGeoAdapter(MockTestCase):
         self.expect(self.context.getAddress()).result('')
         self.expect(self.context.getZip()).result('')
         self.expect(self.context.getCity()).result('')
-        self.expect(self.context.getExtraAddressLine()).result('')
         self.expect(self.context.getCountry()).result('')
         self.replay()
 
@@ -33,7 +32,6 @@ class TestGeoAdapter(MockTestCase):
         self.expect(self.context.getAddress()).result('street')
         self.expect(self.context.getZip()).result('zip')
         self.expect(self.context.getCity()).result('city')
-        self.expect(self.context.getExtraAddressLine()).result('extra')
         self.expect(self.context.getCountry()).result('country')
 
         self.replay()
@@ -41,4 +39,4 @@ class TestGeoAdapter(MockTestCase):
         adapter = IGeocodableLocation(self.context)
 
         self.assertEquals(adapter.getLocationString(),
-                          'street extra, zip, city, country')
+                          'street, zip, city, country')
