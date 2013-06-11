@@ -43,7 +43,6 @@ setup(name='ftw.contentpage',
       extras_require=dict(tests=tests_require),
 
       install_requires=[
-          'Pillow',
           'archetypes.schemaextender',
           'ftw.calendarwidget',
           'ftw.colorbox',
