@@ -96,7 +96,7 @@ class TestListingBlockCreation(TestCase):
 
         self.assertEquals(listingblock.getSortIndexVocabulary().keys(),
             ['getContentType', 'sortable_title', 'modified',
-             'getObjPositionInParent'])
+             'id', 'getObjPositionInParent'])
 
     def tearDown(self):
         super(TestListingBlockCreation, self).tearDown()

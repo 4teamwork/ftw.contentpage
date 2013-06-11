@@ -61,6 +61,7 @@ class ListingBlockView(BrowserView):
 
             {'column': 'id',
              'column_title': _(u'ID', default=u'ID'),
+             'sort_index': 'id',
              },
             )
         return columns

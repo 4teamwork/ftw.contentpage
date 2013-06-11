@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-10 09:38+0000\n"
+"POT-Creation-Date: 2013-06-11 08:45+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -357,6 +357,9 @@ msgstr "Fax"
 
 msgid "label_getContentType"
 msgstr "Typ"
+
+msgid "label_id"
+msgstr "ID"
 
 #. Default: "Image"
 #: ./ftw/contentpage/content/textblock.py:53
