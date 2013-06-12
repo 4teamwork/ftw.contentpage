@@ -76,6 +76,12 @@
         permission="zope2.View" />
 
     <browser:page
+        for="ftw.contentpage.interfaces.ITextBlock"
+        name="faq_view"
+        class=".faq.FAQBlockView"
+        permission="zope2.View" />
+
+    <browser:page
         for="*"
         name="news_listing"
         class=".newslisting.NewsListing"
