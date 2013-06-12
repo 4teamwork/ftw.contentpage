@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Remove extraAdressLine from geo query.
+  [mathias.leimgruber]
+
 - Add ID as column to listingblock.
   [jone]
 
