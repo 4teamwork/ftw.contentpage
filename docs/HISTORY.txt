@@ -4,12 +4,15 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Change inser-after to insert-after in viewlets.xml
+  [elioschmutz]
+
 - Add department field to addressblock.
   [treinhard]
 
 - Enable categorization for PFG forms.
   [treinhard]
-  
+
 - Disable EventListing if seantis.dir.events is installed
   [href]
 
