@@ -275,6 +275,9 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
+msgid "label_department"
+msgstr "Abteilung"
+
 #. Default: "Ascending"
 #: ./ftw/contentpage/content/listingblock.py:55
 msgid "label_ascending"

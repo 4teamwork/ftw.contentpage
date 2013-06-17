@@ -3,6 +3,9 @@
     <tal:addresstitle condition="context/getAddressTitle">
       <span tal:replace="context/getAddressTitle" /><br />
     </tal:addresstitle>
+    <tal:addresstitle condition="context/getDepartment">
+      <span tal:replace="context/getDepartment" /><br />
+    </tal:addresstitle>
     <span tal:replace="structure view/get_address_as_html" /><br />
     <span tal:replace="context/getZip" />
     <span tal:replace="context/getCity" /><br />

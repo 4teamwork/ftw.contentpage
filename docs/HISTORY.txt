@@ -4,7 +4,8 @@ Changelog
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add department field to addressblock.
+  [treinhard]
 
 
 1.3 (2013-06-13)
