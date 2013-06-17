@@ -39,6 +39,13 @@ schema = atapi.Schema((
                     default=u'Address Title'))),
 
     atapi.StringField(
+        name='department',
+        schemata='default',
+        widget=atapi.StringWidget(
+            label=_(u'label_department',
+                    default=u'Department'))),
+
+    atapi.StringField(
         name='address',
         schemata='default',
         widget=atapi.StringWidget(
