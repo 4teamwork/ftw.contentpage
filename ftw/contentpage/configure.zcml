@@ -56,6 +56,13 @@
          provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
          name="ftw.contentpage.category.extender" />
 
+    <!-- Make PloneFormGen forms categorizable -->
+    <configure zcml:condition="installed Products.PloneFormGen">
+        <class class="Products.PloneFormGen.content.form.FormFolder">
+            <implements interface="ftw.contentpage.interfaces.ICategorizable" />
+        </class>
+    </configure>
+
     <!-- Register ftw.geo adapter -->
     <adapter factory=".geo.AddressBlockLocationAdapter" />
     <adapter
