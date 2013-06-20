@@ -9,6 +9,9 @@ Changelog
 
 - Enable categorization for PFG forms.
   [treinhard]
+  
+- Disable EventListing if seantis.dir.events is installed
+  [href]
 
 1.3 (2013-06-13)
 ----------------
