@@ -78,6 +78,7 @@
         />
 
     <browser:page
+        zcml:condition="not-installed seantis.dir.events"
         for="*"
         name="event_listing"
         class=".eventlisting.EventListing"
