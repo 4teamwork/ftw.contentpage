@@ -7,6 +7,10 @@ Changelog
 - Change inser-after to insert-after in viewlets.xml
   [elioschmutz]
 
+- Newsfolders query is now looking for the INews interface insted of the
+  News portal_type
+  [eschmutz]
+
 - Add department field to addressblock.
   [treinhard]
 
