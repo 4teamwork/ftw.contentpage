@@ -218,7 +218,7 @@ class Renderer(base.Renderer):
         catalog = getToolByName(self.context, 'portal_catalog')
         url_tool = getToolByName(self.context, 'portal_url')
         portal_path = url_tool.getPortalPath()
-        query = {'portal_type': 'News'}
+        query = {'object_provides': 'ftw.contentpage.interfaces.INews'}
 
         if self.data.only_context:
             path = '/'.join(self.context.getPhysicalPath())

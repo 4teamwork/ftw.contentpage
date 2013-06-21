@@ -15,7 +15,7 @@ def zLocalizedTime(request, time, long_format=False):
     return u"%s %s" % (month, time.strftime('%Y'))
 
 
-def archive_summary(context, request, contenttype, datefield, viewname):
+def archive_summary(context, request, interfaces, datefield, viewname):
     """Returns an ordered list of summary infos per month."""
     catalog = getToolByName(context, 'portal_catalog')
     query = {}
@@ -29,7 +29,7 @@ def archive_summary(context, request, contenttype, datefield, viewname):
         root_path = '/'.join(context.getPhysicalPath())
 
     query['path'] = root_path
-    query['portal_type'] = contenttype
+    query['object_provides'] = interfaces
 
     archive_counts = {}
     entries = catalog(**query)

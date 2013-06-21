@@ -45,7 +45,7 @@ class Renderer(base.Renderer):
     def archive_summary(self):
         return archive_summary(self.context,
                                self.request,
-                               'EventPage',
+                               ['ftw.contentpage.interfaces.IEventPage'],
                                'start',
                                'event_listing'
                                )

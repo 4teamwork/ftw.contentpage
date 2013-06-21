@@ -4,6 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Change queries for archive and news portlets from portal_type to provided
+  interfaces
+  [eschmutz]
+
 - Change inser-after to insert-after in viewlets.xml
   [elioschmutz]
 
