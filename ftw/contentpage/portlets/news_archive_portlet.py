@@ -43,8 +43,12 @@ class Renderer(base.Renderer):
     @memoize
     def archive_summary(self):
         """Returns an ordered list of summary infos per month."""
-        return archive_summary(self.context, self.request, 'News', 'effective',
-                               'news_listing')
+        return archive_summary(
+            self.context,
+            self.request,
+            ['ftw.contentpage.interfaces.INews'],
+            'effective',
+            'news_listing')
 
     render = ViewPageTemplateFile('news_archive_portlet.pt')
 
