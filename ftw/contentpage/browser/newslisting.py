@@ -29,7 +29,7 @@ class NewsListing(BaseListing):
     def get_items(self):
         """Get all news items"""
         query = {}
-        query['portal_type'] = 'News'
+        query['object_provides'] = 'ftw.contentpage.interfaces.INews'
         query['sort_on'] = 'effective'
         query['sort_order'] = 'reverse'
 
