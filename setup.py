@@ -5,11 +5,12 @@ from setuptools import setup, find_packages
 version = '1.4.dev0'
 mainainter = 'Mathias Leimgruber'
 
-tests_require = ['ftw.testing',
+tests_require = ['ftw.testing [splinter]',
+                 'ftw.builder',
                  'plone.app.testing',
                  'plone.mocktestcase',
                  'plone.formwidget.contenttree',
-                 'pyquery'
+                 'pyquery',
                  ]
 
 setup(name='ftw.contentpage',

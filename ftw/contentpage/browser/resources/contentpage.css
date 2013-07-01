@@ -84,3 +84,39 @@ body.template-tabbed_block_view .slAlignBlocks {
 }
 
 /* @end */
+
+
+/* @group alphabetical subject listing */
+
+#content .alphabetical-subject-listing .letter-index {
+  margin: 1em 0em;
+}
+
+#content .alphabetical-subject-listing .letter-index span {
+  color: #AAA;
+}
+
+#content .alphabetical-subject-listing .letter-index a.current {
+  color: #000;
+}
+
+#content .alphabetical-subject-listing .letter-index li:before {
+  content: "|";
+  color: #EEE;
+}
+
+#content .alphabetical-subject-listing .letter-index li:first-child:before {
+  content: "";
+}
+
+#content .alphabetical-subject-listing .letter-index li {
+  display: inline;
+  padding-right: 0.1em;
+}
+
+#content .alphabetical-subject-listing .subject-content {
+  list-style: none;
+  margin-left: 0em;
+}
+
+/* @end */

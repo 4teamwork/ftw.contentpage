@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Implement alphabetical subject listing as `@@subject-listing`.
+  [jone]
+
 - Added view for contentpage to display the blocks as tabs.
   [Julian Infanger]
 

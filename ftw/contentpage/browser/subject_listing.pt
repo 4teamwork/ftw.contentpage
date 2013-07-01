@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ftw.contentpage">
+
+    <body>
+
+        <div metal:fill-slot="content-core">
+            <metal:content-macro define-macro="content-core">
+
+                <div class="alphabetical-subject-listing">
+
+                    <tal:NO_CONTENTS
+                        tal:condition="not:view/has_contents">
+
+                        <p class="no-contents" i18n:translate="">
+                            There is no content to list.
+                        </p>
+
+                    </tal:NO_CONTENTS>
+
+                    <tal:HAS_CONTENTS
+                        tal:condition="view/has_contents">
+
+                        <ul class="letter-index">
+                            <li tal:repeat="letter view/letters">
+                                <a tal:condition="letter/has_contents"
+                                   tal:attributes="class python:letter.get('current') and 'current';
+                                                   href string:${context/absolute_url}/@@subject-listing/${letter/label}"
+                                   tal:content="letter/label"
+                                   />
+                                <span tal:content="letter/label"
+                                      tal:condition="not:letter/has_contents"/>
+                            </li>
+                        </ul>
+
+                        <table class="listing subjects">
+                            <thead>
+                                <th i18n:translate="subject_listing_subjects">
+                                    Subjects
+                                </th>
+                                <th i18n:translate="subject_listing_content">
+                                    Content
+                                </th>
+                            </thead>
+
+                            <tbody>
+                                <tr tal:repeat="subject view/result">
+
+                                    <td class="subject"
+                                        tal:content="subject/subject" />
+                                    <td>
+                                        <ul class="subject-content">
+                                            <li tal:repeat="brain subject/brains">
+                                                <a tal:content="brain/Title"
+                                                   tal:attributes="href brain/getURL"
+                                                   />
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </tal:HAS_CONTENTS>
+                </div>
+
+            </metal:content-macro>
+        </div>
+
+    </body>
+</html>
