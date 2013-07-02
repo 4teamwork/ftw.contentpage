@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-07 09:42+0000\n"
+"POT-Creation-Date: 2013-07-02 13:42+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,10 @@ msgstr "Schweiz"
 msgid "TextBlock"
 msgstr "Textblock"
 
+#: ./ftw/contentpage/browser/tabs.pt:44
+msgid "There are no blocks in here."
+msgstr "Hier sind noch keine Inhalte."
+
 #: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
@@ -199,7 +203,7 @@ msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 msgid "help_categories"
 msgstr "Definieren Sie, unter welchen Rubrik diese Inhaltsseite abgelegt werden soll"
 
-#: ./ftw/contentpage/content/addressblock.py:140
+#: ./ftw/contentpage/content/addressblock.py:147
 msgid "help_directions"
 msgstr "So finden Sie uns"
 
@@ -212,7 +216,7 @@ msgstr "Datum und Zeit, wann diese Veranstaltung endet"
 msgid "help_event_location"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:92
+#: ./ftw/contentpage/content/addressblock.py:99
 msgid "help_fax"
 msgstr ""
 
@@ -220,15 +224,15 @@ msgstr ""
 msgid "help_only_context"
 msgstr "Wenn ausgewählt, werden nur noch News aus dem aktuellen Bereich dargestellt"
 
-#: ./ftw/contentpage/content/addressblock.py:129
+#: ./ftw/contentpage/content/addressblock.py:136
 msgid "help_openingHours"
 msgstr "Es gelten die folgenden Öffnungszeiten"
 
-#: ./ftw/contentpage/content/addressblock.py:83
+#: ./ftw/contentpage/content/addressblock.py:90
 msgid "help_phone"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:118
+#: ./ftw/contentpage/content/addressblock.py:125
 msgid "help_showOpeningHours"
 msgstr "Definieren Sie, ob die Hinweise zu den Öffnungszeiten angezeigt werden sollen"
 
@@ -266,7 +270,7 @@ msgid "label_%ssort_index"
 msgstr ""
 
 #. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:45
+#: ./ftw/contentpage/content/addressblock.py:52
 msgid "label_address"
 msgstr "Adresse"
 
@@ -274,9 +278,6 @@ msgstr "Adresse"
 #: ./ftw/contentpage/content/addressblock.py:38
 msgid "label_addressTitle"
 msgstr "Adresstitel"
-
-msgid "label_department"
-msgstr "Abteilung"
 
 #. Default: "Ascending"
 #: ./ftw/contentpage/content/listingblock.py:55
@@ -299,12 +300,12 @@ msgid "label_categories"
 msgstr "Rubrik"
 
 #. Default: "City"
-#: ./ftw/contentpage/content/addressblock.py:66
+#: ./ftw/contentpage/content/addressblock.py:73
 msgid "label_city"
 msgstr "Ort"
 
 #. Default: "Country"
-#: ./ftw/contentpage/content/addressblock.py:74
+#: ./ftw/contentpage/content/addressblock.py:81
 msgid "label_country"
 msgstr "Land"
 
@@ -312,6 +313,11 @@ msgstr "Land"
 #: ./ftw/contentpage/portlets/news_portlet.py:79
 msgid "label_days"
 msgstr "Anzahl Tage"
+
+#. Default: "Department"
+#: ./ftw/contentpage/content/addressblock.py:45
+msgid "label_department"
+msgstr "Abteilung"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:76
 msgid "label_desc_length"
@@ -323,13 +329,13 @@ msgid "label_descending"
 msgstr "Absteigend"
 
 #. Default: "Directions"
-#: ./ftw/contentpage/browser/address.pt:40
-#: ./ftw/contentpage/content/addressblock.py:138
+#: ./ftw/contentpage/browser/address.pt:43
+#: ./ftw/contentpage/content/addressblock.py:145
 msgid "label_directions"
 msgstr "Anfahrt"
 
 #. Default: "Email"
-#: ./ftw/contentpage/content/addressblock.py:99
+#: ./ftw/contentpage/content/addressblock.py:106
 msgid "label_email"
 msgstr "E-Mail"
 
@@ -349,12 +355,12 @@ msgid "label_event_start"
 msgstr "Veranstaltungsanfang"
 
 #. Default: "Extra address line"
-#: ./ftw/contentpage/content/addressblock.py:52
+#: ./ftw/contentpage/content/addressblock.py:59
 msgid "label_extraAddressLine"
 msgstr "Adresszusatz"
 
 #. Default: "Fax"
-#: ./ftw/contentpage/content/addressblock.py:90
+#: ./ftw/contentpage/content/addressblock.py:97
 msgid "label_fax"
 msgstr "Fax"
 
@@ -402,13 +408,13 @@ msgid "label_only_context"
 msgstr "Nur in diesem Bereich"
 
 #. Default: "Opening Hours"
-#: ./ftw/contentpage/browser/address.pt:35
-#: ./ftw/contentpage/content/addressblock.py:127
+#: ./ftw/contentpage/browser/address.pt:38
+#: ./ftw/contentpage/content/addressblock.py:134
 msgid "label_openingHours"
 msgstr "Öffnungszeiten"
 
 #. Default: "Phone"
-#: ./ftw/contentpage/content/addressblock.py:81
+#: ./ftw/contentpage/content/addressblock.py:88
 msgid "label_phone"
 msgstr "Telefon"
 
@@ -442,7 +448,7 @@ msgid "label_send_feedback"
 msgstr "Kontaktformular"
 
 #. Default: "Show opening hours"
-#: ./ftw/contentpage/content/addressblock.py:116
+#: ./ftw/contentpage/content/addressblock.py:123
 msgid "label_showOpeningHours"
 msgstr "Öffnungszeiten anzeigen"
 
@@ -500,12 +506,12 @@ msgid "label_whole_day_event"
 msgstr "Ganztägige Veranstaltung"
 
 #. Default: "WWW"
-#: ./ftw/contentpage/content/addressblock.py:107
+#: ./ftw/contentpage/content/addressblock.py:114
 msgid "label_www"
 msgstr "WWW"
 
 #. Default: "ZIP"
-#: ./ftw/contentpage/content/addressblock.py:59
+#: ./ftw/contentpage/content/addressblock.py:66
 msgid "label_zip"
 msgstr "PLZ"
 
@@ -530,7 +536,7 @@ msgid "review_state"
 msgstr "Status"
 
 #. Default: "Fax ${num}"
-#: ./ftw/contentpage/browser/address.pt:18
+#: ./ftw/contentpage/browser/address.pt:21
 msgid "text_fax"
 msgstr "Fax ${num}"
 
@@ -546,6 +552,6 @@ msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 
 #. Default: "Tel. ${num}"
-#: ./ftw/contentpage/browser/address.pt:11
+#: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr "Tel. ${num}"

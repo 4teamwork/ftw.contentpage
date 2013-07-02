@@ -66,3 +66,21 @@
   display: none;
 }
 /* @end */
+
+/* @group tabbed block view */
+
+body.template-tabbed_block_view #content ul.formTabs {
+  margin-bottom: 1em;
+}
+body.template-tabbed_block_view #content #content-core .document-action-dragme {
+  display: none !important;
+}
+body.template-tabbed_block_view #content .simplelayout-content.two-columns-design .twocolumn {
+  width: 100%;
+  float: none;
+}
+body.template-tabbed_block_view .slAlignBlocks {
+  display: none;
+}
+
+/* @end */

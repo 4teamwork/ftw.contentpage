@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ftw.contentpage">
+
+  <body>
+
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+      <script type="text/javascript">
+        jQuery(function($) {
+          $(".template-tabbed_block_view ul.formTabs").tabs(".BlockOverallWrapper", {
+            current: 'selected'
+          });
+        });
+      </script>
+    </metal:javascriptslot>
+
+    <div metal:fill-slot="content-description">
+      <metal:main-macro define-macro="content-description">
+        <!-- no description, its in a viewlet -->
+      </metal:main-macro>
+    </div>
+
+
+    <div metal:fill-slot="content-core">
+      <metal:main-macro define-macro="content-core"
+                        tal:define="children view/children">
+
+        <tal:children condition="children">
+          <ul class="formTabs">
+            <li class="formTab" tal:repeat="child children">
+              <a tal:attributes="href child/absolute_url"
+                 tal:content="child/title_or_id"
+                 />
+            </li>
+          </ul>
+          <tal:block content="structure provider:simplelayout.base.listing" />
+        </tal:children>
+
+        <tal:no_children condition="not:children">
+          <span i18n:translate="">There are no blocks in here.</span>
+        </tal:no_children>
+
+
+      </metal:main-macro>
+    </div>
+  </body>
+</html>

@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Added view for contentpage to display the blocks as tabs.
+  [Julian Infanger]
+
 - Updated translations for url field in addressblock.
   [Julian Infanger]
 

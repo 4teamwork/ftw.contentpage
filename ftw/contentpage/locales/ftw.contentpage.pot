@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-07 09:42+0000\n"
+"POT-Creation-Date: 2013-07-02 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,6 +122,10 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
+#: ./ftw/contentpage/browser/tabs.pt:44
+msgid "There are no blocks in here."
+msgstr ""
+
 #: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr ""
@@ -201,7 +205,7 @@ msgstr ""
 msgid "help_categories"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:140
+#: ./ftw/contentpage/content/addressblock.py:147
 msgid "help_directions"
 msgstr ""
 
@@ -214,7 +218,7 @@ msgstr ""
 msgid "help_event_location"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:92
+#: ./ftw/contentpage/content/addressblock.py:99
 msgid "help_fax"
 msgstr ""
 
@@ -222,15 +226,15 @@ msgstr ""
 msgid "help_only_context"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:129
+#: ./ftw/contentpage/content/addressblock.py:136
 msgid "help_openingHours"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:83
+#: ./ftw/contentpage/content/addressblock.py:90
 msgid "help_phone"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:118
+#: ./ftw/contentpage/content/addressblock.py:125
 msgid "help_showOpeningHours"
 msgstr ""
 
@@ -268,7 +272,7 @@ msgid "label_%ssort_index"
 msgstr ""
 
 #. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:45
+#: ./ftw/contentpage/content/addressblock.py:52
 msgid "label_address"
 msgstr ""
 
@@ -298,18 +302,23 @@ msgid "label_categories"
 msgstr ""
 
 #. Default: "City"
-#: ./ftw/contentpage/content/addressblock.py:66
+#: ./ftw/contentpage/content/addressblock.py:73
 msgid "label_city"
 msgstr ""
 
 #. Default: "Country"
-#: ./ftw/contentpage/content/addressblock.py:74
+#: ./ftw/contentpage/content/addressblock.py:81
 msgid "label_country"
 msgstr ""
 
 #. Default: "Days"
 #: ./ftw/contentpage/portlets/news_portlet.py:79
 msgid "label_days"
+msgstr ""
+
+#. Default: "Department"
+#: ./ftw/contentpage/content/addressblock.py:45
+msgid "label_department"
 msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:76
@@ -322,13 +331,13 @@ msgid "label_descending"
 msgstr ""
 
 #. Default: "Directions"
-#: ./ftw/contentpage/browser/address.pt:40
-#: ./ftw/contentpage/content/addressblock.py:138
+#: ./ftw/contentpage/browser/address.pt:43
+#: ./ftw/contentpage/content/addressblock.py:145
 msgid "label_directions"
 msgstr ""
 
 #. Default: "Email"
-#: ./ftw/contentpage/content/addressblock.py:99
+#: ./ftw/contentpage/content/addressblock.py:106
 msgid "label_email"
 msgstr ""
 
@@ -348,12 +357,12 @@ msgid "label_event_start"
 msgstr ""
 
 #. Default: "Extra address line"
-#: ./ftw/contentpage/content/addressblock.py:52
+#: ./ftw/contentpage/content/addressblock.py:59
 msgid "label_extraAddressLine"
 msgstr ""
 
 #. Default: "Fax"
-#: ./ftw/contentpage/content/addressblock.py:90
+#: ./ftw/contentpage/content/addressblock.py:97
 msgid "label_fax"
 msgstr ""
 
@@ -401,13 +410,13 @@ msgid "label_only_context"
 msgstr ""
 
 #. Default: "Opening Hours"
-#: ./ftw/contentpage/browser/address.pt:35
-#: ./ftw/contentpage/content/addressblock.py:127
+#: ./ftw/contentpage/browser/address.pt:38
+#: ./ftw/contentpage/content/addressblock.py:134
 msgid "label_openingHours"
 msgstr ""
 
 #. Default: "Phone"
-#: ./ftw/contentpage/content/addressblock.py:81
+#: ./ftw/contentpage/content/addressblock.py:88
 msgid "label_phone"
 msgstr ""
 
@@ -441,7 +450,7 @@ msgid "label_send_feedback"
 msgstr ""
 
 #. Default: "Show opening hours"
-#: ./ftw/contentpage/content/addressblock.py:116
+#: ./ftw/contentpage/content/addressblock.py:123
 msgid "label_showOpeningHours"
 msgstr ""
 
@@ -499,12 +508,12 @@ msgid "label_whole_day_event"
 msgstr ""
 
 #. Default: "WWW"
-#: ./ftw/contentpage/content/addressblock.py:107
+#: ./ftw/contentpage/content/addressblock.py:114
 msgid "label_www"
 msgstr ""
 
 #. Default: "ZIP"
-#: ./ftw/contentpage/content/addressblock.py:59
+#: ./ftw/contentpage/content/addressblock.py:66
 msgid "label_zip"
 msgstr ""
 
@@ -529,7 +538,7 @@ msgid "review_state"
 msgstr ""
 
 #. Default: "Fax ${num}"
-#: ./ftw/contentpage/browser/address.pt:18
+#: ./ftw/contentpage/browser/address.pt:21
 msgid "text_fax"
 msgstr ""
 
@@ -545,7 +554,7 @@ msgid "text_path_and_area"
 msgstr ""
 
 #. Default: "Tel. ${num}"
-#: ./ftw/contentpage/browser/address.pt:11
+#: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr ""
 

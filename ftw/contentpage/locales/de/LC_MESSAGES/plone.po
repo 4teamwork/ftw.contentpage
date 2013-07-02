@@ -17,3 +17,6 @@ msgstr "Organisationsübersicht"
 
 msgid "simplelayout_summary"
 msgstr "Simplelayout Zusammenfassung"
+
+msgid "tabbed_block_view"
+msgstr "Inhaltsseite mit Tabs"
