@@ -193,4 +193,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1300 -> 1400 -->
+    <genericsetup:upgradeStep
+        title="Adds tabbed block view"
+        description=""
+        source="1300"
+        destination="1400"
+        handler="ftw.contentpage.upgrades.to1400.UpdateViews"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1400"
+        title="ftw.contentpage.upgrades.1400"
+        description=""
+        directory="profiles/1400"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>

@@ -47,6 +47,12 @@
         permission="zope2.View"
         template="authorities.pt" />
 
+     <browser:page
+         for="ftw.contentpage.interfaces.IContentPage"
+         name="tabbed_block_view"
+         class=".tabs.TabbedBlockView"
+         permission="zope2.View" />
+
     <!-- ListingBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IListingBlock"

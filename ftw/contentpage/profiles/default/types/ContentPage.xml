@@ -28,6 +28,7 @@
         <element value="simplelayout" />
         <element value="simplelayout_summary" />
         <element value="authorities_view" />
+        <element value="tabbed_block_view" />
     </property>
     <alias from="(Default)" to="(dynamic view)" />
     <alias from="edit" to="atct_edit" />
