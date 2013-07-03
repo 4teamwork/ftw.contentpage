@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-11 08:45+0000\n"
+"POT-Creation-Date: 2013-06-07 09:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -252,7 +252,7 @@ msgstr ""
 msgid "help_whole_day"
 msgstr ""
 
-#. Default: "Please enter a website URL"
+#. Default: "Please enter a website URL (include http://, https://, etc)"
 #: ./ftw/contentpage/content/addressblock.py:108
 msgid "help_www"
 msgstr ""

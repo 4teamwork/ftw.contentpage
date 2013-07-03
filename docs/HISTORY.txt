@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Updated translations for url field in addressblock.
+  [Julian Infanger]
+
 - Change queries for archive and news portlets from portal_type to provided
   interfaces
   [eschmutz]

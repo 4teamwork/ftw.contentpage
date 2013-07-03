@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-11 08:45+0000\n"
+"POT-Creation-Date: 2013-06-07 09:42+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,7 +250,7 @@ msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
 msgid "help_whole_day"
 msgstr "Die Veranstaltung dauert den ganzen Tag."
 
-#. Default: "Please enter a website URL"
+#. Default: "Please enter a website URL (include http://, https://, etc)"
 #: ./ftw/contentpage/content/addressblock.py:108
 msgid "help_www"
 msgstr "Geben Sie eine Internetadresse an (inkl. http://, https://, etc.)"
@@ -502,7 +502,7 @@ msgstr "Ganztägige Veranstaltung"
 #. Default: "WWW"
 #: ./ftw/contentpage/content/addressblock.py:107
 msgid "label_www"
-msgstr "URL"
+msgstr "WWW"
 
 #. Default: "ZIP"
 #: ./ftw/contentpage/content/addressblock.py:59
