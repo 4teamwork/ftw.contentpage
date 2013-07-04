@@ -1,12 +1,16 @@
+from ftw.builder.session import BuilderSession
+from ftw.builder.testing import BUILDER_LAYER
+from ftw.builder.testing import set_builder_session_factory
+from ftw.testing import FunctionalSplinterTesting
 from ftw.testing.layer import ComponentRegistryLayer
 from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
 from plone.app.testing import setRoles, TEST_USER_ID, TEST_USER_NAME, login
 from plone.testing import z2
 from zope.configuration import xmlconfig
+import ftw.contentpage.tests.builders
 
 
 class ZCMLLayer(ComponentRegistryLayer):
@@ -25,9 +29,15 @@ class ZCMLLayer(ComponentRegistryLayer):
 ZCML_LAYER = ZCMLLayer()
 
 
+def functional_session_factory():
+    sess = BuilderSession()
+    sess.auto_commit = True
+    return sess
+
+
 class FtwContentPageLayer(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE, )
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
@@ -83,5 +93,7 @@ class FtwContentPageLayer(PloneSandboxLayer):
 FTW_CONTENTPAGE_FIXTURE = FtwContentPageLayer()
 FTW_CONTENTPAGE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(FTW_CONTENTPAGE_FIXTURE, ), name="FtwContentPage:Integration")
-FTW_CONTENTPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FTW_CONTENTPAGE_FIXTURE, ), name="FtwContentPage:Functional")
+FTW_CONTENTPAGE_FUNCTIONAL_TESTING = FunctionalSplinterTesting(
+    bases=(FTW_CONTENTPAGE_FIXTURE,
+           set_builder_session_factory(functional_session_factory)),
+    name="FtwContentPage:Functional")

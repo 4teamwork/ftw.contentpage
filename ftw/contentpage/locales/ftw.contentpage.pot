@@ -126,6 +126,10 @@ msgstr ""
 msgid "There are no blocks in here."
 msgstr ""
 
+#: ./ftw/contentpage/browser/subject_listing.pt:19
+msgid "There is no content to list."
+msgstr ""
+
 #: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr ""
@@ -537,6 +541,16 @@ msgstr ""
 msgid "review_state"
 msgstr ""
 
+#. Default: "Content"
+#: ./ftw/contentpage/browser/subject_listing.pt:44
+msgid "subject_listing_content"
+msgstr ""
+
+#. Default: "Subjects"
+#: ./ftw/contentpage/browser/subject_listing.pt:41
+msgid "subject_listing_subjects"
+msgstr ""
+
 #. Default: "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:21
 msgid "text_fax"
@@ -557,4 +571,3 @@ msgstr ""
 #: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr ""
-

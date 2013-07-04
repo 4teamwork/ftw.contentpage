@@ -124,6 +124,10 @@ msgstr "Textblock"
 msgid "There are no blocks in here."
 msgstr "Hier sind noch keine Inhalte."
 
+#: ./ftw/contentpage/browser/subject_listing.pt:19
+msgid "There is no content to list."
+msgstr "Kein Inhalt."
+
 #: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
@@ -534,6 +538,16 @@ msgstr "Weiterlesen..."
 #: ./ftw/contentpage/browser/listingblock_view.py:58
 msgid "review_state"
 msgstr "Status"
+
+#. Default: "Content"
+#: ./ftw/contentpage/browser/subject_listing.pt:44
+msgid "subject_listing_content"
+msgstr "Inhalt"
+
+#. Default: "Subjects"
+#: ./ftw/contentpage/browser/subject_listing.pt:41
+msgid "subject_listing_subjects"
+msgstr "Stichwort"
 
 #. Default: "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:21

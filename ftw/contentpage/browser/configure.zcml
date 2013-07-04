@@ -114,4 +114,13 @@
         allowed_attributes="ToggleGridLayoutText"
         />
 
+    <!-- alphabetical subject listing -->
+    <browser:page
+        for="*"
+        name="subject-listing"
+        permission="zope.Public"
+        class=".subject_listing.AlphabeticalSubjectListing"
+        template="subject_listing.pt"
+        />
+
 </configure>

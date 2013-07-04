@@ -212,4 +212,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1400 -> 1401 -->
+    <genericsetup:upgradeStep
+        title="Configure alphabetical subject listing"
+        description=""
+        source="1400"
+        destination="1401"
+        handler="ftw.contentpage.upgrades.to1401.UpdateRegistry"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1401"
+        title="ftw.contentpage.upgrades.1401"
+        description=""
+        directory="profiles/1401"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
