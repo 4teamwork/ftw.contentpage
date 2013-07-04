@@ -2,6 +2,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from collections import defaultdict
 from plone.memoize import instance
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
 import unicodedata
 
 
@@ -62,8 +64,10 @@ class AlphabeticalSubjectListing(BrowserView):
     def get_content_by_subjects(self, subjects):
         catalog = getToolByName(self.context, 'portal_catalog')
         result = defaultdict(list)
+        query = {'Subject': subjects,
+                 'portal_type': self.portal_types_to_list}
 
-        for brain in catalog({'Subject': subjects}):
+        for brain in catalog(query):
             for subj in brain.Subject:
                 if subj not in subjects:
                     continue
@@ -110,3 +114,8 @@ class AlphabeticalSubjectListing(BrowserView):
                 letters.add('#')
 
         return sorted(letters, key=LETTERS.index)
+
+    @property
+    def portal_types_to_list(self):
+        registry = getUtility(IRegistry)
+        return registry['ftw.contentpage.subjectlisting.portal_types']

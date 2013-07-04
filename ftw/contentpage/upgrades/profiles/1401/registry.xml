@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+
+    <record name="ftw.contentpage.subjectlisting.portal_types">
+        <field type="plone.registry.field.List">
+            <title>portal_types to list in alphabetical subject listing</title>
+            <required>False</required>
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
+        <value>
+            <element>ContentPage</element>
+        </value>
+    </record>
+
+</registry>

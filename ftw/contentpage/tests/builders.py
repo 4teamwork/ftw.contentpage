@@ -8,3 +8,11 @@ class ContentPageBuilder(ArchetypesBuilder):
 
 
 builder_registry.register('content page', ContentPageBuilder)
+
+
+class NewsBuilder(ArchetypesBuilder):
+
+    portal_type = 'News'
+
+
+builder_registry.register('news', NewsBuilder)

@@ -5,7 +5,9 @@ from ftw.contentpage.browser.subject_listing import normalized_first_letter
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.contentpage.tests.pages import SubjectListingView
 from ftw.testing import browser
+from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
+from zope.component import getUtility
 
 
 class TestNormalizedFirstLetter(TestCase):
@@ -156,6 +158,38 @@ class TestAlphabeticalSubjectListing(TestCase):
         view = SubjectListingView().visit()
         view.click_letter('#')
         self.assertEquals(['3D', '_X'], view.subjects)
+
+    def test_lists_only_content_pages_by_default(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget']))
+
+        create(Builder('news')
+               .titled('A news')
+               .having(subject=['budget']))
+
+        view = SubjectListingView().visit()
+        self.assertEquals(['A page'],
+                          view.get_links_for('budget', text_only=True))
+
+    def test_listed_types_are_configurable_in_registry(self):
+        registry = getUtility(IRegistry)
+        registry['ftw.contentpage.subjectlisting.portal_types'] = [
+            u'ContentPage',
+            u'News']
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget']))
+
+        create(Builder('news')
+               .titled('A news')
+               .having(subject=['budget']))
+
+
+        view = SubjectListingView().visit()
+        self.assertEquals(['A news', 'A page'],
+                          view.get_links_for('budget', text_only=True))
 
     def test_visiting_page_with_no_contents_does_not_crash(self):
         SubjectListingView().visit()
