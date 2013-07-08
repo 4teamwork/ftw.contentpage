@@ -6,7 +6,7 @@
     i18n:domain="ftw.contentpage">
 
     <div class="portletWrapper">
-        <dl class="portlet portletArchiveEventPage">
+        <dl class="portlet portletArchiveListing">
 
             <dt class="portletHeader">
                 <span i18n:translate="">
@@ -15,11 +15,23 @@
             </dt>
 
             <dd class="portletItem">
-                <ul>
-                    <li tal:repeat="item view/archive_summary" tal:attributes="class python:item['mark'] and 'highlight' or ''">
-                        <a tal:attributes="href item/url;
-title item/title"
-                           tal:content="python: '%s (%s)' % (item['title'], item['number'])" i18n:translate=""/>
+                <ul class="years">
+                    <li tal:repeat="year view/archive_summary"
+                        tal:attributes="class python:year.get('mark') and 'year expanded' or 'year'">
+
+                        <span class="yearnumber"
+                            tal:content="python: '%s (%s)' % (year.get('title'), year.get('number'))" />
+
+                        <ul tal:attributes="class python:year.get('mark') and 'months expanded' or 'months'">
+                            <li tal:repeat="month year/months"
+                                tal:attributes="class python:month.get('mark') and 'month highlight' or 'month'">
+                                <a tal:attributes="
+                                    href month/url;
+                                    title month/title"
+                                   tal:content="python: '%s (%s)' % (month.get('title'), month.get('number'))"
+                                   i18n:translate=""/>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </dd>

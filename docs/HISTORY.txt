@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Implement collapsible archive portlet
+  [elioschmutz]
+
 - Implement alphabetical subject listing as `@@subject-listing`.
   [jone]
 

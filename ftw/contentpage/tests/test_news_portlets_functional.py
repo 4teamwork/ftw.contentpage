@@ -360,17 +360,23 @@ class TestNewsPortlets(unittest.TestCase):
                         'There should be an archive portlet')
 
         self.assertEquals(
-            renderer.archive_summary(),
-            [{'url': 'http://nohost/plone/archivefolder/news_listing?'
-              'archiv=2013/01/01',
+            [{'mark': False,
+              'months': [{'mark': False,
+                          'number': 2,
+                          'title': u'January',
+                          'url': 'http://nohost/plone/archivefolder/'
+                                  'news_listing?archive=2013/01/01'}],
               'number': 2,
-              'mark': False,
-              'title': u'January 2013'},
-             {'url': 'http://nohost/plone/archivefolder/news_listing'
-              '?archiv=2012/12/01',
+              'title': '2013'},
+             {'mark': False,
+              'months': [{'mark': False,
+                          'number': 2,
+                          'title': u'December',
+                          'url': 'http://nohost/plone/archivefolder/'
+                                  'news_listing?archive=2012/12/01'}],
               'number': 2,
-              'mark': False,
-              'title': u'December 2012'}])
+              'title': '2012'}],
+              renderer.archive_summary())
 
     def test_archive_portlets_is_available_on_newslisting(self):
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
@@ -393,11 +399,11 @@ class TestNewsPortlets(unittest.TestCase):
         self.browser.open(self.newsfolder1.absolute_url())
 
         pq = PyQuery(self.browser.contents)
-        self.assertTrue(pq('.portlet.portletArchiveNews'),
+        self.assertTrue(pq('.portlet.portletArchiveListing'),
             'We added one, so there sould be a EventArchive portlet')
 
         self.assertGreater(
-            len(pq('.portlet.portletArchiveNews .portletItem li')), 0,
+            len(pq('.portlet.portletArchiveListing .portletItem li')), 0,
             'Expect at least one entry in the events archive portlet')
 
     def test_newsportlet_more_news_link_disabled(self):
