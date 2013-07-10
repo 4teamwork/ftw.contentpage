@@ -1,5 +1,5 @@
 from ftw.contentpage.interfaces import IEventListingView
-from ftw.contentpage.portlets.base_archive_portlet import archive_summary
+from ftw.contentpage.portlets.base_archive_portlet import ArchiveSummary
 from plone.app.portlets.portlets import base
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
@@ -43,12 +43,12 @@ class Renderer(base.Renderer):
 
     @memoize
     def archive_summary(self):
-        return archive_summary(self.context,
+        return ArchiveSummary(self.context,
                                self.request,
                                ['ftw.contentpage.interfaces.IEventPage'],
                                'start',
                                'event_listing'
-                               )
+                               )()
 
     render = ViewPageTemplateFile('event_archive.pt')
 

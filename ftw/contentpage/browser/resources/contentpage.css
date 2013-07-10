@@ -55,9 +55,34 @@
 /* @end */
 
 /* @group archive portlet */
-.portletArchiveNews .highlight a,
-.portletArchiveEventPage .highlight a {
+.portletArchiveListing .highlight a {
   font-weight: bold;
+}
+.portletArchiveListing li.year {
+  cursor: pointer;
+}
+.portletArchiveListing li {
+  display: block;
+  margin-bottom: 2px;
+}
+.portletArchiveListing ul.months {
+  display: none;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.portletArchiveListing li.month {
+  padding-left: 2em;
+}
+
+.portletArchiveListing li.year span.yearnumber:before {
+  content: '►';
+  padding-right: 5px;
+}
+.portletArchiveListing li.year.expanded span.yearnumber:before {
+  content: '▼';
+}
+.portletArchiveListing ul.years ul.expanded {
+  display: block;
 }
 /* @end */
 

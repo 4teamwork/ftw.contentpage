@@ -50,7 +50,7 @@ class BaseListing(BrowserView):
         # Implement archive functionality - used by the archive portlet
         context = self.context
         ct = context.portal_type
-        datestring = self.request.get('archiv')
+        datestring = self.request.get('archive')
         if datestring:
             query = extend_query_by_date(query, datestring, date_field)
 

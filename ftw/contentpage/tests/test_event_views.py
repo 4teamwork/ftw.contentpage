@@ -98,7 +98,7 @@ class TestEventListing(MockTestCase):
 
     def test_listing_archive(self):
         view = self.eventfolder.restrictedTraverse('event_listing')
-        self.portal.REQUEST['archiv'] = '2013/06/01'
+        self.portal.REQUEST['archive'] = '2013/06/01'
         events = view.get_items()
         self.assertEqual(len(events), 1)
 
@@ -145,9 +145,10 @@ class TestEventListing(MockTestCase):
         self.browser.open(self.eventfolder.absolute_url())
 
         pq = PyQuery(self.browser.contents)
-        self.assertTrue(pq('.portlet.portletArchiveEventPage'),
+        self.assertTrue(pq('.portlet.portletArchiveListing'),
             'We added one, so there sould be a EventArchive portlet')
 
         self.assertEquals(
-            len(pq('.portlet.portletArchiveEventPage .portletItem li')), 3,
-            'Expect three entries in the events archive portlet')
+            len(pq(
+                '.portlet.portletArchiveListing .portletItem li.month')), 3,
+                'Expect three entries in the events archive portlet')

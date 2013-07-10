@@ -3,7 +3,7 @@ from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
-from ftw.contentpage.portlets.base_archive_portlet import archive_summary
+from ftw.contentpage.portlets.base_archive_portlet import ArchiveSummary
 from ftw.contentpage.interfaces import INewsListingView
 
 
@@ -43,12 +43,12 @@ class Renderer(base.Renderer):
     @memoize
     def archive_summary(self):
         """Returns an ordered list of summary infos per month."""
-        return archive_summary(
+        return ArchiveSummary(
             self.context,
             self.request,
             ['ftw.contentpage.interfaces.INews'],
             'effective',
-            'news_listing')
+            'news_listing')()
 
     render = ViewPageTemplateFile('news_archive_portlet.pt')
 
