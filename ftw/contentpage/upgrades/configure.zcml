@@ -231,4 +231,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1401 -> 1402 -->
+    <genericsetup:upgradeStep
+        title="Add show_mimetype_icon for alphabetical subject listing"
+        description=""
+        source="1401"
+        destination="1402"
+        handler="ftw.contentpage.upgrades.to1402.UpdateRegistry"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1402"
+        title="ftw.contentpage.upgrades.1402"
+        description=""
+        directory="profiles/1402"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>

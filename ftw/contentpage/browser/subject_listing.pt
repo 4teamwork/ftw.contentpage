@@ -55,9 +55,13 @@
                                     <td>
                                         <ul class="subject-content">
                                             <li tal:repeat="brain subject/brains">
-                                                <a tal:content="brain/Title"
-                                                   tal:attributes="href brain/getURL"
-                                                   />
+                                                <a tal:attributes="href brain/getURL">
+                                                   <span tal:content="brain/Title" />
+                                                   <img alt="" class="subject-mimetype-icon"
+                                                       tal:define="icon python:view.get_mimetype_icon(brain)"
+                                                       tal:condition="icon"
+                                                       tal:attributes="src icon"/>
+                                                </a>
                                             </li>
                                         </ul>
                                     </td>
