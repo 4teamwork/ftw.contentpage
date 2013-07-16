@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Fix subjects-vocabulary if we get unique values in case sensitive
+  [elioschmutz]
+
 - Implement collapsible archive portlet
   [elioschmutz]
 
