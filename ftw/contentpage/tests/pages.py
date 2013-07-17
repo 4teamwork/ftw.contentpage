@@ -22,6 +22,10 @@ class SubjectListingView(Plone):
         return map(self._item_to_text,
                    browser().find_by_css('.letter-index a'))
 
+    @property
+    def mimetype_images(self):
+        return browser().find_by_css('.subject-mimetype-icon')
+
     def click_letter(self, letter):
         xpath = INDEX_XPATH + '//a[normalize-space(text())="%s"]' % letter
         elements = browser().find_by_xpath(xpath)

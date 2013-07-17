@@ -44,5 +44,11 @@
             <element>ContentPage</element>
         </value>
     </record>
-
+    <record name="ftw.contentpage.subjectlisting.show_mimetype_icon">
+        <field type="plone.registry.field.Bool">
+            <title>Show the mimetype icon after the listed subject.</title>
+            <value_type type="plone.registry.field.Bool" />
+        </field>
+        <value>False</value>
+    </record>
 </registry>

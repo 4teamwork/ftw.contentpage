@@ -197,3 +197,22 @@ class TestAlphabeticalSubjectListing(TestCase):
         self.assertEquals(
             'There is no content to list.',
             browser().find_by_css('#content .no-contents').text.strip())
+
+    def test_dont_show_mimetype_icon_per_default(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget']))
+
+        view = SubjectListingView().visit()
+        self.assertEquals([], view.mimetype_images)
+
+    def test_show_mimetype_icon_if_set_in_registry(self):
+        registry = getUtility(IRegistry)
+        registry['ftw.contentpage.subjectlisting.show_mimetype_icon'] = True
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget']))
+
+        view = SubjectListingView().visit()
+        self.assertEquals(1, len(view.mimetype_images))

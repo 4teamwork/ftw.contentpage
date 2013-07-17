@@ -92,6 +92,20 @@ class AlphabeticalSubjectListing(BrowserView):
         self.letter = name
         return self
 
+    def get_mimetype_icon(self, brain):
+        registry = getUtility(IRegistry)
+        if not registry['ftw.contentpage.subjectlisting.show_mimetype_icon']:
+            return None
+
+        icon = brain.getIcon
+
+        if not icon:
+            return None
+
+        portal_url = getToolByName(self.context, 'portal_url')
+
+        return '%s/%s' % (portal_url(), icon)
+
     @instance.memoize
     def get_current_letter(self):
         if self.letter is not None:
