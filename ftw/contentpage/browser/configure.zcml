@@ -8,7 +8,6 @@
         name="ftw.contentpage.resources"
         directory="resources"
         />
-
     <!-- AddressBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IAddressBlock"
