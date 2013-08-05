@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Do not use jq in collaps_archive.js.
+  [mathias.leimgruber]
+
 - Add mimetype icon to subject-listing
   [elioschmutz]
 
