@@ -45,6 +45,7 @@ setup(name='ftw.contentpage',
 
       install_requires=[
           'archetypes.schemaextender',
+          'collective.quickupload',
           'ftw.calendarwidget',
           'ftw.colorbox',
           'ftw.geo',

@@ -250,4 +250,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1402 -> 1403 -->
+    <genericsetup:upgradeStep
+        title="Install dnd upload for listingblock"
+        description=""
+        source="1402"
+        destination="1403"
+        handler="ftw.contentpage.upgrades.to1403.DndUpload"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
