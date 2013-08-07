@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <metadata>
-    <version>1402</version>
+    <version>1403</version>
     <dependencies>
         <dependency>profile-simplelayout.base:default</dependency>
         <dependency>profile-simplelayout.portlet.dropzone:default</dependency>
         <dependency>profile-ftw.geo:default</dependency>
         <dependency>profile-plone.formwidget.contenttree:default</dependency>
         <dependency>profile-ftw.calendarwidget:default</dependency>
+        <dependency>profile-collective.quickupload:default</dependency>
     </dependencies>
 </metadata>

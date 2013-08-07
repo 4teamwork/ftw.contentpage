@@ -8,7 +8,6 @@
         name="ftw.contentpage.resources"
         directory="resources"
         />
-
     <!-- AddressBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IAddressBlock"
@@ -122,5 +121,14 @@
         class=".subject_listing.AlphabeticalSubjectListing"
         template="subject_listing.pt"
         />
+
+    <!-- multiupload view based on c.quickupload -->
+    <browser:page
+        for="collective.quickupload.interfaces.IQuickUploadCapable"
+        name="flashupload"
+        class=".flashupload.FlashUploadForm"
+        permission="cmf.AddPortalContent"
+        />
+
 
 </configure>

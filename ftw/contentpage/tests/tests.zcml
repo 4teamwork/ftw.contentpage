@@ -11,4 +11,8 @@
       title="View"
       />
 
+    <permission
+      id="cmf.AddPortalContent"
+      title="Add portal content" />
+
 </configure>
