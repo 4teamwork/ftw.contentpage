@@ -13,7 +13,7 @@
 
 
     <div id="authorities">
-      <div class="listing-column-left">
+      <div class="listing-column listing-column-left">
             <div class="listing-block" tal:repeat="result python: view.contents()['leftcolumn']">
                 <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title"><!-- Title --></a></h2>
                 <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
@@ -29,7 +29,7 @@
          </div>
      </div>
 
-      <div class="listing-column-right">
+      <div class="listing-column listing-column-right">
             <div class="listing-block" tal:repeat="result python: view.contents()['rightcolumn']">
                 <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title"><!-- Title --></a></h2>
                 <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
