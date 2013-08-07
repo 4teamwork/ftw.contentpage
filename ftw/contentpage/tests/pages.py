@@ -49,3 +49,34 @@ class SubjectListingView(Plone):
 
     def _item_to_text(self, item):
         return self.normalize_whitespace(item.text.strip())
+
+
+class AuthoritiesView(Plone):
+
+    def visit_on(self, page):
+        return self.visit(page, 'authorities_view')
+
+    @property
+    def link_labels(self):
+        return map(self._item_to_text, browser().find_by_css('#authorities a'))
+
+    @property
+    def link_labels_per_column(self):
+        columns = []
+        for column in browser().find_by_css('#authorities .listing-column'):
+            columns.append(map(self._item_to_text,
+                               column.find_by_css('a')))
+        return columns
+
+    def link_url(self, label):
+        links = browser().find_by_xpath(
+            '//*[@id="authorities"]//a[normalize-space(text())="%s"]' % label.strip())
+
+        assert len(links) > 0, 'Link with text "%s" not found' % label.strip()
+        assert len(links) == 1, 'More than one link with text "%s" found' % (
+            label.strip())
+
+        return links[0]['href']
+
+    def _item_to_text(self, item):
+        return self.normalize_whitespace(item.text.strip())
