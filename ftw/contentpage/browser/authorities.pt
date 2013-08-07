@@ -6,49 +6,38 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ftw.contentpage">
 
-<body>
+    <body>
 
-    <div metal:fill-slot="content-core">
-      <metal:main-macro define-macro="content-core">
+        <div metal:fill-slot="content-core">
+            <metal:main-macro define-macro="content-core">
 
 
-    <div id="authorities">
-      <div class="listing-column listing-column-left">
-            <div class="listing-block" tal:repeat="result python: view.contents()['leftcolumn']">
-                <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title"><!-- Title --></a></h2>
-                <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
-                    <ul class="subelements-listing" tal:condition="content_items">
-                        <li tal:repeat="item content_items">
-                            <a tal:attributes="href item/getURL;
-                                               title result/Title"
-                               tal:content="item/Title" class="subelements-listing-element"><!-- Title --></a>
-                           <span class="divider" tal:condition="not:repeat/item/end"></span>
-                        </li>
-                    </ul>
-              </tal:block>
-         </div>
-     </div>
+                <div id="authorities">
+                    <div tal:repeat="column view/columns"
+                         tal:attributes="class column/classes">
 
-      <div class="listing-column listing-column-right">
-            <div class="listing-block" tal:repeat="result python: view.contents()['rightcolumn']">
-                <h2 class="linklist"><a tal:attributes="href result/getURL" tal:content="result/Title"><!-- Title --></a></h2>
-                <tal:block tal:define="content_items python:view.subcontents(result.getPath());">
-                    <ul class="subelements-listing" tal:condition="content_items">
-                        <li tal:repeat="item content_items">
-                            <a tal:attributes="href item/getURL;
-                                               title result/Title"
-                               tal:content="item/Title" class="subelements-listing-element"><!-- Title --></a>
-                           <span class="divider" tal:condition="not:repeat/item/end"></span>
-                        </li>
-                    </ul>
-              </tal:block>
-         </div>
-       </div>
-      </div>
+                        <div class="listing-block" tal:repeat="node column/nodes">
 
-      <div class="visualClear">&nbsp;</div>
+                            <h2 class="linklist"><a tal:attributes="href node/url" tal:content="node/title" /></h2>
 
-      </metal:main-macro>
-      </div>
-</body>
+                            <tal:block tal:define="subnodes node/children">
+                                <ul class="subelements-listing" tal:condition="subnodes">
+                                    <li tal:repeat="subnode subnodes">
+                                        <a tal:attributes="href subnode/url;
+                                                           title subnode/title"
+                                           tal:content="subnode/title"
+                                           class="subelements-listing-element" />
+                                        <span class="divider" tal:condition="not:repeat/subnode/end" />
+                                    </li>
+                                </ul>
+                            </tal:block>
+                        </div>
+                    </div>
+
+                    <div class="visualClear">&nbsp;</div>
+                </div>
+
+            </metal:main-macro>
+        </div>
+    </body>
 </html>

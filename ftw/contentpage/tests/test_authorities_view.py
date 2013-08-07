@@ -1,12 +1,78 @@
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.contentpage.browser import authorities
 from ftw.contentpage.interfaces import IOrgUnitMarker
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.contentpage.tests.pages import AuthoritiesView
+from ftw.testing import MockTestCase
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 from unittest2 import TestCase
 import transaction
+
+
+class TestHelperFunctions(MockTestCase):
+
+    def setUp(self):
+        super(TestHelperFunctions, self).setUp()
+
+        self.brain_mocks = [
+            self.create_dummy(Title='Foo',
+                              getPath=lambda: '/plone/foo',
+                              getURL=lambda: 'http://nohost/plone/foo'),
+
+            self.create_dummy(Title='Bar',
+                              getPath=lambda: '/plone/foo/bar',
+                              getURL=lambda: 'http://nohost/plone/foo/bar'),
+
+            self.create_dummy(Title='Baz',
+                              getPath=lambda: '/plone/foo/baz',
+                              getURL=lambda: 'http://nohost/plone/foo/baz')]
+
+    def test_get_brain_data(self):
+        self.assertEqual(map(authorities.get_brain_data, self.brain_mocks),
+
+                         [{'title': 'Foo',
+                           'path': '/plone/foo',
+                           'url': 'http://nohost/plone/foo',
+                           'children': []},
+
+                          {'title': 'Bar',
+                           'path': '/plone/foo/bar',
+                           'url': 'http://nohost/plone/foo/bar',
+                           'children': []},
+
+                          {'title': 'Baz',
+                           'path': '/plone/foo/baz',
+                           'url': 'http://nohost/plone/foo/baz',
+                           'children': []}])
+
+    def test_make_treeish(self):
+        data = map(authorities.get_brain_data, self.brain_mocks)
+
+        self.maxDiff = None
+        self.assertEqual(
+            authorities.make_treeish(data),
+
+            [{'title': 'Foo',
+              'path': '/plone/foo',
+              'url': 'http://nohost/plone/foo',
+
+              'children': [
+
+                        {'title': 'Bar',
+                         'path': '/plone/foo/bar',
+                         'url': 'http://nohost/plone/foo/bar',
+                         'children': []},
+
+                        {'title': 'Baz',
+                         'path': '/plone/foo/baz',
+                         'url': 'http://nohost/plone/foo/baz',
+                         'children': []},
+
+                        ]},
+             ])
+
 
 
 class TestTreeView(TestCase):
