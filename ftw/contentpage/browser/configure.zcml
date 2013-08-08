@@ -130,5 +130,12 @@
         permission="cmf.AddPortalContent"
         />
 
+    <browser:page
+        for="*"
+        name="display_upload"
+        class=".flashupload.DisplayUploadView"
+        attribute="can_upload"
+        permission="zope.Public"
+        />
 
 </configure>

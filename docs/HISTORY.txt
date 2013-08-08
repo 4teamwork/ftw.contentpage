@@ -4,6 +4,8 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Add view to check if multiupload is possible.
+  [mathias.leimgruber]
 
 - Do not use jq in collaps_archive.js.
   [mathias.leimgruber]
