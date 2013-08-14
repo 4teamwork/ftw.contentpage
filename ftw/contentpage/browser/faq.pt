@@ -1,13 +1,13 @@
-<div tal:attributes="id string:uid_${obj/UID}" class="FAQWrapper">
+<div tal:attributes="id string:uid_${context/UID}" class="FAQWrapper">
   <div class="faqtitle">
     <span class="itemTitle">
-      <img tal:attributes="src string:${here/portal_url}/++resource++contentpage/arrow_right.png"
+      <img tal:attributes="src string:${here/portal_url}/++resource++ftw.contentpage.resources/arrow_right.png"
            class="toggleImage"
            alt="" width="16px" />
       <tal:title tal:content="context/title">Title</tal:title>
     </span>
   </div>
-  <div class="faqcontent"
+  <div class="faqcontent">
         <div class="sl-img-wrapper" tal:condition="view/has_image"
              tal:attributes="style view/image_wrapper_style"
              tal:define="image_desc context/getImageCaption | context/Description">
@@ -21,7 +21,7 @@
                     </a>
                     <p tal:condition="image_desc"
                        tal:content="context/getImageCaption">Caption</p>
+         <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
     </div>
-    <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
 </div>
 <div class="visualClear"><!-- --></div>
