@@ -6,11 +6,10 @@
         </th>
         <td tal:content="view/get_date" />
       </tr>
-      <tr tal:condition="context/location">
-        <th i18n:translate="">
-          Location
-        </th>
-        <td tal:content="context/location" />
-      </tr>
     </table>
+    <div>
+      <img tal:attributes="src string: ${context/portal_url}/icon_export_ical.png" />
+      <a tal:attributes="href string: ${context/absolute_url}/ics_view">ICS-Export</a>
+    </div>
+
 </div>

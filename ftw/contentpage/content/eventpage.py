@@ -10,6 +10,8 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from zope.interface import implements
+from Products.ATContentTypes.lib.calendarsupport import CalendarSupportMixin
+from ftw.contentpage.interfaces import IOrgUnitMarker
 
 
 if HAS_LINGUA_PLONE:
@@ -58,6 +60,8 @@ EventSchema = ContentPageSchema.copy() + atapi.Schema((
     atapi.StringField(
         'location',
         searchable=True,
+        write_permission="Manage Portal Content",
+
         widget=atapi.StringWidget(
             label=_(u'label_event_location', default=u'Event Location'),
             description=_(u'help_event_location', default=u""),
@@ -75,7 +79,7 @@ for name in image_schema.keys():
     EventSchema[name].write_permission = permission
 
 
-class EventPage(ContentPage):
+class EventPage(ContentPage, CalendarSupportMixin):
     implements(IEventPage)
 
     meta_type = "EventPage"
@@ -86,5 +90,52 @@ class EventPage(ContentPage):
     def show_description(self):
         return False
 
+    def get_addressblock(self):
+        if IOrgUnitMarker.providedBy(self):
+            block = self.getFolderContents(
+                contentFilter={'portal_type': ['AddressBlock']}, full_objects=True)[0]
+            return block
+        return None
+
+    def contact_name(self):
+        block = self.get_addressblock()
+        if block:
+            return block.getAddressTitle()
+        return ''
+
+    def contact_phone(self):
+        block = self.get_addressblock()
+        if block:
+            return block.getPhone()
+        return ''
+
+    def contact_email(self):
+        block = self.get_addressblock()
+        if block:
+            return block.getEmail()
+        return ''
+
+        return ''
+
+    def getLocation(self):
+        block = self.get_addressblock()
+        complete_address = ''
+        if block:
+            street = block.getAddress()
+            if street:
+                complete_address = complete_address + street + ','
+            zip = block.getZip()
+            if zip:
+                complete_address = complete_address + ' ' + zip
+            city = block.getCity()
+            if city:
+                complete_address = complete_address + ' ' + city
+            return complete_address.strip(',')
+        return ''
+    def event_url(self):
+        block = self.get_addressblock()
+        if block:
+            return block.getWww()
+        return ''
 
 registerType(EventPage, PROJECTNAME)
