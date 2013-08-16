@@ -89,4 +89,17 @@
     visible="True">
   <permission value="Modify portal content"/>
  </action>
+ <action title="FAQ-View" action_id="sl-dummy-dummy-faq" category="sl-layouts"
+    condition_expr="" icon_expr=""
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Blockview" action_id="sl-dummy-dummy-block_view" category="sl-layouts"
+    condition_expr="" icon_expr=""
+    url_expr="string:${here/absolute_url}/block_control"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+
 </object>

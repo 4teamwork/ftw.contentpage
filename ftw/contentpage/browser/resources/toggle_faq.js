@@ -1,5 +1,5 @@
 jQuery(function($){
-  $('.faqtitle').click(function(e){
+  $('.faqtitle').live("click",function(e){
     e.preventDefault();
     var parentItem = $(this).closest('.FAQWrapper');
     var meetingBody = $('#'+parentItem.attr('id') + ' .faqcontent');

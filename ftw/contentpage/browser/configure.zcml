@@ -76,12 +76,6 @@
         permission="zope2.View" />
 
     <browser:page
-        for="ftw.contentpage.interfaces.ITextBlock"
-        name="faq_view"
-        class=".faq.FAQBlockView"
-        permission="zope2.View" />
-
-    <browser:page
         for="*"
         name="news_listing"
         class=".newslisting.NewsListing"
@@ -143,5 +137,11 @@
         attribute="can_upload"
         permission="zope.Public"
         />
+
+    <browser:page
+        for="ftw.contentpage.interfaces.ITextBlock"
+        name="block_view-faq"
+        class=".faq.FAQBlockView"
+        permission="zope2.View" />
 
 </configure>
