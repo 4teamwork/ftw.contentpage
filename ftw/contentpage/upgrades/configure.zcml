@@ -260,4 +260,24 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1403 -> 1404 -->
+    <genericsetup:upgradeStep
+        title="Remove upload.js from jsregistry"
+        description=""
+        source="1403"
+        destination="1404"
+        handler="ftw.contentpage.upgrades.to1404.RemoveUploadJs"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1404"
+        title="ftw.contentpage.upgrades.1404"
+        description=""
+        directory="profiles/1404"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
 </configure>
