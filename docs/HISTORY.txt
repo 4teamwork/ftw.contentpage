@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Remove upload.js
+  [mathias.leimgruber]
+
 - Add view to check if multiupload is possible.
   [mathias.leimgruber]
 
