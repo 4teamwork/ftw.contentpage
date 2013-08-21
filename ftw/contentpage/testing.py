@@ -3,13 +3,15 @@ from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import set_builder_session_factory
 from ftw.testing import FunctionalSplinterTesting
 from ftw.testing.layer import ComponentRegistryLayer
+from plone.app.testing import applyProfile
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.app.testing import setRoles, TEST_USER_ID, TEST_USER_NAME, login
 from plone.testing import z2
 from zope.configuration import xmlconfig
+from zope.event import notify
+from zope.traversing.interfaces import BeforeTraverseEvent
 import ftw.contentpage.tests.builders
 
 
@@ -90,10 +92,28 @@ class FtwContentPageLayer(PloneSandboxLayer):
         login(portal, TEST_USER_NAME)
 
 
+class FunctionalBrowserlayerTesting(FunctionalSplinterTesting):
+    """Support browserlayer"""
+
+    def setUpEnvironment(self, portal):
+        super(FunctionalBrowserlayerTesting, self).setUpEnvironment(portal)
+
+        notify(BeforeTraverseEvent(portal, portal.REQUEST))
+
+
+class IntegrationBrowserlayerTesting(IntegrationTesting):
+    """Support browserlayer"""
+
+    def setUpEnvironment(self, portal):
+        super(IntegrationBrowserlayerTesting, self).setUpEnvironment(portal)
+
+        notify(BeforeTraverseEvent(portal, portal.REQUEST))
+
+
 FTW_CONTENTPAGE_FIXTURE = FtwContentPageLayer()
-FTW_CONTENTPAGE_INTEGRATION_TESTING = IntegrationTesting(
+FTW_CONTENTPAGE_INTEGRATION_TESTING = IntegrationBrowserlayerTesting(
     bases=(FTW_CONTENTPAGE_FIXTURE, ), name="FtwContentPage:Integration")
-FTW_CONTENTPAGE_FUNCTIONAL_TESTING = FunctionalSplinterTesting(
+FTW_CONTENTPAGE_FUNCTIONAL_TESTING = FunctionalBrowserlayerTesting(
     bases=(FTW_CONTENTPAGE_FIXTURE,
            set_builder_session_factory(functional_session_factory)),
     name="FtwContentPage:Functional")

@@ -3,6 +3,7 @@ from ftw.testing import MockTestCase
 from zope.component import getMultiAdapter
 from ftw.contentpage.interfaces import IAddressBlock
 from simplelayout.base.interfaces import ISimpleLayoutCapable
+from ftw.contentpage.interfaces import IFtwContentPageLayer
 from mocker import ANY
 
 OPENING_HOURS = DIRECTTIONS = "Line1\nLine2\nLine3"
@@ -15,7 +16,7 @@ class TestAddressBlockView(MockTestCase):
     def setUp(self):
         super(TestAddressBlockView, self).setUp()
 
-        self.request = self.stub_request()
+        self.request = self.stub_request(IFtwContentPageLayer)
         self.context = self.providing_stub(IAddressBlock)
         self.expect(self.context.getAddress()).result("Address line")
         self.expect(self.context.getOpeningHours()).result(OPENING_HOURS)

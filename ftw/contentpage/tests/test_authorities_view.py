@@ -74,7 +74,6 @@ class TestHelperFunctions(MockTestCase):
              ])
 
 
-
 class TestTreeView(TestCase):
 
     layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
@@ -134,7 +133,8 @@ class TestTreeView(TestCase):
                .within(container))
 
         AuthoritiesView().visit_on(container)
-        self.assertEquals(['With IOrgUnitMarker'], AuthoritiesView().link_labels)
+        self.assertEquals(['With IOrgUnitMarker'],
+                          AuthoritiesView().link_labels)
 
     def test_pages_are_linked_properly(self):
         container = create(Builder('content page'))
@@ -207,4 +207,5 @@ class TestTreeView(TestCase):
                .having(excludeFromNav=True))
 
         AuthoritiesView().visit_on(container)
-        self.assertEquals(['Shown In Navigation'], AuthoritiesView().link_labels)
+        self.assertEquals(['Shown In Navigation'],
+                          AuthoritiesView().link_labels)
