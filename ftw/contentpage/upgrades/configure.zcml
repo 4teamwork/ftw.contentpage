@@ -279,5 +279,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1404 -> 1405 -->
+    <genericsetup:upgradeStep
+        title="Install browserlayer"
+        description=""
+        source="1404"
+        destination="1405"
+        handler="ftw.contentpage.upgrades.to1405.InstallBrowserlayer"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1405"
+        title="ftw.contentpage.upgrades.1405"
+        description=""
+        directory="profiles/1405"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
 </configure>
