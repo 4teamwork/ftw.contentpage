@@ -59,3 +59,7 @@ class IEventListingView(Interface):
 
 class ISummaryListingEnabled(Interface):
     """Marker interface for the detail content listing view"""
+
+
+class IFtwContentPageLayer(Interface):
+    """Request marker for ftw.contentpage"""

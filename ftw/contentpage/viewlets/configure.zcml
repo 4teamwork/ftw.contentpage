@@ -9,6 +9,7 @@
         manager="simplelayout.base.interfaces.ISimpleViewletListingProvider"
         class=".contentlisting.ContentListingViewlet"
         permission="zope2.View"
+        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         />
 
     <browser:viewlet
@@ -17,6 +18,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".teaser_listing_viewlet.SimpleLayoutNewsListingViewlet"
         permission="zope2.View"
+        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         />
 
 
@@ -26,6 +28,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".byline.NewsByline"
         permission="zope2.View"
+        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         />
 
     <browser:viewlet
@@ -34,6 +37,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".news.NewsDate"
         permission="zope2.View"
+        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         />
 
     <browser:viewlet
@@ -42,6 +46,7 @@
         manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
         class=".event_data.EventDataViewlet"
         permission="zope2.View"
+        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         />
 
 </configure>

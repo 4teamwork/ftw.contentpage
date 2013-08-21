@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="ftw.contentpage-layer"
+           interface="ftw.contentpage.interfaces.IFtwContentPageLayer" />
+</layers>

@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Add browserlayer.
+  [mathias.leimgruber]
+
 - Remove upload.js
   [mathias.leimgruber]
 
