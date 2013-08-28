@@ -1,4 +1,5 @@
 from Acquisition import aq_inner, aq_parent
+from collective.geo.mapwidget.browser.widget import MapWidget
 from ftw.contentpage.interfaces import IAddressBlockView
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -29,6 +30,13 @@ class AddressBlockView(BrowserView):
 
     def address(self):
         return self.address_ptl()
+
+    def get_address_map(self):
+        address_map = MapWidget(self, self.request, self.context)
+        address_map.mapid = self.context.getId()
+        address_map.addClass('addressblock-map')
+
+        return address_map
 
 
 class AddressBlockPortletView(AddressBlockView):
