@@ -50,7 +50,7 @@
         />
 
     <browser:viewlet
-        name="plone.htmlhead.openlayers"
+        name="ftw.contentpage.openlayers"
         for="ftw.contentpage.interfaces.IOrgUnitMarker"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class=".openlayers.OpenlayersViewlet"

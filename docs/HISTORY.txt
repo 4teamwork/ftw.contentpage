@@ -4,6 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Adjust openlayersimplementation for addressblocks to be able to
+  add multiple addressblocks on one page with correct map-rendering
+  [elioschmutz]
+
 - Add browserlayer.
   [mathias.leimgruber]
 
