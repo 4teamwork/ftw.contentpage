@@ -154,5 +154,24 @@ div.eventData {
   list-style: none;
   margin-left: 0em;
 }
+.faqtitle {
+    background-color: #ddd;
+    border-radius: 3px;
+}
+.faqtitle:hover {
+    background-color: #cbcbcb;
+}
+.faqtitle .itemTitle {
+    padding-left: 20px;
+    font-size: 1.5em;
+    display:block;
+}
+.faqtitle .itemTitle.imgright {
+    background: url(++resource++ftw.contentpage.resources/arrow_right.png) no-repeat left center;
+    }
+
+.faqtitle .itemTitle.imgdown {
+    background: url(++resource++ftw.contentpage.resources/arrow_down.png) no-repeat left center;
+    }
 
 /* @end */

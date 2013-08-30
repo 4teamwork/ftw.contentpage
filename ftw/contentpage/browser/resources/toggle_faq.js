@@ -2,17 +2,21 @@ jQuery(function($){
   $('.faqtitle').live("click",function(e){
     e.preventDefault();
     var parentItem = $(this).closest('.FAQWrapper');
-    var meetingBody = $('#'+parentItem.attr('id') + ' .faqcontent');
+    var FAQBody = $('#'+parentItem.attr('id') + ' .faqcontent');
+    $('div.open').hide('blind', 100);
+    $('div.open').addClass('folded')
+    $('div.open').removeClass('open')
+    $('.faqtitle .itemTitle').removeClass('imgdown')
+    $('.faqtitle .itemTitle').addClass('imgright')
 
-    if (meetingBody.css('display') != 'none'){
-      $('#'+parentItem.attr('id') + ' .faqcontent').hide('blind', 100);
-      $('#'+parentItem.attr('id') + ' .faqtitle .toggleImage').attr('src',portal_url+'/++resource++ftw.contentpage.resources/arrow_right.png');
-    }
-    else {
+    if (FAQBody.css('display') == 'none'){
       $('#'+parentItem.attr('id') + ' .faqcontent').show('blind', 100);
-      $('#'+parentItem.attr('id') + ' .faqtitle .toggleImage').attr('src',portal_url+'/++resource++ftw.contentpage.resources/arrow_down.png');
+      $('#'+parentItem.attr('id') + ' .faqcontent').removeClass('folded')
+      $('#'+parentItem.attr('id') + ' .faqcontent').addClass('open')
+      $('#'+parentItem.attr('id') + ' .faqtitle .itemTitle').removeClass('imgright')
+      $('#'+parentItem.attr('id') + ' .faqtitle .itemTitle').addClass('imgdown')
     }
 
 
-  }).children('.sl-actions').click(function(event) {event.stopPropagation();});
+  })
 });
