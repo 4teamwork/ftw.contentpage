@@ -308,4 +308,13 @@
         profile="ftw.contentpage:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Add EventPage to calendartypes."
+        description=""
+        source="1502"
+        destination="1503"
+        handler="ftw.contentpage.upgrades.to1503.SetCalendarTypes"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
