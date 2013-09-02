@@ -1,10 +1,13 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-from unittest2 import TestCase
-from simplelayout.base.interfaces import ISimpleLayoutCapable
-from simplelayout.base.interfaces import IAdditionalListingEnabled
-from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from plone.testing.z2 import Browser
+from simplelayout.base.interfaces import IAdditionalListingEnabled
+from simplelayout.base.interfaces import ISimpleLayoutCapable
+from unittest2 import TestCase
 import transaction
+from zope.component import queryMultiAdapter
+from zope.publisher.browser import BrowserView
+from zope.viewlet.interfaces import IViewletManager
 
 
 class TestContentPageCreation(TestCase):
@@ -64,6 +67,43 @@ class TestContentPageCreation(TestCase):
         self.browser.open(self.portal_url + '/' + _id)
         self.assertIn('template-simplelayout', self.browser.contents)
         self.assertIn('simplelayout-content', self.browser.contents)
+
+    def test_openlayers_is_not_imported_if_contentpage_is_not_orgunit(self):
+        contentpage = self.portal.get(
+            self.portal.invokeFactory('ContentPage', 'contentpage'))
+        transaction.commit()
+
+        view = BrowserView(contentpage, contentpage.REQUEST)
+        manager = queryMultiAdapter(
+            (contentpage, contentpage.REQUEST, view),
+            IViewletManager,
+            'plone.htmlhead.links')
+
+        manager.update()
+
+        self.assertNotIn(
+            u'ftw.contentpage.openlayers',
+            [v.__name__ for v in manager.viewlets])
+
+    def test_openlayers_is_imported_if_contentpage_is_orgunit(self):
+        contentpage = self.portal.get(
+            self.portal.invokeFactory('ContentPage', 'contentpage'))
+        addressblock = contentpage.get(
+            contentpage.invokeFactory('AddressBlock', 'addressblock'))
+        addressblock.processForm()
+        transaction.commit()
+
+        view = BrowserView(contentpage, contentpage.REQUEST)
+        manager = queryMultiAdapter(
+            (contentpage, contentpage.REQUEST, view),
+            IViewletManager,
+            'plone.htmlhead.links')
+
+        manager.update()
+
+        self.assertIn(
+            u'ftw.contentpage.openlayers',
+            [v.__name__ for v in manager.viewlets])
 
     def tearDown(self):
         super(TestContentPageCreation, self).tearDown()
