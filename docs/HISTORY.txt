@@ -4,6 +4,10 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Remove ISimpleLayoutCapable from news folder.
+  News folder is not really a simplelayout container.
+  [jone]
+
 - Subject listing: fix "#" letter.
   [jone]
 
