@@ -4,7 +4,8 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Subject listing: fix "#" letter.
+  [jone]
 
 
 1.4 (2013-09-02)

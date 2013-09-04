@@ -80,16 +80,25 @@ class AlphabeticalSubjectListing(BrowserView):
         current_letter = self.get_current_letter()
 
         for letter in LETTERS:
+            if letter == '#':
+                character = '!'
+            else:
+                character = letter
             yield {'label': letter,
                    'has_contents': letter in letters_with_content,
-                   'link': '',
+                   'link': '/'.join((self.context.absolute_url(),
+                                     '@@subject-listing',
+                                     character)),
                    'current': letter == current_letter}
 
     def has_contents(self):
         return bool(len(self._letters_with_content))
 
     def publishTraverse(self, request, name):
-        self.letter = name
+        if name == '!':
+            self.letter = '#'
+        else:
+            self.letter = name
         return self
 
     def get_mimetype_icon(self, brain):
