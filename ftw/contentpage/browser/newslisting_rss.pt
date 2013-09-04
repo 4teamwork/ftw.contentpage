@@ -11,7 +11,7 @@
   <tal:block
       define="
           syn context/portal_syndication;
-          objectList python:view.get_news();
+          objectList python:view.get_items();
           here context;">
     <metal:block use-macro="context/rss_template/macros/master">
         <metal:block fill-slot="syndication">
