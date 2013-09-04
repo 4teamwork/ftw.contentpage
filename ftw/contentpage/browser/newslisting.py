@@ -8,12 +8,15 @@ from zope.interface import implements
 class NewsListing(BaseListing):
     implements(INewsListingView)
 
-    template = ViewPageTemplateFile('newslisting.pt')
+    default_template = ViewPageTemplateFile('newslisting.pt')
+    rss_template = ViewPageTemplateFile('newslisting_rss.pt')
 
-    def __call__(self):
+    @property
+    def template(self):
         if self.__name__ == 'news_rss_listing':
-            self.template = ViewPageTemplateFile('newslisting_rss.pt')
-        return super(NewsListing, self).__call__()
+            return self.rss_template
+        else:
+            return self.default_template
 
     def show_author(self):
         """Checks if the user is anonymous and is not allowAnonymousViewAbout.
