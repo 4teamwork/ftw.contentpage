@@ -4,6 +4,9 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Fix TypeError in news rss listing.
+  [jone]
+
 - Remove ISimpleLayoutCapable from news folder.
   News folder is not really a simplelayout container.
   [jone]
