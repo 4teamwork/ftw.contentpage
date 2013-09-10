@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-02 13:42+0000\n"
+"POT-Creation-Date: 2013-09-10 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,6 +152,14 @@ msgstr ""
 #. Default: "creater"
 #: ./ftw/contentpage/browser/listingblock_view.py:49
 msgid "column_creater"
+msgstr ""
+
+#. Default: "Document date"
+#: ./ftw/contentpage/browser/listingblock_view.py:80
+msgid "column_documen_date"
+msgstr ""
+
+msgid "label_documentDate"
 msgstr ""
 
 #. Default: "modified"

@@ -4,6 +4,9 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Add document date to listing block if ftw.file is installed.
+  [jone]
+
 - Fix extend_query_by_date function if 'datestring' contains a  bad date-format.
   The function is to extend a query (dict) with a daterange and returns the new
   query. If the function can't convert the datestring to a datetime object, it
