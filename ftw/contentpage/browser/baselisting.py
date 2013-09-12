@@ -9,7 +9,7 @@ def extend_query_by_date(query, datestring, date_field):
     try:
         start = DateTime(datestring)
     except dtSytaxError:
-        return
+        return query
     end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
                                  start.month() % 12 + 1, 1))
     end = end - 1
