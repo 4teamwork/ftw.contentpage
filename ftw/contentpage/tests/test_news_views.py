@@ -10,27 +10,19 @@ import unittest2 as unittest
 class TestExtendQueryByDate(unittest.TestCase):
 
     def test_extend_query_by_date(self):
-        query = {}
-        extend_query_by_date(query, '2012/12/01', 'effective')
+        query = extend_query_by_date({}, '2012/12/01', 'effective')
         self.assertEquals(
             {'effective':
-                 {'query': (DateTime('2012/12/01').earliestTime(),
-                            DateTime('2012/12/31').latestTime()),
-                  'range': 'minmax'}},
+                {'query': (
+                    DateTime('2012/12/01').earliestTime(),
+                    DateTime('2012/12/31').latestTime()),
+                    'range': 'minmax'}},
             query)
 
-        extend_query_by_date(query, '2013/02/01', 'effective')
-        self.assertEquals(
-            {'effective':
-                 {'query': (DateTime('2013/02/01').earliestTime(),
-                            DateTime('2013/02/28').latestTime()),
-                  'range': 'minmax'}},
-            query)
-
-        # fallback
-        query = {}
-        extend_query_by_date(query, 'not a date', 'effective')
-        self.assertEquals(query, {})
+    def test_query_does_not_lose_informations_if_date_is_incorrect(self):
+        query = extend_query_by_date(
+            {'Title': 'James'}, 'not a date', 'effective')
+        self.assertEquals(query, {'Title': 'James'})
 
 
 class TestNewsViews(unittest.TestCase):

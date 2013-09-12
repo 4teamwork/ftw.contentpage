@@ -4,6 +4,13 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Fix extend_query_by_date function if 'datestring' contains a  bad date-format.
+  The function is to extend a query (dict) with a daterange and returns the new
+  query. If the function can't convert the datestring to a datetime object, it
+  returns None and the given query is lost.
+  Now the function returns the untouched query.
+  [elio.schmutz]
+
 - Fix TypeError in news rss listing.
   [jone]
 
