@@ -5,6 +5,15 @@ from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import queryUtility
+import pkg_resources
+
+
+try:
+    pkg_resources.get_distribution('ftw.file')
+except pkg_resources.DistributionNotFound:
+    HAS_FILE = False
+else:
+    HAS_FILE = True
 
 
 def download_link(icon=True, classes=None, attrs=None, icon_only=False):
@@ -64,6 +73,15 @@ class ListingBlockView(BrowserView):
              'sort_index': 'id',
              },
             )
+
+        if HAS_FILE:
+            columns += (
+                {'column': 'documentDate',
+                 'column_title': _(u'column_documen_date',
+                                   default=u'Document date'),
+                 'sort_index': 'documentDate',
+                 'transform': helper.readable_date},)
+
         return columns
 
     def block_visible(self):
