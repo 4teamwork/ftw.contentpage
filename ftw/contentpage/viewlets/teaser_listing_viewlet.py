@@ -6,8 +6,8 @@ class SimpleLayoutNewsListingViewlet(SimpleLayoutListingViewlet):
 
     render = ViewPageTemplateFile('teaser_listing_viewlet.pt')
 
-    def getSimpleLayoutContents(self,):
-        # Return just himself if there is a descritpion or an image
+    def available(self):
         if self.context.Description() or self.context.getImage():
-            return [self.context, ]
-        return []
+            return True
+
+        return False
