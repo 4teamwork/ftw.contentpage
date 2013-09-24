@@ -4,6 +4,9 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Hide teaser viewlet for non-simplelayout views.
+  [jone]
+
 - Add document date to listing block if ftw.file is installed.
   [jone]
 
