@@ -191,3 +191,23 @@ class TestTeaserImage(TestCase):
         pq = PyQuery(self.browser.contents)
         self.assertFalse(pq('#fieldset-image .ArchetypesImageWidget'),
             'Expect NO an image field (teaser)')
+
+    def test_teaser_viewlet_not_used_when_not_on_a_simplelayout_view(self):
+        self.contentpage.setDescription('The Description')
+        transaction.commit()
+        self._auth()
+
+        self.browser.open(self.contentpage.absolute_url())
+        self.assertTrue(
+            self.teaser_viewlet_visible(),
+            'Expected the teaser viewlet to be visible on a normal content page.')
+
+        self.browser.open('/'.join((self.contentpage.absolute_url(),
+                                    'folder_contents')))
+        self.assertFalse(
+            self.teaser_viewlet_visible(),
+            'Unexpectedly found traces of the teaser viewlet on folder_contents.')
+
+    def teaser_viewlet_visible(self):
+        pq = PyQuery(self.browser.contents)
+        return pq('.sl-teaser-content-listing')
