@@ -33,7 +33,7 @@ class AddressBlockView(BrowserView):
 
     def get_address_map(self):
         address_map = MapWidget(self, self.request, self.context)
-        address_map.mapid = self.context.getId()
+        address_map.mapid = "geo-%s" % self.context.getId()
         address_map.addClass('addressblock-map')
 
         return address_map

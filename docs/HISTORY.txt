@@ -4,6 +4,15 @@ Changelog
 1.5 (unreleased)
 ----------------
 
+- Fix bug in addressblock-maps if diazo is activated.
+  Each map has it's own id, generated with the id of the addressblock.
+  Diazo uses the same id for anchor links.
+  The openlayers js is searching for the map id and finds the link instead the
+  map and breaks in a 'TypeError: Cannot read property 'w' of null' error.'
+  The fix adds a prefix to the map-id to be sure, we don't get duplicated ids on
+  a page.
+  [elioschmutz]
+
 - Hide teaser viewlet for non-simplelayout views.
   [jone]
 
