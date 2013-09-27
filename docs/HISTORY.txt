@@ -4,7 +4,8 @@ Changelog
 1.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add French translations
+  [elioschmutz]
 
 
 1.5 (2013-09-26)
