@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.6 (unreleased)
-----------------
+1.5.1 (2013-10-07)
+------------------
 
 - Add French translations
   [elioschmutz]
