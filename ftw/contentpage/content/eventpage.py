@@ -60,8 +60,6 @@ EventSchema = ContentPageSchema.copy() + atapi.Schema((
     atapi.StringField(
         'location',
         searchable=True,
-        write_permission="Manage Portal Content",
-
         widget=atapi.StringWidget(
             label=_(u'label_event_location', default=u'Event Location'),
             description=_(u'help_event_location', default=u""),
@@ -92,9 +90,11 @@ class EventPage(ContentPage, CalendarSupportMixin):
 
     def get_addressblock(self):
         if IOrgUnitMarker.providedBy(self):
-            block = self.getFolderContents(
-                contentFilter={'portal_type': ['AddressBlock']}, full_objects=True)[0]
-            return block
+            blocks = self.getFolderContents(
+                contentFilter={'portal_type': ['AddressBlock']}, full_objects=True)
+            if not len(blocks) > 0:
+                return
+            return blocks[0]
         return None
 
     def contact_name(self):
@@ -115,8 +115,6 @@ class EventPage(ContentPage, CalendarSupportMixin):
             return block.getEmail()
         return ''
 
-        return ''
-
     def getLocation(self):
         block = self.get_addressblock()
         complete_address = ''
@@ -132,6 +130,7 @@ class EventPage(ContentPage, CalendarSupportMixin):
                 complete_address = complete_address + ' ' + city
             return complete_address.strip(',')
         return ''
+
     def event_url(self):
         block = self.get_addressblock()
         if block:

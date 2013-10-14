@@ -9,7 +9,7 @@
     </table>
     <div>
       <img tal:attributes="src string: ${context/portal_url}/icon_export_ical.png" />
-      <a tal:attributes="href string: ${context/absolute_url}/ics_view">ICS-Export</a>
+      <a tal:attributes="href string: ${context/absolute_url}/ics_view" i18n:translate="">ICS-Export</a>
     </div>
 
 </div>
