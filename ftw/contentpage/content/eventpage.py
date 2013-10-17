@@ -88,6 +88,7 @@ class EventPage(ContentPage, CalendarSupportMixin):
     def show_description(self):
         return False
 
+    security.declarePrivate('get_addressblock')
     def get_addressblock(self):
         if IOrgUnitMarker.providedBy(self):
             blocks = self.getFolderContents(
@@ -97,24 +98,28 @@ class EventPage(ContentPage, CalendarSupportMixin):
             return blocks[0]
         return None
 
+    security.declareProtected("View", 'contact_name')
     def contact_name(self):
         block = self.get_addressblock()
         if block:
             return block.getAddressTitle()
         return ''
 
+    security.declareProtected("View", 'contact_phone')
     def contact_phone(self):
         block = self.get_addressblock()
         if block:
             return block.getPhone()
         return ''
 
+    security.declareProtected("View", 'contact_email')
     def contact_email(self):
         block = self.get_addressblock()
         if block:
             return block.getEmail()
         return ''
 
+    security.declareProtected("View", 'getLocation')
     def getLocation(self):
         block = self.get_addressblock()
         complete_address = ''
@@ -131,6 +136,7 @@ class EventPage(ContentPage, CalendarSupportMixin):
             return complete_address.strip(',')
         return ''
 
+    security.declareProtected("View", 'event_url')
     def event_url(self):
         block = self.get_addressblock()
         if block:
