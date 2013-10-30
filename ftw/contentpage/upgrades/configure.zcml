@@ -298,4 +298,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1405 -> 1502 -->
+    <genericsetup:upgradeStep
+        title="Update portal_types action titles: Fixes translations of block actions"
+        description=""
+        source="1405"
+        destination="1502"
+        handler="ftw.contentpage.upgrades.to1502.FixPortalTypeActionTitles"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>

@@ -4,7 +4,8 @@ Changelog
 1.5.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix several not translated simplelayout actions.
+  [mathias.leimgruber]
 
 
 1.5.1 (2013-10-07)

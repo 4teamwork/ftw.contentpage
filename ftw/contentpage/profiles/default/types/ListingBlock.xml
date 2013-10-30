@@ -63,12 +63,12 @@
     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
   <permission value="Modify portal content"/>
  </action>
- <action title="Default" action_id="sl-dummy-dummy-dummy" category="sl-layouts"
+ <action title="Listing" action_id="sl-dummy-dummy-dummy" category="sl-layouts"
     condition_expr="" icon_expr=""
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>
  </action>
- <action title="Portlet" action_id="sl-dummy-dummy-gallery" category="sl-layouts"
+ <action title="Gallery" action_id="sl-dummy-dummy-gallery" category="sl-layouts"
     condition_expr="" icon_expr=""
     url_expr="string:${here/absolute_url}/block_control" visible="True">
   <permission value="Modify portal content"/>

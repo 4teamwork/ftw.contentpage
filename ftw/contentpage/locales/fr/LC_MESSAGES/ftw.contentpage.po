@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-09-27 07:32+0000\n"
+"POT-Creation-Date: 2013-10-30 14:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,7 +10,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
@@ -76,6 +75,10 @@ msgstr ""
 msgid "External Edit"
 msgstr ""
 
+#: ./ftw/contentpage/viewlets/event_data.pt:12
+msgid "ICS-Export"
+msgstr ""
+
 #. Default: "ID"
 #: ./ftw/contentpage/browser/listingblock_view.py:72
 msgid "ID"
@@ -86,7 +89,6 @@ msgid "ListingBlock"
 msgstr ""
 
 #: ./ftw/contentpage/browser/eventlisting.pt:38
-#: ./ftw/contentpage/viewlets/event_data.pt:10
 msgid "Location"
 msgstr "Emplacement"
 
@@ -217,11 +219,11 @@ msgid "help_directions"
 msgstr ""
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/eventpage.py:44
+#: ./ftw/contentpage/content/eventpage.py:46
 msgid "help_end"
 msgstr ""
 
-#: ./ftw/contentpage/content/eventpage.py:63
+#: ./ftw/contentpage/content/eventpage.py:65
 msgid "help_event_location"
 msgstr ""
 
@@ -254,12 +256,12 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/eventpage.py:31
+#: ./ftw/contentpage/content/eventpage.py:33
 msgid "help_start"
 msgstr ""
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/eventpage.py:55
+#: ./ftw/contentpage/content/eventpage.py:57
 msgid "help_whole_day"
 msgstr ""
 
@@ -352,17 +354,17 @@ msgid "label_email"
 msgstr ""
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/eventpage.py:43
+#: ./ftw/contentpage/content/eventpage.py:45
 msgid "label_event_end"
 msgstr "événement se termine"
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/eventpage.py:62
+#: ./ftw/contentpage/content/eventpage.py:64
 msgid "label_event_location"
 msgstr "Lieu de l'événement"
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/eventpage.py:30
+#: ./ftw/contentpage/content/eventpage.py:32
 msgid "label_event_start"
 msgstr "Début de l'événement"
 
@@ -513,7 +515,7 @@ msgid "label_text"
 msgstr "Texte"
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/eventpage.py:54
+#: ./ftw/contentpage/content/eventpage.py:56
 msgid "label_whole_day_event"
 msgstr "Événement d'une journée entière"
 
@@ -577,5 +579,4 @@ msgstr "Vous ne pouvez pas définir un chemin et limiter au contexte."
 #: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr ""
-
 
