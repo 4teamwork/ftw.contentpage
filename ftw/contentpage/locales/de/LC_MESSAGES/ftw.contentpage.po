@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-09-10 09:04+0000\n"
+"POT-Creation-Date: 2013-10-30 14:03+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,7 +10,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
@@ -76,8 +75,12 @@ msgstr "Veranstaltungen"
 msgid "External Edit"
 msgstr "Mit externem Editor bearbeiten"
 
+#: ./ftw/contentpage/viewlets/event_data.pt:12
+msgid "ICS-Export"
+msgstr "ICS-Export"
+
 #. Default: "ID"
-#: ./ftw/contentpage/browser/listingblock_view.py:63
+#: ./ftw/contentpage/browser/listingblock_view.py:72
 msgid "ID"
 msgstr "ID"
 
@@ -86,7 +89,6 @@ msgid "ListingBlock"
 msgstr "Auflistungsblock"
 
 #: ./ftw/contentpage/browser/eventlisting.pt:38
-#: ./ftw/contentpage/viewlets/event_data.pt:10
 msgid "Location"
 msgstr "Ort"
 
@@ -148,7 +150,7 @@ msgid "button_cancel"
 msgstr "Abbrechen"
 
 #. Default: "creater"
-#: ./ftw/contentpage/browser/listingblock_view.py:49
+#: ./ftw/contentpage/browser/listingblock_view.py:58
 msgid "column_creater"
 msgstr "Ersteller"
 
@@ -157,26 +159,23 @@ msgstr "Ersteller"
 msgid "column_documen_date"
 msgstr "Dokumentdatum"
 
-msgid "label_documentDate"
-msgstr "Dokumentdatum"
-
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:43
+#: ./ftw/contentpage/browser/listingblock_view.py:52
 msgid "column_modified"
 msgstr "Bearbeitet"
 
 #. Default: "size"
-#: ./ftw/contentpage/browser/listingblock_view.py:54
+#: ./ftw/contentpage/browser/listingblock_view.py:63
 msgid "column_size"
 msgstr "Grösse"
 
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:38
+#: ./ftw/contentpage/browser/listingblock_view.py:47
 msgid "column_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./ftw/contentpage/browser/listingblock_view.py:33
+#: ./ftw/contentpage/browser/listingblock_view.py:42
 msgid "column_type"
 msgstr "Typ"
 
@@ -220,11 +219,11 @@ msgid "help_directions"
 msgstr "So finden Sie uns"
 
 #. Default: "Date and Time, when the event ends."
-#: ./ftw/contentpage/content/eventpage.py:44
+#: ./ftw/contentpage/content/eventpage.py:46
 msgid "help_end"
 msgstr "Datum und Zeit, wann diese Veranstaltung endet"
 
-#: ./ftw/contentpage/content/eventpage.py:63
+#: ./ftw/contentpage/content/eventpage.py:65
 msgid "help_event_location"
 msgstr ""
 
@@ -257,17 +256,17 @@ msgid "help_sort_order"
 msgstr ""
 
 #. Default: "Date and Time, when the event begins."
-#: ./ftw/contentpage/content/eventpage.py:31
+#: ./ftw/contentpage/content/eventpage.py:33
 msgid "help_start"
 msgstr "Datum und Zeit, wann die Veranstaltung beginnt."
 
 #. Default: "Event lasts whole day"
-#: ./ftw/contentpage/content/eventpage.py:55
+#: ./ftw/contentpage/content/eventpage.py:57
 msgid "help_whole_day"
 msgstr "Die Veranstaltung dauert den ganzen Tag."
 
 #. Default: "Please enter a website URL (include http://, https://, etc)"
-#: ./ftw/contentpage/content/addressblock.py:108
+#: ./ftw/contentpage/content/addressblock.py:115
 msgid "help_www"
 msgstr "Geben Sie eine Internetadresse an (inkl. http://, https://, etc.)"
 
@@ -346,23 +345,26 @@ msgstr "Absteigend"
 msgid "label_directions"
 msgstr "Anfahrt"
 
+msgid "label_documentDate"
+msgstr "Dokumentdatum"
+
 #. Default: "Email"
 #: ./ftw/contentpage/content/addressblock.py:106
 msgid "label_email"
 msgstr "E-Mail"
 
 #. Default: "Event Ends"
-#: ./ftw/contentpage/content/eventpage.py:43
+#: ./ftw/contentpage/content/eventpage.py:45
 msgid "label_event_end"
 msgstr "Veranstaltungsende"
 
 #. Default: "Event Location"
-#: ./ftw/contentpage/content/eventpage.py:62
+#: ./ftw/contentpage/content/eventpage.py:64
 msgid "label_event_location"
 msgstr "Veranstaltungsort"
 
 #. Default: "Event Starts"
-#: ./ftw/contentpage/content/eventpage.py:30
+#: ./ftw/contentpage/content/eventpage.py:32
 msgid "label_event_start"
 msgstr "Veranstaltungsanfang"
 
@@ -513,7 +515,7 @@ msgid "label_text"
 msgstr "Text"
 
 #. Default: "Whole day event"
-#: ./ftw/contentpage/content/eventpage.py:54
+#: ./ftw/contentpage/content/eventpage.py:56
 msgid "label_whole_day_event"
 msgstr "Ganztägige Veranstaltung"
 
@@ -543,17 +545,17 @@ msgid "read_more"
 msgstr "Weiterlesen..."
 
 #. Default: "Review State"
-#: ./ftw/contentpage/browser/listingblock_view.py:58
+#: ./ftw/contentpage/browser/listingblock_view.py:67
 msgid "review_state"
 msgstr "Status"
 
 #. Default: "Content"
-#: ./ftw/contentpage/browser/subject_listing.pt:44
+#: ./ftw/contentpage/browser/subject_listing.pt:45
 msgid "subject_listing_content"
 msgstr "Inhalt"
 
 #. Default: "Subjects"
-#: ./ftw/contentpage/browser/subject_listing.pt:41
+#: ./ftw/contentpage/browser/subject_listing.pt:42
 msgid "subject_listing_subjects"
 msgstr "Stichwort"
 
@@ -577,3 +579,4 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr "Tel. ${num}"
+
