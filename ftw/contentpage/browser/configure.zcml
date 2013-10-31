@@ -14,7 +14,6 @@
         name="block_view"
         class=".addressblock_view.AddressBlockView"
         template="addressblock_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <browser:page
@@ -22,7 +21,6 @@
         name="block_view-portlet"
         class=".addressblock_view.AddressBlockPortletView"
         template="addressblock_portlet_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <browser:page
@@ -30,7 +28,6 @@
         name="addressblock_detail_view"
         class=".addressblock_view.AddressBlockDetailView"
         template="addressblock_detail_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <!-- Feedback form -->
@@ -38,7 +35,6 @@
         for="ftw.contentpage.interfaces.IAddressBlock"
         name="feedback_view"
         class=".feedback.FeedbackView"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View"
         />
 
@@ -48,14 +44,12 @@
         name="authorities_view"
         class=".authorities.AuthoritiesView"
         permission="zope2.View"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         template="authorities.pt" />
 
      <browser:page
          for="ftw.contentpage.interfaces.IContentPage"
          name="tabbed_block_view"
          class=".tabs.TabbedBlockView"
-         layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
          permission="zope2.View" />
 
     <!-- ListingBlock views -->
@@ -64,7 +58,6 @@
         name="block_view"
         class=".listingblock_view.ListingBlockView"
         template="listingblock_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <browser:page
@@ -72,7 +65,6 @@
         name="block_view-gallery"
         class=".listingblock_gallery_view.ListingBlockGalleryView"
         template="listingblock_gallery_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <!-- TextBlock view -->
@@ -81,14 +73,12 @@
         name="block_view"
         class=".textblock_view.TextBlockView"
         template="textblock_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View" />
 
     <browser:page
         for="*"
         name="news_listing"
         class=".newslisting.NewsListing"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View"
         />
 
@@ -97,7 +87,6 @@
         for="*"
         name="event_listing"
         class=".eventlisting.EventListing"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View"
         />
 
@@ -105,7 +94,6 @@
         for="*"
         name="news_rss_listing"
         class=".newslisting.NewsListing"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="zope2.View"
         allowed_attributes="news_result get_news"
         />
@@ -114,7 +102,6 @@
         for="ftw.contentpage.interfaces.ITeaser"
         name="block_view"
         template="teaser_block_view.pt"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         class=".teaser_block_view.NewsBlockView"
         permission="zope2.View" />
 
@@ -123,7 +110,6 @@
         name="simplelayout_summary"
         permission="zope2.View"
         class=".simplelayout_summary.SimpleLayoutSummaryView"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         allowed_attributes="ToggleGridLayoutText"
         />
 
@@ -133,7 +119,6 @@
         name="subject-listing"
         permission="zope.Public"
         class=".subject_listing.AlphabeticalSubjectListing"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         template="subject_listing.pt"
         />
 
@@ -142,7 +127,6 @@
         for="collective.quickupload.interfaces.IQuickUploadCapable"
         name="flashupload"
         class=".flashupload.FlashUploadForm"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         permission="cmf.AddPortalContent"
         />
 
@@ -150,7 +134,6 @@
         for="*"
         name="display_upload"
         class=".flashupload.DisplayUploadView"
-        layer="ftw.contentpage.interfaces.IFtwContentPageLayer"
         attribute="can_upload"
         permission="zope.Public"
         />

@@ -4,6 +4,9 @@ Changelog
 1.5.2 (unreleased)
 ------------------
 
+- Remove browserlayer from browserviews, they are not necessary.
+  [mathias.leimgruber]
+
 - Fix several not translated simplelayout actions.
   [mathias.leimgruber]
 
