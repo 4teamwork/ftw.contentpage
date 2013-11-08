@@ -8,6 +8,7 @@ from ftw.testing import browser
 from plone.registry.interfaces import IRegistry
 from unittest2 import TestCase
 from zope.component import getUtility
+import transaction
 
 
 class TestNormalizedFirstLetter(TestCase):
@@ -186,7 +187,6 @@ class TestAlphabeticalSubjectListing(TestCase):
                .titled('A news')
                .having(subject=['budget']))
 
-
         view = SubjectListingView().visit()
         self.assertEquals(['A news', 'A page'],
                           view.get_links_for('budget', text_only=True))
@@ -216,3 +216,104 @@ class TestAlphabeticalSubjectListing(TestCase):
 
         view = SubjectListingView().visit()
         self.assertEquals(1, len(view.mimetype_images))
+
+    def test_filter_subjects_if_context_property_is_set(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A budget', 'A finance']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A logistic']))
+
+        setattr(self.layer['portal'], 'subject_filter', 'A budget')
+        transaction.commit()
+
+        view = SubjectListingView().visit()
+
+        self.assertEquals([u'A finance'], view.subjects)
+
+    def test_filter_subjects_if_request_variable_is_set(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A budget', 'A finance']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A logistic']))
+
+        view = SubjectListingView().visit_with_subject_filter('A budget')
+
+        self.assertEquals([u'A finance'], view.subjects)
+
+    def test_request_filter_wins_agains_context_property(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A budget', 'A finance']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A factory', 'A logistic']))
+
+        setattr(self.layer['portal'], 'subject_filter', 'A factory')
+        transaction.commit()
+
+        view = SubjectListingView().visit_with_subject_filter('A budget')
+
+        self.assertEquals([u'A finance'], view.subjects)
+
+    def test_ignore_the_filtered_subject_in_the_listing(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A budget', 'A finance', 'A money']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A earn', 'A budget']))
+
+        view = SubjectListingView().visit_with_subject_filter('A budget')
+
+        self.assertEquals([u'A earn', 'A finance', 'A money'], view.subjects)
+
+    def test_only_list_subjects_related_to_objects_with_filtered_subject(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A budget', 'A finance', 'A money']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['A finance', 'A earn']))
+
+        view = SubjectListingView().visit_with_subject_filter('A budget')
+
+        self.assertEquals([u'A finance', 'A money'], view.subjects)
+
+    def test_letters_assumes_subject_filter(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget', 'finance', 'money']))
+
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['finance', 'earn']))
+
+        view = SubjectListingView().visit()
+        self.assertEquals(['B', 'E', 'F', 'M'], view.linked_letters)
+
+        view = SubjectListingView().visit_with_subject_filter('budget')
+        self.assertEquals(['F', 'M'], view.linked_letters)
+
+        view.click_letter('M')
+
+        self.assertEquals(['F', 'M'], view.linked_letters)
+
+    def test_not_break_if_filtered_subject_have_no_additional_subjects(self):
+        create(Builder('content page')
+               .titled('A page')
+               .having(subject=['budget']))
+
+        SubjectListingView().visit_with_subject_filter('budget')
+
+        self.assertEquals(
+            'There is no content to list.',
+            browser().find_by_css('#content .no-contents').text.strip())

@@ -4,7 +4,11 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Implement subject_filter for subject_listing view.
+  It's possible to add a request filter (?subject_filter=Law) if you wish
+  to display just objects with the filtered subject. The filtered subject itself
+  will not be displayed in the listing.
+  [elioschmutz]
 
 
 1.5.2 (2013-11-04)
