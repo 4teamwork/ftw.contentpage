@@ -50,6 +50,11 @@ class SubjectListingView(Plone):
     def _item_to_text(self, item):
         return self.normalize_whitespace(item.text.strip())
 
+    def visit_with_subject_filter(self, value):
+        self.visit_portal('@@subject-listing?subject_filter={0}'.format(value))
+        self.assert_body_class('template-subject-listing')
+        return self
+
 
 class AuthoritiesView(Plone):
 

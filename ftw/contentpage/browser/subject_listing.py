@@ -32,11 +32,11 @@ class AlphabeticalSubjectListing(BrowserView):
         self.letter = None
 
     def subjects(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
         current_letter = self.get_current_letter()
 
         subjects = []
-        for subject in catalog.uniqueValuesFor("Subject"):
+        for subject in self.available_subjects():
+
             if current_letter == '#':
                 if normalized_first_letter(subject) not in ALPHABET:
                     subjects.append(subject)
@@ -68,12 +68,26 @@ class AlphabeticalSubjectListing(BrowserView):
                  'portal_type': self.portal_types_to_list}
 
         for brain in catalog(query):
+
+            # Ignore brains without the filtered subject
+            if self.ignore_brain(brain.Subject):
+                continue
+
             for subj in brain.Subject:
+
                 if subj not in subjects:
                     continue
 
                 result[subj].append(brain)
         return result
+
+    def ignore_brain(self, brain_subjects):
+        if not self.subject_filter:
+            return False
+
+        if self.subject_filter in brain_subjects:
+            return False
+        return True
 
     def letters(self):
         letters_with_content = self._letters_with_content
@@ -86,10 +100,20 @@ class AlphabeticalSubjectListing(BrowserView):
                 character = letter
             yield {'label': letter,
                    'has_contents': letter in letters_with_content,
-                   'link': '/'.join((self.context.absolute_url(),
-                                     '@@subject-listing',
-                                     character)),
+                   'link': self.get_letter_link(character),
                    'current': letter == current_letter}
+
+    def get_letter_link(self, character):
+        link = '/'.join((self.context.absolute_url(),
+                                     '@@subject-listing',
+                                     character))
+
+        if self.subject_filter:
+            link = "{0}?subject_filter={1}".format(
+                link,
+                self.subject_filter)
+
+        return link
 
     def has_contents(self):
         return bool(len(self._letters_with_content))
@@ -100,6 +124,35 @@ class AlphabeticalSubjectListing(BrowserView):
         else:
             self.letter = name
         return self
+
+    @property
+    def subject_filter(self):
+        return self.request.form.get(
+            'subject_filter', getattr(self.context, 'subject_filter', None))
+
+    def available_subjects(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+
+        if not self.subject_filter:
+            return catalog.uniqueValuesFor("Subject")
+
+        brains = catalog.searchResults(Subject=self.subject_filter)
+        subjects = []
+
+        for brain in brains:
+            for subject in brain.Subject:
+
+                # Exclude the filtered subjects
+                if subject == self.subject_filter:
+                    continue
+
+                # Subject already exists
+                if subject in subjects:
+                    continue
+
+                subjects.append(subject)
+
+        return subjects
 
     def get_mimetype_icon(self, brain):
         registry = getUtility(IRegistry)
@@ -125,8 +178,7 @@ class AlphabeticalSubjectListing(BrowserView):
     @property
     @instance.memoize
     def _letters_with_content(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        values = catalog.uniqueValuesFor("Subject")
+        values = self.available_subjects()
 
         letters = set([])
         for subject in values:
