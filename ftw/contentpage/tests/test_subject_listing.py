@@ -226,7 +226,8 @@ class TestAlphabeticalSubjectListing(TestCase):
                .titled('A page')
                .having(subject=['A logistic']))
 
-        setattr(self.layer['portal'], 'subject_filter', 'A budget')
+        self.layer['portal']._setProperty(
+            'subject_filter', 'A budget', 'string')
         transaction.commit()
 
         view = SubjectListingView().visit()
@@ -255,7 +256,8 @@ class TestAlphabeticalSubjectListing(TestCase):
                .titled('A page')
                .having(subject=['A factory', 'A logistic']))
 
-        setattr(self.layer['portal'], 'subject_filter', 'A factory')
+        self.layer['portal']._setProperty(
+            'subject_filter', 'A factory', 'string')
         transaction.commit()
 
         view = SubjectListingView().visit_with_subject_filter('A budget')

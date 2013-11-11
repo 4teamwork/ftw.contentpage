@@ -128,7 +128,7 @@ class AlphabeticalSubjectListing(BrowserView):
     @property
     def subject_filter(self):
         return self.request.form.get(
-            'subject_filter', getattr(self.context, 'subject_filter', None))
+            'subject_filter', self.context.getProperty('subject_filter'))
 
     def available_subjects(self):
         catalog = getToolByName(self.context, 'portal_catalog')
