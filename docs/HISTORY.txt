@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.5.3 (unreleased)
+1.5.3 (2013-11-12)
 ------------------
 
 - Implement subject_filter for subject_listing view.
