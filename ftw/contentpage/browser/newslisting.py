@@ -3,7 +3,7 @@ from ftw.contentpage.interfaces import INewsListingView
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
-
+from ftw.contentpage import _
 
 class NewsListing(BaseListing):
     implements(INewsListingView)
@@ -38,3 +38,12 @@ class NewsListing(BaseListing):
 
         # Implement archive functionality - used by the archive portlet
         return self.search_results(query, 'effective')
+
+    def title(self):
+        return self.context.Title() + ' - News'
+
+    def link(self):
+        return self.context.absolute_url() + '/' + self.__name__
+
+    def description(self):
+        return _(u'label_feed_desc', default=u'{0} News Feed'.format(self.context.Title()))
