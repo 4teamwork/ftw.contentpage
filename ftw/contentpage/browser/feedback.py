@@ -80,14 +80,14 @@ class FeedbackForm(form.Form):
                      'msg': message})
 
         # create the message root with from, to, and subject headers
-        msg = MIMEText(text.encode('windows-1252'), 'plain', 'windows-1252')
-        msg['Subject'] = Header(subject, 'windows-1252')
+        msg = MIMEText(text.encode('utf-8'), 'plain', 'utf-8')
+        msg['Subject'] = Header(subject, 'utf-8')
 
         msg['From'] = "%s <%s>" % (
             portal.getProperty('email_from_name', ''),
             portal.getProperty('email_from_address', ''))
-
-        msg['reply-to'] = "%s <%s>" % (sender, recipient)
+        msg['Reply-To'] = Header("%s" % sender, 'utf-8')
+        msg['Reply-To'].append("<%s>" % recipient)
         msg['To'] = self.context.getEmail()
 
         # send the message
