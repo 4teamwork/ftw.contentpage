@@ -4,7 +4,9 @@ Changelog
 1.5.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Show inactive content in news and event listings if the user has permission to
+  access inactive contents on the local context.
+  [buchi]
 
 
 1.5.3 (2013-11-12)
