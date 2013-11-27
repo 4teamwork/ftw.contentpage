@@ -3,6 +3,9 @@ from DateTime.interfaces import SyntaxError as dtSytaxError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from zope.publisher.browser import BrowserView
+from Products.CMFCore.utils import _checkPermission
+from Products.CMFCore.permissions import AccessInactivePortalContent
+
 
 
 def extend_query_by_date(query, datestring, date_field):
@@ -57,9 +60,11 @@ class BaseListing(BrowserView):
         if ct == 'Topic':
             return context.queryCatalog()
         else:
+            show_inactive = _checkPermission(AccessInactivePortalContent,
+                                             context)
             catalog = getToolByName(context, 'portal_catalog')
             query['path'] = '/'.join(context.getPhysicalPath())
-            return catalog(query)
+            return catalog(query, show_inactive=show_inactive)
 
     def has_img(self, brain):
         """ Checks if the news have an image.
