@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-30 14:03+0000\n"
+"POT-Creation-Date: 2013-12-02 16:03+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,9 +14,6 @@ msgstr ""
 #: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
 msgstr "News Portlet hinzufügen"
-
-msgid "Address"
-msgstr "Adresse"
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 msgid "AddressBlock"
@@ -114,9 +111,6 @@ msgstr "Senden"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
 msgstr "Name"
-
-msgid "Switzerland"
-msgstr "Schweiz"
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
@@ -345,9 +339,6 @@ msgstr "Absteigend"
 msgid "label_directions"
 msgstr "Anfahrt"
 
-msgid "label_documentDate"
-msgstr "Dokumentdatum"
-
 #. Default: "Email"
 #: ./ftw/contentpage/content/addressblock.py:106
 msgid "label_email"
@@ -378,11 +369,10 @@ msgstr "Adresszusatz"
 msgid "label_fax"
 msgstr "Fax"
 
-msgid "label_getContentType"
-msgstr "Typ"
-
-msgid "label_id"
-msgstr "ID"
+#. Default: "${title} News Feed"
+#: ./ftw/contentpage/browser/newslisting.py:51
+msgid "label_feed_desc"
+msgstr "${title} - News Feed"
 
 #. Default: "Image"
 #: ./ftw/contentpage/content/textblock.py:53
@@ -408,9 +398,6 @@ msgstr "Bild auch als Overlay darstellbar machen"
 #: ./ftw/contentpage/browser/feedback.py:32
 msgid "label_message"
 msgstr "Nachricht"
-
-msgid "label_modified"
-msgstr "Bearbeitungsdatum"
 
 #. Default: "Show more news link"
 #: ./ftw/contentpage/portlets/news_portlet.py:85
@@ -492,9 +479,6 @@ msgstr "Sortieren nach"
 msgid "label_sort_order"
 msgstr "Sortierreihenfolge"
 
-msgid "label_sortable_title"
-msgstr "Titel"
-
 #. Default: "Subject"
 #: ./ftw/contentpage/browser/feedback.py:30
 msgid "label_subject"
@@ -534,7 +518,7 @@ msgstr "PLZ"
 msgid "mail_address"
 msgstr "E-Mail"
 
-#. Default: "More news"
+#. Default: "More News"
 #: ./ftw/contentpage/portlets/news_portlet.pt:41
 msgid "more_news_link"
 msgstr "Ältere Meldungen anzeigen"

@@ -4,6 +4,9 @@ Changelog
 1.5.4 (unreleased)
 ------------------
 
+- Fix RSS listing.
+  [tschanzt]
+
 - Show inactive content in news and event listings if the user has permission to
   access inactive contents on the local context.
   [buchi]
