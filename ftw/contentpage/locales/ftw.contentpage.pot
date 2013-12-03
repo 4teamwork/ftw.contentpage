@@ -1,7 +1,10 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-30 14:03+0000\n"
+"POT-Creation-Date: 2013-12-02 16:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +19,6 @@ msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:101
 msgid "Add News Portlet"
-msgstr ""
-
-msgid "Address"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
@@ -116,9 +116,6 @@ msgstr ""
 #. Default: "Name"
 #: ./ftw/contentpage/browser/feedback.py:25
 msgid "Sender_Name"
-msgstr ""
-
-msgid "Switzerland"
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
@@ -348,9 +345,6 @@ msgstr ""
 msgid "label_directions"
 msgstr ""
 
-msgid "label_documentDate"
-msgstr ""
-
 #. Default: "Email"
 #: ./ftw/contentpage/content/addressblock.py:106
 msgid "label_email"
@@ -381,10 +375,9 @@ msgstr ""
 msgid "label_fax"
 msgstr ""
 
-msgid "label_getContentType"
-msgstr ""
-
-msgid "label_id"
+#. Default: "${title} News Feed"
+#: ./ftw/contentpage/browser/newslisting.py:51
+msgid "label_feed_desc"
 msgstr ""
 
 #. Default: "Image"
@@ -410,9 +403,6 @@ msgstr ""
 #. Default: "Message"
 #: ./ftw/contentpage/browser/feedback.py:32
 msgid "label_message"
-msgstr ""
-
-msgid "label_modified"
 msgstr ""
 
 #. Default: "Show more news link"
@@ -495,9 +485,6 @@ msgstr ""
 msgid "label_sort_order"
 msgstr ""
 
-msgid "label_sortable_title"
-msgstr ""
-
 #. Default: "Subject"
 #: ./ftw/contentpage/browser/feedback.py:30
 msgid "label_subject"
@@ -537,7 +524,7 @@ msgstr ""
 msgid "mail_address"
 msgstr ""
 
-#. Default: "More news"
+#. Default: "More News"
 #: ./ftw/contentpage/portlets/news_portlet.pt:41
 msgid "more_news_link"
 msgstr ""

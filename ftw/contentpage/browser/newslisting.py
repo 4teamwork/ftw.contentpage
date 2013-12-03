@@ -3,6 +3,7 @@ from ftw.contentpage.interfaces import INewsListingView
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
+from ftw.contentpage import _
 
 
 class NewsListing(BaseListing):
@@ -21,7 +22,8 @@ class NewsListing(BaseListing):
     def show_author(self):
         """Checks if the user is anonymous and is not allowAnonymousViewAbout.
         """
-        site_props = getToolByName(self.context, 'portal_properties').site_properties
+        site_props = getToolByName(self.context,
+                                   'portal_properties').site_properties
         mt = getToolByName(self.context, 'portal_membership')
 
         if not site_props.getProperty('allowAnonymousViewAbout', False) \
@@ -38,3 +40,14 @@ class NewsListing(BaseListing):
 
         # Implement archive functionality - used by the archive portlet
         return self.search_results(query, 'effective')
+
+    def title(self):
+        return self.context.Title() + ' - News'
+
+    def link(self):
+        return self.context.absolute_url() + '/' + self.__name__
+
+    def description(self):
+        return _(u'label_feed_desc',
+                 default=u'${title} - News Feed',
+                 mapping={'title': self.context.Title()})

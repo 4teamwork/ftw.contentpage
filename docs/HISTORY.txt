@@ -8,6 +8,9 @@ Changelog
   combination with ftw.solr.
   [buchi]
 
+- Fix RSS listing.
+  [tschanzt]
+
 - Show inactive content in news and event listings if the user has permission to
   access inactive contents on the local context.
   [buchi]

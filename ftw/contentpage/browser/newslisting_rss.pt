@@ -8,17 +8,34 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:metal="http://xml.zope.org/namespaces/metal">
 
-  <tal:block
-      define="
-          syn context/portal_syndication;
-          objectList python:view.get_items();
-          here context;">
-    <metal:block use-macro="context/rss_template/macros/master">
-        <metal:block fill-slot="syndication">
-            <syn:updatePeriod tal:content="string:hourly" />
-            <syn:updateFrequency>1</syn:updateFrequency>
-            <syn:updateBase tal:content="python:modules['DateTime'].DateTime().ISO()"><!--2000-01-01T12:00+00:00--></syn:updateBase>
-        </metal:block>
-    </metal:block>
+<tal:block
+    tal:define="items python: view.get_items()">
+
+<channel rdf:about="" tal:attributes="rdf:about request/URL">
+  <title tal:content="view/title">The title</title>
+  <link tal:content="view/link" />
+  <description tal:content="view/description" />
+  <image tal:attributes="rdf:resource string:${context/portal_url}/logo.png" />
+
+  <items>
+    <rdf:Seq>
+      <tal:block repeat="item python: items">
+        <rdf:li rdf:resource=""
+                tal:attributes="rdf:resource item/getURL" />
+      </tal:block>
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+<tal:block repeat="item python: items">
+  <item rdf:about="" tal:attributes="rdf:about item/getURL">
+    <title tal:content="item/Title" />
+    <link tal:content="item/getURL" />
+    <description tal:content="item/Description" />
+  </item>
 </tal:block>
+
+</tal:block>
+
 </rdf:RDF>
