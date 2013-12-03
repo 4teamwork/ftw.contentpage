@@ -4,6 +4,10 @@ Changelog
 1.5.4 (unreleased)
 ------------------
 
+- Add specific snippetText indexer for content pages which is used in
+  combination with ftw.solr.
+  [buchi]
+
 - Fix RSS listing.
   [tschanzt]
 
