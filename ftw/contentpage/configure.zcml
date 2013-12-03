@@ -49,6 +49,7 @@
 
     <!-- indexer -->
     <adapter name="getContentCategories" factory=".indexer.categories" />
+    <adapter name="snippetText" factory=".indexer.snippet_text" />
 
     <!-- Schema extender adapter for categorizable content -->
     <include package="archetypes.schemaextender" />
