@@ -4,6 +4,9 @@ Changelog
 1.5.4 (unreleased)
 ------------------
 
+- Make reladedItems field visible for ContentPage.
+  [deif]
+
 - Add specific snippetText indexer for content pages which is used in
   combination with ftw.solr.
   [buchi]
