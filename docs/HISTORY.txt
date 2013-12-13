@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.5.4 (unreleased)
+1.5.4 (2013-12-13)
 ------------------
 
 - Add specific snippetText indexer for content pages which is used in
