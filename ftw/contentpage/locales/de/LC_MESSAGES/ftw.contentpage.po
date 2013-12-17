@@ -498,7 +498,7 @@ msgid "label_sort_order"
 msgstr "Sortierreihenfolge"
 
 msgid "label_sortable_title"
-msgstr "Title"
+msgstr "Titel"
 
 #. Default: "Subject"
 #: ./ftw/contentpage/browser/feedback.py:30

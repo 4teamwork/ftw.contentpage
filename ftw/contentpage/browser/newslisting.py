@@ -50,4 +50,4 @@ class NewsListing(BaseListing):
     def description(self):
         return _(u'label_feed_desc',
                  default=u'${title} - News Feed',
-                 mapping={'title': self.context.Title()})
+                 mapping={'title': self.context.Title().decode('utf-8')})
