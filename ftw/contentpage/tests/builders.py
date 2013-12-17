@@ -31,3 +31,11 @@ class NewsBuilder(ArchetypesBuilder):
 
 
 builder_registry.register('news', NewsBuilder)
+
+
+class NewsFolderBuilder(ArchetypesBuilder):
+
+    portal_type = 'NewsFolder'
+
+
+builder_registry.register('news folder', NewsFolderBuilder)
