@@ -24,9 +24,9 @@ ContentPageSchema = folder.ATFolderSchema.copy() + image_schema.copy()
 
 schemata.finalizeATCTSchema(
     ContentPageSchema,
-    folderish=True,
     moveDiscussion=False,
 )
+ContentPageSchema['relatedItems'].widget.visible['edit'] = 'visible'
 
 # Protect the teaser image with a specific permission
 permission = "ftw.contentpage: Edit teaser image on ContentPage"
