@@ -91,8 +91,7 @@ class FeedbackForm(form.Form):
         msg['To'] = self.context.getEmail()
 
         # send the message
-        mh.send(msg, mto=self.context.getEmail(),
-                mfrom=[portal.getProperty('email_from_address', '')])
+        mh.send(msg)
 
 
 FeedbackView = wrap_form(FeedbackForm)
