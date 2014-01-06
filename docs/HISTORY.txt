@@ -4,7 +4,8 @@ Changelog
 1.5.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add EventPage to calendar_types.
+  [tschanzt]
 
 
 1.5.7 (2013-12-19)

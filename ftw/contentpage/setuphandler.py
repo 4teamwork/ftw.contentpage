@@ -65,6 +65,11 @@ def set_dropzone_as_type_portlet(self):
         mapping['simplelayout-dropzone-portlet'] = \
             drop_zone_portlet.Assignment()
 
+def set_calendar_types(context):
+    portal_calendar = getToolByName(context, 'portal_calendar')
+    types = list(portal_calendar.calendar_types)
+    types.append('EventPage')
+    portal_calendar.calendar_types = tuple(types)
 
 def import_various(context):
     """Import step for configuration that is not handled in xml files.
@@ -76,3 +81,4 @@ def import_various(context):
     add_catalog_indexes(site)
     georef_settings(site)
     set_dropzone_as_type_portlet(site)
+    set_calendar_types(site)
