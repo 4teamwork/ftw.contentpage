@@ -4,6 +4,9 @@ Changelog
 1.5.8 (unreleased)
 ------------------
 
+- Use Input of Location field if given.
+  [tschanzt]
+
 - Add EventPage to calendar_types.
   [tschanzt]
 

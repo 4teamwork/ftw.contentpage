@@ -1,10 +1,16 @@
 <div i18n:domain="ftw.contentpage">
-    <table class="vertical plain">
+    <table class="vertical plain eventdata">
       <tr tal:condition="context/start">
         <th i18n:translate="">
           Date
         </th>
         <td tal:content="view/get_date" />
+      </tr>
+      <tr tal:define="location view/get_location" tal:condition="location">
+          <th i18n:translate="">
+              Location
+          </th>
+          <td tal:content="location" />
       </tr>
     </table>
     <div>

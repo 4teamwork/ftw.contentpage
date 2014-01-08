@@ -47,3 +47,14 @@ class TestICSExport(unittest.TestCase):
         result_list = result.split('\n')
         expected = ['DTSTART:20131031T230000Z', 'DTEND:20131101T230000Z', 'LOCATION:Fakestreet 123\, 1234 mycity']
         self.assertTrue(set(expected).issubset(set(result_list)))
+
+    def test_export_without_addressblock(self):
+        kwargs = {'startDate': '2013-11-1 08:00', 'endDate': '2013-11-1 10:00', 'title': 'Event', 'location':'Towncentre'}
+        self.event = self.eventfolder.get(self.eventfolder.invokeFactory('EventPage', 'eventpage', **kwargs))
+        view = self.event.restrictedTraverse('@@ics_view')
+        view()
+        result = view.feeddata()
+        result_list = result.split('\n')
+        expected = ['LOCATION:Towncentre']
+        self.assertTrue(set(expected).issubset(set(result_list)))
+        

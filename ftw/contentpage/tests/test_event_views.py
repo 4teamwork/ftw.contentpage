@@ -28,7 +28,7 @@ class TestEventListing(MockTestCase):
                                        startDate=DateTime(
                                            2013, 03, 20, 10, 00),
                                        endDate=DateTime(2013, 03, 20, 11, 00),
-                                       location="Bern")
+                                       )
         self.eventfolder.invokeFactory('EventPage', 'event2', title="Event2",
                                        startDate=DateTime(
                                            2013, 05, 22, 10, 00),
@@ -119,6 +119,24 @@ class TestEventListing(MockTestCase):
         self.assertEqual(element.attr('title'), 'Event3')
         self.assertEqual(element.attr('width'), '100')
 
+    def test_event_view(self):
+        event1 = self.eventfolder.get('event1')
+        event2 = self.eventfolder.get('event2')
+        self.browser.open(event1.absolute_url())
+        query = PyQuery(self.browser.contents)
+        elements = query('.eventdata tr th')
+        self.assertEqual(len(elements), 1)
+        self.assertEqual(elements[0].text.strip(), 'Date')
+
+        self.browser.open(event2.absolute_url())
+        query = PyQuery(self.browser.contents)
+        elements = query('.eventdata tr th')
+        self.assertEqual(len(elements), 2)
+        self.assertEqual(elements[0].text.strip(), 'Date')
+        self.assertEqual(elements[1].text.strip(), 'Location')
+        location = query('.eventdata tr td')[-1]
+        self.assertEqual(location.text, event2.getLocation())
+        
     def test_event_data_viewlet(self):
         event = self.eventfolder.get('event3')  # has an image
         view = BrowserView(event, event.REQUEST)

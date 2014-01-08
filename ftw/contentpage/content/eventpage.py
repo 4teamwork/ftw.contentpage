@@ -121,20 +121,24 @@ class EventPage(ContentPage, CalendarSupportMixin):
 
     security.declareProtected("View", 'getLocation')
     def getLocation(self):
-        block = self.get_addressblock()
-        complete_address = ''
-        if block:
-            street = block.getAddress()
-            if street:
-                complete_address = complete_address + street + ','
-            zip = block.getZip()
-            if zip:
-                complete_address = complete_address + ' ' + zip
-            city = block.getCity()
-            if city:
-                complete_address = complete_address + ' ' + city
-            return complete_address.strip(',')
-        return ''
+        field_value = self.getField('location').get(self)
+        if not field_value:
+            block = self.get_addressblock()
+            complete_address = ''
+            if block:
+                street = block.getAddress()
+                if street:
+                    complete_address = complete_address + street + ','
+                zip = block.getZip()
+                if zip:
+                    complete_address = complete_address + ' ' + zip
+                city = block.getCity()
+                if city:
+                    complete_address = complete_address + ' ' + city
+                return complete_address.strip(',')
+            return ''
+        else:
+            return field_value
 
     security.declareProtected("View", 'event_url')
     def event_url(self):
