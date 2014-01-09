@@ -10,3 +10,7 @@ class EventDataViewlet(ViewletBase):
     def get_date(self):
         return format_date(self.context.start(), self.context.end(),
                            self.context.getWholeDay())
+    
+    def get_location(self):
+        return self.context.getField('location').get(self.context)
+        
