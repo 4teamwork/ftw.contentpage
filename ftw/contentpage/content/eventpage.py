@@ -11,7 +11,6 @@ from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from zope.interface import implements
 from Products.ATContentTypes.lib.calendarsupport import CalendarSupportMixin
-from ftw.contentpage.interfaces import IOrgUnitMarker
 
 
 if HAS_LINGUA_PLONE:
@@ -90,13 +89,11 @@ class EventPage(ContentPage, CalendarSupportMixin):
 
     security.declarePrivate('get_addressblock')
     def get_addressblock(self):
-        if IOrgUnitMarker.providedBy(self):
-            blocks = self.getFolderContents(
-                contentFilter={'portal_type': ['AddressBlock']}, full_objects=True)
-            if not len(blocks) > 0:
-                return
-            return blocks[0]
-        return None
+        blocks = self.getFolderContents(
+            contentFilter={'portal_type': ['AddressBlock']}, full_objects=True)
+        if not len(blocks) > 0:
+            return None
+        return blocks[0]
 
     security.declareProtected("View", 'contact_name')
     def contact_name(self):
