@@ -25,6 +25,10 @@ class IOrgUnitMarker(Interface):
     """Marker interface for AddressBlocks"""
 
 
+class IShowListingMarkerCheckbox(Interface):
+    """Marker interface for AddressBlocks"""
+
+
 class ICategorizable(Interface):
     """Marker interface for categorizable content"""
 

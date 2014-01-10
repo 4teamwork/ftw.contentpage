@@ -57,6 +57,13 @@
          provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
          name="ftw.contentpage.category.extender" />
 
+    <!-- Schema extender adapter to handle the listing marker interface with a checkbox -->
+
+    <adapter factory=".extender.ListingMarkerExtender"
+         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+         name="ftw.contentpage.showlistingmarker.extender" />
+
+
     <!-- Make PloneFormGen forms categorizable -->
     <configure zcml:condition="installed Products.PloneFormGen">
         <class class="Products.PloneFormGen.content.form.FormFolder">
