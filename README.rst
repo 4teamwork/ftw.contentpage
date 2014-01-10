@@ -27,6 +27,7 @@ longer exists. The marker Interfaces is replaced with the IListingMarker interfa
 Also the behaviour changed how the marker interface is applied to the ContentPage:
 OLD: By adding or removing an AddressBlock
 NEW: By manually tick the "Mark content for listings" checkbox on the ContentPage.
+Run the ``ftw.contentpage`` upgrades steps and your site will be fine.
 
 
 Usage
