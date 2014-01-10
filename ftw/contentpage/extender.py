@@ -71,6 +71,7 @@ class ListingMarkerExtender(object):
         'mark_for_listings',
         searchable=False,
         required=False,
+        default=False,
         widget=BooleanWidget(
             label=_(u'label_mark_for_listings',
                     default=u'Mark content for listings'),

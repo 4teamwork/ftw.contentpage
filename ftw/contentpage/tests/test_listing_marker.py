@@ -35,3 +35,9 @@ class TestMarkerInterfaceForListings(TestCase):
 
         self.assertFalse(IListingMarker.providedBy(page),
                         '{0} is marked for listings'.format(page))
+
+    def test_listing_marker_is_not_set_by_default(self):
+        page = create(Builder('content page'))
+
+        self.assertFalse(IListingMarker.providedBy(page),
+                        '{0} is marked for listings'.format(page))
