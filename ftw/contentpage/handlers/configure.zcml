@@ -3,27 +3,6 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="ftw.contentpage">
 
-    <!-- Add -->
-    <subscriber
-        for="ftw.contentpage.interfaces.IAddressBlock
-             Products.Archetypes.interfaces.IObjectInitializedEvent"
-        handler=".mark_parent.MarkParent"
-        />
-
-    <!-- Delete -->
-    <subscriber
-        for="ftw.contentpage.interfaces.IAddressBlock
-              zope.lifecycleevent.interfaces.IObjectRemovedEvent"
-        handler=".mark_parent.UnMarkParent"
-        />
-
-    <!-- Move and copy -->
-    <subscriber
-        for="ftw.contentpage.interfaces.IAddressBlock
-             zope.lifecycleevent.interfaces.IObjectMovedEvent"
-        handler=".mark_parent.AddMoveCopy"
-        />
-
     <!-- Don't display map in default viewlets for Addressblocks -->
     <subscriber
         for="ftw.contentpage.interfaces.IAddressBlock
