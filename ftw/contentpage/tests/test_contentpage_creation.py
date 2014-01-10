@@ -71,7 +71,6 @@ class TestContentPageCreation(TestCase):
     def test_openlayers_is_not_imported_if_contentpage_is_not_orgunit(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
-        transaction.commit()
 
         view = BrowserView(contentpage, contentpage.REQUEST)
         manager = queryMultiAdapter(
@@ -88,10 +87,7 @@ class TestContentPageCreation(TestCase):
     def test_openlayers_is_imported_if_contentpage_is_orgunit(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
-        addressblock = contentpage.get(
-            contentpage.invokeFactory('AddressBlock', 'addressblock'))
-        addressblock.processForm()
-        transaction.commit()
+        contentpage.Schema()['mark_for_listings'].set(contentpage, True)
 
         view = BrowserView(contentpage, contentpage.REQUEST)
         manager = queryMultiAdapter(
