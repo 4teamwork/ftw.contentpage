@@ -2,6 +2,7 @@ from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.interfaces import IListingMarker
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
+from Products.CMFCore.utils import getToolByName
 from unittest2 import TestCase
 
 
@@ -41,3 +42,22 @@ class TestMarkerInterfaceForListings(TestCase):
 
         self.assertFalse(IListingMarker.providedBy(page),
                         '{0} is marked for listings'.format(page))
+
+    def test_catalog_is_always_up_to_date(self):
+        catalog = getToolByName(self.portal, 'portal_catalog')
+        page = create(Builder('content page'))
+
+        result = catalog({'object_provides': IListingMarker.__identifier__})
+        self.assertFalse(result, 'Nothing should be marked by default.')
+
+        page.Schema()['mark_for_listings'].set(page, True)
+        page.processForm()
+
+        result = catalog({'object_provides': IListingMarker.__identifier__})
+        self.assertTrue(result, 'Content should be marked')
+
+        page.Schema()['mark_for_listings'].set(page, False)
+        page.processForm()
+
+        result = catalog({'object_provides': IListingMarker.__identifier__})
+        self.assertFalse(result, 'Nothing should be marked by default.')
