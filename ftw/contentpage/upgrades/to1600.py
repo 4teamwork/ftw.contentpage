@@ -1,6 +1,10 @@
-from ftw.contentpage.interfaces import IOrgUnitMarker
 from ftw.upgrade import UpgradeStep
+from zope.dottedname.resolve import resolve
 from zope.interface import noLongerProvides
+from ftw.upgrade.step import LOG
+
+
+INTERFACE_DOTTENAME = 'ftw.contentpage.interfaces.IOrgUnitMarker'
 
 
 class FixMarkerInterfaces(UpgradeStep):
@@ -9,10 +13,18 @@ class FixMarkerInterfaces(UpgradeStep):
         self.setup_install_profile(
             'profile-ftw.contentpage.upgrades:1600', steps=['rolemap', ])
 
-        query = {'object_provides': IOrgUnitMarker.__identifier__}
+        try:
+            iface = resolve(INTERFACE_DOTTENAME)
+            self.migrate_interface(iface)
+        except ImportError:
+            LOG.warn('The interface {0} does no longer exists'.format(
+                INTERFACE_DOTTENAME))
+
+    def migrate_interface(self, iface):
+        query = {'object_provides': INTERFACE_DOTTENAME}
         msg = 'Migrate IOrgUnitMarker to IListingMarker'
 
         for obj in self.objects(query, msg):
-            noLongerProvides(obj, IOrgUnitMarker)
+            noLongerProvides(obj, iface)
             obj.Schema()['mark_for_listings'].set(obj, True)
             obj.reindexObject(idxs=['object_provides'])
