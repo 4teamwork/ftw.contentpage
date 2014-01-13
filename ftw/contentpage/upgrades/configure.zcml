@@ -327,5 +327,14 @@
         profile="ftw.contentpage:default"
         />
 
+    <genericsetup:registerProfile
+        name="1600"
+        title="ftw.contentpage.upgrades.1600"
+        description=""
+        directory="profiles/1600"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 
 </configure>

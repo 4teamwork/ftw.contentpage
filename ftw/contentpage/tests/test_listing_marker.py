@@ -35,13 +35,13 @@ class TestMarkerInterfaceForListings(TestCase):
         page.Schema()['mark_for_listings'].set(page, False)
 
         self.assertFalse(IListingMarker.providedBy(page),
-                        '{0} is marked for listings'.format(page))
+                         '{0} is marked for listings'.format(page))
 
     def test_listing_marker_is_not_set_by_default(self):
         page = create(Builder('content page'))
 
         self.assertFalse(IListingMarker.providedBy(page),
-                        '{0} is marked for listings'.format(page))
+                         '{0} is marked for listings'.format(page))
 
     def test_catalog_is_always_up_to_date(self):
         catalog = getToolByName(self.portal, 'portal_catalog')
@@ -61,3 +61,27 @@ class TestMarkerInterfaceForListings(TestCase):
 
         result = catalog({'object_provides': IListingMarker.__identifier__})
         self.assertFalse(result, 'Nothing should be marked by default.')
+
+    def test_mark_for_listing_permission_default(self):
+        permission = 'ftw.contentpage: Toggle listing marker interface'
+
+        roles = [r['name'] for r in self.portal.rolesOfPermission(permission) if r[
+            'selected']]
+        self.assertEquals(roles,
+                          ['Contributor', 'Manager'],
+                          'Manager and Contributor should have the permission:'
+                           ' {0}'.format(
+                              permission))
+
+    def test_mark_for_listing_permission(self):
+        page = create(Builder('content page'))
+
+        permission = 'ftw.contentpage: Toggle listing marker interface'
+        page.manage_permission(permission, roles=[], acquire=False)
+
+        roles = [r['name'] for r in page.rolesOfPermission(permission) if r[
+            'selected']]
+        self.assertEquals(roles,
+                          [],
+                          'No one should have the permission: {0}'.format(
+                              permission))

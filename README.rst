@@ -56,6 +56,7 @@ Code example:
     <implements interface="ftw.contentpage.interfaces.IShowListingMarkerCheckbox" />
   </class>
 
+The Checkbox is protected with his own permission: ``ftw.contentpage: Toggle listing marker interface.``
 
 
 The EventFolder has a simple events listing, which shows the next 10 upcoming events (batching included).

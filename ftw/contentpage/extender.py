@@ -72,6 +72,7 @@ class ListingMarkerExtender(object):
         searchable=False,
         required=False,
         default=False,
+        write_permission='ftw.contentpage: Toggle listing marker interface',
         widget=BooleanWidget(
             label=_(u'label_mark_for_listings',
                     default=u'Mark content for listings'),
