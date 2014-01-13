@@ -25,5 +25,9 @@
                      ftw.contentpage: Edit teaser image on News"
         />
 
+    <lawgiver:map_permissions
+        action_group="toggle-marker-interface"
+        permissions="ftw.contentpage: Toggle IAuthority marker interface"
+        />
 
 </configure>

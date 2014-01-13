@@ -317,4 +317,24 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1503 -> 1600 -->
+    <genericsetup:upgradeStep
+        title="Replace IOrgUnitMarker by IAuthority"
+        description=""
+        source="1503"
+        destination="1600"
+        handler="ftw.contentpage.upgrades.to1600.FixMarkerInterfaces"
+        profile="ftw.contentpage:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1600"
+        title="ftw.contentpage.upgrades.1600"
+        description=""
+        directory="profiles/1600"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
 </configure>

@@ -1,12 +1,12 @@
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.browser import authorities
-from ftw.contentpage.interfaces import IOrgUnitMarker
+from ftw.contentpage.interfaces import IAuthority
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.contentpage.tests.pages import AuthoritiesView
 from ftw.testing import MockTestCase
-from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 from unittest2 import TestCase
 import transaction
 
@@ -87,17 +87,17 @@ class TestTreeView(TestCase):
 
         first = create(Builder('content page')
                        .titled('First')
-                       .providing(IOrgUnitMarker)
+                       .providing(IAuthority)
                        .within(container))
 
         second = create(Builder('content page')
                         .titled('Second')
-                        .providing(IOrgUnitMarker)
+                        .providing(IAuthority)
                         .within(first))
 
         create(Builder('content page')
                .titled('Third')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(second))
 
         AuthoritiesView().visit_on(container)
@@ -108,12 +108,12 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('One')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Two')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -124,16 +124,16 @@ class TestTreeView(TestCase):
         container = create(Builder('content page'))
 
         create(Builder('content page')
-               .titled('With IOrgUnitMarker')
-               .providing(IOrgUnitMarker)
+               .titled('With IAuthority')
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
-               .titled('Without IOrgUnitMarker')
+               .titled('Without IAuthority')
                .within(container))
 
         AuthoritiesView().visit_on(container)
-        self.assertEquals(['With IOrgUnitMarker'],
+        self.assertEquals(['With IAuthority'],
                           AuthoritiesView().link_labels)
 
     def test_pages_are_linked_properly(self):
@@ -141,12 +141,12 @@ class TestTreeView(TestCase):
 
         foo = create(Builder('content page')
                      .titled('Foo')
-                     .providing(IOrgUnitMarker)
+                     .providing(IAuthority)
                      .within(container))
 
         bar = create(Builder('content page')
                      .titled('Bar')
-                     .providing(IOrgUnitMarker)
+                     .providing(IAuthority)
                      .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -162,22 +162,22 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('One')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Two')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Three')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Four')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -197,12 +197,12 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('Shown In Navigation')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Excluded From Navigation')
-               .providing(IOrgUnitMarker)
+               .providing(IAuthority)
                .within(container)
                .having(excludeFromNav=True))
 

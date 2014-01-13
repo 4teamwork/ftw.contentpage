@@ -1,6 +1,6 @@
+from ftw.contentpage.interfaces import IAuthority
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
-from ftw.contentpage.interfaces import IOrgUnitMarker
 
 
 def get_brain_data(brain):
@@ -52,7 +52,7 @@ class AuthoritiesView(BrowserView):
 
     def get_query(self):
         path = '/'.join(self.context.getPhysicalPath())
-        return {'object_provides': IOrgUnitMarker.__identifier__,
+        return {'object_provides': IAuthority.__identifier__,
                 'sort_on': self.sort_on,
                 'path': {'query': path, 'depth': 2}}
 

@@ -1,8 +1,13 @@
 Changelog
 =========
 
-1.5.8 (unreleased)
+1.6.0 (unreleased)
 ------------------
+
+- Replace IOrgUnitMarker interface with IAuthority interface.
+  The behaviour, how then interface is applied to the ContentPage also changed.
+  New: Tick the "Mark content for listings" checkbox on the ContentPage.
+  The marker interface is no longer applied by adding an AddressBlock (Check Readme).
 
 - Use Input of Location field if given.
   [tschanzt]

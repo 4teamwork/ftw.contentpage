@@ -20,6 +20,17 @@ Installing
 - Install the generic import profile.
 
 
+Important upgrade notes
+=======================
+
+If you upgrade ``ftw.contentpage`` to 1.6 or greater. The IOrgUnitMarker interface does not
+longer exists. The marker Interfaces is replaced with the IAuthority interface.
+Also the behaviour changed how the marker interface is applied to the ContentPage:
+OLD: By adding or removing an AddressBlock
+NEW: By manually ticking the "Mark content for listings" checkbox on the ContentPage.
+Run the ``ftw.contentpage`` upgrades steps and your site will be fine.
+
+
 Usage
 =====
 
@@ -33,8 +44,21 @@ Usage
 
 **Special views:**
 
-There's a two-column and two-level overview called authorities_view, which displays a list of ContentPages with an AddressBlock.
-If an AddressBlock is added to a ContentPage, it adds a marker interface on the ContentPage, so it's easy to recognize ContentPage's containing an AddressBlock.
+There's a two-column and two-level overview named ``authorities_view``, which displays a list of ContentPages with with the ``IAuthority`` interface.
+The ``IAuthority`` interface ist added and removed by ticking a checkbox called "Mark content for listings" on the ContentPage. This allows to decide if a ContentPage is displayed on the
+``authorities_view`` manually. The checkbox is implemented with archetypes.schemaextender, which
+allows to extend other content types:
+
+Code example:
+
+::
+
+  <class class="dotted.name.to.my.class">
+    <implements interface="ftw.contentpage.interfaces.IAuthoritySupport" />
+  </class>
+
+The Checkbox is protected with the permission: ``ftw.contentpage: Toggle IAuthority marker interface.``
+
 
 The EventFolder has a simple events listing, which shows the next 10 upcoming events (batching included).
 
@@ -46,6 +70,15 @@ The content listing viewlet is registered for all ContentPages.
 It shows categorized subcontent, within the ContentPage
 The categorization is done by a schemaextended field, so it's also possible to categorize your own or any other content.
 
+Code example:
+
+::
+
+  <class class="dotted.name.to.my.class">
+    <implements interface="ftw.contentpage.interfaces.ICategorizable" />
+  </class>
+
+
 ** Teaser Image **
 All content pages, event pages and news are able to display a teaser image, which is stored
 on the content itself. It behaves like a regular block and shows also the description.
@@ -56,14 +89,6 @@ Take a look at the `rolemap.xml` for details.
 It's possible to enable an archive portlet for News and EventPages.
 It only works if the current view is the news or event listing view.
 The portlet is not created by default.
-
-Code example:
-
-::
-
-  <class class="dotted.name.to.my.class">
-    <implements interface="ftw.contentpage.interfaces.ICategorizable" />
-  </class>
 
 
 ``ftw.contentpage`` is using the additional slot provided by simplelayout

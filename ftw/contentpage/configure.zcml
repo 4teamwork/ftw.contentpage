@@ -26,7 +26,7 @@
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <!-- register interfaces so that they are available in manage_interfaces -->
-    <interface interface="ftw.contentpage.interfaces.IOrgUnitMarker" />
+    <interface interface="ftw.contentpage.interfaces.IAuthority" />
 
     <i18n:registerTranslations directory="locales" />
 
@@ -56,6 +56,13 @@
     <adapter factory=".extender.CategoriesExtender"
          provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
          name="ftw.contentpage.category.extender" />
+
+    <!-- Schema extender adapter to handle the listing marker interface with a checkbox -->
+
+    <adapter factory=".extender.ListingMarkerExtender"
+         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+         name="ftw.contentpage.showlistingmarker.extender" />
+
 
     <!-- Make PloneFormGen forms categorizable -->
     <configure zcml:condition="installed Products.PloneFormGen">
