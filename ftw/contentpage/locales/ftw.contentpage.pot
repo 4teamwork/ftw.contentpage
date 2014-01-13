@@ -236,7 +236,7 @@ msgid "help_fax"
 msgstr ""
 
 #: ./ftw/contentpage/extender.py:79
-msgid "help_mark_for_listings"
+msgid "help_mark_as_authority"
 msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:44
@@ -419,7 +419,7 @@ msgstr ""
 
 #. Default: "Mark content for listings"
 #: ./ftw/contentpage/extender.py:77
-msgid "label_mark_for_listings"
+msgid "label_mark_as_authority"
 msgstr ""
 
 #. Default: "Message"

@@ -1,7 +1,7 @@
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.browser import authorities
-from ftw.contentpage.interfaces import IListingMarker
+from ftw.contentpage.interfaces import IAuthority
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.contentpage.tests.pages import AuthoritiesView
 from ftw.testing import MockTestCase
@@ -87,17 +87,17 @@ class TestTreeView(TestCase):
 
         first = create(Builder('content page')
                        .titled('First')
-                       .providing(IListingMarker)
+                       .providing(IAuthority)
                        .within(container))
 
         second = create(Builder('content page')
                         .titled('Second')
-                        .providing(IListingMarker)
+                        .providing(IAuthority)
                         .within(first))
 
         create(Builder('content page')
                .titled('Third')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(second))
 
         AuthoritiesView().visit_on(container)
@@ -108,12 +108,12 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('One')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Two')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -124,16 +124,16 @@ class TestTreeView(TestCase):
         container = create(Builder('content page'))
 
         create(Builder('content page')
-               .titled('With IListingMarker')
-               .providing(IListingMarker)
+               .titled('With IAuthority')
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
-               .titled('Without IListingMarker')
+               .titled('Without IAuthority')
                .within(container))
 
         AuthoritiesView().visit_on(container)
-        self.assertEquals(['With IListingMarker'],
+        self.assertEquals(['With IAuthority'],
                           AuthoritiesView().link_labels)
 
     def test_pages_are_linked_properly(self):
@@ -141,12 +141,12 @@ class TestTreeView(TestCase):
 
         foo = create(Builder('content page')
                      .titled('Foo')
-                     .providing(IListingMarker)
+                     .providing(IAuthority)
                      .within(container))
 
         bar = create(Builder('content page')
                      .titled('Bar')
-                     .providing(IListingMarker)
+                     .providing(IAuthority)
                      .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -162,22 +162,22 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('One')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Two')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Three')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Four')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         AuthoritiesView().visit_on(container)
@@ -197,12 +197,12 @@ class TestTreeView(TestCase):
 
         create(Builder('content page')
                .titled('Shown In Navigation')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container))
 
         create(Builder('content page')
                .titled('Excluded From Navigation')
-               .providing(IListingMarker)
+               .providing(IAuthority)
                .within(container)
                .having(excludeFromNav=True))
 

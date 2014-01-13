@@ -1,9 +1,9 @@
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from ftw.contentpage import _
+from ftw.contentpage.interfaces import IAuthority
+from ftw.contentpage.interfaces import IAuthoritySupport
 from ftw.contentpage.interfaces import ICategorizable
-from ftw.contentpage.interfaces import IListingMarker
-from ftw.contentpage.interfaces import IShowListingMarkerCheckbox
 from Products.Archetypes.public import BooleanField
 from Products.Archetypes.public import BooleanWidget
 from Products.Archetypes.public import KeywordWidget
@@ -54,9 +54,9 @@ class ListingMarkerCheckbox(ExtensionField, BooleanField):
         """
         if not value or value == '0' or value == 'False':
             value = False
-            noLongerProvides(instance, IListingMarker)
+            noLongerProvides(instance, IAuthority)
         else:
-            alsoProvides(instance, IListingMarker)
+            alsoProvides(instance, IAuthority)
             value = True
 
         self.getStorage(instance).set(self.getName(),
@@ -64,19 +64,19 @@ class ListingMarkerCheckbox(ExtensionField, BooleanField):
 
 
 class ListingMarkerExtender(object):
-    adapts(IShowListingMarkerCheckbox)
+    adapts(IAuthoritySupport)
     implements(IOrderableSchemaExtender)
 
     fields = [ListingMarkerCheckbox(
-        'mark_for_listings',
+        'mark_as_authority',
         searchable=False,
         required=False,
         default=False,
-        write_permission='ftw.contentpage: Toggle listing marker interface',
+        write_permission='ftw.contentpage: Toggle IAuthority marker interface',
         widget=BooleanWidget(
-            label=_(u'label_mark_for_listings',
+            label=_(u'label_mark_as_authority',
                     default=u'Mark content for listings'),
-            description=_(u'help_mark_for_listings',
+            description=_(u'help_mark_as_authority',
                           default=u'')))]
 
     def __init__(self, context):

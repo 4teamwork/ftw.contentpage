@@ -27,7 +27,7 @@
 
     <lawgiver:map_permissions
         action_group="toggle-marker-interface"
-        permissions="ftw.contentpage: Toggle listing marker interface"
+        permissions="ftw.contentpage: Toggle IAuthority marker interface"
         />
 
 </configure>

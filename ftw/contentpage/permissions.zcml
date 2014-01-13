@@ -18,10 +18,10 @@
         title="ftw.contentpage: Edit teaser image on News"
         />
 
-    <!-- IListingMarker Checkbox -->
+    <!-- IAuthority Checkbox -->
     <permission
-        id="ftw.contentpage.listingmarker.checkbox"
-        title="ftw.contentpage: Toggle listing marker interface"
+        id="ftw.contentpage.authority.checkbox"
+        title="ftw.contentpage: Toggle IAuthority marker interface"
         />
 
 </configure>

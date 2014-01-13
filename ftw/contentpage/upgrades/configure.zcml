@@ -319,7 +319,7 @@
 
     <!-- 1503 -> 1600 -->
     <genericsetup:upgradeStep
-        title="Replace IOrgUnitMarker by IListingMarker"
+        title="Replace IOrgUnitMarker by IAuthority"
         description=""
         source="1503"
         destination="1600"

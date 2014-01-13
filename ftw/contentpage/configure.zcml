@@ -26,7 +26,7 @@
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <!-- register interfaces so that they are available in manage_interfaces -->
-    <interface interface="ftw.contentpage.interfaces.IListingMarker" />
+    <interface interface="ftw.contentpage.interfaces.IAuthority" />
 
     <i18n:registerTranslations directory="locales" />
 

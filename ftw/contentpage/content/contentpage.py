@@ -3,9 +3,9 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from ftw.contentpage.config import PROJECTNAME
 from ftw.contentpage.content.textblock import image_schema
+from ftw.contentpage.interfaces import IAuthoritySupport
 from ftw.contentpage.interfaces import ICategorizable
 from ftw.contentpage.interfaces import IContentPage
-from ftw.contentpage.interfaces import IShowListingMarkerCheckbox
 from ftw.contentpage.interfaces import ITeaser
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
@@ -38,7 +38,7 @@ for name in image_schema.keys():
 class ContentPage(folder.ATFolder):
     """A simplelayout content page"""
     implements(IContentPage, ICategorizable, ISimpleLayoutCapable,
-               IAdditionalListingEnabled, ITeaser, IShowListingMarkerCheckbox)
+               IAdditionalListingEnabled, ITeaser, IAuthoritySupport)
 
     meta_type = "ContentPage"
     schema = ContentPageSchema

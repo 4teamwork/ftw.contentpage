@@ -22,9 +22,9 @@ class FixMarkerInterfaces(UpgradeStep):
 
     def migrate_interface(self, iface):
         query = {'object_provides': INTERFACE_DOTTENAME}
-        msg = 'Migrate IOrgUnitMarker to IListingMarker'
+        msg = 'Migrate IOrgUnitMarker to IAuthority'
 
         for obj in self.objects(query, msg):
             noLongerProvides(obj, iface)
-            obj.Schema()['mark_for_listings'].set(obj, True)
+            obj.Schema()['mark_as_authority'].set(obj, True)
             obj.reindexObject(idxs=['object_provides'])

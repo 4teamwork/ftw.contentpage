@@ -25,11 +25,11 @@ class IOrgUnitMarker(Interface):
     """Marker interface for AddressBlocks"""
 
 
-class IShowListingMarkerCheckbox(Interface):
-    """Marker interface for listing checkbox"""
+class IAuthoritySupport(Interface):
+    """Marker interface for authorities"""
 
 
-class IListingMarker(Interface):
+class IAuthority(Interface):
     """Marker interface for listing checkbox"""
 
 

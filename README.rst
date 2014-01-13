@@ -24,7 +24,7 @@ Important upgrade notes
 =======================
 
 If you upgrade ``ftw.contentpage`` to 1.6 or greater. The IOrgUnitMarker interface does not
-longer exists. The marker Interfaces is replaced with the IListingMarker interface.
+longer exists. The marker Interfaces is replaced with the IAuthority interface.
 Also the behaviour changed how the marker interface is applied to the ContentPage:
 OLD: By adding or removing an AddressBlock
 NEW: By manually ticking the "Mark content for listings" checkbox on the ContentPage.
@@ -44,8 +44,8 @@ Usage
 
 **Special views:**
 
-There's a two-column and two-level overview named ``authorities_view``, which displays a list of ContentPages with with the ``IListingMarker`` interface.
-The ``IListingMarker`` interface ist added and removed by ticking a checkbox called "Mark content for listings" on the ContentPage. This allows to decide if a ContentPage is displayed on the
+There's a two-column and two-level overview named ``authorities_view``, which displays a list of ContentPages with with the ``IAuthority`` interface.
+The ``IAuthority`` interface ist added and removed by ticking a checkbox called "Mark content for listings" on the ContentPage. This allows to decide if a ContentPage is displayed on the
 ``authorities_view`` manually. The checkbox is implemented with archetypes.schemaextender, which
 allows to extend other content types:
 
@@ -54,10 +54,10 @@ Code example:
 ::
 
   <class class="dotted.name.to.my.class">
-    <implements interface="ftw.contentpage.interfaces.IShowListingMarkerCheckbox" />
+    <implements interface="ftw.contentpage.interfaces.IAuthoritySupport" />
   </class>
 
-The Checkbox is protected with the permission: ``ftw.contentpage: Toggle listing marker interface.``
+The Checkbox is protected with the permission: ``ftw.contentpage: Toggle IAuthority marker interface.``
 
 
 The EventFolder has a simple events listing, which shows the next 10 upcoming events (batching included).

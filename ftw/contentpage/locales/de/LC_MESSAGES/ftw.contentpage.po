@@ -233,7 +233,7 @@ msgid "help_fax"
 msgstr ""
 
 #: ./ftw/contentpage/extender.py:79
-msgid "help_mark_for_listings"
+msgid "help_mark_as_authority"
 msgstr "Dadurch werden Inhalte unter anderem Direkt auf der Behörden-Übersicht angezeigt."
 
 #: ./ftw/contentpage/portlets/news_portlet.py:44
@@ -416,8 +416,8 @@ msgstr "Bild auch als Overlay darstellbar machen"
 
 #. Default: "Mark content for listings"
 #: ./ftw/contentpage/extender.py:77
-msgid "label_mark_for_listings"
-msgstr "Inhalt für Auflistungen markieren"
+msgid "label_mark_as_authority"
+msgstr "Inhalt als Organisation/Amt/Behörde/etc. markieren"
 
 #. Default: "Message"
 #: ./ftw/contentpage/browser/feedback.py:32

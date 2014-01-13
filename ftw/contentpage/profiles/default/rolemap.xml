@@ -52,7 +52,7 @@
       <role name="Contributor"/>
       <role name="Manager"/>
     </permission>
-    <permission name="ftw.contentpage: Toggle listing marker interface"
+    <permission name="ftw.contentpage: Toggle IAuthority marker interface"
                 acquire="True">
       <role name="Contributor"/>
       <role name="Manager"/>

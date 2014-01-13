@@ -87,7 +87,7 @@ class TestContentPageCreation(TestCase):
     def test_openlayers_is_imported_if_contentpage_is_orgunit(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
-        contentpage.Schema()['mark_for_listings'].set(contentpage, True)
+        contentpage.Schema()['mark_as_authority'].set(contentpage, True)
 
         view = BrowserView(contentpage, contentpage.REQUEST)
         manager = queryMultiAdapter(
