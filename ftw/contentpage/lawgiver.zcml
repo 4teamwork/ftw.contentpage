@@ -26,7 +26,7 @@
         />
 
     <lawgiver:map_permissions
-        action_group="toggle-marker-interface"
+        action_group="mark as authority"
         permissions="ftw.contentpage: Toggle IAuthority marker interface"
         />
 
