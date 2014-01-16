@@ -4,6 +4,9 @@ Changelog
 1.6.0 (unreleased)
 ------------------
 
+- Add missing translations for event_listing.
+  [tschanzt]
+
 - Replace IOrgUnitMarker interface with IAuthority interface.
   The behaviour, how then interface is applied to the ContentPage also changed.
   New: Tick the "Mark content for listings" checkbox on the ContentPage.

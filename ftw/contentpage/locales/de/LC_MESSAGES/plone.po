@@ -20,3 +20,7 @@ msgstr "Simplelayout Zusammenfassung"
 
 msgid "tabbed_block_view"
 msgstr "Inhaltsseite mit Tabs"
+
+msgid "event_listing"
+msgstr "Veranstaltungsübersicht"
+

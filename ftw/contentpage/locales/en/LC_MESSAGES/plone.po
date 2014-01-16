@@ -14,3 +14,8 @@ msgstr ""
 
 msgid "authorities_view"
 msgstr "Organisation Overview"
+
+msgid "event_listing"
+msgstr "Event Overview"
+
+
