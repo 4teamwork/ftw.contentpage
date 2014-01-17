@@ -423,3 +423,29 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.assertTrue(renderer.show_more_news_link(),
             'Expect that the "More News" link is visible')
+
+    def test_newsportets_does_not_show_rss_link(self):
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        portlet = NewsAssignment(rss_link=False)
+        renderer = NewsRenderer(self.portal, self.portal.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertFalse(renderer.show_rss_link(),
+                         'show_rss_link is not enabled.')
+
+        doc = PyQuery(renderer.render())
+        self.assertFalse(doc('.RssLink'),
+                         'There should be no link in the portlet')
+
+    def test_newsportets_shows_rss_link(self):
+        manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        portlet = NewsAssignment(rss_link=True)
+        renderer = NewsRenderer(self.portal, self.portal.REQUEST, object(),
+                            manager, portlet)
+
+        self.assertTrue(renderer.show_rss_link(),
+                         'show_rss_link is enabled')
+
+        doc = PyQuery(renderer.render())
+        self.assertTrue(doc('.RssLink'),
+                         'There should be a RSS link in the portlet')

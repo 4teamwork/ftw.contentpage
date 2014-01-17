@@ -43,7 +43,13 @@
                i18n:attributes="title more_news_link"
                i18n:translate="more_news_link">More News</a>
         </tal:morelink>
-        <!-- -->
+        <tal:rsslink condition="view/show_rss_link">
+            <a class="RssLink" title="RSS"
+               tal:attributes="href string:${here/absolute_url}/@@news_rss_listing"
+               i18n:attributes="title rss_link"
+               i18n:translate="rss_link">RSS</a>
+        </tal:rsslink>
+
     </dd>
 
 </dl>
