@@ -86,6 +86,10 @@ class INewsPortlet(IPortletDataProvider):
                                     default=u"Show more news link"),
                             default=False)
 
+    rss_link = schema.Bool(title=_(u'label_rss_link',
+                                    default=u"Shows link to the rss feed"),
+                            default=False)
+
     @invariant
     def is_either_path_or_area(obj):
         """Checks if not both path and current area are defined.
@@ -163,7 +167,8 @@ class AddForm(form.AddForm):
             show_desc=data.get('show_desc', False),
             desc_length=data.get('desc_length', 50),
             days=data.get('days', 0),
-            more_news_link=data.get('more_news_link', 0)
+            more_news_link=data.get('more_news_link', 0),
+            rss_link=data.get('rss_link', 0)
         )
 
 
@@ -173,7 +178,7 @@ class Assignment(base.Assignment):
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=None,
                  path=None, subjects=None, show_desc=False, desc_length=50,
-                 days=0, more_news_link=0):
+                 days=0, more_news_link=0, rss_link=0):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -185,6 +190,7 @@ class Assignment(base.Assignment):
         self.desc_length = desc_length
         self.days = days
         self.more_news_link = more_news_link
+        self.rss_link = rss_link
 
     @property
     def title(self):
@@ -257,6 +263,9 @@ class Renderer(base.Renderer):
 
     def show_more_news_link(self):
         return self.data.more_news_link
+
+    def show_rss_link(self):
+        return getattr(self.data, 'rss_link', False)
 
 
 class EditForm(form.EditForm):

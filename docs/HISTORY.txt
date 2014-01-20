@@ -4,6 +4,9 @@ Changelog
 1.6.0 (unreleased)
 ------------------
 
+- Add rss checkbox to news portlet (Shows RSS link on portlet).
+  [mathias.leimgruber]
+
 - Add missing translations for event_listing.
   [tschanzt]
 
