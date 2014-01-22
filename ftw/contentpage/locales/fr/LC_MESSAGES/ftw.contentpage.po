@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-13 08:51+0000\n"
+"POT-Creation-Date: 2014-01-22 14:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:101
+#: ./ftw/contentpage/portlets/news_portlet.py:105
 msgid "Add News Portlet"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "There is no content to list."
 msgstr "Il n'y a pas de blocs ici."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:102
+#: ./ftw/contentpage/portlets/news_portlet.py:106
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -306,7 +306,7 @@ msgid "label_by_author"
 msgstr "de ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:133
+#: ./ftw/contentpage/portlets/news_portlet.py:137
 msgid "label_cancel"
 msgstr "Annuler"
 
@@ -462,12 +462,17 @@ msgid "label_quantity"
 msgstr ""
 
 #. Default: "Read more"
-#: ./ftw/contentpage/portlets/news_portlet.pt:29
+#: ./ftw/contentpage/portlets/news_portlet.pt:38
 msgid "label_readmore"
 msgstr "En savoir plus"
 
+#. Default: "Shows link to the rss feed"
+#: ./ftw/contentpage/portlets/news_portlet.py:89
+msgid "label_rss_link"
+msgstr ""
+
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:122
+#: ./ftw/contentpage/portlets/news_portlet.py:126
 msgid "label_save"
 msgstr "Enregistrer"
 
@@ -550,7 +555,7 @@ msgid "mail_address"
 msgstr ""
 
 #. Default: "More News"
-#: ./ftw/contentpage/portlets/news_portlet.pt:41
+#: ./ftw/contentpage/portlets/news_portlet.pt:50
 #, fuzzy
 msgid "more_news_link"
 msgstr "Plus de nouvelles"
@@ -564,6 +569,11 @@ msgstr "En savoir plus..."
 #: ./ftw/contentpage/browser/listingblock_view.py:67
 msgid "review_state"
 msgstr "État critique"
+
+#. Default: "RSS"
+#: ./ftw/contentpage/portlets/news_portlet.pt:10
+msgid "rss_link"
+msgstr "RSS"
 
 #. Default: "Content"
 #: ./ftw/contentpage/browser/subject_listing.pt:45
@@ -587,7 +597,7 @@ msgid "text_not_content"
 msgstr "Pas de contenu"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:95
+#: ./ftw/contentpage/portlets/news_portlet.py:99
 msgid "text_path_and_area"
 msgstr "Vous ne pouvez pas définir un chemin et limiter au contexte."
 
