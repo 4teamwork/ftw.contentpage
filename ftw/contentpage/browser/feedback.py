@@ -85,11 +85,10 @@ class FeedbackForm(form.Form):
 
         msg['From'] = Header('%s' % portal.getProperty('email_from_name'),
                              'utf-8')
-        msg['From'].append("<%s>" % portal.getProperty('email_from_address'))
+        msg['From'].append("<%s>" % portal.getProperty('email_from_address').decode('utf-8'))
         msg['Reply-To'] = Header("%s" % sender, 'utf-8')
         msg['Reply-To'].append("<%s>" % recipient)
         msg['To'] = self.context.getEmail()
-
         # send the message
         mh.send(msg)
 

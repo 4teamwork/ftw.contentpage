@@ -96,13 +96,12 @@ class TestFeedbackForm(MockTestCase):
         self.assertEquals(len(self.mails), 1)
 
         args, kwargs = self.mails.pop()
-
         self.assertIn('=?utf-8?q?Don=27t_p=C3=A4nic?=', args[0].__str__())
         self.assertIn(FORM_DATA['message'], args[0].__str__())
         self.assertIn(
             'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?= <z.beeblebrox@endofworld.com>',
             args[0].__str__())
-        self.assertIn('From: Plone Admin <plone@admin.ch>', args[0].__str__())
+        self.assertIn('From: =?utf-8?q?Plone_Admin?= <plone@admin.ch>', args[0].__str__())
 
     def tearDown(self):
         super(TestFeedbackForm, self).tearDown()
