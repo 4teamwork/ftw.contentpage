@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.6.0 (unreleased)
+1.6.0 (2014-02-03)
 ------------------
 
 - Add rss checkbox to news portlet (Shows RSS link on portlet).
