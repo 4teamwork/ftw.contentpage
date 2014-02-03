@@ -6,9 +6,9 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 import transaction
 
 
-FORM_DATA = {'sender': 'Zaphod Beeblebrox',
+FORM_DATA = {'sender': 'Zaph\xc3\xb6d Beeblebrox',
              'email': 'z.beeblebrox@endofworld.com',
-             'subject': 'Don\'t panic',
+             'subject': 'Don\'t p\xc3\xa4nic',
              'message': '42'}
 
 
@@ -96,13 +96,12 @@ class TestFeedbackForm(MockTestCase):
         self.assertEquals(len(self.mails), 1)
 
         args, kwargs = self.mails.pop()
-
-        self.assertIn(FORM_DATA['subject'], args[0].__str__())
+        self.assertIn('=?utf-8?q?Don=27t_p=C3=A4nic?=', args[0].__str__())
         self.assertIn(FORM_DATA['message'], args[0].__str__())
         self.assertIn(
-            'reply-to: Zaphod Beeblebrox <z.beeblebrox@endofworld.com>',
+            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?= <z.beeblebrox@endofworld.com>',
             args[0].__str__())
-        self.assertIn('From: Plone Admin <plone@admin.ch>', args[0].__str__())
+        self.assertIn('From: =?utf-8?q?Plone_Admin?= <plone@admin.ch>', args[0].__str__())
 
     def tearDown(self):
         super(TestFeedbackForm, self).tearDown()
