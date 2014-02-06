@@ -1,32 +1,32 @@
 .template-addressblock_detail_view .addressText,
 .template-addressblock_detail_view .addressMap {
-    width:100%;
+  width:100%;
 }
 
 .sl-text-wrapper .addressText,
 .sl-text-wrapper .addressMap {
-    width: 50%;
-    vertical-align: top;
-    float:left;
+  width: 50%;
+  vertical-align: top;
+  float:left;
 }
 
 /*Hide overlay*/
 .olLayerGooglePoweredBy.olLayerGoogleV3.gmnoprint {
-    display: none;
+  display: none;
 }
 
 .simplelayout-block-wrapper.ListingBlock table.listing {
-    width:100%;
+  width:100%;
 }
 
 .simplelayout-block-wrapper.ListingBlock .gallery {
-    clear:both;
+  clear:both;
 }
 
 .simplelayout-block-wrapper.ListingBlock .gallery .box{
-    margin-left: 0.5em;
-    margin-bottom: 0.5em;
-    float:left;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+  float:left;
 }
 .simplelayout-block-wrapper.ListingBlock .gallery .box {
   overflow:hidden;
@@ -35,9 +35,11 @@
   border:1px solid #ddd;
 }
 .simplelayout-block-wrapper.ListingBlock .gallery .box .frame{
-    display:table-cell;
-    overflow: hidden;
-    vertical-align: middle;
+  display:table-cell;
+  overflow: hidden;
+  vertical-align: middle;
+  background-color: #eee;
+  border:1px solid #ddd;
 }
 
 /* @group news listing */
@@ -154,24 +156,29 @@ div.eventData {
   list-style: none;
   margin-left: 0em;
 }
+
+/* @end */
+
+/* @group faq */
+
 .faqtitle {
-    background-color: #ddd;
-    border-radius: 3px;
+  background-color: #ddd;
+  border-radius: 3px;
 }
 .faqtitle:hover {
-    background-color: #cbcbcb;
+  background-color: #cbcbcb;
 }
 .faqtitle .itemTitle {
-    padding-left: 20px;
-    font-size: 1.5em;
-    display:block;
+  padding-left: 20px;
+  font-size: 1.5em;
+  display:block;
 }
 .faqtitle .itemTitle.imgright {
-    background: url(++resource++ftw.contentpage.resources/arrow_right.png) no-repeat left center;
-    }
+  background: url(++resource++ftw.contentpage.resources/arrow_right.png) no-repeat left center;
+}
 
 .faqtitle .itemTitle.imgdown {
-    background: url(++resource++ftw.contentpage.resources/arrow_down.png) no-repeat left center;
-    }
+  background: url(++resource++ftw.contentpage.resources/arrow_down.png) no-repeat left center;
+}
 
 /* @end */
