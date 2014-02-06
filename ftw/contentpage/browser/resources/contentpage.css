@@ -181,4 +181,8 @@ div.eventData {
   background: url(++resource++ftw.contentpage.resources/arrow_down.png) no-repeat left center;
 }
 
+li.slAction a.layout_dummy-dummy-faq {
+  background: url(++resource++ftw.contentpage.resources/faq.png) no-repeat center center;
+}
+
 /* @end */
