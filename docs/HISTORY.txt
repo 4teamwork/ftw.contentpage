@@ -4,7 +4,8 @@ Changelog
 1.6.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move anchor above title so the title is visible when the anchor is used.
+  [tschanzt]
 
 
 1.6.0 (2014-02-03)

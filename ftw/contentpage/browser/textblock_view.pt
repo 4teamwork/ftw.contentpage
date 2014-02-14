@@ -5,8 +5,8 @@
                  fullblock python: text and ' sl-fullblock' or ''"
      tal:attributes="class string:simplelayout-block-wrapper TextBlock ${slclass}${fullblock};
                      style string:${view/get_block_height}">
+     <a tal:attributes="name here/id" ></a>
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
-    <a tal:attributes="name here/id" ></a>
         <div class="sl-img-wrapper" tal:condition="view/has_image"
              tal:attributes="style view/image_wrapper_style"
              tal:define="image_desc context/getImageCaption | context/Description">
