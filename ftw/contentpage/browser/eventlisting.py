@@ -17,6 +17,8 @@ def format_date(start, end, wholeday):
             return start_date
         return '%s - %s' % (start_date, end_date)
     if start_date == end_date:
+        if start_time == end_time:
+            return '%s %s' % (start_date, start_time)
         return '%s %s - %s' % (start_date, start_time, end_time)
     return '%s %s - %s %s' % (
           start_date, start_time, end_date, end_time)

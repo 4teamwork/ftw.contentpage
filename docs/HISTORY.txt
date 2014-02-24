@@ -4,6 +4,11 @@ Changelog
 1.6.1 (unreleased)
 ------------------
 
+- Added possibility to create an event with a start time, but no end time.
+  If you set the start and end at the same date and time, the output will be
+  "01.01.2014 08:00" instead of "01.01.2014 08:00 - 08:00".
+  [Julian Infanger]
+
 - Move anchor above title so the title is visible when the anchor is used.
   [tschanzt]
 
