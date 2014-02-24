@@ -36,3 +36,11 @@ class TestEvent(unittest.TestCase):
 
         self.assertEquals(format_date(start, end, wholeday),
             '01.01.2013 - 03.01.2013')
+
+    def test_same_data_same_time(self):
+        start = DateTime(2013, 01, 01, 11, 00)
+        end = DateTime(2013, 01, 01, 11, 00)
+        wholeday = False
+
+        self.assertEquals(format_date(start, end, wholeday),
+            '01.01.2013 11:00')
