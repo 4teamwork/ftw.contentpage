@@ -12,6 +12,9 @@ Changelog
 - Move anchor above title so the title is visible when the anchor is used.
   [tschanzt]
 
+- Make the news portlet available for `News` context.
+  [deif]
+
 
 1.6.0 (2014-02-03)
 ------------------

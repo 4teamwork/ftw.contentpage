@@ -213,7 +213,7 @@ class Renderer(base.Renderer):
 
     @property
     def available(self):
-        is_news = self.context.portal_type in ['News', 'NewsFolder']
+        is_news = self.context.portal_type == 'NewsFolder'
         if self.show_more_news_link():
             has_news = self.get_news(all_news=True)
         else:
