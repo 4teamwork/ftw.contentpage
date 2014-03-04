@@ -39,3 +39,19 @@ class NewsFolderBuilder(ArchetypesBuilder):
 
 
 builder_registry.register('news folder', NewsFolderBuilder)
+
+
+class EventPageBuilder(ArchetypesBuilder):
+
+    portal_type = 'EventPage'
+
+
+builder_registry.register('event page', EventPageBuilder)
+
+
+class EventFolderBuilder(ArchetypesBuilder):
+
+    portal_type = 'EventFolder'
+
+
+builder_registry.register('event folder', EventFolderBuilder)
