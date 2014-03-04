@@ -25,7 +25,7 @@ class ContentPageBuilder(ArchetypesBuilder):
 builder_registry.register('content page', ContentPageBuilder)
 
 
-class NewsBuilder(ArchetypesBuilder):
+class NewsBuilder(ContentPageBuilder):
 
     portal_type = 'News'
 
@@ -41,7 +41,7 @@ class NewsFolderBuilder(ArchetypesBuilder):
 builder_registry.register('news folder', NewsFolderBuilder)
 
 
-class EventPageBuilder(ArchetypesBuilder):
+class EventPageBuilder(ContentPageBuilder):
 
     portal_type = 'EventPage'
 
