@@ -1,7 +1,10 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
     i18n_domain="ftw.contentpage">
+
+    <include package="ftw.upgrade" file="meta.zcml" />
 
     <!-- 1000 -> 1001 -->
     <genericsetup:upgradeStep
@@ -336,5 +339,13 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1600 -> 1601 -->
+    <upgrade-step:importProfile
+        title="Install collapse_archive.js"
+        profile="ftw.contentpage:default"
+        source="1600"
+        destination="1601"
+        directory="profiles/1601"
+        />
 
 </configure>
