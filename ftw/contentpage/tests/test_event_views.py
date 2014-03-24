@@ -125,22 +125,24 @@ class TestEventListing(MockTestCase):
         self.browser.open(event1.absolute_url())
         query = PyQuery(self.browser.contents)
         elements = query('.eventdata tr th')
-        self.assertEqual(len(elements), 1)
+        self.assertEqual(len(elements), 2)
         self.assertEqual(elements[0].text.strip(), 'Date')
+        self.assertEqual(elements[1].text.strip(), 'Export')
 
         self.browser.open(event2.absolute_url())
         query = PyQuery(self.browser.contents)
         elements = query('.eventdata tr th')
-        self.assertEqual(len(elements), 2)
+        self.assertEqual(len(elements), 3)
         self.assertEqual(elements[0].text.strip(), 'Date')
         self.assertEqual(elements[1].text.strip(), 'Location')
-        location = query('.eventdata tr td')[-1]
+        self.assertEqual(elements[2].text.strip(), 'Export')
+        location = query('.eventdata tr td')[-2]
         self.assertEqual(location.text, event2.getLocation())
-        
+
     def test_event_data_viewlet(self):
         event = self.eventfolder.get('event3')  # has an image
         view = BrowserView(event, event.REQUEST)
-        manager_name = 'plone.abovecontentbody'
+        manager_name = 'plone.abovecontenttitle'
         manager = queryMultiAdapter((event, event.REQUEST, view),
             IViewletManager,
             manager_name)

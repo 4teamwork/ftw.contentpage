@@ -4,7 +4,8 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- EventPage: Updated event data table markup.
+  [Julian Infanger]
 
 
 1.6.1 (2014-03-10)
