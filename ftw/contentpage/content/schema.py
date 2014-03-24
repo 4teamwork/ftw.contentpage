@@ -11,7 +11,7 @@ DEFAULT_TO_HIDE = [
 
 
 def finalize(schema, show=None, hide=None):
-    to_hide = DEFAULT_TO_HIDE
+    to_hide = DEFAULT_TO_HIDE[:]
     if hide:
         to_hide += hide
 
