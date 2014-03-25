@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-22 14:49+0000\n"
+"POT-Creation-Date: 2014-03-24 15:25+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,13 +69,17 @@ msgstr "Veranstaltungsordner"
 msgid "Events"
 msgstr "Veranstaltungen"
 
+#: ./ftw/contentpage/viewlets/event_data.pt:16
+msgid "Export"
+msgstr "Exportieren"
+
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "External Edit"
 msgstr "Mit externem Editor bearbeiten"
 
-#: ./ftw/contentpage/viewlets/event_data.pt:18
+#: ./ftw/contentpage/viewlets/event_data.pt:19
 msgid "ICS-Export"
 msgstr "ICS-Export"
 
@@ -604,4 +608,3 @@ msgstr "Sie k√∂nnen keinen Pfad definieren und gleichzeitig den Bereich einschr√
 #: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr "Tel. ${num}"
-

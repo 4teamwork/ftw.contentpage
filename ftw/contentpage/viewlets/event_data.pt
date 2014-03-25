@@ -1,21 +1,24 @@
-<div i18n:domain="ftw.contentpage">
-    <table class="vertical plain eventdata">
-      <tr tal:condition="context/start">
-        <th i18n:translate="">
-          Date
-        </th>
-        <td tal:content="view/get_date" />
-      </tr>
-      <tr tal:define="location view/get_location" tal:condition="location">
-          <th i18n:translate="">
-              Location
-          </th>
-          <td tal:content="location" />
-      </tr>
-    </table>
-    <div>
-      <img tal:attributes="src string: ${context/portal_url}/icon_export_ical.png" />
-      <a tal:attributes="href string: ${context/absolute_url}/ics_view" i18n:translate="">ICS-Export</a>
-    </div>
+<div i18n:domain="ftw.contentpage" class="eventData">
+  <table class="vertical plain eventdata">
+    <tr tal:condition="context/start">
+      <th i18n:translate="">
+        Date
+      </th>
+      <td tal:content="view/get_date" />
+    </tr>
+    <tr tal:define="location view/get_location" tal:condition="location">
+      <th i18n:translate="">
+        Location
+      </th>
+      <td tal:content="location" />
+    </tr>
+    <tr class="exportRow">
+      <th i18n:translate="">Export</th>
+      <td>
+        <img tal:attributes="src string: ${context/portal_url}/icon_export_ical.png" />
+        <a tal:attributes="href string: ${context/absolute_url}/ics_view" i18n:translate="">ICS-Export</a>
+      </td>
+    </tr>
+  </table>
 
 </div>
