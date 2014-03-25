@@ -51,7 +51,7 @@
 
     <browser:viewlet
         name="ftw.contentpage.openlayers"
-        for="ftw.contentpage.interfaces.IAuthority"
+        for="ftw.contentpage.interfaces.IContentPage"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class=".openlayers.OpenlayersViewlet"
         permission="zope2.View"

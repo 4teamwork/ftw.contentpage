@@ -4,6 +4,10 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Enable openlayer resources on IContentPage if an AddressBlock is available.
+  Marking the ContentPage as IAuthorty is no longer necessary.
+  [mathias.leimgruber]
+
 - Add upgradestep for collapse_archive.js registration
   [elioschmutz]
 
