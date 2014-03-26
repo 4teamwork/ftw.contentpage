@@ -4,6 +4,9 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Fix mutable bug in finalize schema function.
+  [jone]
+
 - EventPage: Updated event data table markup.
   [Julian Infanger]
 

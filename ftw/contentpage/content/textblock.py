@@ -89,11 +89,9 @@ textblock_schema = ATContentTypeSchema.copy() + \
     default_schema.copy() + image_schema.copy()
 
 textblock_schema['title'].required = False
-textblock_schema['description'].widget.visible = {'view': 'invisible',
-                                                  'edit': 'invisible'}
 textblock_schema['text'].widget.filter_buttons = ('image', )
 
-finalize(textblock_schema)
+finalize(textblock_schema, hide=['description'])
 
 
 class TextBlock(ATCTContent, HistoryAwareMixin):

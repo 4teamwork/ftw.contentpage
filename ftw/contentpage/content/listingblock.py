@@ -76,7 +76,7 @@ schemata.finalizeATCTSchema(
 listing_block_schema['title'].required = False
 listing_block_schema['title'].default_method = 'getDefaultTitle'
 
-finalize(listing_block_schema)
+finalize(listing_block_schema, hide=['description'])
 
 
 class ListingBlock(folder.ATFolder):
