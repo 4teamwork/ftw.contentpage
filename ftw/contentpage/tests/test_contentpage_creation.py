@@ -25,7 +25,7 @@ class TestContentPageCreation(TestCase):
 
     def _auth(self):
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-                TEST_USER_NAME, TEST_USER_PASSWORD, ))
+            TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
     def test_fti(self):
         self.assertIn('ContentPage', self.portal.portal_types.objectIds())
@@ -36,7 +36,7 @@ class TestContentPageCreation(TestCase):
 
         self._auth()
         self.browser.open('%s/createObject?type_name=ContentPage' %
-            self.portal_url)
+                          self.portal_url)
         self.browser.getControl("Title").value = 'New ContentPage'
         self.browser.getControl("Save").click()
         self.assertIn("New ContentPage", self.browser.contents)
@@ -68,26 +68,9 @@ class TestContentPageCreation(TestCase):
         self.assertIn('template-simplelayout', self.browser.contents)
         self.assertIn('simplelayout-content', self.browser.contents)
 
-    def test_openlayers_is_not_imported_if_contentpage_is_not_orgunit(self):
+    def test_openlayers_is_always_available_on_IContentPage(self):
         contentpage = self.portal.get(
             self.portal.invokeFactory('ContentPage', 'contentpage'))
-
-        view = BrowserView(contentpage, contentpage.REQUEST)
-        manager = queryMultiAdapter(
-            (contentpage, contentpage.REQUEST, view),
-            IViewletManager,
-            'plone.htmlhead.links')
-
-        manager.update()
-
-        self.assertNotIn(
-            u'ftw.contentpage.openlayers',
-            [v.__name__ for v in manager.viewlets])
-
-    def test_openlayers_is_imported_if_contentpage_is_orgunit(self):
-        contentpage = self.portal.get(
-            self.portal.invokeFactory('ContentPage', 'contentpage'))
-        contentpage.Schema()['mark_as_authority'].set(contentpage, True)
 
         view = BrowserView(contentpage, contentpage.REQUEST)
         manager = queryMultiAdapter(
@@ -100,6 +83,33 @@ class TestContentPageCreation(TestCase):
         self.assertIn(
             u'ftw.contentpage.openlayers',
             [v.__name__ for v in manager.viewlets])
+
+    def test_load_openlayer_resources_if_addressblock_is_available(self):
+        cp = self.portal.get(
+            self.portal.invokeFactory('ContentPage', 'contentpage'))
+
+        view = BrowserView(cp, cp.REQUEST)
+        manager = queryMultiAdapter(
+            (cp, cp.REQUEST, view),
+            IViewletManager,
+            'plone.htmlhead.links')
+        manager.update()
+
+        openlayer_viewlet = None
+        for viewlet in manager.viewlets:
+            if viewlet.__name__ == u'ftw.contentpage.openlayers':
+                openlayer_viewlet = viewlet
+
+        resource = 'http://maps.google.com/maps/api'
+        self.assertNotIn(resource,
+                         openlayer_viewlet.render(),
+                         'Expect NO google api resource')
+        addrblock = cp.get(cp.invokeFactory('AddressBlock', 'addressblock'))
+        addrblock.reindexObject()
+
+        self.assertIn(resource,
+                      openlayer_viewlet.render(),
+                      'Expect google api resource')
 
     def tearDown(self):
         super(TestContentPageCreation, self).tearDown()
