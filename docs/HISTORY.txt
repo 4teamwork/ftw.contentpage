@@ -4,6 +4,9 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Add upgradestep for collapse_archive.js registration
+  [elioschmutz]
+
 - Fix mutable bug in finalize schema function.
   [jone]
 
