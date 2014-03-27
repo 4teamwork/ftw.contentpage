@@ -10,12 +10,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 msgid "authorities_view"
 msgstr "Organisation Overview"
 
 msgid "event_listing"
 msgstr "Event Overview"
+
+msgid "simplelayout_summary"
+msgstr ""
+
+msgid "tabbed_block_view"
+msgstr ""
 
 
