@@ -10,22 +10,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
-
-msgid "MultiUpload"
-msgstr "Mehrfach Upload"
-
-msgid "Default"
-msgstr "Standard"
-
-msgid "Listing"
-msgstr "Standard"
 
 msgid "Gallery"
 msgstr "Album"
 
+msgid "Listing"
+msgstr "Standard"
+
 msgid "Map"
 msgstr "Ansicht mit Karte"
 
+msgid "MultiUpload"
+msgstr "Mehrfach Upload"
+
 msgid "Portlet"
 msgstr "Minimale Ansicht"
+
+
