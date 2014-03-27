@@ -97,6 +97,10 @@ msgstr ""
 msgid "Location"
 msgstr "Emplacement"
 
+#: ./ftw/contentpage/profiles/default/types/News.xml
+msgid "News"
+msgstr "Nouveautés"
+
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
 msgid "NewsFolder"
 msgstr ""

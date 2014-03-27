@@ -97,6 +97,10 @@ msgstr "Auflistungsblock"
 msgid "Location"
 msgstr "Ort"
 
+#: ./ftw/contentpage/profiles/default/types/News.xml
+msgid "News"
+msgstr "News"
+
 #: ./ftw/contentpage/profiles/default/types/NewsFolder.xml
 msgid "NewsFolder"
 msgstr "Newsordner"
