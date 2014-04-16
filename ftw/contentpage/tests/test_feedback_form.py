@@ -103,6 +103,29 @@ class TestFeedbackForm(MockTestCase):
             args[0].__str__())
         self.assertIn('From: =?utf-8?q?Plone_Admin?= <plone@admin.ch>', args[0].__str__())
 
+    def test_encode_replyto_always(self):
+        """Test that tests if Reply-To header is always encoded."""
+        self._auth()
+        self.browser.open(self.form)
+        self.browser.getControl(
+            name="form.widgets.sender").value = 'Hans, Peter'
+        self.browser.getControl(
+            name="form.widgets.email").value = FORM_DATA['email']
+        self.browser.getControl(
+            name="form.widgets.subject").value = FORM_DATA['subject']
+        self.browser.getControl(
+            name="form.widgets.message").value = FORM_DATA['message']
+
+        self.browser.getControl('Send Mail').click()
+
+        self.assertEqual(self.browser.url,
+                         self.contentpage.absolute_url())
+
+        args, kwargs = self.mails.pop()
+        self.assertIn(
+            'Reply-To: =?utf-8?q?Hans=2C_Peter?= <z.beeblebrox@endofworld.com>',
+            args[0].__str__())
+        
     def tearDown(self):
         super(TestFeedbackForm, self).tearDown()
         portal = self.layer['portal']
