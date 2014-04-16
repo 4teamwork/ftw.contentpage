@@ -142,7 +142,7 @@ class TestEventListing(MockTestCase):
     def test_event_data_viewlet(self):
         event = self.eventfolder.get('event3')  # has an image
         view = BrowserView(event, event.REQUEST)
-        manager_name = 'plone.abovecontenttitle'
+        manager_name = 'plone.abovecontentbody'
         manager = queryMultiAdapter((event, event.REQUEST, view),
             IViewletManager,
             manager_name)

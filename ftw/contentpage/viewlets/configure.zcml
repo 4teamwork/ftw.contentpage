@@ -43,7 +43,7 @@
     <browser:viewlet
         for="ftw.contentpage.interfaces.IEventPage"
         name="ftw.contentpage.event.eventdata"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
         class=".event_data.EventDataViewlet"
         permission="zope2.View"
         layer="ftw.contentpage.interfaces.IFtwContentPageLayer"

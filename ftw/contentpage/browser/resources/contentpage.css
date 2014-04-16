@@ -113,9 +113,7 @@ body.template-tabbed_block_view .slAlignBlocks {
 /* @group event data table */
 
 div.eventData {
-  float: right;
   margin-top: 1em;
-  margin-left: 1em;
 }
 
 /* @end */
