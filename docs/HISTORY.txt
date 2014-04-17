@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.6.5 (unreleased)
+1.6.5 (2014-04-17)
 ------------------
 
 - Move eventdata table below the description.
