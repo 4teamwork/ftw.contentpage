@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<portlets>
+  <portlet
+   addview="newsportlet"
+   remove="True"
+   />
+ <portlet
+   addview="newsarchiveportlet"
+   remove="True"
+   />
+ <portlet
+   addview="eventarchive"
+   remove="True"
+   />
+</portlets>

@@ -38,7 +38,16 @@ def add_catalog_indexes(context):
         catalog.manage_reindexIndex(ids=indexables)
 
 
-def georef_settings(context):
+def remove_catalog_indexes(context):
+    catalog = getToolByName(context, 'portal_catalog')
+    indexes = catalog.indexes()
+
+    for name, meta_type in INDEXES:
+        if name in indexes:
+            catalog.delIndex(name)
+
+
+def add_georef_settings(context):
     """Import step to set up AddressBlock as georeferenceable type in
     colllective.geo.settings.
 
@@ -47,12 +56,30 @@ def georef_settings(context):
     """
 
     registry = getUtility(IRegistry)
-    geo_content_types = registry.forInterface(
-        IGeoSettings).geo_content_types
     registry.forInterface(
         IGeoFeatureStyle).map_viewlet_position = 'fake-manager'
-    if not 'AddressBlock' in geo_content_types:
-        geo_content_types.append('AddressBlock')
+
+    settings = registry.forInterface(IGeoSettings)
+    if not 'AddressBlock' in settings.geo_content_types:
+        types = list(settings.geo_content_types)
+        types.append('AddressBlock')
+        settings.geo_content_types = types
+
+
+def remove_georef_settings(context):
+    registry = getUtility(IRegistry)
+
+    # only reset map_viewlet_position if fake-manager is still configured
+    style = registry.forInterface(IGeoFeatureStyle)
+    if style.map_viewlet_position == 'fake-manager':
+        geo_default = IGeoFeatureStyle['map_viewlet_position'].default
+        style.map_viewlet_position = geo_default
+
+    settings = registry.forInterface(IGeoSettings)
+    if 'AddressBlock' in settings.geo_content_types:
+        types = list(settings.geo_content_types)
+        types.remove('AddressBlock')
+        settings.geo_content_types = types
 
 
 def set_dropzone_as_type_portlet(self):
@@ -65,20 +92,47 @@ def set_dropzone_as_type_portlet(self):
         mapping['simplelayout-dropzone-portlet'] = \
             drop_zone_portlet.Assignment()
 
+
+def remove_dropzone_as_type_portlet(self):
+    manager = getUtility(IPortletManager, name=u"plone.rightcolumn")
+    cat = manager[CONTENT_TYPE_CATEGORY]
+    if 'ContentPage' in cat:
+        del cat['ContentPage']
+
+
 def set_calendar_types(context):
     portal_calendar = getToolByName(context, 'portal_calendar')
     types = list(portal_calendar.calendar_types)
     types.append('EventPage')
     portal_calendar.calendar_types = tuple(types)
 
+
+def remove_calendar_types(context):
+    portal_calendar = getToolByName(context, 'portal_calendar')
+    types = list(portal_calendar.calendar_types)
+    if 'EventPage' in types:
+        types.remove('EventPage')
+    portal_calendar.calendar_types = tuple(types)
+
+
 def import_various(context):
     """Import step for configuration that is not handled in xml files.
     """
     # Only run step if a flag file is present
-    if context.readDataFile('ftw.contentpage.setuphandlers.txt') is None:
+    action = context.readDataFile('ftw.contentpage.setuphandlers.txt')
+    if action is None:
         return
+
+    action = action.strip()
     site = context.getSite()
-    add_catalog_indexes(site)
-    georef_settings(site)
-    set_dropzone_as_type_portlet(site)
-    set_calendar_types(site)
+
+    if action == 'install':
+        add_catalog_indexes(site)
+        add_georef_settings(site)
+        set_dropzone_as_type_portlet(site)
+        set_calendar_types(site)
+    elif action == 'uninstall':
+        remove_catalog_indexes(site)
+        remove_georef_settings(site)
+        remove_dropzone_as_type_portlet(site)
+        remove_calendar_types(site)

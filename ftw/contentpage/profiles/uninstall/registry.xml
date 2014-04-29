@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<registry>
+    <record name="ftw.contentpage.addressblock.defaultcountry" remove="True" />
+    <record name="ftw.contentpage.listingblock.defaulttitle" remove="True" />
+    <record name="ftw.contentpage.listingblock.defaulttablecolumns" remove="True" />
+    <record name="ftw.contentpage.addressblock.defaulttitle" remove="True" />
+    <record name="ftw.contentpage.subjectlisting.portal_types" remove="True" />
+    <record name="ftw.contentpage.subjectlisting.show_mimetype_icon"  remove="True" />
+</registry>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+  <factorytypes>
+    <type portal_type="ContentPage" remove="True" />
+    <type portal_type="AddressBlock" remove="True" />
+    <type portal_type="ListingBlock" remove="True" />
+    <type portal_type="TextBlock" remove="True" />
+    <type portal_type="News" remove="True" />
+    <type portal_type="NewsFolder" remove="True" />
+    <type portal_type="EventPage" remove="True" />
+    <type portal_type="EventFolder" remove="True" />
+  </factorytypes>
+</object>

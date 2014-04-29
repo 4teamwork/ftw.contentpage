@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="ftw.contentpage: Add ContentPage" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Edit teaser image on ContentPage" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Edit teaser image on EventPage" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Edit teaser image on News" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add AddressBlock" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add ListingBlock" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add TextBlock" acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add News"
+                acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add NewsFolder"
+                acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add EventPage"
+                acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Add EventFolder"
+                acquire="True">
+    </permission>
+    <permission name="ftw.contentpage: Toggle IAuthority marker interface"
+                acquire="True">
+    </permission>
+
+  </permissions>
+</rolemap>
