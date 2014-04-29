@@ -24,11 +24,6 @@ class TestTeaserImage(TestCase):
         # Fire all necessary events
         self.contentpage.processForm()
 
-        # Regular old simplayout page
-        self.page = self.portal.get(
-            self.portal.invokeFactory('Page', 'page'))
-        self.page.processForm()
-
         transaction.commit()
 
         # Browser setup
@@ -43,9 +38,6 @@ class TestTeaserImage(TestCase):
         self.assertTrue(ITeaser.providedBy(self.contentpage),
             'ContentPage should provide ITeaser interface')
 
-        self.assertFalse(ITeaser.providedBy(self.page),
-            'Old Page should not provide ITeaser interface')
-
     def test_not_show_teaser(self):
         # No image, no description - no teaser
         self._auth()
@@ -55,16 +47,8 @@ class TestTeaserImage(TestCase):
             pq('.simplelayout-content.sl-teaser-content-listing'),
             'There should be no simplelayout teaser viewlet')
 
-        self.browser.open(self.page.absolute_url())
-        pq = PyQuery(self.browser.contents)
-        self.assertFalse(
-            pq('.simplelayout-content.sl-teaser-content-listing'),
-            'There should be no simplelayout teaser viewlet on old '
-            'simplelayout pages')
-
     def test_show_teaser__description(self):
         self.contentpage.setDescription('qwerty')
-        self.page.setDescription('qwerty')
 
         transaction.commit()
 
@@ -82,22 +66,11 @@ class TestTeaserImage(TestCase):
         self.assertEquals(len(pq('.documentDescription')), 1,
             'The default description should appear only once')
 
-        self.browser.open(self.page.absolute_url())
-        pq = PyQuery(self.browser.contents)
-
-        self.assertFalse(
-            pq('.simplelayout-content.sl-teaser-content-listing'),
-            'There should be still no simplelayout teaser viewlet on old '
-            'simplelayout pages')
-
     def test_show_teaser__image(self):
         self.contentpage.setImage(
             StringIO('GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00'
                 '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
                 '\x01\x00\x00\x02\x02D\x01\x00;'))
-
-        self.assertNotIn('image', self.page.Schema(),
-            'There should be no image field on old simplelayout pages')
 
         transaction.commit()
 
@@ -111,14 +84,6 @@ class TestTeaserImage(TestCase):
             'There should be the teaser viewlet')
         self.assertTrue(
             wrapper.find('.sl-img-wrapper'), 'No image found')
-
-        self.browser.open(self.page.absolute_url())
-        pq = PyQuery(self.browser.contents)
-
-        self.assertFalse(
-            pq('.simplelayout-content.sl-teaser-content-listing'),
-            'There should be still no simplelayout teaser viewlet on old '
-            'simplelayout pages')
 
     def test_teaser_field_permission_contentpage(self):
         self._auth()
