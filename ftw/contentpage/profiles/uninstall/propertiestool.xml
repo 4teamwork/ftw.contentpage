@@ -2,7 +2,7 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="imaging_properties" meta_type="Plone Property Sheet">
   <property name="allowed_sizes" type="lines" purge="False">
-   <element value="listingblock_gallery 130:130"/>
+   <element value="listingblock_gallery 130:130" remove="True" />
   </property>
  </object>
 </object>
