@@ -45,7 +45,6 @@ class FtwContentPageLayer(PloneSandboxLayer):
         # Load ZCML
         import ftw.contentpage
         import simplelayout.base
-        import simplelayout.types.common
         import ftw.geo
         import collective.geo.settings
         import collective.geo.openlayers
@@ -57,8 +56,6 @@ class FtwContentPageLayer(PloneSandboxLayer):
         xmlconfig.file('configure.zcml', ftw.contentpage,
                        context=configurationContext)
         xmlconfig.file('configure.zcml', simplelayout.base,
-                       context=configurationContext)
-        xmlconfig.file('configure.zcml', simplelayout.types.common,
                        context=configurationContext)
         xmlconfig.file('configure.zcml', ftw.geo,
                        context=configurationContext)
@@ -81,13 +78,11 @@ class FtwContentPageLayer(PloneSandboxLayer):
         # products, using <five:registerPackage /> in ZCML.
         z2.installProduct(app, 'ftw.contentpage')
         z2.installProduct(app, 'simplelayout.base')
-        z2.installProduct(app, 'simplelayout.types.common')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.contentpage:default')
         applyProfile(portal, 'simplelayout.base:default')
-        applyProfile(portal, 'simplelayout.types.common:default')
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
 
