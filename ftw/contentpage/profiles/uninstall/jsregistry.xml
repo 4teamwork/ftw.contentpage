@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry"
+        autogroup="False">
+
+ <javascript
+      remove="True"
+      id="++resource++ftw.contentpage.resources/collapse_archive.js"
+      />
+
+</object>
+

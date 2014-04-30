@@ -20,6 +20,14 @@ Installing
 - Install the generic import profile.
 
 
+Uninstall
+=========
+
+This package provides an uninstall Generic Setup profile, however, it will
+not uninstall the package dependencies.
+Make sure to uninstall the dependencies if you no longer use them.
+
+
 Important upgrade notes
 =======================
 
@@ -111,7 +119,7 @@ Check: https://github.com/4teamwork/ftw.lawgiver
 
 
 Compatibility
--------------
+=============
 
 Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2` or `4.3`.
 
