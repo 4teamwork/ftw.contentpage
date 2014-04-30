@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object>
+    <order manager="simplelayout.base.listing" skinname="*">
+        <viewlet name="ftw.contentpage.contentlisting" remove="True" />
+    </order>
+</object>

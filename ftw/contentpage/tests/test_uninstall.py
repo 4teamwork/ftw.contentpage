@@ -8,4 +8,3 @@ class TestGenericSetupUninstall(TestCase, GenericSetupUninstallMixin):
 
     package = 'ftw.contentpage'
     is_product = True
-    skip_files = ('viewlets.xml',)
