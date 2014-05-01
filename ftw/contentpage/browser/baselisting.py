@@ -71,10 +71,10 @@ class BaseListing(BrowserView):
         """
         return bool(brain.getObject().getImage())
 
-    def get_img(self, brain):
+    def get_img(self, brain, width=100, height=100):
         obj = brain.getObject()
         scale = obj.restrictedTraverse('@@images')
         return scale.scale(
             'image',
-            width=100,
-            height=100).tag(**{'class': 'tileImage'})
+            width=width,
+            height=height).tag(**{'class': 'tileImage'})

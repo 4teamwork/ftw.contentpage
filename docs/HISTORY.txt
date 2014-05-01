@@ -4,6 +4,10 @@ Changelog
 1.6.6 (unreleased)
 ------------------
 
+- Baselisting: Add parameter for width and height to get_img function
+  to make customization easier.
+  [Julian Infanger]
+
 - Implement uninstall profile.
   [deif]
 
