@@ -55,3 +55,27 @@ class EventFolderBuilder(ArchetypesBuilder):
 
 
 builder_registry.register('event folder', EventFolderBuilder)
+
+
+class AddressBlockBuilder(ArchetypesBuilder):
+
+    portal_type = 'AddressBlock'
+
+
+builder_registry.register('address block', AddressBlockBuilder)
+
+
+class ListingBlockBuilder(ArchetypesBuilder):
+
+    portal_type = 'ListingBlock'
+
+
+builder_registry.register('listing block', ListingBlockBuilder)
+
+
+class TextBlockBuilder(ArchetypesBuilder):
+
+    portal_type = 'TextBlock'
+
+
+builder_registry.register('text block', TextBlockBuilder)
