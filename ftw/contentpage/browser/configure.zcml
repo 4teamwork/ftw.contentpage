@@ -84,7 +84,7 @@
 
     <browser:page
         zcml:condition="not-installed seantis.dir.events"
-        for="*"
+        for="ftw.contentpage.interfaces.IEventFolder"
         name="event_listing"
         class=".eventlisting.EventListing"
         permission="zope2.View"

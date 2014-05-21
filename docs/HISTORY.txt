@@ -4,6 +4,10 @@ Changelog
 1.6.6 (unreleased)
 ------------------
 
+- Register event_listing view for IEventFolder only.
+  Prevent conflicts with other packages.
+  [mathias.leimgruber]
+
 - Baselisting: Add parameter for width and height to get_img function
   to make customization easier.
   [Julian Infanger]
