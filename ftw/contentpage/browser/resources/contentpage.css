@@ -28,13 +28,16 @@
     margin-bottom: 0.5em;
     float:left;
 }
-
+.simplelayout-block-wrapper.ListingBlock .gallery .box {
+  overflow:hidden;
+  text-align: center;
+  background-color: #eee;
+  border:1px solid #ddd;
+}
 .simplelayout-block-wrapper.ListingBlock .gallery .box .frame{
     display:table-cell;
     overflow: hidden;
     vertical-align: middle;
-    background-color: #eee;
-    border:1px solid #ddd;
 }
 
 /* @group news listing */

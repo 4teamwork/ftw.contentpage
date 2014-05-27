@@ -1,22 +1,26 @@
 <div class="simplelayout-block-wrapper ListingBlock">
-    <a tal:attributes="name here/id" ></a>
-    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
+  <a tal:attributes="name here/id" ></a>
+  <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
 
-    <div class="sl-text-wrapper">
-      <div class="gallery clearfix">
-        <div class="box" tal:repeat="img python:view.get_images()">
-            <div class="frame sl-img-wrapper" tal:define="width python:str(view._get_box_boundaries()[0])+'px';
-                                           height python:str(view._get_box_boundaries()[1])+'px'"
-                  tal:attributes="style string:width:${width};;height:${height}">
-                <a href="#"
-                   tal:attributes="title img/title_or_id;
-                                   href img/absolute_url">
-                      <img tal:replace="structure img/@@images/image/listingblock_gallery" />
-                </a>
-            </div>
+  <div class="sl-text-wrapper">
+    <div class="gallery clearfix">
+      <tal:boxes repeat="img python:view.get_images()"
+                 define="width python:str(view._get_box_boundaries()[0])+'px';
+                         height python:str(view._get_box_boundaries()[1])+'px'">
+        <div class="box"
+               tal:attributes="style string:width:${width};;height:${height}">
+          <div class="frame sl-img-wrapper"
+               tal:attributes="style string:width:${width};;height:${height}">
+            <a href="#"
+               tal:attributes="title img/title_or_id;
+                               href img/absolute_url">
+              <img tal:replace="structure img/@@images/image/listingblock_gallery" />
+            </a>
+          </div>
         </div>
-      </div>
+      </tal:boxes>
     </div>
+  </div>
 
 </div>
 <div class="visualClear"><!-- --></div>

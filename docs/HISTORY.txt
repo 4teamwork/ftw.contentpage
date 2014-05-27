@@ -4,6 +4,9 @@ Changelog
 1.6.6 (unreleased)
 ------------------
 
+- Fixed styling of listingblock gallery view.
+  [Julian Infanger]
+
 - Register event_listing view for IEventFolder only.
   Prevent conflicts with other packages.
   [mathias.leimgruber]
