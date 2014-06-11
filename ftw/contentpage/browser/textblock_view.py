@@ -17,7 +17,7 @@ class TextBlockView(BrowserView):
         self.image_layout = self.blockconf.image_layout
 
     def get_css_klass(self):
-        if not self.has_image():
+        if 'image' not in self.context.Schema():
             return ''
 
         layout = self.image_layout
