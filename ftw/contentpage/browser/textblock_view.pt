@@ -7,7 +7,8 @@
                      style string:${view/get_block_height}">
      <a tal:attributes="name here/id" ></a>
     <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
-        <div class="sl-img-wrapper" tal:condition="view/has_image"
+    <tal:IMAGE tal:condition="view/has_image">
+        <div class="sl-img-wrapper"
              tal:attributes="style view/image_wrapper_style"
              tal:define="image_desc context/getImageCaption | context/Description">
                     <a  tal:attributes="
@@ -20,7 +21,8 @@
                     </a>
                     <p tal:condition="image_desc"
                        tal:content="context/getImageCaption">Caption</p>
-    </div>
+        </div>
+    </tal:IMAGE>
     <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
 </div>
 <div class="visualClear"><!-- --></div>
