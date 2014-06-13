@@ -4,7 +4,11 @@ Changelog
 1.6.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added icon for faq layout.
+  [Julian Infanger]
+
+- Add missing translations for event_listing.
+  [tschanzt]
 
 
 1.6.7 (2014-06-11)
@@ -90,9 +94,6 @@ Changelog
 
 - Add rss checkbox to news portlet (Shows RSS link on portlet).
   [mathias.leimgruber]
-
-- Add missing translations for event_listing.
-  [tschanzt]
 
 - Replace IOrgUnitMarker interface with IAuthority interface.
   The behaviour, how then interface is applied to the ContentPage also changed.

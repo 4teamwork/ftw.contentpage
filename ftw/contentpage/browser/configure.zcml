@@ -138,4 +138,10 @@
         permission="zope.Public"
         />
 
+    <browser:page
+        for="ftw.contentpage.interfaces.ITextBlock"
+        name="block_view-faq"
+        class=".faq.FAQBlockView"
+        permission="zope2.View" />
+
 </configure>

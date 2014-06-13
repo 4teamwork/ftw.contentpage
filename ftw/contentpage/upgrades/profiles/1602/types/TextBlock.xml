@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="TextBlock"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="ftw.contentpage">
+    <action title="FAQ-View" action_id="sl-dummy-dummy-faq" category="sl-layouts"
+       condition_expr="" icon_expr=""
+       url_expr="string:${here/absolute_url}/block_control"
+       visible="False">
+     <permission value="Modify portal content"/>
+    </action>
+    <action title="Blockview" action_id="sl-dummy-dummy-block_view" category="sl-layouts"
+       condition_expr="" icon_expr=""
+       url_expr="string:${here/absolute_url}/block_control"
+       visible="False">
+     <permission value="Modify portal content"/>
+    </action>
+</object>

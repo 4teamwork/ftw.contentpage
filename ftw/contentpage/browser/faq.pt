@@ -1,0 +1,29 @@
+<div
+    tal:define="slclass view/get_css_klass;
+                text here/getBlockText|here/getText|nothing;
+                title here/Title | here/pretty_title_or_id;"
+    tal:attributes="class string: FAQWrapper simplelayout-block-wrapper ${slclass}; id string:uid_${context/UID}">
+  <div class="faqtitle">
+    <a class="itemTitle imgright" href="#">
+      <tal:title tal:content="title">Title</tal:title>
+    </a>
+  </div>
+  <div class="faqcontent folded" style="display:none;">
+        <div class="sl-img-wrapper" tal:condition="view/has_image"
+             tal:attributes="style view/image_wrapper_style"
+             tal:define="image_desc context/getImageCaption | context/Description">
+                    <a  tal:attributes="
+                                        title image_desc;
+                                        href string:${context/absolute_url}/image
+                                        "
+                                        tal:omit-tag="not: here/getImageClickable|nothing"
+                    >
+                       <img tal:replace="structure view/get_image_tag" />
+                    </a>
+                    <p tal:condition="image_desc"
+                       tal:content="context/getImageCaption">Caption</p>
+        </div>
+         <div tal:condition="context/getText" class="sl-text-wrapper" tal:content="structure text"></div>
+    </div>
+</div>
+<div class="visualClear"><!-- --></div>

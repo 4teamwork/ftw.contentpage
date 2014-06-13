@@ -348,4 +348,12 @@
         directory="profiles/1601"
         />
 
+    <upgrade-step:importProfile
+        title="add faqaction  and update block action"
+        profile="ftw.contentpage:default"
+        source="1601"
+        destination="1602"
+        directory="profiles/1602"
+        />
+
 </configure>
