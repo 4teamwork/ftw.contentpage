@@ -1,14 +1,42 @@
-from Products.Five.browser import BrowserView
+from DateTime import DateTime
+from ftw.builder import Builder
+from ftw.builder import create
+from ftw.contentpage.browser.eventlisting import EventListing
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from ftw.testing import MockTestCase
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
+from Products.Five.browser import BrowserView
 from pyquery import PyQuery
+from unittest2 import TestCase
 from zope.component import queryMultiAdapter
 from zope.viewlet.interfaces import IViewletManager
 import os
 import transaction
+
+
+class TestEventListingIntegration(TestCase):
+
+    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+
+    def test_pending_events_are_still_visible(self):
+        folder = create(Builder('event folder'))
+        event = create(Builder('event page').within(folder).having(
+            startDate=DateTime()-1,
+            endDate=DateTime()+1)
+        )
+
+        view = EventListing(folder, self.request)
+
+        self.assertEqual(
+            [event],
+            [brain.getObject() for brain in view.get_items()])
 
 
 class TestEventListing(MockTestCase):
