@@ -36,7 +36,7 @@ class EventListing(BaseListing):
         query = {'path': '/'.join(self.context.getPhysicalPath()),
                  'portal_type': 'EventPage',
                  'sort_on': 'start',
-                 'start': {'query': DateTime(), 'range': 'min'}
+                 'end': {'query': DateTime(), 'range': 'min'}
                  }
         return self.search_results(query, 'start')
 

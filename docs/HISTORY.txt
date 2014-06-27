@@ -4,7 +4,9 @@ Changelog
 1.6.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix eventlisting. Shows events based on the end date
+  instead the start date
+  [elioschmutz]
 
 
 1.6.8 (2014-06-13)
