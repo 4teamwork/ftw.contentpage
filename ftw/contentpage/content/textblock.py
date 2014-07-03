@@ -39,6 +39,7 @@ default_schema = atapi.Schema((
         widget=atapi.RichWidget(
             label=_(u'label_text',
                     default=u'Text'),
+                    allow_file_upload=False,
                     rows=25)),
 
 ))
