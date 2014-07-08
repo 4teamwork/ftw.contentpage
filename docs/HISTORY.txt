@@ -4,6 +4,9 @@ Changelog
 1.6.9 (unreleased)
 ------------------
 
+- Don't allow file upload on text field.
+  [tschanzt]
+
 - Fix eventlisting. Shows events based on the end date
   instead the start date
   [elioschmutz]
