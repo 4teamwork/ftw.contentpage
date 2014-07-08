@@ -53,7 +53,7 @@ setup(name='ftw.contentpage',
           'ftw.upgrade',
           'plone.formwidget.contenttree',
           'setuptools',
-          'simplelayout.base',
+          'simplelayout.base>=4.0.2',
           'simplelayout.portlet.dropzone',
           ],
 

@@ -18,6 +18,9 @@ Changelog
 - Added icon for faq layout.
   [Julian Infanger]
 
+- Add new Layout to make a Textblock an FAQ-Block.
+  [tschanzt]
+
 - Add missing translations for event_listing.
   [tschanzt]
 

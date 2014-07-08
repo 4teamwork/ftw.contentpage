@@ -71,7 +71,3 @@ class ISummaryListingEnabled(Interface):
 
 class IFtwContentPageLayer(Interface):
     """Request marker for ftw.contentpage"""
-
-
-class IFAQ(Interface):
-    """Marker interface for the FAQ functionality"""
