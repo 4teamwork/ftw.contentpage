@@ -4,6 +4,9 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
+- Removed nonsense condition in event listing.
+  [Julian Infanger]
+
 - Added css classes to eventlisting table.
   [Julian Infanger]
 
