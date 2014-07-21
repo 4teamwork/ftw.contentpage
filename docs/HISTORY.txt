@@ -4,7 +4,7 @@ Changelog
 1.7.2 (unreleased)
 ------------------
 
-- Show description in listingblock colorbox.
+- Show title and description in listingblock colorbox.
   [Julian Infanger]
 
 
