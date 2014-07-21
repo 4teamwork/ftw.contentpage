@@ -4,7 +4,8 @@ Changelog
 1.7.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Show description in listingblock colorbox.
+  [Julian Infanger]
 
 
 1.7.1 (2014-07-16)

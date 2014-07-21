@@ -12,7 +12,7 @@
           <div class="frame sl-img-wrapper"
                tal:attributes="style string:width:${width};;height:${height}">
             <a href="#"
-               tal:attributes="title img/title_or_id;
+               tal:attributes="title img/Description;
                                href img/absolute_url">
               <img tal:replace="structure img/@@images/image/listingblock_gallery" />
             </a>
