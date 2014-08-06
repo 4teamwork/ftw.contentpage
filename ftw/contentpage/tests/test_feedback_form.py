@@ -108,7 +108,7 @@ class TestFeedbackForm(MockTestCase):
         self._auth()
         self.browser.open(self.form)
         self.browser.getControl(
-            name="form.widgets.sender").value = 'Hans, Peter'
+            name="form.widgets.sender").value = 'Hans: Peter'
         self.browser.getControl(
             name="form.widgets.email").value = FORM_DATA['email']
         self.browser.getControl(
@@ -123,9 +123,28 @@ class TestFeedbackForm(MockTestCase):
 
         args, kwargs = self.mails.pop()
         self.assertIn(
-            'Reply-To: =?utf-8?q?Hans=2C_Peter?= <z.beeblebrox@endofworld.com>',
+            'Reply-To: =?utf-8?q?Hans=3A_Peter?= <z.beeblebrox@endofworld.com>',
             args[0].__str__())
-        
+
+    def test_comma_in_sender_name_will_be_replaced(self):
+        self._auth()
+        self.browser.open(self.form)
+        self.browser.getControl(
+            name="form.widgets.sender").value = 'Zaph\xc3\xb6d,Beeblebrox'
+        self.browser.getControl(
+            name="form.widgets.email").value = FORM_DATA['email']
+        self.browser.getControl(
+            name="form.widgets.subject").value = FORM_DATA['subject']
+        self.browser.getControl(
+            name="form.widgets.message").value = FORM_DATA['message']
+
+        self.browser.getControl('Send Mail').click()
+
+        args, kwargs = self.mails.pop()
+        self.assertIn(
+            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?= <z.beeblebrox@endofworld.com>',
+            args[0].__str__())
+
     def tearDown(self):
         super(TestFeedbackForm, self).tearDown()
         portal = self.layer['portal']
