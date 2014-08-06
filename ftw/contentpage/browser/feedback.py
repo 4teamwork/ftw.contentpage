@@ -48,7 +48,7 @@ class FeedbackForm(form.Form):
         message = data.get('message')
         email = data.get('email')
         subject = data.get('subject')
-        sender = data.get('sender')
+        sender = data.get('sender').replace(',', ' ')
         self.send_feedback(email, subject, message, sender)
         msg = _(u'info_email_sent', default=u'The email was sent.')
         IStatusMessage(self.request).addStatusMessage(msg, type='info')
