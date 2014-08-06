@@ -4,6 +4,9 @@ Changelog
 1.7.3 (unreleased)
 ------------------
 
+- Addressblock: Return an empty string if defaulttitle is none.
+  [Julian Infanger]
+
 - Feedback form: Replace comma in sender name.
   To avoid conflicts with reply-to address.
   [Julian Infanger]

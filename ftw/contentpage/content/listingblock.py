@@ -98,7 +98,8 @@ class ListingBlock(folder.ATFolder):
     security.declarePrivate('getDefaultTitle')
     def getDefaultTitle(self):
         registry = getUtility(IRegistry)
-        return registry.get('ftw.contentpage.listingblock.defaulttitle', '')
+        return registry.get(
+            'ftw.contentpage.listingblock.defaulttitle', None) or ''
 
     security.declarePrivate('getDefaultTableColumns')
     def getDefaultTableColumns(self):
