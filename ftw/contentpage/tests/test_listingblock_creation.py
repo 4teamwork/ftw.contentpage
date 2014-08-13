@@ -58,7 +58,7 @@ class TestListingBlockCreation(TestCase):
     def test_default_title(self):
         listingblock = self._create_listingblock()
         # Default is empty
-        self.assertEquals(None, listingblock.Title())
+        self.assertEquals('', listingblock.Title())
 
     def test_can_set_default_page(self):
         listingblock = self._create_listingblock()
