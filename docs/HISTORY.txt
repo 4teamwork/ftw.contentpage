@@ -4,6 +4,9 @@ Changelog
 1.7.3 (unreleased)
 ------------------
 
+- Use ftw.profilehook instead of custom import steps (setuphandlers).
+  [jone]
+
 - Addressblock: Return an empty string if defaulttitle is none.
   [Julian Infanger]
 

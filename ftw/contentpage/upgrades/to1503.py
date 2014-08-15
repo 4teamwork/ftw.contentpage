@@ -1,5 +1,5 @@
 from ftw.upgrade import UpgradeStep
-from ftw.contentpage.setuphandler import set_calendar_types
+from ftw.contentpage.hooks import set_calendar_types
 
 
 class SetCalendarTypes(UpgradeStep):

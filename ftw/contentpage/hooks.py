@@ -13,6 +13,20 @@ import logging
 LOGGER = logging.getLogger('ftw.contentpage')
 
 
+def installed(site):
+    add_catalog_indexes(site)
+    add_georef_settings(site)
+    set_dropzone_as_type_portlet(site)
+    set_calendar_types(site)
+
+
+def uninstalled(site):
+    remove_catalog_indexes(site)
+    remove_georef_settings(site)
+    remove_dropzone_as_type_portlet(site)
+    remove_calendar_types(site)
+
+
 def add_catalog_indexes(context):
     """Method to add our wanted indexes to the portal_catalog.
 
@@ -113,26 +127,3 @@ def remove_calendar_types(context):
     if 'EventPage' in types:
         types.remove('EventPage')
     portal_calendar.calendar_types = tuple(types)
-
-
-def import_various(context):
-    """Import step for configuration that is not handled in xml files.
-    """
-    # Only run step if a flag file is present
-    action = context.readDataFile('ftw.contentpage.setuphandlers.txt')
-    if action is None:
-        return
-
-    action = action.strip()
-    site = context.getSite()
-
-    if action == 'install':
-        add_catalog_indexes(site)
-        add_georef_settings(site)
-        set_dropzone_as_type_portlet(site)
-        set_calendar_types(site)
-    elif action == 'uninstall':
-        remove_catalog_indexes(site)
-        remove_georef_settings(site)
-        remove_dropzone_as_type_portlet(site)
-        remove_calendar_types(site)

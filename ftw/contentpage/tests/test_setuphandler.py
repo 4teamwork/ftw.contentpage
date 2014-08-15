@@ -20,10 +20,9 @@ class TestAddressGeoConfigHandler(TestCase):
 
     def test_setuphandler_called_again(self):
         setup = getToolByName(self.portal, 'portal_setup')
-        setup.runImportStepFromProfile(
+        setup.runAllImportStepsFromProfile(
             'profile-ftw.contentpage:default',
-            'ftw.contentpage.custom',
-            run_dependencies=False,
+            ignore_dependencies=True,
             purge_old=False)
 
         # Check geo settings
