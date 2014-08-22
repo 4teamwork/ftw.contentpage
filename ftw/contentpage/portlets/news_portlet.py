@@ -267,6 +267,9 @@ class Renderer(base.Renderer):
     def show_rss_link(self):
         return getattr(self.data, 'rss_link', False)
 
+    def portlet_name(self):
+        return self.__portlet_metadata__['name']
+
 
 class EditForm(form.EditForm):
     implements(IPortletEditForm)

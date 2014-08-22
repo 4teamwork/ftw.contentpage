@@ -1,9 +1,15 @@
-from ftw.contentpage.browser.baselisting import BaseListing
-from ftw.contentpage.interfaces import INewsListingView
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
 from ftw.contentpage import _
+from ftw.contentpage.browser.baselisting import BaseListing
+from ftw.contentpage.interfaces import INewsListingView
+from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.interfaces import IPortletRenderer
+from plone.portlets.interfaces import IPortletManager
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.component import queryMultiAdapter
+from zope.interface import implements
 
 
 class NewsListing(BaseListing):
@@ -51,3 +57,33 @@ class NewsListing(BaseListing):
         return _(u'label_feed_desc',
                  default=u'${title} - News Feed',
                  mapping={'title': self.context.Title().decode('utf-8')})
+
+
+class NewsPortletListing(NewsListing):
+
+    def get_portlet(self):
+        name = self.request.form.get('portlet', None)
+        if not name:
+            return
+
+        manager = getUtility(
+            IPortletManager,
+            name=u'plone.leftcolumn',
+            context=self.context)
+        assignments = getMultiAdapter(
+            (self.context, manager),
+            IPortletAssignmentMapping,
+            context=self.context)
+
+        if name in assignments:
+            return queryMultiAdapter(
+                (self.context, self.request, self, manager, assignments[name]),
+                IPortletRenderer)
+        return
+
+    def get_items(self):
+        portlet = self.get_portlet()
+        if portlet:
+            return portlet.get_news(all_news=True)
+
+        return []
