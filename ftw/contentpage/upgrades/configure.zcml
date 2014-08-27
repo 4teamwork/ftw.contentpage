@@ -356,4 +356,14 @@
         directory="profiles/1602"
         />
 
+    <!-- 1602 -> 1603 -->
+    <genericsetup:upgradeStep
+        title="Convert addressblock opening hours and directions to html"
+        description=""
+        source="1602"
+        destination="1603"
+        handler="ftw.contentpage.upgrades.to1601.ConvertAddressblockToHTML"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>

@@ -18,16 +18,6 @@ class AddressBlockView(BrowserView):
             html.append(self.context.getExtraAddressLine())
         return '<br />'.join(html)
 
-    def get_opening_hours_as_html(self):
-        """returns the opening hours as html
-        """
-        return self.context.getOpeningHours().replace('\n', '<br />')
-
-    def get_directions_as_html(self):
-        """returns the opening hours as html
-        """
-        return str(self.context.getDirections()).replace('\n', '<br />')
-
     def address(self):
         return self.address_ptl()
 

@@ -6,8 +6,6 @@ from simplelayout.base.interfaces import ISimpleLayoutCapable
 from ftw.contentpage.interfaces import IFtwContentPageLayer
 from mocker import ANY
 
-OPENING_HOURS = DIRECTTIONS = "Line1\nLine2\nLine3"
-
 
 class TestAddressBlockView(MockTestCase):
 
@@ -19,8 +17,6 @@ class TestAddressBlockView(MockTestCase):
         self.request = self.stub_request(IFtwContentPageLayer)
         self.context = self.providing_stub(IAddressBlock)
         self.expect(self.context.getAddress()).result("Address line")
-        self.expect(self.context.getOpeningHours()).result(OPENING_HOURS)
-        self.expect(self.context.getDirections()).result(DIRECTTIONS)
         self.expect(self.context.getExtraAddressLine()).result(
             "Additional line")
 
@@ -48,20 +44,6 @@ class TestAddressBlockView(MockTestCase):
                                name="block_view")
         self.assertEquals(view.get_address_as_html(),
                           "Address line<br />Additional line")
-
-    def test_get_opening_hours_as_html(self):
-        self.replay()
-        view = getMultiAdapter((self.context, self.request),
-                               name="block_view")
-        self.assertEquals(view.get_opening_hours_as_html(),
-                          "Line1<br />Line2<br />Line3")
-
-    def test_get_directions_as_html(self):
-        self.replay()
-        view = getMultiAdapter((self.context, self.request),
-                               name="block_view")
-        self.assertEquals(view.get_directions_as_html(),
-                          "Line1<br />Line2<br />Line3")
 
     def test_has_team(self):
         parent = self.providing_stub(ISimpleLayoutCapable)

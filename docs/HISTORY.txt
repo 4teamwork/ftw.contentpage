@@ -4,6 +4,9 @@ Changelog
 1.7.3 (unreleased)
 ------------------
 
+- Addressblock: Activate WYSIWYG-Editor on directions and opening hours.
+  [lknoepfel]
+
 - Use ftw.profilehook instead of custom import steps (setuphandlers).
   [jone]
 

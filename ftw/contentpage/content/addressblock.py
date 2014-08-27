@@ -21,6 +21,7 @@ if HAS_LINGUA_PLONE:
 else:
     from Products.Archetypes import atapi
 
+
 schema = atapi.Schema((
     atapi.BooleanField(
         'showTitle',
@@ -128,25 +129,34 @@ schema = atapi.Schema((
     atapi.TextField(
         name='openingHours',
         schemata='default',
-        default_output_type='text/html',
-        allowable_content_types=('text/plain',),
-        widget=atapi.TextAreaWidget(
+        default_input_type='text/html',
+        default_output_type='text/x-html-safe',
+        allowable_content_types=('text/html', ),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        widget=atapi.RichWidget(
             label=_(u'label_openingHours',
                     default=u'Opening Hours'),
             description=_(u'help_openingHours',
-                          default=u''))),
+                          default=u''),
+            allow_file_upload=False,
+            rows=10)),
 
     atapi.TextField(
         name='directions',
         schemata='default',
-        default_output_type='text/html',
-        allowable_content_types=('text/plain',),
-        widget=atapi.TextAreaWidget(
+        allowable_content_types=('text/html', ),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_input_type='text/html',
+        default_output_type='text/x-html-safe',
+        widget=atapi.RichWidget(
             label=_(u'label_directions',
                     default=u'Directions'),
             description=_(u'help_directions',
-                          default=u''))),
-
+                          default=u''),
+            allow_file_upload=False,
+            rows=10)),
 ))
 
 
@@ -154,6 +164,11 @@ addressblock_schema = ATContentTypeSchema.copy() + schema.copy()
 
 addressblock_schema['title'].required = False
 addressblock_schema['title'].default_method = 'getDefaultTitle'
+
+allowed_buttons = ('bold', 'link', 'unlink', 'anchor')
+
+addressblock_schema['directions'].widget.allow_buttons = allowed_buttons
+addressblock_schema['openingHours'].widget.allow_buttons = allowed_buttons
 
 # Finalize schema
 finalize(addressblock_schema, hide=['description'])
