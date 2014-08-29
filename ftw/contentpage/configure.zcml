@@ -4,12 +4,15 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:profilehook="http://namespaces.zope.org/profilehook"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="ftw.contentpage">
 
     <!-- include package dependencies -->
     <include package="z3c.autoinclude" file="meta.zcml" />
     <includeDependencies package="." />
+
+    <include package="ftw.profilehook" />
 
     <five:registerPackage package="." initialize=".initialize" />
 
@@ -39,6 +42,11 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <profilehook:hook
+        profile="ftw.contentpage:default"
+        handler=".hooks.installed"
+        />
+
     <genericsetup:registerProfile
         name="uninstall"
         title="Uninstall ftw.contentpage"
@@ -48,14 +56,10 @@
         for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         />
 
-    <!-- Register the import step -->
-    <genericsetup:importStep
-          name="ftw.contentpage.custom"
-          title="ftw.contentpage custom import handlers"
-          description="Custom import steps for ftw.contentpage"
-          handler="ftw.contentpage.setuphandler.import_various">
-        <depends name="types" />
-    </genericsetup:importStep>
+    <profilehook:hook
+        profile="ftw.contentpage:uninstall"
+        handler=".hooks.uninstalled"
+        />
 
     <!-- indexer -->
     <adapter name="getContentCategories" factory=".indexer.categories" />
