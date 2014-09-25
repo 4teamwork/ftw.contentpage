@@ -36,11 +36,11 @@
 
   <tal:openingHours tal:condition="context/getShowOpeningHours">
     <h2 i18n:translate="label_openingHours">Opening Hours</h2>
-    <p tal:content="structure view/get_opening_hours_as_html"></p>
+    <p tal:content="structure context/getOpeningHours"></p>
   </tal:openingHours>
 
   <tal:block tal:condition="context/getDirections">
       <h2 i18n:translate="label_directions">Directions</h2>
-      <p tal:content="structure view/get_directions_as_html"></p>
+      <p tal:content="structure context/getDirections"></p>
   </tal:block>
 </tal:block>
