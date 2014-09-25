@@ -24,19 +24,31 @@ class TestEventListingIntegration(TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
+        self.folder = create(Builder('event folder'))
 
     def test_pending_events_are_still_visible(self):
-        folder = create(Builder('event folder'))
-        event = create(Builder('event page').within(folder).having(
+        event = create(Builder('event page').within(self.folder).having(
             startDate=DateTime()-1,
             endDate=DateTime()+1)
         )
 
-        view = EventListing(folder, self.request)
+        view = EventListing(self.folder, self.request)
 
         self.assertEqual(
             [event],
             [brain.getObject() for brain in view.get_items()])
+
+    def test_month_year_filter_on_eventlisting(self):
+        event = create(Builder('event page').within(self.folder).having(
+            startDate=DateTime('2014/02/02'),
+            endDate=DateTime('2014/02/06'))
+        )
+        view = EventListing(self.folder, self.request)
+
+        self.assertEquals(0, len(view.get_items()))
+        self.request.set('archive', '2014/02/01')
+
+        self.assertEquals(1, len(view.get_items()))
 
 
 class TestEventListing(MockTestCase):

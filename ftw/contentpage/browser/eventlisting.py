@@ -36,8 +36,10 @@ class EventListing(BaseListing):
         query = {'path': '/'.join(self.context.getPhysicalPath()),
                  'portal_type': 'EventPage',
                  'sort_on': 'start',
-                 'end': {'query': DateTime(), 'range': 'min'}
                  }
+
+        if not self.request.get('archive'):
+            query['end'] = {'query': DateTime(), 'range': 'min'}
         return self.search_results(query, 'start')
 
     def get_date(self, brain):

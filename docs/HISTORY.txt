@@ -4,6 +4,10 @@ Changelog
 1.7.3 (unreleased)
 ------------------
 
+
+- Fix month filter for eventslisting.
+  [mathias.leimgruber]
+
 - Addressblock: Activate WYSIWYG-Editor on directions and opening hours.
   [lknoepfel]
 
