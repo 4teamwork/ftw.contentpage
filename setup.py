@@ -6,6 +6,7 @@ version = '1.7.3.dev0'
 mainainter = 'Mathias Leimgruber'
 
 tests_require = ['ftw.testing [splinter]',
+                 'ftw.testbrowser',
                  'ftw.builder',
                  'plone.app.testing',
                  'plone.mocktestcase',

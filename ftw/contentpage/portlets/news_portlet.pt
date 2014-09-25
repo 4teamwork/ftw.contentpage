@@ -48,7 +48,7 @@
     <dd class="portletFooter">
         <tal:morelink condition="view/show_more_news_link">
             <a class="NewsMoreLink" title="More News"
-               tal:attributes="href string:${here/absolute_url}/@@news_portlet_listing?portlet=${view/portlet_name}"
+               tal:attributes="href view/more_news_url"
                i18n:attributes="title more_news_link"
                i18n:translate="more_news_link">More News</a>
         </tal:morelink>

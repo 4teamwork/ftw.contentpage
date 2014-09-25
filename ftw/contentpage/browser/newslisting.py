@@ -62,13 +62,14 @@ class NewsListing(BaseListing):
 class NewsPortletListing(NewsListing):
 
     def get_portlet(self):
+        manager_name = self.request.form.get('manager', None)
         name = self.request.form.get('portlet', None)
-        if not name:
+        if not manager_name or not name:
             return
 
         manager = getUtility(
             IPortletManager,
-            name=u'plone.leftcolumn',
+            name=manager_name,
             context=self.context)
         assignments = getMultiAdapter(
             (self.context, manager),
@@ -77,7 +78,8 @@ class NewsPortletListing(NewsListing):
 
         if name in assignments:
             return queryMultiAdapter(
-                (self.context, self.request, self, manager, assignments[name]),
+                (self.context, self.request, self,
+                 manager, assignments[name]),
                 IPortletRenderer)
         return
 
