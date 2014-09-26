@@ -267,6 +267,14 @@ class Renderer(base.Renderer):
     def show_rss_link(self):
         return getattr(self.data, 'rss_link', False)
 
+    def more_news_url(self):
+        params = 'portlet={0}&manager={1}'.format(
+            self.data.__name__,
+            self.manager.__name__)
+
+        return '/'.join((self.context.absolute_url(),
+                         '@@news_portlet_listing?{0}'.format(params)))
+
 
 class EditForm(form.EditForm):
     implements(IPortletEditForm)

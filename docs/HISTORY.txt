@@ -4,6 +4,8 @@ Changelog
 1.7.3 (unreleased)
 ------------------
 
+- Added special newslisting view to consider the portlets config.
+  [Julian Infanger, jone]
 
 - Fix month filter for eventslisting.
   [mathias.leimgruber]
