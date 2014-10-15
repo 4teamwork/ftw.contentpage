@@ -366,4 +366,13 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1603 -> 1604 -->
+    <upgrade-step:importProfile
+        title="Add defaultfileviewname for listing block file link generation"
+        profile="ftw.contentpage:default"
+        source="1603"
+        destination="1604"
+        directory="profiles/1604"
+        />
+
 </configure>

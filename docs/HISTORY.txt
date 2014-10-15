@@ -4,7 +4,8 @@ Changelog
 1.8.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- The generated link of a file in the listing block is configurable.
+  [mbaechtold]
 
 
 1.8.0 (2014-09-26)

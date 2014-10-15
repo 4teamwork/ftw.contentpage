@@ -148,7 +148,6 @@ class TestListingBlockViews(TestCase):
         listingblock.setTableColumns(['Dummy'])
         view = queryMultiAdapter((listingblock, listingblock.REQUEST),
                                  name="block_view")
-        listingblock
         columns = view._filtered_columns()
         self.assertEquals(
             ['getContentType', 'Title', 'modified', 'Creator',

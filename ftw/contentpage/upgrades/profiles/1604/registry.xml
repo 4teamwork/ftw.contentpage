@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry>
+
+    <record name="ftw.contentpage.listingblock.defaultfileviewname">
+        <field type="plone.registry.field.TextLine">
+            <title>Default file view name</title>
+            <required>False</required>
+        </field>
+        <value>download</value>
+    </record>
+
+</registry>
