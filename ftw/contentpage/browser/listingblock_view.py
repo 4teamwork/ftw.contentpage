@@ -3,8 +3,9 @@ from Products.Five.browser import BrowserView
 from ftw.contentpage import _
 from ftw.table import helper
 from ftw.table.interfaces import ITableGenerator
+from plone.registry.interfaces import IRegistry
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
-from zope.component import queryUtility
+from zope.component import queryUtility, getUtility
 import pkg_resources
 
 
@@ -16,15 +17,24 @@ else:
     HAS_FILE = True
 
 
-def download_link(icon=True, classes=None, attrs=None, icon_only=False):
+def file_link(icon=True, icon_only=False):
 
     def _helper(item, value):
-        url = '%s/download' % item.getURL()
+        registry = getUtility(IRegistry)
+        default_view_name = registry.get('ftw.contentpage.listingblock.defaultfileviewname', '')
+
+        # Build the url without a trailing slash.
+        url_fragments = [item.getURL()]
+        if default_view_name:
+            url_fragments.append(default_view_name)
+        url = '/'.join(url_fragments)
+
         attrs = {}
         attrs['href'] = url
         attrs['title'] = item.Description
-        return helper.linked(item, value, show_icon=icon,
-                           attrs=attrs, icon_only=icon_only)
+
+        return helper.linked(item, value, show_icon=icon, attrs=attrs,
+                             icon_only=icon_only)
     return _helper
 
 
@@ -41,12 +51,12 @@ class ListingBlockView(BrowserView):
             {'column': 'getContentType',
              'column_title': _(u'column_type', default=u'Type'),
              'sort_index': 'getContentType',
-             'transform': download_link(icon=True, icon_only=True)},
+             'transform': file_link(icon=True, icon_only=True)},
 
             {'column': 'Title',
              'column_title': _(u'column_title', default=u'Title'),
              'sort_index': 'sortable_title',
-             'transform': download_link(icon=False)},
+             'transform': file_link(icon=False)},
 
             {'column': 'modified',
              'column_title': _(u'column_modified', default=u'modified'),
