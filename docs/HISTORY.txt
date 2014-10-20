@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8.1 (unreleased)
+1.8.1 (2014-10-20)
 ------------------
 
 - The generated link of a file in the listing block is configurable.
