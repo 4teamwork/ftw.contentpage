@@ -194,7 +194,12 @@ class Assignment(base.Assignment):
 
     @property
     def title(self):
-        return u'News Portlet'
+        """This property is used to display the title of the portlet in the
+        "manage portlets" screen. The user defined title of the portlet
+        instance is appended to the default title which is useful if there
+        is more than one news portlet.
+        """
+        return u'News Portlet ({0})'.format(self.portlet_title)
 
 
 class Renderer(base.Renderer):
