@@ -4,7 +4,9 @@ Changelog
 1.8.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Display the user defined title of the news portlet instance in the
+  "manage portlets" screen.
+  [mbaechtold]
 
 
 1.8.1 (2014-10-20)
