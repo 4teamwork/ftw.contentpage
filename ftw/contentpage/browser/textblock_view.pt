@@ -1,4 +1,4 @@
-<div class="#" id="#" i18n:domain="simplelayout"
+<div class="#" i18n:domain="simplelayout"
      tal:define="slclass view/get_css_klass;
                  text here/getBlockText|here/getText|nothing;
                  title here/Title | here/pretty_title_or_id;
