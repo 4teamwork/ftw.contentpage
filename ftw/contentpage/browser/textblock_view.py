@@ -34,8 +34,10 @@ class TextBlockView(BrowserView):
         title = unicode(self.context.getImageCaption(),
                         self.context.getCharset())
 
-        if not title:
+        if not title and alt:
             title = alt
+        elif not alt and title:
+            alt = title
 
         image_util = getUtility(
             IScaleImage,
@@ -50,10 +52,20 @@ class TextBlockView(BrowserView):
             # <img> HTML tag.
             return ''
 
-        return scales.scale(
-            'image',
-            width=img_attrs['width'],
-            height=img_attrs['height']).tag(title=title, alt=alt)
+        scale = scales.scale('image',
+                             width=img_attrs['width'],
+                             height=img_attrs['height'])
+
+        if title == alt:
+            more = 'alt="{0}"'.format(alt)
+        else:
+            more = 'alt="{0}" title="{1}"'.format(alt, title)
+
+        return ('<img src="{src}" width="{width}", height="{height}"'
+                ' {more} />').format(**dict(src=scale.url,
+                                            width=scale.width,
+                                            height=scale.height,
+                                            more=more))
 
     def image_wrapper_style(self):
         """ sets width of the div wrapping the image, so the
