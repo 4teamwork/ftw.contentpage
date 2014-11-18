@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-27 14:18+0000\n"
+"POT-Creation-Date: 2014-11-18 15:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,7 +84,7 @@ msgid "ICS-Export"
 msgstr ""
 
 #. Default: "ID"
-#: ./ftw/contentpage/browser/listingblock_view.py:72
+#: ./ftw/contentpage/browser/listingblock_view.py:82
 msgid "ID"
 msgstr ""
 
@@ -159,32 +159,32 @@ msgid "button_cancel"
 msgstr "Annuler"
 
 #. Default: "creater"
-#: ./ftw/contentpage/browser/listingblock_view.py:58
+#: ./ftw/contentpage/browser/listingblock_view.py:68
 msgid "column_creater"
 msgstr "Créateur"
 
 #. Default: "Document date"
-#: ./ftw/contentpage/browser/listingblock_view.py:80
+#: ./ftw/contentpage/browser/listingblock_view.py:90
 msgid "column_documen_date"
 msgstr "Date du document"
 
 #. Default: "modified"
-#: ./ftw/contentpage/browser/listingblock_view.py:52
+#: ./ftw/contentpage/browser/listingblock_view.py:62
 msgid "column_modified"
 msgstr "modifié"
 
 #. Default: "size"
-#: ./ftw/contentpage/browser/listingblock_view.py:63
+#: ./ftw/contentpage/browser/listingblock_view.py:73
 msgid "column_size"
 msgstr "dimension"
 
 #. Default: "Title"
-#: ./ftw/contentpage/browser/listingblock_view.py:47
+#: ./ftw/contentpage/browser/listingblock_view.py:57
 msgid "column_title"
 msgstr "Titre"
 
 #. Default: "Type"
-#: ./ftw/contentpage/browser/listingblock_view.py:42
+#: ./ftw/contentpage/browser/listingblock_view.py:52
 msgid "column_type"
 msgstr ""
 
@@ -209,12 +209,12 @@ msgid "description_days"
 msgstr "Afficher nouvelles de Las x jours"
 
 #. Default: "Enter an alternative text for the image"
-#: ./ftw/contentpage/content/textblock.py:82
+#: ./ftw/contentpage/content/textblock.py:83
 msgid "description_image_alt_text"
 msgstr "Saisissez un texte alternatif pour l'image"
 
 #. Default: "Opens image in an overlay"
-#: ./ftw/contentpage/content/textblock.py:63
+#: ./ftw/contentpage/content/textblock.py:64
 msgid "description_image_clickable"
 msgstr "Ouvre l'image dans un overlay"
 
@@ -223,7 +223,7 @@ msgstr "Ouvre l'image dans un overlay"
 msgid "help_categories"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:147
+#: ./ftw/contentpage/content/addressblock.py:156
 msgid "help_directions"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr ""
 msgid "help_event_location"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:99
+#: ./ftw/contentpage/content/addressblock.py:100
 msgid "help_fax"
 msgstr ""
 
@@ -248,15 +248,15 @@ msgstr ""
 msgid "help_only_context"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:136
+#: ./ftw/contentpage/content/addressblock.py:140
 msgid "help_openingHours"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:90
+#: ./ftw/contentpage/content/addressblock.py:91
 msgid "help_phone"
 msgstr ""
 
-#: ./ftw/contentpage/content/addressblock.py:125
+#: ./ftw/contentpage/content/addressblock.py:126
 msgid "help_showOpeningHours"
 msgstr ""
 
@@ -279,7 +279,7 @@ msgid "help_whole_day"
 msgstr ""
 
 #. Default: "Please enter a website URL (include http://, https://, etc)"
-#: ./ftw/contentpage/content/addressblock.py:115
+#: ./ftw/contentpage/content/addressblock.py:116
 msgid "help_www"
 msgstr ""
 
@@ -289,17 +289,17 @@ msgid "info_email_sent"
 msgstr "Le courriel a été envoyé."
 
 #. Default: "sort_index"
-#: ./ftw/contentpage/content/listingblock.py:126
+#: ./ftw/contentpage/content/listingblock.py:127
 msgid "label_%ssort_index"
 msgstr ""
 
 #. Default: "Address"
-#: ./ftw/contentpage/content/addressblock.py:52
+#: ./ftw/contentpage/content/addressblock.py:53
 msgid "label_address"
 msgstr "Adresse"
 
 #. Default: "Address Title"
-#: ./ftw/contentpage/content/addressblock.py:38
+#: ./ftw/contentpage/content/addressblock.py:39
 msgid "label_addressTitle"
 msgstr "Titre d'adress"
 
@@ -324,12 +324,12 @@ msgid "label_categories"
 msgstr "Catégories"
 
 #. Default: "City"
-#: ./ftw/contentpage/content/addressblock.py:73
+#: ./ftw/contentpage/content/addressblock.py:74
 msgid "label_city"
 msgstr "Ville"
 
 #. Default: "Country"
-#: ./ftw/contentpage/content/addressblock.py:81
+#: ./ftw/contentpage/content/addressblock.py:82
 msgid "label_country"
 msgstr "Pays"
 
@@ -339,7 +339,7 @@ msgid "label_days"
 msgstr "jours"
 
 #. Default: "Department"
-#: ./ftw/contentpage/content/addressblock.py:45
+#: ./ftw/contentpage/content/addressblock.py:46
 msgid "label_department"
 msgstr "Département"
 
@@ -354,7 +354,7 @@ msgstr "Descendant"
 
 #. Default: "Directions"
 #: ./ftw/contentpage/browser/address.pt:43
-#: ./ftw/contentpage/content/addressblock.py:145
+#: ./ftw/contentpage/content/addressblock.py:154
 msgid "label_directions"
 msgstr "Itinéraire"
 
@@ -362,7 +362,7 @@ msgid "label_documentDate"
 msgstr ""
 
 #. Default: "Email"
-#: ./ftw/contentpage/content/addressblock.py:106
+#: ./ftw/contentpage/content/addressblock.py:107
 msgid "label_email"
 msgstr ""
 
@@ -382,17 +382,17 @@ msgid "label_event_start"
 msgstr "Début de l'événement"
 
 #. Default: "Extra address line"
-#: ./ftw/contentpage/content/addressblock.py:59
+#: ./ftw/contentpage/content/addressblock.py:60
 msgid "label_extraAddressLine"
 msgstr "Ligne d'adresse supplémentaire"
 
 #. Default: "Fax"
-#: ./ftw/contentpage/content/addressblock.py:97
+#: ./ftw/contentpage/content/addressblock.py:98
 msgid "label_fax"
 msgstr ""
 
 #. Default: "${title} - News Feed"
-#: ./ftw/contentpage/browser/newslisting.py:51
+#: ./ftw/contentpage/browser/newslisting.py:57
 msgid "label_feed_desc"
 msgstr ""
 
@@ -403,22 +403,22 @@ msgid "label_id"
 msgstr ""
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:53
+#: ./ftw/contentpage/content/textblock.py:54
 msgid "label_image"
 msgstr ""
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:80
+#: ./ftw/contentpage/content/textblock.py:81
 msgid "label_image_alt_text"
 msgstr ""
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:72
+#: ./ftw/contentpage/content/textblock.py:73
 msgid "label_image_caption"
 msgstr ""
 
 #. Default: "Image clickable"
-#: ./ftw/contentpage/content/textblock.py:61
+#: ./ftw/contentpage/content/textblock.py:62
 msgid "label_image_clickable"
 msgstr ""
 
@@ -446,17 +446,17 @@ msgstr ""
 
 #. Default: "Opening Hours"
 #: ./ftw/contentpage/browser/address.pt:38
-#: ./ftw/contentpage/content/addressblock.py:134
+#: ./ftw/contentpage/content/addressblock.py:138
 msgid "label_openingHours"
 msgstr "Heures d'ouverture"
 
 #. Default: "Phone"
-#: ./ftw/contentpage/content/addressblock.py:88
+#: ./ftw/contentpage/content/addressblock.py:89
 msgid "label_phone"
 msgstr "Téléphone"
 
 #. Default: "Position in Folder"
-#: ./ftw/contentpage/content/listingblock.py:128
+#: ./ftw/contentpage/content/listingblock.py:129
 msgid "label_position_in_folder"
 msgstr ""
 
@@ -470,7 +470,7 @@ msgid "label_quantity"
 msgstr ""
 
 #. Default: "Read more"
-#: ./ftw/contentpage/portlets/news_portlet.pt:38
+#: ./ftw/contentpage/portlets/news_portlet.pt:45
 msgid "label_readmore"
 msgstr "En savoir plus"
 
@@ -490,7 +490,7 @@ msgid "label_send_feedback"
 msgstr "Envoyer un commentaire"
 
 #. Default: "Show opening hours"
-#: ./ftw/contentpage/content/addressblock.py:123
+#: ./ftw/contentpage/content/addressblock.py:124
 msgid "label_showOpeningHours"
 msgstr "Voir les heures d'ouverture"
 
@@ -504,7 +504,7 @@ msgid "label_show_image"
 msgstr ""
 
 #. Default: "Show Title"
-#: ./ftw/contentpage/content/addressblock.py:30
+#: ./ftw/contentpage/content/addressblock.py:31
 #: ./ftw/contentpage/content/listingblock.py:26
 #: ./ftw/contentpage/content/textblock.py:27
 msgid "label_show_title"
@@ -548,12 +548,12 @@ msgid "label_whole_day_event"
 msgstr "Événement d'une journée entière"
 
 #. Default: "WWW"
-#: ./ftw/contentpage/content/addressblock.py:114
+#: ./ftw/contentpage/content/addressblock.py:115
 msgid "label_www"
 msgstr ""
 
 #. Default: "ZIP"
-#: ./ftw/contentpage/content/addressblock.py:66
+#: ./ftw/contentpage/content/addressblock.py:67
 msgid "label_zip"
 msgstr ""
 
@@ -563,10 +563,15 @@ msgid "mail_address"
 msgstr ""
 
 #. Default: "More News"
-#: ./ftw/contentpage/portlets/news_portlet.pt:50
+#: ./ftw/contentpage/portlets/news_portlet.pt:57
 #, fuzzy
 msgid "more_news_link"
 msgstr "Plus de nouvelles"
+
+#. Default: "No recent news available."
+#: ./ftw/contentpage/portlets/news_portlet.pt:19
+msgid "no_recent_news_label"
+msgstr "Pas de nouvelles récentes disponibles."
 
 #. Default: "Read More…"
 #: ./ftw/contentpage/browser/newslisting.pt:59
@@ -574,7 +579,7 @@ msgid "read_more"
 msgstr "En savoir plus..."
 
 #. Default: "Review State"
-#: ./ftw/contentpage/browser/listingblock_view.py:67
+#: ./ftw/contentpage/browser/listingblock_view.py:77
 msgid "review_state"
 msgstr "État critique"
 
