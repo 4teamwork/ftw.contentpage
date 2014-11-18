@@ -8,6 +8,9 @@ Changelog
   "manage portlets" screen.
   [mbaechtold]
 
+- Fixes and improvements of the markup.
+  [kbieri]
+
 
 1.8.1 (2014-10-20)
 ------------------
