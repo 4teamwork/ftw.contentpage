@@ -16,6 +16,11 @@
     </dt>
     <dd>
       <ul>
+        <li class="portletItem"
+            tal:condition="not: view/get_news"
+            i18n:translate="no_recent_news_label">
+            No recent news available.</li>
+
         <tal:loop tal:repeat="brain view/get_news">
             <li class="portletItem"
                 tal:define="oddrow repeat/brain/odd;
