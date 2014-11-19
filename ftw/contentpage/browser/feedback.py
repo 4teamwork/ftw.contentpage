@@ -1,13 +1,22 @@
+from Acquisition import aq_inner
 from email.header import Header
 from email.mime.text import MIMEText
 from ftw.contentpage import _
+from plone import api
+from plone.formwidget.recaptcha.widget import ReCaptchaFieldWidget
+from plone.registry.interfaces import IRegistry
 from plone.z3cform.layout import wrap_form
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import form, field, button
+from z3c.form import interfaces
+from z3c.form.interfaces import WidgetActionExecutionError
 from zope import schema
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.i18n import translate
 from zope.interface import Interface
+from zope.interface import Invalid
 import re
 
 
@@ -21,6 +30,7 @@ def is_email(value):
 
 
 class IFeedbackView(Interface):
+
     """Interface for z3c.form"""
     sender = schema.TextLine(title=_(u"Sender_Name", default=u"Name"),
                              required=True)
@@ -31,17 +41,52 @@ class IFeedbackView(Interface):
                               required=True)
     message = schema.Text(title=_(u"label_message", default="Message"),
                           required=True)
+    captcha = schema.TextLine(title=u"ReCaptcha",
+                              required=False)
 
 
 class FeedbackForm(form.Form):
     label = _(u"label_send_feedback", default=u"Send Feedback")
     fields = field.Fields(IFeedbackView)
-     # don't use context to get widget data
+
+    # don't use context to get widget data
     ignoreContext = True
+
+    def updateWidgets(self):
+        captcha_enabled = self.recaptcha_enabled()
+        if captcha_enabled:
+            self.fields['captcha'].widgetFactory = ReCaptchaFieldWidget
+
+        super(FeedbackForm, self).updateWidgets()
+
+        if not captcha_enabled:
+            self.widgets['captcha'].mode = interfaces.HIDDEN_MODE
+
+    def recaptcha_enabled(self):
+        registry = getUtility(IRegistry, context=self)
+        private_key = registry.get(
+            'plone.formwidget.recaptcha.interfaces.'
+            'IReCaptchaSettings.private_key',
+            u'')
+        public_key = registry.get(
+            'plone.formwidget.recaptcha.interfaces.'
+            'IReCaptchaSettings.public_key',
+            u'')
+        return (public_key and private_key and api.user.is_anonymous())
 
     @button.buttonAndHandler(_(u'Send Mail'))
     def handleApply(self, action):
         data, errors = self.extractData()
+
+        if self.recaptcha_enabled():
+            captcha = getMultiAdapter((aq_inner(self.context), self.request),
+                                      name='recaptcha')
+            if not captcha.verify():
+                raise WidgetActionExecutionError(
+                    'captcha',
+                    Invalid(_("The captcha code you entered was wrong, "
+                              "please enter the new one.")))
+
         if errors:
             return
 
@@ -85,7 +130,8 @@ class FeedbackForm(form.Form):
 
         msg['From'] = Header('%s' % portal.getProperty('email_from_name'),
                              'utf-8')
-        msg['From'].append("<%s>" % portal.getProperty('email_from_address').decode('utf-8'))
+        msg['From'].append(
+            "<%s>" % portal.getProperty('email_from_address').decode('utf-8'))
         if isinstance(sender, unicode):
             sender = sender.encode('utf-8')
         msg['Reply-To'] = Header("%s" % sender, 'utf-8')

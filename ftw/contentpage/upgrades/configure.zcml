@@ -375,4 +375,14 @@
         directory="profiles/1604"
         />
 
+    <!-- 1604 -> 1605 -->
+    <genericsetup:upgradeStep
+        title="Install recaptcha for feedback form."
+        description=""
+        source="1604"
+        destination="1605"
+        handler="ftw.contentpage.upgrades.to1605.InstallRecaptcha"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
