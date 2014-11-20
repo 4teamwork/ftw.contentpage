@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8.3 (unreleased)
+1.8.3 (2014-11-20)
 ------------------
 
 - Display a message if there a no recent news available in the news portlet.
