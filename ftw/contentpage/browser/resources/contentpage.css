@@ -129,7 +129,16 @@ div.eventData {
   padding-left: 0.5em;
   background: #FFF;
   background: rgba(255, 255, 255, 0.8);
-  width: auto;
+  width: 100%;
+  bottom: 20px;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#cboxTitle b{
+  display: inline-block;
+  width: 100%;
 }
 
 
