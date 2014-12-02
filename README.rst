@@ -76,7 +76,8 @@ The NewsFolder has a simple news listing, which shows the 10 most recent news en
 
 The content listing viewlet is registered for all ContentPages.
 It shows categorized subcontent, within the ContentPage
-The categorization is done by a schemaextended field, so it's also possible to categorize your own or any other content.
+The categorization is done by a schemaextender field, so it's also possible to categorize your own or any other content.
+There's also a behavior (ftw.contentpage.behaviors.content_categories.IContentCategories), which extends your DX content by the same functionality.
 
 Code example:
 
