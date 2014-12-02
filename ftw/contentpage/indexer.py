@@ -1,12 +1,21 @@
-from plone.indexer.decorator import indexer
+from ftw.contentpage.behaviors.content_categories import IContentCategories
 from ftw.contentpage.interfaces import ICategorizable
 from ftw.contentpage.interfaces import IContentPage
+from plone.indexer.decorator import indexer
+from Products.Archetypes.interfaces import IBaseObject
 from simplelayout.base.interfaces import ISimpleLayoutBlock
+from plone.dexterity.interfaces import IDexterityContent
 
 
 @indexer(ICategorizable)
 def categories(obj, **kw):
-    return obj.Schema()['content_categories'].get(obj)
+    if IBaseObject.providedBy(obj):
+        return obj.Schema()['content_categories'].get(obj)
+    elif IDexterityContent.providedBy(obj):
+        return [item.encode('utf-8') for item in
+                IContentCategories(obj).content_categories]
+    else:
+        return ()
 
 
 SNIPPETTEXT_FIELDS = {
