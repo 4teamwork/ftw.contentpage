@@ -1,7 +1,10 @@
-from plone.app.layout.viewlets import ViewletBase
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.memoize import instance
+from ftw.contentpage.behaviors.content_categories import IContentCategories
 from ftw.contentpage.interfaces import ISummaryListingEnabled
+from plone.app.layout.viewlets import ViewletBase
+from plone.dexterity.interfaces import IDexterityContent
+from plone.memoize import instance
+from Products.Archetypes.interfaces import IBaseObject
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class ContentListingViewlet(ViewletBase):
@@ -28,7 +31,11 @@ class ContentListingViewlet(ViewletBase):
         if not contents:
             return []
         for obj in contents:
-            categories = obj.Schema()['content_categories'].get(obj)
+            if IBaseObject.providedBy(obj):
+                categories = obj.Schema()['content_categories'].get(obj)
+            elif IDexterityContent.providedBy(obj):
+                categories = [item.encode('utf-8') for item in
+                              IContentCategories(obj).content_categories]
 
             for cat in categories:
                 if cat not in resultmap:
