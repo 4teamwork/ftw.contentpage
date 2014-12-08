@@ -4,7 +4,9 @@ Changelog
 1.8.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add caption to listingblock.
+  Summary on table is no longer valid for accessiblity.
+  [Kevin Bieri]
 
 
 1.8.4 (2014-12-02)
