@@ -83,6 +83,7 @@ class FtwContentPageLayer(PloneSandboxLayer):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'ftw.contentpage:default')
         applyProfile(portal, 'simplelayout.base:default')
+        applyProfile(portal, 'plone.formwidget.recaptcha:default')
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
 

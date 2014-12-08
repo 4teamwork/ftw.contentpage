@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-18 15:45+0000\n"
+"POT-Creation-Date: 2014-11-19 09:14+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,12 +115,12 @@ msgstr "Pfad"
 msgid "References"
 msgstr "Referenzen"
 
-#: ./ftw/contentpage/browser/feedback.py:42
+#: ./ftw/contentpage/browser/feedback.py:76
 msgid "Send Mail"
 msgstr "Senden"
 
 #. Default: "Name"
-#: ./ftw/contentpage/browser/feedback.py:25
+#: ./ftw/contentpage/browser/feedback.py:34
 msgid "Sender_Name"
 msgstr "Name"
 
@@ -130,6 +130,10 @@ msgstr "Schweiz"
 #: ./ftw/contentpage/profiles/default/types/TextBlock.xml
 msgid "TextBlock"
 msgstr "Textblock"
+
+#: ./ftw/contentpage/browser/feedback.py:86
+msgid "The captcha code you entered was wrong, please enter the new one."
+msgstr "Der eingegebene Captcha Code war falsch. Bitte geben sie den neuen Code ein."
 
 #: ./ftw/contentpage/browser/tabs.pt:44
 msgid "There are no blocks in here."
@@ -154,7 +158,7 @@ msgid "View"
 msgstr "Anzeigen"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/browser/feedback.py:57
+#: ./ftw/contentpage/browser/feedback.py:101
 msgid "button_cancel"
 msgstr "Abbrechen"
 
@@ -284,7 +288,7 @@ msgid "help_www"
 msgstr "Geben Sie eine Internetadresse an (inkl. http://, https://, etc.)"
 
 #. Default: "The email was sent."
-#: ./ftw/contentpage/browser/feedback.py:53
+#: ./ftw/contentpage/browser/feedback.py:97
 msgid "info_email_sent"
 msgstr "E-Mail wurde versendet."
 
@@ -428,7 +432,7 @@ msgid "label_mark_as_authority"
 msgstr "Inhalt als Organisation/Amt/Behörde/etc. markieren"
 
 #. Default: "Message"
-#: ./ftw/contentpage/browser/feedback.py:32
+#: ./ftw/contentpage/browser/feedback.py:41
 msgid "label_message"
 msgstr "Nachricht"
 
@@ -485,7 +489,7 @@ msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Send Feedback"
-#: ./ftw/contentpage/browser/feedback.py:37
+#: ./ftw/contentpage/browser/feedback.py:48
 msgid "label_send_feedback"
 msgstr "Kontaktformular"
 
@@ -524,7 +528,7 @@ msgid "label_sortable_title"
 msgstr "Titel"
 
 #. Default: "Subject"
-#: ./ftw/contentpage/browser/feedback.py:30
+#: ./ftw/contentpage/browser/feedback.py:39
 msgid "label_subject"
 msgstr "Betreff"
 
@@ -558,7 +562,7 @@ msgid "label_zip"
 msgstr "PLZ"
 
 #. Default: "E-Mail"
-#: ./ftw/contentpage/browser/feedback.py:27
+#: ./ftw/contentpage/browser/feedback.py:36
 msgid "mail_address"
 msgstr "E-Mail"
 

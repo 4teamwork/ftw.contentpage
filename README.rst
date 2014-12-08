@@ -111,6 +111,10 @@ So the layout has the following structure:
 
 This way it's possible to display content below the content listing viewlet (by drag'n'drop)
 
+** Captcha ** The feedback view is protected from unauthorized users by a captcha from ReCaptcha. To enable it you have to 
+configure your ReCaptcha public and private keys through the `@@recaptcha-settings` view on the site root.
+
+
 
 **ftw.lawgiver support**
 

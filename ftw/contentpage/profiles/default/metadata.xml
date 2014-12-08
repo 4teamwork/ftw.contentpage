@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-    <version>1604</version>
+    <version>1605</version>
     <dependencies>
         <dependency>profile-simplelayout.base:default</dependency>
         <dependency>profile-simplelayout.portlet.dropzone:default</dependency>
@@ -8,5 +8,6 @@
         <dependency>profile-plone.formwidget.contenttree:default</dependency>
         <dependency>profile-ftw.calendarwidget:default</dependency>
         <dependency>profile-collective.quickupload:default</dependency>
+        <dependency>profile-plone.formwidget.recaptcha:default</dependency>
     </dependencies>
 </metadata>

@@ -1,8 +1,18 @@
+from ftw.builder import Builder
+from ftw.builder import create
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.testbrowser import browsing
 from ftw.testing import MockTestCase
 from mocker import ARGS, KWARGS
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
+from plone.registry.interfaces import IRegistry
 from plone.testing.z2 import Browser
-from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from unittest2 import TestCase
+from zope.component import getUtility
 import transaction
 
 
@@ -99,9 +109,11 @@ class TestFeedbackForm(MockTestCase):
         self.assertIn('=?utf-8?q?Don=27t_p=C3=A4nic?=', args[0].__str__())
         self.assertIn(FORM_DATA['message'], args[0].__str__())
         self.assertIn(
-            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?= <z.beeblebrox@endofworld.com>',
+            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?='
+            ' <z.beeblebrox@endofworld.com>',
             args[0].__str__())
-        self.assertIn('From: =?utf-8?q?Plone_Admin?= <plone@admin.ch>', args[0].__str__())
+        self.assertIn('From: =?utf-8?q?Plone_Admin?= <plone@admin.ch>',
+                      args[0].__str__())
 
     def test_encode_replyto_always(self):
         """Test that tests if Reply-To header is always encoded."""
@@ -123,7 +135,8 @@ class TestFeedbackForm(MockTestCase):
 
         args, kwargs = self.mails.pop()
         self.assertIn(
-            'Reply-To: =?utf-8?q?Hans=3A_Peter?= <z.beeblebrox@endofworld.com>',
+            'Reply-To: =?utf-8?q?Hans=3A_Peter?='
+            ' <z.beeblebrox@endofworld.com>',
             args[0].__str__())
 
     def test_comma_in_sender_name_will_be_replaced(self):
@@ -142,7 +155,8 @@ class TestFeedbackForm(MockTestCase):
 
         args, kwargs = self.mails.pop()
         self.assertIn(
-            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?= <z.beeblebrox@endofworld.com>',
+            'Reply-To: =?utf-8?q?Zaph=C3=B6d_Beeblebrox?='
+            ' <z.beeblebrox@endofworld.com>',
             args[0].__str__())
 
     def tearDown(self):
@@ -150,3 +164,40 @@ class TestFeedbackForm(MockTestCase):
         portal = self.layer['portal']
         portal.manage_delObjects(['contentpage'])
         transaction.commit()
+
+
+class TestFeedbackFormBrowser(TestCase):
+
+    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager', ])
+        login(self.portal, TEST_USER_NAME)
+
+        self.cpage = create(Builder('content page'))
+        self.ablock = create(Builder('address block')
+                             .within(self.cpage))
+
+    @browsing
+    def test_captcha_is_hidden_if_not_configured(self, browser):
+        browser.logout().visit(self.ablock, view="feedback_view")
+
+        # ReCaptcha is in the label which is only
+        # rendered if the field is visible
+        self.assertFalse(browser.css('#formfield-form-widgets-captcha label'),
+                         'The captcha should be hidden.')
+
+    @browsing
+    def test_captcha_is_used_if_configured(self, browser):
+        registry = getUtility(IRegistry)
+        registry['plone.formwidget.recaptcha.interfaces.'
+                 'IReCaptchaSettings.private_key'] = u'PRIVATE_KEY'
+        registry['plone.formwidget.recaptcha.interfaces.'
+                 'IReCaptchaSettings.public_key'] = u'PUBLIC_KEY'
+        transaction.commit()
+
+        browser.logout().visit(self.ablock, view="feedback_view")
+
+        self.assertTrue(browser.css('#formfield-form-widgets-captcha label'),
+                        'The captcha should be visible.')
