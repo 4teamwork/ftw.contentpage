@@ -21,7 +21,7 @@ def file_link(icon=True, icon_only=False):
 
     def _helper(item, value):
         registry = getUtility(IRegistry)
-        default_view_name = registry.get('ftw.contentpage.listingblock.defaultfileviewname', '')
+        default_view_name = registry.get('ftw.contentpage.listingblock.defaultfileviewname', u'').encode('utf-8')
 
         # Build the url without a trailing slash.
         url_fragments = [item.getURL()]
