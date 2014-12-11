@@ -4,7 +4,9 @@ Changelog
 1.8.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix dowload url generation, do not pass unicode in attrs for
+  ftw.table table generator, it needs utf-8 for all attrs.
+  [mathias.leimgruber]
 
 
 1.8.5 (2014-12-04)

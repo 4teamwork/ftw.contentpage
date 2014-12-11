@@ -14,7 +14,10 @@ class TestListingBlockTableHelper(TestCase):
     def setUp(self):
         content_page = create(Builder('content page'))
         self.listing_block = create(Builder('listing block').within(content_page))
-        self.file_ = create(Builder('file').with_dummy_content().within(self.listing_block))
+        self.file_ = create(Builder('file')
+                            .with_dummy_content()
+                            .having(description='S\xc3\xb6me description')
+                            .within(self.listing_block))
 
     @browsing
     def test_file_link_default_value(self, browser):
