@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8.6 (unreleased)
+1.8.6 (2014-12-11)
 ------------------
 
 - Fix dowload url generation, do not pass unicode in attrs for
