@@ -1,6 +1,6 @@
 <tal:AVAILABLE tal:condition="view/block_visible">
     <div class="simplelayout-block-wrapper ListingBlock">
-        <a tal:attributes="name here/id" ></a>
+        <a tal:attributes="id here/id" ></a>
         <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True">Title</h2>
 
         <div class="sl-text-wrapper">
