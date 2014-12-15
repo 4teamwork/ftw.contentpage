@@ -8,6 +8,10 @@ Changelog
   Summary on table is no longer valid for accessiblity.
   [Kevin Bieri]
 
+- Bugfix: render the news on the newslisting view when the news portlet
+  is inherited from an ancestor.
+  [mbaechtold]
+
 
 1.8.6 (2014-12-11)
 ------------------

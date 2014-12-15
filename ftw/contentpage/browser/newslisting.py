@@ -1,4 +1,6 @@
+from Acquisition import IAcquirer, aq_parent, aq_inner
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.contentpage import _
 from ftw.contentpage.browser.baselisting import BaseListing
@@ -67,20 +69,41 @@ class NewsPortletListing(NewsListing):
         if not manager_name or not name:
             return
 
-        manager = getUtility(
-            IPortletManager,
-            name=manager_name,
-            context=self.context)
-        assignments = getMultiAdapter(
-            (self.context, manager),
-            IPortletAssignmentMapping,
-            context=self.context)
+        context = self.context
 
-        if name in assignments:
-            return queryMultiAdapter(
-                (self.context, self.request, self,
-                 manager, assignments[name]),
-                IPortletRenderer)
+        # Prepare a list of objects by walking up the path.
+        contexts = [context]
+        while not IPloneSiteRoot.providedBy(context):
+            if IAcquirer.providedBy(context):
+                context = aq_parent(aq_inner(context))
+            else:
+                context = context.__parent__
+            contexts.append(context)
+
+        # Prepare a list of tuples in the form `(manager, assignments)`.
+        managers_and_assignments = []
+        for context in contexts:
+            manager = getUtility(
+                IPortletManager,
+                name=manager_name,
+                context=context)
+            assignments = getMultiAdapter(
+                (context, manager),
+                IPortletAssignmentMapping,
+                context=context)
+
+            if assignments is not None:
+                managers_and_assignments.append((manager, assignments))
+
+        # Finally get the portlet.
+        for item in managers_and_assignments:
+            manager = item[0]
+            assignments = item[1]
+            if name in assignments:
+                return queryMultiAdapter(
+                    (context, self.request, self,
+                     manager, assignments[name]),
+                    IPortletRenderer)
         return
 
     def get_items(self):
