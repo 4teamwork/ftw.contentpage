@@ -16,6 +16,9 @@ Changelog
   ftw.table table generator, it needs utf-8 for all attrs.
   [mathias.leimgruber]
 
+- Added captcha to feedback form.
+  [lknoepfel]
+
 
 1.8.5 (2014-12-04)
 ------------------
@@ -40,9 +43,6 @@ Changelog
 
 1.8.2 (2014-11-18)
 ------------------
-
-- Added captcha to feedback form.
-  [lknoepfel]
 
 - Display the user defined title of the news portlet instance in the
   "manage portlets" screen.
