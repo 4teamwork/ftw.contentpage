@@ -74,10 +74,7 @@ class NewsPortletListing(NewsListing):
         # Prepare a list of objects by walking up the path.
         contexts = [context]
         while not IPloneSiteRoot.providedBy(context):
-            if IAcquirer.providedBy(context):
-                context = aq_parent(aq_inner(context))
-            else:
-                context = context.__parent__
+            context = aq_parent(aq_inner(context))
             contexts.append(context)
 
         # Prepare a list of tuples in the form `(manager, assignments)`.
@@ -96,9 +93,7 @@ class NewsPortletListing(NewsListing):
                 managers_and_assignments.append((manager, assignments))
 
         # Finally get the portlet.
-        for item in managers_and_assignments:
-            manager = item[0]
-            assignments = item[1]
+        for manager, assignments in managers_and_assignments:
             if name in assignments:
                 return queryMultiAdapter(
                     (context, self.request, self,
