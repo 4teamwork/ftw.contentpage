@@ -1,3 +1,4 @@
+from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.portlets import news_portlet
@@ -5,11 +6,9 @@ from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.testbrowser import browsing
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletRenderer
 from unittest2 import TestCase
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-
 
 
 class TestNewsPortletListing(TestCase):
@@ -64,3 +63,39 @@ class TestNewsPortletListing(TestCase):
         browser.find('More News').click()
         self.assertEquals(['Bookings open'],
                           browser.css('h2.tileHeadline').text)
+
+    @browsing
+    def test_newslisting_of_inherited_news_portlet(self, browser):
+        # Create a news portlet on root which will be inherited by the root's
+        # child objects.
+        manager = getUtility(IPortletManager, name='plone.rightcolumn')
+        assignments = getMultiAdapter((self.portal, manager),
+                                      IPortletAssignmentMapping)
+        assignments['news-portlet'] = news_portlet.Assignment(
+            portlet_title='Aktuell', quantity=5, days=10, more_news_link=True
+        )
+
+        # Create a content page having a news folder. Create an old news
+        # entry in the news folder.
+        content_page = create(Builder('content page')
+                              .titled('My Content Page'))
+        news_folder = create(Builder('news folder')
+                             .titled('News')
+                             .within(content_page))
+        create(Builder('news')
+               .titled('Bookings open')
+               .having(effectiveDate=DateTime(1999, 11, 15))
+               .within(news_folder))
+
+        # Visit the content page containing the news portlet. The old news
+        # entry will not be rendered in the portlet due to the config of the
+        # news portlet.
+        browser.login().visit(content_page)
+
+        # Clicking on the 'More News' link should render a page containing
+        # the news entry.
+        browser.find('More News').click()
+        self.assertEquals(['Bookings open'],
+                          browser.css('h2.tileHeadline').text)
+
+
