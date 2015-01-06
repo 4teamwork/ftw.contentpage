@@ -1,4 +1,6 @@
+from Acquisition import IAcquirer, aq_parent, aq_inner
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.contentpage import _
 from ftw.contentpage.browser.baselisting import BaseListing
@@ -67,21 +69,42 @@ class NewsPortletListing(NewsListing):
         if not manager_name or not name:
             return
 
-        manager = getUtility(
-            IPortletManager,
-            name=manager_name,
-            context=self.context)
-        assignments = getMultiAdapter(
-            (self.context, manager),
-            IPortletAssignmentMapping,
-            context=self.context)
-
-        if name in assignments:
-            return queryMultiAdapter(
-                (self.context, self.request, self,
-                 manager, assignments[name]),
-                IPortletRenderer)
+        managers_and_assignments = self.get_manager_and_assignments(
+            manager_name
+        )
+        for manager, assignments in managers_and_assignments:
+            if name in assignments:
+                return queryMultiAdapter(
+                    (self.context, self.request, self,
+                     manager, assignments[name]),
+                    IPortletRenderer)
         return
+
+    def get_manager_and_assignments(self, manager_name):
+        context = self.context
+
+        # Prepare a list of objects by walking up the path.
+        contexts = [context]
+        while not IPloneSiteRoot.providedBy(context):
+            context = aq_parent(aq_inner(context))
+            contexts.append(context)
+
+        # Prepare a list of tuples in the form `(manager, assignments)`.
+        managers_and_assignments = []
+        for context in contexts:
+            manager = getUtility(
+                IPortletManager,
+                name=manager_name,
+                context=context)
+            assignments = getMultiAdapter(
+                (context, manager),
+                IPortletAssignmentMapping,
+                context=context)
+
+            if assignments is not None:
+                managers_and_assignments.append((manager, assignments))
+
+        return managers_and_assignments
 
     def get_items(self):
         portlet = self.get_portlet()
