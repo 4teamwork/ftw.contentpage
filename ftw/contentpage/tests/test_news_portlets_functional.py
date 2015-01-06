@@ -1,6 +1,8 @@
 import os
 
 from DateTime import DateTime
+from ftw.builder import Builder, create
+from ftw.testbrowser import browsing
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.portlets.interfaces import IPortletManager
 from plone.testing.z2 import Browser
@@ -461,3 +463,28 @@ class TestNewsPortlets(unittest.TestCase):
             doc('.RssLink'),
             'There should be a RSS link in the portlet'
         )
+
+    @browsing
+    def test_news_portlet_is_not_available_without_news_entries(self, browser):
+        folder = create(Builder('news folder').titled('News'))
+
+        create(Builder('news portlet')
+               .having(only_context=False,
+                       path=['/{0}'.format(folder.getId())],
+                       more_news_link=True))
+
+        browser.login().open()
+        self.assertEquals(None, browser.find('More News'))
+
+    @browsing
+    def test_news_portlet_is_available_without_news_entries(self, browser):
+        folder = create(Builder('news folder').titled('News'))
+
+        create(Builder('news portlet')
+               .having(always_render_portlet=True,
+                       only_context=False,
+                       path=['/{0}'.format(folder.getId())],
+                       more_news_link=True))
+
+        browser.login().open()
+        self.assertNotEquals(None, browser.find('More News'))

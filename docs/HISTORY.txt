@@ -8,6 +8,10 @@ Changelog
   Summary on table is no longer valid for accessiblity.
   [Kevin Bieri]
 
+- A new config option can be used to always render the news portlet, even
+  if there are no news entries available.
+  [mbaechtold]
+
 - Bugfix: render the news on the newslisting view when the news portlet
   is inherited from an ancestor.
   [mbaechtold]

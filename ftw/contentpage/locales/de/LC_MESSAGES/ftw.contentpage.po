@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-19 09:14+0000\n"
+"POT-Creation-Date: 2015-01-06 14:34+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:105
+#: ./ftw/contentpage/portlets/news_portlet.py:111
 msgid "Add News Portlet"
 msgstr "News Portlet hinzufügen"
 
@@ -115,12 +115,12 @@ msgstr "Pfad"
 msgid "References"
 msgstr "Referenzen"
 
-#: ./ftw/contentpage/browser/feedback.py:76
+#: ./ftw/contentpage/browser/feedback.py:77
 msgid "Send Mail"
 msgstr "Senden"
 
 #. Default: "Name"
-#: ./ftw/contentpage/browser/feedback.py:34
+#: ./ftw/contentpage/browser/feedback.py:35
 msgid "Sender_Name"
 msgstr "Name"
 
@@ -131,7 +131,7 @@ msgstr "Schweiz"
 msgid "TextBlock"
 msgstr "Textblock"
 
-#: ./ftw/contentpage/browser/feedback.py:86
+#: ./ftw/contentpage/browser/feedback.py:87
 msgid "The captcha code you entered was wrong, please enter the new one."
 msgstr "Der eingegebene Captcha Code war falsch. Bitte geben sie den neuen Code ein."
 
@@ -143,7 +143,7 @@ msgstr "Hier sind noch keine Inhalte."
 msgid "There is no content to list."
 msgstr "Kein Inhalt."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:106
+#: ./ftw/contentpage/portlets/news_portlet.py:112
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
 
@@ -158,7 +158,7 @@ msgid "View"
 msgstr "Anzeigen"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/browser/feedback.py:101
+#: ./ftw/contentpage/browser/feedback.py:102
 msgid "button_cancel"
 msgstr "Abbrechen"
 
@@ -222,7 +222,12 @@ msgstr "Geben Sie den Alternativtext für das Bild ein. Der Alternativtext richt
 msgid "description_image_clickable"
 msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:95
+msgid "help_always_render_portlet"
+msgstr "Wenn diese Option aktiv ist, wird das Portlet auch angezeigt, wenn es gar keine News-Einträge gibt."
+
 #. Default: "Category for contentlisting"
+#: ./ftw/contentpage/behaviors/content_categories.py:13
 #: ./ftw/contentpage/extender.py:33
 msgid "help_categories"
 msgstr "Definieren Sie, unter welchen Rubrik diese Inhaltsseite abgelegt werden soll"
@@ -288,7 +293,7 @@ msgid "help_www"
 msgstr "Geben Sie eine Internetadresse an (inkl. http://, https://, etc.)"
 
 #. Default: "The email was sent."
-#: ./ftw/contentpage/browser/feedback.py:97
+#: ./ftw/contentpage/browser/feedback.py:98
 msgid "info_email_sent"
 msgstr "E-Mail wurde versendet."
 
@@ -307,6 +312,10 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
+#: ./ftw/contentpage/portlets/news_portlet.py:94
+msgid "label_always_render_portlet"
+msgstr "Portlet immer anzeigen"
+
 #. Default: "Ascending"
 #: ./ftw/contentpage/content/listingblock.py:55
 msgid "label_ascending"
@@ -318,11 +327,12 @@ msgid "label_by_author"
 msgstr "von ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:137
+#: ./ftw/contentpage/portlets/news_portlet.py:143
 msgid "label_cancel"
 msgstr "Abbrechen"
 
 #. Default: "Categories"
+#: ./ftw/contentpage/behaviors/content_categories.py:12
 #: ./ftw/contentpage/extender.py:32
 msgid "label_categories"
 msgstr "Rubrik"
@@ -432,7 +442,7 @@ msgid "label_mark_as_authority"
 msgstr "Inhalt als Organisation/Amt/Behörde/etc. markieren"
 
 #. Default: "Message"
-#: ./ftw/contentpage/browser/feedback.py:41
+#: ./ftw/contentpage/browser/feedback.py:42
 msgid "label_message"
 msgstr "Nachricht"
 
@@ -484,12 +494,12 @@ msgid "label_rss_link"
 msgstr "RSS-Feed Link anzeigen."
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:126
+#: ./ftw/contentpage/portlets/news_portlet.py:132
 msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Send Feedback"
-#: ./ftw/contentpage/browser/feedback.py:48
+#: ./ftw/contentpage/browser/feedback.py:49
 msgid "label_send_feedback"
 msgstr "Kontaktformular"
 
@@ -528,7 +538,7 @@ msgid "label_sortable_title"
 msgstr "Titel"
 
 #. Default: "Subject"
-#: ./ftw/contentpage/browser/feedback.py:39
+#: ./ftw/contentpage/browser/feedback.py:40
 msgid "label_subject"
 msgstr "Betreff"
 
@@ -562,7 +572,7 @@ msgid "label_zip"
 msgstr "PLZ"
 
 #. Default: "E-Mail"
-#: ./ftw/contentpage/browser/feedback.py:36
+#: ./ftw/contentpage/browser/feedback.py:37
 msgid "mail_address"
 msgstr "E-Mail"
 
@@ -613,7 +623,7 @@ msgid "text_not_content"
 msgstr "Keine Inhalte"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:99
+#: ./ftw/contentpage/portlets/news_portlet.py:105
 msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 

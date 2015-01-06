@@ -90,6 +90,12 @@ class INewsPortlet(IPortletDataProvider):
                                     default=u"Shows link to the rss feed"),
                             default=False)
 
+    always_render_portlet = schema.Bool(
+        title=_(u'label_always_render_portlet'),
+        description=_('help_always_render_portlet'),
+        default=False,
+    )
+
     @invariant
     def is_either_path_or_area(obj):
         """Checks if not both path and current area are defined.
@@ -178,7 +184,8 @@ class Assignment(base.Assignment):
     def __init__(self, portlet_title="News", show_image=True,
                  only_context=True, quantity=5, classification_items=None,
                  path=None, subjects=None, show_desc=False, desc_length=50,
-                 days=0, more_news_link=0, rss_link=0):
+                 days=0, more_news_link=0, rss_link=0,
+                 always_render_portlet=False):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -191,6 +198,7 @@ class Assignment(base.Assignment):
         self.days = days
         self.more_news_link = more_news_link
         self.rss_link = rss_link
+        self.always_render_portlet = always_render_portlet
 
     @property
     def title(self):
@@ -218,6 +226,9 @@ class Renderer(base.Renderer):
 
     @property
     def available(self):
+        if getattr(self.data, 'always_render_portlet', False):
+            return True
+
         is_news = self.context.portal_type == 'NewsFolder'
         if self.show_more_news_link():
             has_news = self.get_news(all_news=True)
