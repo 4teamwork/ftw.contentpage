@@ -1,14 +1,10 @@
 from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
-from ftw.contentpage.portlets import news_portlet
-from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.testbrowser import browsing
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.interfaces import IPortletManager
 from unittest2 import TestCase
-from zope.component import getMultiAdapter
-from zope.component import getUtility
+
+from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 
 
 class TestNewsPortletListing(TestCase):
@@ -68,12 +64,13 @@ class TestNewsPortletListing(TestCase):
     def test_newslisting_of_inherited_news_portlet(self, browser):
         # Create a news portlet on root which will be inherited by the root's
         # child objects.
-        manager = getUtility(IPortletManager, name='plone.rightcolumn')
-        assignments = getMultiAdapter((self.portal, manager),
-                                      IPortletAssignmentMapping)
-        assignments['news-portlet'] = news_portlet.Assignment(
-            portlet_title='Aktuell', quantity=5, days=10, more_news_link=True
-        )
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .within(self.portal)
+               .having(portlet_title='Aktuell',
+                       more_news_link=True,
+                       quantity=5,
+                       days=10))
 
         # Create a content page having a news folder. Create an old news
         # entry in the news folder.
@@ -97,5 +94,3 @@ class TestNewsPortletListing(TestCase):
         browser.find('More News').click()
         self.assertEquals(['Bookings open'],
                           browser.css('h2.tileHeadline').text)
-
-
