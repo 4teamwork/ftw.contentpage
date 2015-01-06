@@ -69,6 +69,18 @@ class NewsPortletListing(NewsListing):
         if not manager_name or not name:
             return
 
+        managers_and_assignments = self.get_manager_and_assignments(
+            manager_name
+        )
+        for manager, assignments in managers_and_assignments:
+            if name in assignments:
+                return queryMultiAdapter(
+                    (self.context, self.request, self,
+                     manager, assignments[name]),
+                    IPortletRenderer)
+        return
+
+    def get_manager_and_assignments(self, manager_name):
         context = self.context
 
         # Prepare a list of objects by walking up the path.
@@ -92,14 +104,7 @@ class NewsPortletListing(NewsListing):
             if assignments is not None:
                 managers_and_assignments.append((manager, assignments))
 
-        # Finally get the portlet.
-        for manager, assignments in managers_and_assignments:
-            if name in assignments:
-                return queryMultiAdapter(
-                    (context, self.request, self,
-                     manager, assignments[name]),
-                    IPortletRenderer)
-        return
+        return managers_and_assignments
 
     def get_items(self):
         portlet = self.get_portlet()
