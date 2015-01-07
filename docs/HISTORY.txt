@@ -12,6 +12,9 @@ Changelog
   is inherited from an ancestor.
   [mbaechtold]
 
+- Fixed a bug during the rendering of the captcha on the feedback form.
+  [mbaechtold]
+
 
 1.8.6 (2014-12-11)
 ------------------

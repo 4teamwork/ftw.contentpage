@@ -9,7 +9,6 @@ from plone.z3cform.layout import wrap_form
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import form, field, button
-from z3c.form import interfaces
 from z3c.form.interfaces import WidgetActionExecutionError
 from zope import schema
 from zope.component import getMultiAdapter
@@ -60,7 +59,10 @@ class FeedbackForm(form.Form):
         super(FeedbackForm, self).updateWidgets()
 
         if not captcha_enabled:
-            self.widgets['captcha'].mode = interfaces.HIDDEN_MODE
+            # Simply delete the widget instead of trying to set hidden mode,
+            # which caused a `ComponentLookupError` in a special case. Please
+            # see `test_captcha_no_component_lookup_error`.
+            del self.widgets['captcha']
 
     def recaptcha_enabled(self):
         registry = getUtility(IRegistry, context=self)

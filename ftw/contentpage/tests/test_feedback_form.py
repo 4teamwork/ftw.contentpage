@@ -201,3 +201,27 @@ class TestFeedbackFormBrowser(TestCase):
 
         self.assertTrue(browser.css('#formfield-form-widgets-captcha label'),
                         'The captcha should be visible.')
+
+    @browsing
+    def test_captcha_no_component_lookup_error(self, browser):
+        """
+        A `ComponentLookupError` was thrown if you first opened the feedback
+        form in your browser as an unauthorized user and then opened the
+        same feedback form as an authorized user (where the captcha field
+        should not be displayed).
+        This test makes sure that this does not happen any more. Please see
+        `ftw.contentpage.browser.feedback.FeedbackForm#updateWidgets`.
+        """
+        registry = getUtility(IRegistry)
+        registry['plone.formwidget.recaptcha.interfaces.'
+                 'IReCaptchaSettings.private_key'] = u'PRIVATE_KEY'
+        registry['plone.formwidget.recaptcha.interfaces.'
+                 'IReCaptchaSettings.public_key'] = u'PUBLIC_KEY'
+        transaction.commit()
+
+        browser.logout().visit(self.ablock, view="feedback_view")
+        browser.login().visit(self.ablock, view="feedback_view")
+
+        # Our test passes if the page is loading and contains the feedback
+        # form.
+        self.assertEqual(len(browser.css('#form')), 1)
