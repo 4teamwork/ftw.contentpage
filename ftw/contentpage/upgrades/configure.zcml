@@ -385,4 +385,14 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1605 -> 1606 -->
+    <genericsetup:upgradeStep
+        title="Remove empty paragraph tags in address blocks."
+        description=""
+        source="1605"
+        destination="1606"
+        handler="ftw.contentpage.upgrades.to1606.RemoveEmptyParagraphTagsInAddressBlocks"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
