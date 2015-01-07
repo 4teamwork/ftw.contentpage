@@ -15,6 +15,9 @@ Changelog
 - Fixed a bug during the rendering of the captcha on the feedback form.
   [mbaechtold]
 
+- Remove empty paragraph tags from address block.
+  [mbaechtold]
+
 
 1.8.6 (2014-12-11)
 ------------------
