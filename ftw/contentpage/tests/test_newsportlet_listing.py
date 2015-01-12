@@ -94,3 +94,53 @@ class TestNewsPortletListing(TestCase):
         browser.find('More News').click()
         self.assertEquals(['Bookings open'],
                           browser.css('h2.tileHeadline').text)
+
+    @browsing
+    def test_newslisting_title(self, browser):
+        """
+        This test makes sure that the news listing view renders the
+        title of the portlet, not the generic title.
+        """
+        folder = create(Builder('news folder').titled('News'))
+        create(Builder('news').titled('Bookings open').within(folder))
+
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .having(portlet_title='Breaking News',
+                       only_context=False,
+                       path=['/{0}'.format(folder.getId())],
+                       more_news_link=True))
+
+        browser.login().open()
+        browser.find('More News').click()
+        self.assertEquals(
+            ['Breaking News'],
+            browser.css('h1.documentFirstHeading').text
+        )
+
+    @browsing
+    def test_newslisting_no_description(self, browser):
+        """
+        This test makes sure that the news listing view does not
+        render the generic description.
+        """
+        content_page = create(Builder('content page')
+                              .titled('My Page')
+                              .having(description='My Description'))
+
+        folder = create(Builder('news folder').titled('News'))
+        create(Builder('news').titled('Bookings open').within(folder))
+
+        create(Builder('news portlet')
+               .within(content_page)
+               .in_manager(u'plone.rightcolumn')
+               .having(only_context=False,
+                       path=['/{0}'.format(folder.getId())],
+                       more_news_link=True))
+
+        browser.login().visit(content_page)
+        browser.find('More News').click()
+        self.assertEquals(
+            0,
+            len(browser.css('div.documentDescription'))
+        )

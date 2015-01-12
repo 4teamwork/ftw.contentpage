@@ -16,6 +16,16 @@
     </style>
 </metal:slot>
 
+<metal:title fill-slot="content-title">
+    <h1 class="documentFirstHeading" tal:content="view/title"></h1>
+</metal:title>
+
+<metal:description fill-slot="content-description">
+     <metal:comment tal:content="nothing">
+         No description
+     </metal:comment>
+ </metal:description>
+
 <metal:main fill-slot="content-core">
 
 <div i18n:domain="ftw.contentpage"

@@ -4,7 +4,9 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Render the title of the portlet on the news listing view and hide the
+  generic description.
+  [mbaechtold]
 
 
 1.9.0 (2015-01-09)
