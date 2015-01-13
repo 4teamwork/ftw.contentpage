@@ -112,3 +112,9 @@ class NewsPortletListing(NewsListing):
             return portlet.get_news(all_news=True)
 
         return []
+
+    def title(self):
+        portlet = self.get_portlet()
+        if portlet:
+            return portlet.data.portlet_title
+        return super(NewsPortletListing, self).title()
