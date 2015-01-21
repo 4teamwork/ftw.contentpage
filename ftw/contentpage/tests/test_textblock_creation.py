@@ -36,3 +36,14 @@ class TestTextBlockCreation(TestCase):
         statusmessages.assert_no_error_messages()
         block = self.contentpage.objectValues()[0]
         self.assertEquals(29, len(block.Title()))
+
+    @browsing
+    def test_alt_text_is_image_filename_when_empty(self, browser):
+        create(Builder('text block')
+               .within(self.contentpage)
+               .with_dummy_content()
+               .having(text='<p>Text</p>'))
+        browser.login().open(self.contentpage)
+        self.assertEqual(
+            'image.gif',
+            browser.css('.sl-img-wrapper img').first.attrib['alt'])

@@ -109,7 +109,6 @@ class TestTextBlockView(TestCase):
         textblock.processForm()
 
         self.assertIn('alt="image alt text"', view.get_image_tag())
-        self.assertIn('title="image alt text"', view.get_image_tag())
         textblock.setImageCaption('image caption')
         self.assertIn('title="image caption"', view.get_image_tag())
 
