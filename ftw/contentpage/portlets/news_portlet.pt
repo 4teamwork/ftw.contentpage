@@ -16,7 +16,7 @@
     </dt>
     <dd>
       <ul>
-        <li class="portletItem"
+        <li class="portletItem noRecentNews"
             tal:condition="not: view/get_news"
             i18n:translate="no_recent_news_label">
             No recent news available.</li>

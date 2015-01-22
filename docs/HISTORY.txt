@@ -8,6 +8,9 @@ Changelog
   generic description.
   [mbaechtold]
 
+- Add a special class to the news portlet list item if there are no news.
+  [mbaechtold]
+
 
 1.9.0 (2015-01-09)
 ------------------
