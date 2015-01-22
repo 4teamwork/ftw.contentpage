@@ -4,6 +4,9 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Upgrade news portlets: add always_render_portlet default value to assignments.
+  [jone]
+
 - Render the title of the portlet on the news listing view and hide the
   generic description.
   [mbaechtold]

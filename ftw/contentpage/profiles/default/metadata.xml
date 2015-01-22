@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-    <version>1606</version>
+    <version>1607</version>
     <dependencies>
         <dependency>profile-simplelayout.base:default</dependency>
         <dependency>profile-simplelayout.portlet.dropzone:default</dependency>
