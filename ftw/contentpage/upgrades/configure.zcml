@@ -395,4 +395,14 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1606 -> 1607 -->
+    <genericsetup:upgradeStep
+        title="News portlet: set always_render_portlet attribute."
+        description=""
+        source="1606"
+        destination="1607"
+        handler="ftw.contentpage.upgrades.to1607.UpgradeNewsPortlet"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
