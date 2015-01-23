@@ -1,5 +1,6 @@
+from DateTime import DateTime
 from ftw.contentpage.behaviors.content_categories import IContentCategories
-from ftw.contentpage.interfaces import ICategorizable
+from ftw.contentpage.interfaces import ICategorizable, IEventPage
 from ftw.contentpage.interfaces import IContentPage
 from plone.indexer.decorator import indexer
 from Products.Archetypes.interfaces import IBaseObject
@@ -72,3 +73,19 @@ def snippet_text(obj):
     text += ' '.join(block_texts)
 
     return text
+
+
+@indexer(IEventPage)
+def start(obj):
+    start = obj.start()
+    if obj.getWholeDay():
+        return DateTime(start.year(), start.month(), start.day(), 0, 0)
+    return start
+
+
+@indexer(IEventPage)
+def end(obj):
+    end = obj.end()
+    if obj.getWholeDay():
+        return DateTime(end.year(), end.month(), end.day(), 23, 59)
+    return end
