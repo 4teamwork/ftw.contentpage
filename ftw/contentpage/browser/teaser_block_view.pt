@@ -5,7 +5,7 @@
                    fullblock python: text and ' sl-fullblock' or ''"
        tal:attributes="class string:documentDescription simplelayout-block-wrapper ${slclass}${fullblock} clearfix;
                        style string:${view/get_block_height}">
-    <a tal:attributes="name here/id" ></a>
+    <a tal:attributes="id here/id" ></a>
     <div class="sl-img-wrapper" tal:condition="view/has_image"
          tal:attributes="style view/image_wrapper_style"
          tal:define="image_desc context/getImageCaption | context/Description">

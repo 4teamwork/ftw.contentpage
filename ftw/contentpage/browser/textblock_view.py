@@ -34,8 +34,8 @@ class TextBlockView(BrowserView):
         title = unicode(self.context.getImageCaption(),
                         self.context.getCharset())
 
-        if not title:
-            title = alt
+        if not alt:
+            alt = self.context.getImage().filename
 
         image_util = getUtility(
             IScaleImage,
