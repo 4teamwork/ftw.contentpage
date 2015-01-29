@@ -4,6 +4,11 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Fix cache decorator (from view to instance) for archive base portlet.
+  If you have both archive portlets (news and event) on the same page
+  the second archive portlet will use the result from the first one.
+  [mathias.leimgruber]
+
 - Upgrade news portlets: add always_render_portlet default value to assignments.
   [jone]
 
