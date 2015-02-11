@@ -1,6 +1,7 @@
 from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.testbrowser import browsing
 from ftw.contentpage.browser.eventlisting import EventListing
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
@@ -158,6 +159,19 @@ class TestEventListing(MockTestCase):
         self.assertEqual(element.attr('alt'), 'Event3')
         self.assertEqual(element.attr('title'), 'Event3')
         self.assertEqual(element.attr('width'), '100')
+
+    @browsing
+    def test_whole_day_event(self, browser):
+        self.eventfolder.invokeFactory('EventPage', 'event7', title="Event7",
+                                       wholeDay=True,
+                                       startDate=DateTime(2013, 05, 20, 4, 0),
+                                       endDate=DateTime(2013, 05, 20, 5, 0),
+                                       location="Bern")
+        transaction.commit()
+        browser.visit(self.eventfolder)
+        event_heading_links = browser.css('.tileHeadline').css('.url')
+        event_titles = [link.text for link in event_heading_links]
+        self.assertIn('Event7', event_titles)
 
     def test_event_view(self):
         event1 = self.eventfolder.get('event1')

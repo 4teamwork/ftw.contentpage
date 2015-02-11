@@ -405,4 +405,14 @@
         profile="ftw.contentpage:default"
         />
 
+     <!-- 1607 -> 1608 -->
+    <genericsetup:upgradeStep
+        title="Reindex event page to fix whole day events."
+        description=""
+        source="1607"
+        destination="1608"
+        handler="ftw.contentpage.upgrades.to1608.ReindexEventPage"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>
