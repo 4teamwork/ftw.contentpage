@@ -4,6 +4,9 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Don't limit the number of news entries when rendering all news.
+  [mbaechtold]
+  
 - Render the news item's publication date on the RSS feed.
   [mbaechtold]
 

@@ -144,3 +144,40 @@ class TestNewsPortletListing(TestCase):
             0,
             len(browser.css('div.documentDescription'))
         )
+
+    @browsing
+    def test_all_news(self, browser):
+        """
+        This test makes sure that the number of news entries is not limited
+        when rendering "all news".
+        """
+
+        # Create a news portlet which limits the number of news entries to one.
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .within(self.portal)
+               .having(portlet_title='Aktuell',
+                       more_news_link=True,
+                       quantity=1))
+
+        # Create a content page having a news folder.
+        content_page = create(Builder('content page')
+                              .titled('My Content Page'))
+        news_folder = create(Builder('news folder')
+                             .titled('News')
+                             .within(content_page))
+
+        # Create two news entries.
+        create(Builder('news').titled('News item 1').within(news_folder))
+        create(Builder('news').titled('News item 2').within(news_folder))
+
+        # Visit the content page containing the news portlet.
+        browser.login().visit(content_page)
+
+        # Clicking on the 'More News' link should render a page containing
+        # both news entries.
+        browser.find('More News').click()
+        self.assertEquals(
+            2,
+            len(browser.css('div.newsListing div.tileItem'))
+        )
