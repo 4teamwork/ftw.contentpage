@@ -1,5 +1,6 @@
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.testbrowser import browsing
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -45,3 +46,13 @@ class TestNewsRssListing(TestCase):
         self.assertIn(link,
                       self.browser.contents,
                       'Did not found the link tag for the news')
+
+    @browsing
+    def test_newsitem_contains_pubdate(self, browser):
+        browser.open(self.newsfolder, view='news_rss_listing')
+
+        effective_date = self.news.getEffectiveDate()
+        self.assertEqual(
+            effective_date.strftime('%a, %e %b %Y %H:%M:%S %z').strip(),
+            browser.css('rdf item pubDate').first.text
+        )

@@ -33,6 +33,9 @@
     <title tal:content="item/Title" />
     <link tal:content="item/getURL" />
     <description tal:content="item/Description" />
+    <pubDate tal:define="effective python: item.getObject().getEffectiveDate()"
+             tal:condition="effective"
+             tal:content="python: effective.strftime('%a, %e %b %Y %H:%M:%S %z')" />
   </item>
 </tal:block>
 

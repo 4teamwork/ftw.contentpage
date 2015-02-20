@@ -4,6 +4,9 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+- Render the news item's publication date on the RSS feed.
+  [mbaechtold]
+
 - Fixed a bug which prevented whole day events from being listed on the
   event listing view.
   [mbaechtold]
