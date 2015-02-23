@@ -54,7 +54,7 @@ class TestTextBlockView(TestCase):
         test_title = 'This is the title'
         textblock.setTitle(test_title)
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                          name='block_view')
+                                 name='block_view')
 
         self.assertNotIn(test_title, view.index())
 
@@ -65,7 +65,7 @@ class TestTextBlockView(TestCase):
         textblock = self._create_textblock()
         test_text = 'This is the Text'
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                          name='block_view')
+                                 name='block_view')
 
         self.assertNotIn(test_text, view.index())
 
@@ -79,7 +79,7 @@ class TestTextBlockView(TestCase):
         self.assertNotIn('sl-img-wrapper', self.browser.contents)
 
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                                  name='block_view')
+                                 name='block_view')
         self.assertFalse(view.has_image())
 
         # Add Image
@@ -97,7 +97,7 @@ class TestTextBlockView(TestCase):
     def test_get_image_tag(self):
         textblock = self._create_textblock()
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                                  name='block_view')
+                                 name='block_view')
         # No image uploaded
         self.assertEquals(view.get_image_tag(), '')
 
@@ -125,7 +125,7 @@ class TestTextBlockView(TestCase):
     def test_image_wrapper_style(self):
         textblock = self._create_textblock()
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                                  name='block_view')
+                                 name='block_view')
 
         # Add Image
         dummy = open("%s/dummy.png" % os.path.split(__file__)[0], 'r')
@@ -143,7 +143,7 @@ class TestTextBlockView(TestCase):
     def test_get_css_klass(self):
         textblock = self._create_textblock()
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                                  name='block_view')
+                                 name='block_view')
 
         # Init
         self.assertEquals(view.get_css_klass(), 'sl-img-small')
@@ -157,7 +157,7 @@ class TestTextBlockView(TestCase):
                          viewname='block-view')
 
         view = queryMultiAdapter((textblock, textblock.REQUEST),
-                                  name='block_view')
+                                 name='block_view')
         self.assertEquals(view.get_css_klass(), 'sl-img-no-image')
 
     def tearDown(self):

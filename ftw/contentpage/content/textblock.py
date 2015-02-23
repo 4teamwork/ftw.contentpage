@@ -24,8 +24,8 @@ default_schema = atapi.Schema((
         schemata='default',
         default=0,
         widget=atapi.BooleanWidget(
-        label=_(u'label_show_title',
-                default=u'Show Title'))),
+            label=_(u'label_show_title',
+                    default=u'Show Title'))),
 
     atapi.TextField(
         name='text',
@@ -39,8 +39,8 @@ default_schema = atapi.Schema((
         widget=atapi.RichWidget(
             label=_(u'label_text',
                     default=u'Text'),
-                    allow_file_upload=False,
-                    rows=25)),
+            allow_file_upload=False,
+            rows=25)),
 
 ))
 
@@ -74,15 +74,15 @@ image_schema = atapi.Schema((
                     default=u'Image'))),
 
     atapi.StringField(
-            name='imageAltText',
-            schemata='image',
-            required=False,
-            widget=atapi.StringWidget(
-                label=_(u'label_image_alt_text',
-                        default=u'Image'),
-                description=_(u'description_image_alt_text',
-                              default=u'Enter an alternative text '
-                                      u'for the image'))),
+        name='imageAltText',
+        schemata='image',
+        required=False,
+        widget=atapi.StringWidget(
+            label=_(u'label_image_alt_text',
+                    default=u'Image'),
+            description=_(u'description_image_alt_text',
+                          default=u'Enter an alternative text '
+                                  u'for the image'))),
 ))
 
 
@@ -102,8 +102,8 @@ class TextBlock(ATCTContent, HistoryAwareMixin):
     implements(ITextBlock, ISimpleLayoutBlock)
     schema = textblock_schema
 
-    #Special workarround for empty titles, otherwise we have "[...]"
-    #results in the search function
+    # Special workarround for empty titles, otherwise we have "[...]"
+    # results in the search function
     def setTitle(self, value):
         portal_transforms = getToolByName(self, 'portal_transforms')
         field = self.schema['title']
