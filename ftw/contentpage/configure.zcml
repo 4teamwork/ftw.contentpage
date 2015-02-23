@@ -103,6 +103,11 @@
       name="ftw.contentpage.subjects"
     />
 
+    <utility
+      component=".vocabularies.contentcategories_vocabulary"
+      name="ftw.contentpage.contentcategories"
+    />
+
     <class class="ftw.contentpage.content.news.News">
           <implements interface="simplelayout.base.interfaces.ISimpleLayoutBlock" />
     </class>

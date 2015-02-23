@@ -88,3 +88,19 @@ class TestContentCategoriesBehavior(TestCase):
             ('WITH unicode \xc3\xa4',
                 [('Democontent', sampledxcontent.absolute_url(), '')]),
             viewlet.get_content())
+
+    def test_adding_new_category_using_the_new_categories_field(self):
+        page = create(Builder('content page'))
+        sampledxcontent = create(Builder('sample')
+                                 .titled('Democontent')
+                                 .within(page)
+                                 .having(new_content_categories=(u'WITH unicode \xe4', )))
+
+        viewlet = self._get_viewlet(page)[0]
+        self.assertTrue(viewlet.available())
+
+        self.assertIn(
+            ('WITH unicode \xc3\xa4',
+                [('Democontent', sampledxcontent.absolute_url(), '')]),
+            viewlet.get_content())
+

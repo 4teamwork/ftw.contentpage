@@ -31,3 +31,16 @@ def SubjectVocabulary(context):
     return vocabulary.SimpleVocabulary(terms)
 
 directlyProvides(SubjectVocabulary, IVocabularyFactory)
+
+
+def contentcategories_vocabulary(context):
+    normalizer = queryUtility(IIDNormalizer)
+    catalog = getToolByName(context, 'portal_catalog')
+    terms = []
+    for term in catalog.uniqueValuesFor("getContentCategories"):
+        terms.append(SimpleTerm(value=term.decode('utf8'),
+                                token=normalizer.normalize(term.decode('utf8')),
+                                title=term.decode('utf8')))
+    return vocabulary.SimpleVocabulary(terms)
+
+directlyProvides(contentcategories_vocabulary, IVocabularyFactory)

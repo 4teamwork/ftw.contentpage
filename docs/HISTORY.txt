@@ -4,16 +4,20 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
+=======
+- Extend IContentCategories behavior with a new field "new content categories".
+  [mathias.leimgruber]
+
 - Don't limit the number of news entries when rendering all news.
   [mbaechtold]
-  
+
 - Render the news item's publication date on the RSS feed.
   [mbaechtold]
 
 - Fixed a bug which prevented whole day events from being listed on the
   event listing view.
   [mbaechtold]
-  
+
 - Fix cache decorator (from view to instance) for archive base portlet.
   If you have both archive portlets (news and event) on the same page
   the second archive portlet will use the result from the first one.
