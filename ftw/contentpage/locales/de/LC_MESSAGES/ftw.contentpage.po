@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-23 14:00+0000\n"
+"POT-Creation-Date: 2015-02-24 09:03+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,12 +217,12 @@ msgid "description_days"
 msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschränkung."
 
 #. Default: "Enter an alternative text for the image"
-#: ./ftw/contentpage/content/textblock.py:83
+#: ./ftw/contentpage/content/textblock.py:86
 msgid "description_image_alt_text"
 msgstr "Geben Sie den Alternativtext für das Bild ein. Der Alternativtext richtet sich an Benutzer und Endgeräte, die den Bildinhalt nicht wahrnehmen oder nicht darstellen können, und sollte also wörtlich als Alternative zum Bild formuliert sein. Falls kein Alternativtext angegeben wird, wird der Bildtitel verwendet."
 
 #. Default: "Opens image in an overlay"
-#: ./ftw/contentpage/content/textblock.py:64
+#: ./ftw/contentpage/content/textblock.py:67
 msgid "description_image_clickable"
 msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 
@@ -426,22 +426,22 @@ msgid "label_id"
 msgstr "ID"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:54
+#: ./ftw/contentpage/content/textblock.py:57
 msgid "label_image"
 msgstr "Bild"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:81
+#: ./ftw/contentpage/content/textblock.py:84
 msgid "label_image_alt_text"
 msgstr "Alternativtext"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:73
+#: ./ftw/contentpage/content/textblock.py:76
 msgid "label_image_caption"
 msgstr "Bildtitel"
 
 #. Default: "Image clickable"
-#: ./ftw/contentpage/content/textblock.py:62
+#: ./ftw/contentpage/content/textblock.py:65
 msgid "label_image_clickable"
 msgstr "Bild auch als Overlay darstellbar machen"
 
@@ -534,7 +534,7 @@ msgstr "Bild anzeigen"
 #. Default: "Show Title"
 #: ./ftw/contentpage/content/addressblock.py:31
 #: ./ftw/contentpage/content/listingblock.py:26
-#: ./ftw/contentpage/content/textblock.py:27
+#: ./ftw/contentpage/content/textblock.py:30
 msgid "label_show_title"
 msgstr "Titel anzeigen?"
 
@@ -566,7 +566,7 @@ msgid "label_team"
 msgstr "Team"
 
 #. Default: "Text"
-#: ./ftw/contentpage/content/textblock.py:40
+#: ./ftw/contentpage/content/textblock.py:43
 msgid "label_text"
 msgstr "Text"
 
@@ -624,6 +624,26 @@ msgstr "Inhalt"
 #: ./ftw/contentpage/browser/subject_listing.pt:42
 msgid "subject_listing_subjects"
 msgstr "Stichwort"
+
+#. Default: "External URL"
+#: ./ftw/contentpage/content/textblock.py:109
+msgid "teaser_external_url"
+msgstr "Externe URL"
+
+#. Default: "Internal Reference"
+#: ./ftw/contentpage/content/textblock.py:107
+msgid "teaser_internal_reference"
+msgstr "Interne Referenz"
+
+#. Default: "Teaser link text"
+#: ./ftw/contentpage/content/textblock.py:98
+msgid "teaser_link_text_label"
+msgstr "Teaser Link Text"
+
+#. Default: "Select internal or external link"
+#: ./ftw/contentpage/content/textblock.py:114
+msgid "teaser_select_label"
+msgstr "Wähle zwischen interner Referenz und externem Link"
 
 #. Default: "Fax ${num}"
 #: ./ftw/contentpage/browser/address.pt:21

@@ -13,9 +13,10 @@
              tal:define="image_desc context/getImageCaption | context/Description">
                     <a  tal:attributes="
                                         title image_desc;
-                                        href string:${context/absolute_url}/image
+                                        href view/get_image_url;
+                                        class python: view.get_teaser_url() and 'disableColorbox'
                                         "
-                                        tal:omit-tag="not: here/getImageClickable|nothing"
+                                        tal:omit-tag="not: view/get_image_url | nothing"
                     >
                         <img tal:replace="structure view/get_image_tag" />
                     </a>
@@ -23,6 +24,11 @@
                        tal:content="context/getImageCaption">Caption</p>
         </div>
     </tal:IMAGE>
-    <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
+    <div tal:condition="text" class="sl-text-wrapper">
+        <tal:TEXT tal:content="structure text"></tal:TEXT>
+        <a tal:condition="view/get_teaser_url"
+           tal:attributes="href view/get_teaser_url"
+           tal:content="context/getTeaserLinkText"></a>
+    </div>
 </div>
 <div class="visualClear"><!-- --></div>

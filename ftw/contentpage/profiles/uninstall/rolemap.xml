@@ -30,6 +30,9 @@
     <permission name="ftw.contentpage: Toggle IAuthority marker interface"
                 acquire="True">
     </permission>
+    <permission name="ftw.contentpage: Add teaser link"
+                acquire="True">
+    </permission>
 
     <permission name="ftw.contentpage: Add new categories 'content categories behavior'"
                 acquire="True">

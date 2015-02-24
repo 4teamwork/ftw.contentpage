@@ -3,13 +3,6 @@
    autogroup="False">
 
  <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="++resource++ftw.contentpage.resources/collapse_archive.js"
-    inline="False" />
-
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="++resource++ftw.contentpage.resources/toggle_faq.js" inline="False"/>
-
- <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" inline="False"
     id="++resource++ftw.contentpage.resources/teaser_link_select_helper.js"
     insert-after="++resource++plone.app.jquery.js" />

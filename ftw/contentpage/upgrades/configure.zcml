@@ -425,4 +425,13 @@
         />
 
 
+    <!-- 1609 -> 1610 -->
+    <upgrade-step:importProfile
+        title="Add textblock teaser."
+        profile="ftw.contentpage:default"
+        source="1609"
+        destination="1610"
+        directory="profiles/1610"
+        />
+
 </configure>

@@ -57,6 +57,10 @@
       <role name="Contributor"/>
       <role name="Manager"/>
     </permission>
+    <permission name="ftw.contentpage: Add teaser link"
+                acquire="True">
+      <role name="Manager"/>
+    </permission>
 
     <permission name="ftw.contentpage: Add new categories 'content categories behavior'"
                 acquire="True">

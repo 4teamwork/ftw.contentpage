@@ -1,9 +1,12 @@
 from AccessControl import ClassSecurityInfo
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from ftw.contentpage import _
 from ftw.contentpage import config
 from ftw.contentpage.content.schema import finalize
 from ftw.contentpage.interfaces import ITextBlock
 from plone.app.blob.field import ImageField
+from Products.Archetypes.public import DisplayList
+from Products.Archetypes.public import SelectionWidget
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
@@ -85,14 +88,70 @@ image_schema = atapi.Schema((
                                   u'for the image'))),
 ))
 
+teaser_schema = atapi.Schema((
+    atapi.StringField(
+        name='teaserLinkText',
+        schemata='teaser',
+        required=False,
+        searchable=False,
+        widget=atapi.StringWidget(
+            label=_(u'teaser_link_text_label',
+                    default=u'Teaser link text'))),
+
+    atapi.StringField(
+        name="teaserSelectLink",
+        schemata='teaser',
+        multiValued=False,
+        helper_js=('++resource++ftw.contentpage.resources/'
+                   'teaser_link_select_helper.js', ),
+        storage=atapi.AttributeStorage(),
+        vocabulary=DisplayList((
+            ('intern', _(u'teaser_internal_reference',
+                         default="Internal Reference")),
+            ('extern', _(u'teaser_external_url',
+                         default="External URL")),
+        )),
+        widget=SelectionWidget(
+            label=_(u'teaser_select_label',
+                    default="Select internal or external link"),
+            )
+    ),
+
+    atapi.StringField(
+        name='teaserExternalUrl',
+        schemata='teaser',
+        searchable=False,
+        validators='isURL',
+        widget=atapi.StringWidget(
+            label=_(u'teaser_external_url',
+                    default=u'External URL'))),
+
+    atapi.ReferenceField(
+        name='teaserReference',
+        relationship='teasesContent',
+        schemata='teaser',
+        multiValued=False,
+        widget=ReferenceBrowserWidget(
+            force_close_on_insert=True,
+            label=_(
+                u'teaser_internal_reference',
+                default=u'Internal Reference'
+            ),
+        )),
+))
 
 textblock_schema = ATContentTypeSchema.copy() + \
-    default_schema.copy() + image_schema.copy()
+    default_schema.copy() + image_schema.copy() + teaser_schema.copy()
 
 textblock_schema['title'].required = False
 textblock_schema['text'].widget.filter_buttons = ('image', )
 
 finalize(textblock_schema, hide=['description'])
+
+# Protect the teaser schema with a specific permission
+permission = "ftw.contentpage: Add teaser link"
+for name in teaser_schema.keys():
+    textblock_schema[name].write_permission = permission
 
 
 class TextBlock(ATCTContent, HistoryAwareMixin):
