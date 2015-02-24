@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.9.1 (unreleased)
-------------------
+1.10.0 (2015-02-24)
+-------------------
 
 - Don't limit the number of news entries when rendering all news.
   [mbaechtold]
