@@ -4,7 +4,6 @@ Changelog
 1.9.1 (unreleased)
 ------------------
 
-=======
 - Extend IContentCategories behavior with a new field "new content categories".
   [mathias.leimgruber]
 

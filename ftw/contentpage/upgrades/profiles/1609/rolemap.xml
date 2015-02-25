@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+
+    <permission name="ftw.contentpage: Add new categories 'content categories behavior'"
+                acquire="True">
+      <role name="Manager"/>
+    </permission>
+
+  </permissions>
+</rolemap>

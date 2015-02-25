@@ -415,4 +415,14 @@
         profile="ftw.contentpage:default"
         />
 
+    <!-- 1608 -> 1609 -->
+    <upgrade-step:importProfile
+        title="Add new add cateories permission (content categories behavior)"
+        profile="ftw.contentpage:default"
+        source="1608"
+        destination="1609"
+        directory="profiles/1609"
+        />
+
+
 </configure>

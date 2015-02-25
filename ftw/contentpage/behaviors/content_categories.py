@@ -1,5 +1,6 @@
 from ftw.contentpage import _
 from plone.autoform import directives
+from plone.autoform.directives import write_permission
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.behavior.annotation import AnnotationsFactoryImpl
 from plone.supermodel import model
@@ -23,6 +24,7 @@ class IContentCategories(model.Schema):
     )
     directives.widget('content_categories', CheckBoxFieldWidget)
 
+    write_permission(new_content_categories='ftw.contentpage.content_categories_behavior.add_new_categories')
     new_content_categories = schema.Tuple(
         title=_(u'label_new_categories', default=u'New categories'),
         description=_(u'help_new_categories',
