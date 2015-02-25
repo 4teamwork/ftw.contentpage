@@ -31,5 +31,9 @@
                 acquire="True">
     </permission>
 
+    <permission name="ftw.contentpage: Add new categories 'content categories behavior'"
+                acquire="True">
+    </permission>
+
   </permissions>
 </rolemap>

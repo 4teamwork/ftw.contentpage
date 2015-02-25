@@ -58,5 +58,10 @@
       <role name="Manager"/>
     </permission>
 
+    <permission name="ftw.contentpage: Add new categories 'content categories behavior'"
+                acquire="True">
+      <role name="Manager"/>
+    </permission>
+
   </permissions>
 </rolemap>

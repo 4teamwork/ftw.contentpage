@@ -1,3 +1,6 @@
+from pkg_resources import get_distribution
+
+
 PROJECTNAME = 'ftw.contentpage'
 
 
@@ -17,3 +20,10 @@ INDEXES = (('getContentCategories', 'KeywordIndex'),
 
 
 ORIGINAL_SIZE = (900, 900)
+
+
+
+if get_distribution('Plone').version >= '4.3':
+    HAS_CONTENT_LISTING_BEHAVIOR = True
+else:
+    HAS_CONTENT_LISTING_BEHAVIOR = False

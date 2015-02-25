@@ -24,4 +24,9 @@
         title="ftw.contentpage: Toggle IAuthority marker interface"
         />
 
+    <permission
+        id="ftw.contentpage.content_categories_behavior.add_new_categories"
+        title="ftw.contentpage: Add new categories 'content categories behavior'"
+        />
+
 </configure>

@@ -4,16 +4,19 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="simplelayout">
 
-    <include package="plone.behavior" file="meta.zcml" />
-    <include package="plone.directives.form" file="meta.zcml" />
-    <include package="plone.directives.form" />
 
-    <plone:behavior
-        title="ftw.contentpage content categories behavior"
-        description="Extends a content by the content_categories field"
-        provides="ftw.contentpage.behaviors.content_categories.IContentCategories"
-        factory="plone.behavior.AnnotationStorage"
-        marker="ftw.contentpage.interfaces.ICategorizable"
-        />
+    <configure zcml:condition="have plone-43">
+      <include package="plone.behavior" file="meta.zcml" />
+      <include package="plone.directives.form" file="meta.zcml" />
+      <include package="plone.directives.form" />
+
+      <plone:behavior
+          title="ftw.contentpage content categories behavior"
+          description="Extends a content by the content_categories field"
+          provides="ftw.contentpage.behaviors.content_categories.IContentCategories"
+          factory=".content_categories.ContentCategoriesStorage"
+          marker="ftw.contentpage.interfaces.ICategorizable"
+          />
+  </configure>
 
 </configure>

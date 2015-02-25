@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-01-06 14:34+0000\n"
+"POT-Creation-Date: 2015-02-23 14:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,12 +115,12 @@ msgstr ""
 msgid "References"
 msgstr ""
 
-#: ./ftw/contentpage/browser/feedback.py:77
+#: ./ftw/contentpage/browser/feedback.py:79
 msgid "Send Mail"
 msgstr ""
 
 #. Default: "Name"
-#: ./ftw/contentpage/browser/feedback.py:35
+#: ./ftw/contentpage/browser/feedback.py:34
 msgid "Sender_Name"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "TextBlock"
 msgstr ""
 
-#: ./ftw/contentpage/browser/feedback.py:87
+#: ./ftw/contentpage/browser/feedback.py:89
 msgid "The captcha code you entered was wrong, please enter the new one."
 msgstr "Le code captcha entré avait tort, se il vous plaît entrer le nouveau."
 
@@ -158,9 +158,13 @@ msgid "View"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/browser/feedback.py:102
+#: ./ftw/contentpage/browser/feedback.py:104
 msgid "button_cancel"
 msgstr "Annuler"
+
+#: ./ftw/contentpage/behaviors/content_categories.py:28
+msgid "categories"
+msgstr "Catégories"
 
 #. Default: "creater"
 #: ./ftw/contentpage/browser/listingblock_view.py:68
@@ -227,7 +231,7 @@ msgid "help_always_render_portlet"
 msgstr "Lorsque cette option est activée, le portlet s'affiche même s'il n'y a pas de nouvelles."
 
 #. Default: "Category for contentlisting"
-#: ./ftw/contentpage/behaviors/content_categories.py:13
+#: ./ftw/contentpage/behaviors/content_categories.py:26
 #: ./ftw/contentpage/extender.py:33
 msgid "help_categories"
 msgstr ""
@@ -252,6 +256,11 @@ msgstr ""
 #: ./ftw/contentpage/extender.py:79
 msgid "help_mark_as_authority"
 msgstr ""
+
+#. Default: "New categories for contentlisting"
+#: ./ftw/contentpage/behaviors/content_categories.py:37
+msgid "help_new_categories"
+msgstr "Une catégorie par ligne, plusieurs mots sont permis."
 
 #: ./ftw/contentpage/portlets/news_portlet.py:44
 msgid "help_only_context"
@@ -293,7 +302,7 @@ msgid "help_www"
 msgstr ""
 
 #. Default: "The email was sent."
-#: ./ftw/contentpage/browser/feedback.py:98
+#: ./ftw/contentpage/browser/feedback.py:100
 msgid "info_email_sent"
 msgstr "Le courriel a été envoyé."
 
@@ -322,7 +331,7 @@ msgid "label_ascending"
 msgstr "Ascendant"
 
 #. Default: "by ${author}"
-#: ./ftw/contentpage/browser/newslisting.pt:41
+#: ./ftw/contentpage/browser/newslisting.pt:51
 msgid "label_by_author"
 msgstr "de ${author}"
 
@@ -332,7 +341,7 @@ msgid "label_cancel"
 msgstr "Annuler"
 
 #. Default: "Categories"
-#: ./ftw/contentpage/behaviors/content_categories.py:12
+#: ./ftw/contentpage/behaviors/content_categories.py:25
 #: ./ftw/contentpage/extender.py:32
 msgid "label_categories"
 msgstr "Catégories"
@@ -406,7 +415,7 @@ msgid "label_fax"
 msgstr ""
 
 #. Default: "${title} - News Feed"
-#: ./ftw/contentpage/browser/newslisting.py:57
+#: ./ftw/contentpage/browser/newslisting.py:59
 msgid "label_feed_desc"
 msgstr ""
 
@@ -442,7 +451,7 @@ msgid "label_mark_as_authority"
 msgstr ""
 
 #. Default: "Message"
-#: ./ftw/contentpage/browser/feedback.py:42
+#: ./ftw/contentpage/browser/feedback.py:41
 msgid "label_message"
 msgstr ""
 
@@ -453,6 +462,11 @@ msgstr ""
 #: ./ftw/contentpage/portlets/news_portlet.py:85
 msgid "label_more_news_link"
 msgstr "Afficher plus de lien nouvelles"
+
+#. Default: " New categories"
+#: ./ftw/contentpage/behaviors/content_categories.py:36
+msgid "label_new_categories"
+msgstr "Créer et utiliser nouvelle catégories"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:43
 msgid "label_only_context"
@@ -499,7 +513,7 @@ msgid "label_save"
 msgstr "Enregistrer"
 
 #. Default: "Send Feedback"
-#: ./ftw/contentpage/browser/feedback.py:49
+#: ./ftw/contentpage/browser/feedback.py:48
 msgid "label_send_feedback"
 msgstr "Envoyer un commentaire"
 
@@ -538,7 +552,7 @@ msgid "label_sortable_title"
 msgstr ""
 
 #. Default: "Subject"
-#: ./ftw/contentpage/browser/feedback.py:40
+#: ./ftw/contentpage/browser/feedback.py:39
 msgid "label_subject"
 msgstr "Sujet"
 
@@ -572,7 +586,7 @@ msgid "label_zip"
 msgstr ""
 
 #. Default: "E-Mail"
-#: ./ftw/contentpage/browser/feedback.py:37
+#: ./ftw/contentpage/browser/feedback.py:36
 msgid "mail_address"
 msgstr ""
 
@@ -588,7 +602,7 @@ msgid "no_recent_news_label"
 msgstr "Pas de nouvelles récentes disponibles."
 
 #. Default: "Read More…"
-#: ./ftw/contentpage/browser/newslisting.pt:59
+#: ./ftw/contentpage/browser/newslisting.pt:69
 msgid "read_more"
 msgstr "En savoir plus..."
 
@@ -619,7 +633,7 @@ msgstr ""
 
 #. Default: "No Contents"
 #: ./ftw/contentpage/browser/eventlisting.pt:51
-#: ./ftw/contentpage/browser/newslisting.pt:65
+#: ./ftw/contentpage/browser/newslisting.pt:75
 msgid "text_not_content"
 msgstr "Pas de contenu"
 
