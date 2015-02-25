@@ -4,10 +4,12 @@ from ftw.builder import registry
 from ftw.builder.dexterity import DexterityBuilder
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.testbrowser import browsing
+from pkg_resources import get_distribution
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.fti import DexterityFTI
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.views import SimpleLayoutView
+from unittest2 import skipUnless
 from unittest2 import TestCase
 from zope import schema
 from zope.component import queryMultiAdapter
@@ -30,6 +32,7 @@ class SampleBuilder(DexterityBuilder):
 registry.builder_registry.register('sample', SampleBuilder)
 
 
+@skipUnless(get_distribution('Plone').version >= '4.3', 'requires plone 4.3')
 class TestContentCategoriesBehavior(TestCase):
 
     layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING

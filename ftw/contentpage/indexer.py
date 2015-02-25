@@ -1,18 +1,22 @@
 from DateTime import DateTime
-from ftw.contentpage.behaviors.content_categories import IContentCategories
+from ftw.contentpage.config import HAS_CONTENT_LISTING_BEHAVIOR
 from ftw.contentpage.interfaces import ICategorizable, IEventPage
 from ftw.contentpage.interfaces import IContentPage
+from plone.dexterity.interfaces import IDexterityContent
 from plone.indexer.decorator import indexer
 from Products.Archetypes.interfaces import IBaseObject
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from plone.dexterity.interfaces import IDexterityContent
+
+
+if HAS_CONTENT_LISTING_BEHAVIOR:
+    from ftw.contentpage.behaviors.content_categories import IContentCategories
 
 
 @indexer(ICategorizable)
 def categories(obj, **kw):
     if IBaseObject.providedBy(obj):
         return obj.Schema()['content_categories'].get(obj)
-    elif IDexterityContent.providedBy(obj):
+    elif IDexterityContent.providedBy(obj) and HAS_CONTENT_LISTING_BEHAVIOR:
         return [item.encode('utf-8') for item in
                 IContentCategories(obj).content_categories]
     else:
