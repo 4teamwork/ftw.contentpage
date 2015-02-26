@@ -17,6 +17,7 @@ class TestTextblockTeaser(TestCase):
         self.textblock = create(Builder('text block')
                                 .titled('TextBlock')
                                 .having(showTitle='True',
+                                        imageCaption='Image Caption',
                                         text="Lorem ipsum dolor sit amet.")
                                 .with_dummy_content()
                                 .within(self.contentpage))
@@ -44,7 +45,6 @@ class TestTextblockTeaser(TestCase):
     def test_internal_teaser(self, browser):
         linktarget = create(Builder('content page'))
 
-        self.textblock.setTeaserLinkText('TEASER TEXT')
         self.textblock.setTeaserSelectLink('intern')
         self.textblock.setTeaserReference(linktarget)
         transaction.commit()
@@ -54,19 +54,10 @@ class TestTextblockTeaser(TestCase):
             'http://nohost/plone/contentpage-1',
             browser.css('.textblock .sl-img-wrapper a').first.attrib['href'])
 
-        self.assertEquals(
-            'TEASER TEXT',
-            browser.css('.textblock .sl-text-wrapper a').first.text)
-
-        self.assertEquals(
-            'http://nohost/plone/contentpage-1',
-            browser.css('.textblock .sl-text-wrapper a').first.attrib['href'])
-
     @browsing
     def test_external_teaser(self, browser):
         linktarget = 'http://www.google.ch'
 
-        self.textblock.setTeaserLinkText('TEASER TEXT')
         self.textblock.setTeaserSelectLink('extern')
         self.textblock.setTeaserExternalUrl(linktarget)
         transaction.commit()
@@ -76,9 +67,6 @@ class TestTextblockTeaser(TestCase):
         self.assertEquals(
             linktarget,
             browser.css('.textblock .sl-img-wrapper a').first.attrib['href'])
-        self.assertEquals(
-            linktarget,
-            browser.css('.textblock .sl-text-wrapper a').first.attrib['href'])
 
     @browsing
     def test_teaser_disables_colorbox(self, browser):
@@ -87,7 +75,6 @@ class TestTextblockTeaser(TestCase):
         # teaser takes priority over colorbox
         self.textblock.setImageClickable(True)
 
-        self.textblock.setTeaserLinkText('TEASER TEXT')
         self.textblock.setTeaserSelectLink('extern')
         self.textblock.setTeaserExternalUrl(linktarget)
         transaction.commit()

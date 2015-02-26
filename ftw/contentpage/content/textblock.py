@@ -89,21 +89,11 @@ image_schema = atapi.Schema((
 ))
 
 teaser_schema = atapi.Schema((
-    atapi.StringField(
-        name='teaserLinkText',
-        schemata='teaser',
-        required=False,
-        searchable=False,
-        widget=atapi.StringWidget(
-            label=_(u'teaser_link_text_label',
-                    default=u'Teaser link text'))),
 
     atapi.StringField(
         name="teaserSelectLink",
         schemata='teaser',
         multiValued=False,
-        helper_js=('++resource++ftw.contentpage.resources/'
-                   'teaser_link_select_helper.js', ),
         storage=atapi.AttributeStorage(),
         vocabulary=DisplayList((
             ('intern', _(u'teaser_internal_reference',
