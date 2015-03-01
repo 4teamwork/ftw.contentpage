@@ -35,7 +35,8 @@ class TextBlockView(BrowserView):
                         self.context.getCharset())
 
         if not alt:
-            alt = self.context.getImage().filename
+            alt = unicode(self.context.getImage().filename or '',
+                          self.context.getCharset())
 
         image_util = getUtility(
             IScaleImage,
