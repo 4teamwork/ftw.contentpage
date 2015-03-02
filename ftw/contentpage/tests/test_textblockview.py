@@ -140,6 +140,16 @@ class TestTextBlockView(TestCase):
         self.assertIn(view.image_wrapper_style(),
                       self.browser.contents)
 
+    def test_image_with_umlauts_in_filename(self):
+        textblock = self._create_textblock()
+        view = queryMultiAdapter((textblock, textblock.REQUEST),
+                                  name='block_view')
+
+        with open("%s/dummy.png" % os.path.split(__file__)[0], 'r') as dummy:
+            textblock.setImage(dummy)
+        textblock.getImage().filename = 'K\xc3\xbcche.png'
+        self.assertIn(u'K\xfcche.png', view.get_image_tag())
+
     def test_get_css_klass(self):
         textblock = self._create_textblock()
         view = queryMultiAdapter((textblock, textblock.REQUEST),
