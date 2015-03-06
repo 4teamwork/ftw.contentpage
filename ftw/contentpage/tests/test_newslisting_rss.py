@@ -53,6 +53,11 @@ class TestNewsRssListing(TestCase):
 
         effective_date = self.news.getEffectiveDate()
         self.assertEqual(
-            effective_date.strftime('%a, %e %b %Y %H:%M:%S %z').strip(),
+            # Difference between "%e" and "%-e":
+            # %e has a leading space on single numbers - thats why the tests
+            # failing between the 1st and the 9th every month :-)
+            # %-e Removes the leading space - only works on unix machines.
+            effective_date.strftime('%a, %-e %b %Y %H:%M:%S %z').strip(),
             browser.css('rdf item pubDate').first.text
         )
+
