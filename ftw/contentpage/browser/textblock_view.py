@@ -70,3 +70,28 @@ class TextBlockView(BrowserView):
     def get_block_height(self):
         height = self.blockconf.block_height
         return height and 'height: %spx' % height or ''
+
+    def get_image_url(self):
+        teaser_url = self.get_teaser_url()
+        if teaser_url:
+            return teaser_url
+
+        if self.context.getImageClickable():
+            return self.context.absolute_url() + '/image'
+
+        return None
+
+    def get_teaser_url(self):
+        linkSelector = self.context.getTeaserSelectLink()
+
+        if linkSelector == 'intern':
+            ref_obj = self.context.getTeaserReference()
+
+            return ref_obj and ref_obj.absolute_url() or None
+
+        if linkSelector == 'extern':
+            url = self.context.getTeaserExternalUrl()
+
+            return url != '' and url or None
+
+        return None

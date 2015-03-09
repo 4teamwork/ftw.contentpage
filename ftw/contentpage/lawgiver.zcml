@@ -30,4 +30,9 @@
         permissions="ftw.contentpage: Toggle IAuthority marker interface"
         />
 
+    <lawgiver:map_permissions
+        action_group="add teaser link"
+        permissions="ftw.contentpage: Add teaser link"
+        />
+
 </configure>

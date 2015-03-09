@@ -5,24 +5,29 @@
                  fullblock python: text and ' sl-fullblock' or ''"
      tal:attributes="class string:simplelayout-block-wrapper TextBlock ${slclass}${fullblock};
                      style string:${view/get_block_height}">
-     <a tal:attributes="id here/id" ></a>
-    <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
+        <a tal:attributes="id here/id" ></a>
+        <a tal:attributes="href view/get_image_url" tal:omit-tag="not: view/get_image_url">
+            <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
+        </a>
     <tal:IMAGE tal:condition="view/has_image">
         <div class="sl-img-wrapper"
              tal:attributes="style view/image_wrapper_style"
              tal:define="image_desc context/getImageCaption | context/Description">
                     <a  tal:attributes="
                                         title image_desc;
-                                        href string:${context/absolute_url}/image
+                                        href view/get_image_url;
+                                        class python: view.get_teaser_url() and 'disableColorbox'
                                         "
-                                        tal:omit-tag="not: here/getImageClickable|nothing"
+                                        tal:omit-tag="not: view/get_image_url | nothing"
                     >
                         <img tal:replace="structure view/get_image_tag" />
+                        <p tal:condition="image_desc"
+                           tal:content="context/getImageCaption">Caption</p>
                     </a>
-                    <p tal:condition="image_desc"
-                       tal:content="context/getImageCaption">Caption</p>
         </div>
     </tal:IMAGE>
-    <div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
+    <div tal:condition="text" class="sl-text-wrapper">
+        <tal:TEXT tal:content="structure text"></tal:TEXT>
+    </div>
 </div>
 <div class="visualClear"><!-- --></div>

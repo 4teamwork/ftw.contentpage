@@ -7,9 +7,14 @@
       id="++resource++ftw.contentpage.resources/collapse_archive.js"
       />
 
- <javascript 
+ <javascript
       remove="True"
       id="++resource++ftw.contentpage.resources/toggle_faq.js"
+      />
+
+ <javascript
+      remove="True"
+      id="++resource++ftw.contentpage.resources/teaser_link_select_helper.js"
       />
 
 </object>
