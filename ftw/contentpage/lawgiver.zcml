@@ -35,4 +35,14 @@
         permissions="ftw.contentpage: Add teaser link"
         />
 
+
+    <!-- The dexterity add new categories behavior should behave like
+         the archetypes role based version (KeywordWidget).
+         For having the same behavior we want everything to acquire and
+         therefore exclude the permission from the workflow by default.
+    -->
+    <lawgiver:ignore
+        permissions="ftw.contentpage: Add new categories 'content categories behavior'"
+        />
+
 </configure>
