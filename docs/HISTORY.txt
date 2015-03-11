@@ -4,6 +4,9 @@ Changelog
 1.10.2 (unreleased)
 -------------------
 
+- Lawgiver: ignore dexterity add keyword permission.
+  [jone]
+
 - Added teaser option to textblock.
   [lknoepfel]
 
