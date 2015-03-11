@@ -4,7 +4,8 @@ Changelog
 1.11.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add German translations for custom lawgiver action groups.
+  [jone]
 
 
 1.11.0 (2015-03-11)
