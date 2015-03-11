@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.10.2 (unreleased)
+1.11.0 (2015-03-11)
 -------------------
 
 - Lawgiver: ignore dexterity add keyword permission.
