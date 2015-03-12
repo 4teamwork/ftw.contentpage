@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.1 (unreleased)
+1.11.1 (2015-03-12)
 -------------------
 
 - Add German translations for custom lawgiver action groups.
