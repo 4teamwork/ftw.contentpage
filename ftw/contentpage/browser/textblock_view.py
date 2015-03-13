@@ -29,14 +29,16 @@ class TextBlockView(BrowserView):
         return bool(self.context.getImage())
 
     def get_image_tag(self):
-        alt = unicode(self.context.getImageAltText(),
-                      self.context.getCharset())
+        alt = self.context.getImageAltText()
         title = unicode(self.context.getImageCaption(),
                         self.context.getCharset())
 
         if not alt:
-            alt = unicode(self.context.getImage().filename or '',
-                          self.context.getCharset())
+            # Note: The file name might be a unicode string.
+            alt = self.context.getImage().filename or ''
+
+        if not isinstance(alt, unicode):
+            alt = unicode(alt, self.context.getCharset())
 
         image_util = getUtility(
             IScaleImage,
