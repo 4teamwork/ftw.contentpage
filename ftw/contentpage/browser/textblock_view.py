@@ -28,6 +28,11 @@ class TextBlockView(BrowserView):
             return False
         return bool(self.context.getImage())
 
+    def has_teaser(self):
+        """Returns True when the current context uses the teaser_schema.
+        """
+        return 'teaserSelectLink' in self.context.Schema()
+
     def get_image_tag(self):
         alt = self.context.getImageAltText()
         title = unicode(self.context.getImageCaption(),
@@ -74,6 +79,9 @@ class TextBlockView(BrowserView):
         return height and 'height: %spx' % height or ''
 
     def get_image_url(self):
+        if not self.has_teaser():
+            return None
+
         teaser_url = self.get_teaser_url()
         if teaser_url:
             return teaser_url
@@ -84,6 +92,9 @@ class TextBlockView(BrowserView):
         return None
 
     def get_teaser_url(self):
+        if not self.has_teaser():
+            return None
+
         linkSelector = self.context.getTeaserSelectLink()
 
         if linkSelector == 'intern':
