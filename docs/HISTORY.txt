@@ -4,6 +4,10 @@ Changelog
 1.11.2 (unreleased)
 -------------------
 
+- Fix a bug in the textblock view when subclassed textblock types have
+  no teaser block schema.
+  [jone]
+
 - Fixed a bug which prevented the successful rendering of the textblock
   when the image's alt text was based on a unicode string filename ("decoding
   Unicode is not supported").
