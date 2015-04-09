@@ -89,3 +89,25 @@ class TestTextblockTeaser(TestCase):
         self.assertEquals(
             linktarget,
             browser.css('.textblock .sl-img-wrapper a').first.attrib['href'])
+
+    @browsing
+    def test_teaser_link_on_title(self, browser):
+        linktarget = 'http://www.google.ch'
+
+        browser.open(self.contentpage)
+        self.assertEquals(
+            1,
+            len(browser.css('.TextBlock > a')),
+            "The title shouldn't be a link.")
+
+        self.textblock.setTeaserSelectLink('extern')
+        self.textblock.setTeaserExternalUrl(linktarget)
+        transaction.commit()
+
+        browser.open(self.contentpage)
+        self.assertEquals(
+            2,
+            len(browser.css('.TextBlock > a')),
+            "The title should link to the teaser target.")
+        self.assertEquals('http://www.google.ch',
+                          browser.css('.TextBlock > a')[1].attrib['href'])
