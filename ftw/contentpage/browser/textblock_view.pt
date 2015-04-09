@@ -6,7 +6,7 @@
      tal:attributes="class string:simplelayout-block-wrapper TextBlock ${slclass}${fullblock};
                      style string:${view/get_block_height}">
         <a tal:attributes="id here/id" ></a>
-        <a tal:attributes="href view/get_image_url" tal:omit-tag="not: view/get_image_url">
+        <a tal:attributes="href view/get_teaser_url" tal:omit-tag="not: view/get_teaser_url">
             <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
         </a>
     <tal:IMAGE tal:condition="view/has_image">
