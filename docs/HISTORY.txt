@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.3 (unreleased)
+1.11.3 (2015-04-14)
 -------------------
 
 - Fixed bug where textblock title linked to image instead of teaser location.
