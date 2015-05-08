@@ -144,7 +144,3 @@ Copyright
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 ``ftw.contentpage`` is licensed under GNU General Public License, version 2.
-
-.. image:: https://cruel-carlota.pagodabox.com/d3e4ca26391a0beac20e5c8ff77e5559
-   :alt: githalytics.com
-   :target: http://githalytics.com/4teamwork/ftw.contentpage
