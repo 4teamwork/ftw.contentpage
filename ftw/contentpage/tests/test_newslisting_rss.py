@@ -50,6 +50,7 @@ class TestNewsRssListing(TestCase):
     @browsing
     def test_newsitem_contains_pubdate(self, browser):
         browser.open(self.newsfolder, view='news_rss_listing')
+        browser.parse_as_html()  # use HTML parser so that we have no XML namespaces.
 
         effective_date = self.news.getEffectiveDate()
         self.assertEqual(
@@ -60,4 +61,3 @@ class TestNewsRssListing(TestCase):
             effective_date.strftime('%a, %-e %b %Y %H:%M:%S %z').strip(),
             browser.css('rdf item pubDate').first.text
         )
-
