@@ -5,10 +5,10 @@
                  fullblock python: text and ' sl-fullblock' or ''"
      tal:attributes="class string:simplelayout-block-wrapper TextBlock ${slclass}${fullblock};
                      style string:${view/get_block_height}">
-        <a tal:attributes="id here/id" ></a>
-        <a tal:attributes="href view/get_teaser_url" tal:omit-tag="not: view/get_teaser_url">
-            <h2 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
-        </a>
+    <a tal:attributes="id here/id"></a>
+    <h2 tal:condition="here/getShowTitle|python:True">
+        <a tal:attributes="href view/get_teaser_url" tal:content="here/Title" tal:omit-tag="not: view/get_teaser_url"></a>
+    </h2>
     <tal:IMAGE tal:condition="view/has_image">
         <div class="sl-img-wrapper"
              tal:attributes="style view/image_wrapper_style"
