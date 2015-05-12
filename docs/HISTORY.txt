@@ -4,7 +4,9 @@ Changelog
 1.11.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix position of external link icon when linking textblock titles
+  with the teaser feature.
+  [mbaechtold]
 
 
 1.11.3 (2015-04-14)

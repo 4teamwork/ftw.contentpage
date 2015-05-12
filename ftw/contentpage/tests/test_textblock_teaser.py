@@ -96,9 +96,9 @@ class TestTextblockTeaser(TestCase):
 
         browser.open(self.contentpage)
         self.assertEquals(
-            1,
-            len(browser.css('.TextBlock > a')),
-            "The title shouldn't be a link.")
+            0,
+            len(browser.css('div.TextBlock > h2 > a')),
+            "The title must not contain a link.")
 
         self.textblock.setTeaserSelectLink('extern')
         self.textblock.setTeaserExternalUrl(linktarget)
@@ -106,8 +106,12 @@ class TestTextblockTeaser(TestCase):
 
         browser.open(self.contentpage)
         self.assertEquals(
-            2,
-            len(browser.css('.TextBlock > a')),
-            "The title should link to the teaser target.")
-        self.assertEquals('http://www.google.ch',
-                          browser.css('.TextBlock > a')[1].attrib['href'])
+            1,
+            len(browser.css('div.TextBlock > h2 > a')),
+            "The title should link to the teaser target."
+            )
+
+        self.assertEquals(
+            'http://www.google.ch',
+            browser.css('.TextBlock > h2 > a').first.attrib['href'],
+            "The title must link to the teaser target.")
