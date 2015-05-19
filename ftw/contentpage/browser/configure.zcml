@@ -8,6 +8,14 @@
         name="ftw.contentpage.resources"
         directory="resources"
         />
+
+    <browser:view
+        name="content_anchors"
+        for="ftw.contentpage.interfaces.IContentPage"
+        class=".anchor.ContentPageAnchorView"
+        permission="zope2.View"
+        />
+
     <!-- AddressBlock views -->
     <browser:page
         for="ftw.contentpage.interfaces.IAddressBlock"
