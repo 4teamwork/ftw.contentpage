@@ -4,7 +4,9 @@ Changelog
 1.11.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Enable the selection of anchors from all the blocks of a content page in
+  the WYSIWYG editor (TinyMCE).
+  [mbaechtold, jone]
 
 
 1.11.4 (2015-05-12)

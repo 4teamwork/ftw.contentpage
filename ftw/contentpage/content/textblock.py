@@ -32,6 +32,7 @@ default_schema = atapi.Schema((
 
     atapi.TextField(
         name='text',
+        primary=True,
         required=False,
         searchable=True,
         allowable_content_types=('text/html', ),
