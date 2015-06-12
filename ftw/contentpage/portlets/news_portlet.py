@@ -174,7 +174,8 @@ class AddForm(form.AddForm):
             desc_length=data.get('desc_length', 50),
             days=data.get('days', 0),
             more_news_link=data.get('more_news_link', 0),
-            rss_link=data.get('rss_link', 0)
+            rss_link=data.get('rss_link', 0),
+            always_render_portlet=data.get('always_render_portlet', False)
         )
 
 

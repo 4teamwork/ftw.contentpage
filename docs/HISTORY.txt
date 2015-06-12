@@ -4,6 +4,9 @@ Changelog
 1.11.5 (unreleased)
 -------------------
 
+- Fix NewsPortlet creation - always_render_portlet was missing.
+  [mathias.leimgruber]
+
 - Enable the selection of anchors from all the blocks of a content page in
   the WYSIWYG editor (TinyMCE).
   [mbaechtold, jone]
