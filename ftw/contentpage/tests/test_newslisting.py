@@ -1,14 +1,17 @@
-import transaction
-
 from DateTime import DateTime
+from ftw.builder import Builder
+from ftw.builder import create
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.testbrowser import browsing
+from ftw.testbrowser.pages import plone
+from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
-from Products.CMFCore.utils import getToolByName
-from plone.app.testing import setRoles
 from plone.testing.z2 import Browser
+from Products.CMFCore.utils import getToolByName
 from unittest2 import TestCase
+import transaction
 
 
 class TestNewsListing(TestCase):
@@ -85,3 +88,14 @@ class TestNewsListing(TestCase):
         self.browser.addHeader('Authorization', 'Basic jack:password')
         self.browser.open(self.context.absolute_url())
         self.assertNotIn('n2', self.browser.contents)
+
+    @browsing
+    def test_title_of_news_listing(self, browser):
+        page = create(Builder('content page').titled('Contentpage'))
+        newsfolder = create(Builder('news folder').within(page).titled('News'))
+
+        browser.login().visit(page, view='@@news_listing')
+        self.assertEquals('Contentpage - News', plone.first_heading())
+
+        browser.visit(newsfolder)
+        self.assertEquals('News', plone.first_heading())

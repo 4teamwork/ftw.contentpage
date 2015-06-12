@@ -50,7 +50,11 @@ class NewsListing(BaseListing):
         return self.search_results(query, 'effective')
 
     def title(self):
-        return self.context.Title() + ' - News'
+        title = self.context.Title()
+        if self.context.portal_type == 'NewsFolder':
+            return title
+        else:
+            return self.context.Title() + ' - News'
 
     def link(self):
         return self.context.absolute_url() + '/' + self.__name__
