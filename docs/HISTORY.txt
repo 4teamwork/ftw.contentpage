@@ -7,6 +7,9 @@ Changelog
 - Fix NewsPortlet creation - always_render_portlet was missing.
   [mathias.leimgruber]
 
+- Fix title of newslisting if newslisting is used on a NewsFolder.
+  [mathias.leimgruber]
+
 - Enable the selection of anchors from all the blocks of a content page in
   the WYSIWYG editor (TinyMCE).
   [mbaechtold, jone]
