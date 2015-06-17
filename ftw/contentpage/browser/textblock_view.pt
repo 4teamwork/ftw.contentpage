@@ -21,9 +21,9 @@
                                         tal:omit-tag="not: view/get_image_url | nothing"
                     >
                         <img tal:replace="structure view/get_image_tag" />
-                        <p tal:condition="image_desc"
-                           tal:content="context/getImageCaption">Caption</p>
                     </a>
+                    <p tal:condition="image_desc"
+                       tal:content="context/getImageCaption">Caption</p>
         </div>
     </tal:IMAGE>
     <div tal:condition="text" class="sl-text-wrapper">

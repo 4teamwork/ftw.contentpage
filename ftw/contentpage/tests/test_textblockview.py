@@ -1,10 +1,11 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.testbrowser import browsing
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
-from unittest2 import TestCase
-from zope.component import queryMultiAdapter
-from zope.component import getUtility
 from simplelayout.base.utils import IBlockControl
+from unittest2 import TestCase
+from zope.component import getUtility
+from zope.component import queryMultiAdapter
 import os
 import transaction
 
@@ -169,6 +170,35 @@ class TestTextBlockView(TestCase):
         view = queryMultiAdapter((textblock, textblock.REQUEST),
                                  name='block_view')
         self.assertEquals(view.get_css_klass(), 'sl-img-no-image')
+
+    @browsing
+    def test_image_caption_not_linked(self, browser):
+        """
+        The image caption has accidentally been linked to the image
+        overlay. This test makes sure that this is no longer the case.
+        """
+        textblock = self._create_textblock()
+
+        # Add Image
+        dummy = open("%s/dummy.png" % os.path.split(__file__)[0], 'r')
+        dummy.seek(0)
+        textblock.setImage(dummy)
+        textblock.setImageAltText('image alt text')
+        # Set the image caption, which our test is based on.
+        textblock.setImageCaption('image caption')
+        # Enable opening the image in an overlay, this generates the link.
+        textblock.setImageClickable(True)
+        textblock.processForm()
+        transaction.commit()
+
+        browser.login().visit(self.contentpage)
+
+        # The caption must not be inside the link.
+        self.assertEqual([], browser.css(".sl-img-wrapper a p"))
+
+        # But instead, the image caption must be outside of the link.
+        self.assertEqual(['image caption'],
+                         browser.css(".sl-img-wrapper p").text)
 
     def tearDown(self):
         super(TestTextBlockView, self).tearDown()

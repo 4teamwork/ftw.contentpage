@@ -4,6 +4,10 @@ Changelog
 1.11.5 (unreleased)
 -------------------
 
+- Revert the linking of the image title of a textblock accidentally introduced
+  in 1.11.0.
+  [mbaechtold]
+
 - Fix NewsPortlet creation - always_render_portlet was missing.
   [mathias.leimgruber]
 
