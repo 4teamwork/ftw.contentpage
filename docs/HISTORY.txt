@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.5 (unreleased)
+1.11.5 (2015-06-18)
 -------------------
 
 - Revert the linking of the image title of a textblock accidentally introduced
