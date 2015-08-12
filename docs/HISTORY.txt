@@ -4,7 +4,8 @@ Changelog
 1.11.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use current time instead of midnight for News effectivedate default.
+  [tschanzt]
 
 
 1.11.5 (2015-06-18)
