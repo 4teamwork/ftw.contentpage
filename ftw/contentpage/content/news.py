@@ -37,7 +37,7 @@ class News(contentpage.ContentPage):
     schema = news_schema
 
     def getDefaultEffectiveDate(self):
-        return DateTime().Date()
+        return DateTime()
 
 
 registerType(News, PROJECTNAME)
