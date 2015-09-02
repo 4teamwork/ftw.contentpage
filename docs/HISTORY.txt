@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.6 (unreleased)
+1.11.6 (2015-09-02)
 -------------------
 
 - Use current time instead of midnight for News effectivedate default.
