@@ -45,6 +45,7 @@ setup(name='ftw.contentpage',
       extras_require=dict(tests=tests_require),
 
       install_requires=[
+          'Plone',
           'archetypes.schemaextender',
           'collective.quickupload',
           'ftw.calendarwidget',
