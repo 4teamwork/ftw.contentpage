@@ -181,3 +181,42 @@ class TestNewsPortletListing(TestCase):
             2,
             len(browser.css('div.newsListing div.tileItem'))
         )
+
+    @browsing
+    def test_news_listing_fixes_context_on_news_item(self, browser):
+        """
+        When news listing is called on a news item it needs to change its
+        context for its search starting point. Else it would only display
+        the current item.
+        """
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .within(self.portal)
+               .having(portlet_title='Aktuell',
+                       more_news_link=True,
+                       quantity=0))
+
+        # Create a content page having a news folder.
+        content_page = create(Builder('content page')
+                              .titled('My Content Page'))
+        news_folder = create(Builder('news folder')
+                             .titled('News')
+                             .within(content_page))
+        item1 = create(
+            Builder('news').titled('News item 1').within(news_folder))
+        create(Builder('news').titled('News item 2').within(news_folder))
+        create(Builder('news').titled('News item 3').within(news_folder))
+
+        browser.open(item1, view="news_portlet_listing")
+        browser.find('More News').click()
+        # check news items in news listing view
+        self.assertEquals(
+            ['News item 1', 'News item 2', 'News item 3'],
+            browser.css('.newsListing .tileHeadline a').text
+        )
+
+        # check items in news portlet
+        self.assertEqual(
+            ['News item 1', 'News item 2', 'News item 3'],
+            browser.css('.portletWrapper .newsTemplate .portletItem .portletItemTitle').text
+        )

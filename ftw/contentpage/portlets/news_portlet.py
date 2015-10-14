@@ -1,6 +1,8 @@
 from Acquisition import aq_parent, aq_inner
 from DateTime import DateTime
 from ftw.contentpage import _
+from ftw.contentpage.interfaces import INews
+from ftw.contentpage.interfaces import INewsFolder
 from plone.app.portlets.browser.interfaces import IPortletAddForm
 from plone.app.portlets.browser.interfaces import IPortletEditForm
 from plone.app.portlets.interfaces import IPortletPermissionChecker
@@ -244,7 +246,7 @@ class Renderer(base.Renderer):
         query = {'object_provides': 'ftw.contentpage.interfaces.INews'}
 
         if self.data.only_context:
-            path = '/'.join(self.context.getPhysicalPath())
+            path = '/'.join(self.get_news_context().getPhysicalPath())
             query['path'] = {'query': path}
 
         else:
@@ -295,6 +297,14 @@ class Renderer(base.Renderer):
 
         return '/'.join((self.context.absolute_url(),
                          '@@news_portlet_listing?{0}'.format(params)))
+
+    def get_news_context(self):
+        """ If we are in a news entry we have to get a parent node as start for
+        our query. Else it would only display the current obj in the portlet.
+        """
+        if INews.providedBy(self.context):
+            return aq_parent(aq_inner(self.context))
+        return self.context
 
 
 class EditForm(form.EditForm):
