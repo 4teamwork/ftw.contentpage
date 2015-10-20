@@ -4,7 +4,7 @@ Changelog
 1.11.7 (unreleased)
 -------------------
 
-- Fix news portlet context when viewing a news item.
+- Fix both news and news archive portlet context to display all news.
   [lknoepfel]
 
 
