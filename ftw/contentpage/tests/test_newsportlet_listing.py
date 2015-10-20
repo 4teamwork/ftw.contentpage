@@ -207,16 +207,16 @@ class TestNewsPortletListing(TestCase):
         create(Builder('news').titled('News item 2').within(news_folder))
         create(Builder('news').titled('News item 3').within(news_folder))
 
-        browser.open(item1, view="news_portlet_listing")
+        browser.open(item1)
+        # check items in news portlet
+        self.assertEqual(
+            ['News item 1', 'News item 2', 'News item 3'],
+            browser.css('.portletWrapper .newsTemplate .portletItem .portletItemTitle').text
+        )
+
         browser.find('More News').click()
         # check news items in news listing view
         self.assertEquals(
             ['News item 1', 'News item 2', 'News item 3'],
             browser.css('.newsListing .tileHeadline a').text
-        )
-
-        # check items in news portlet
-        self.assertEqual(
-            ['News item 1', 'News item 2', 'News item 3'],
-            browser.css('.portletWrapper .newsTemplate .portletItem .portletItemTitle').text
         )

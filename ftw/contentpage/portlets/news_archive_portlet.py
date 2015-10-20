@@ -1,10 +1,10 @@
+from ftw.contentpage.interfaces import INewsListingView
+from ftw.contentpage.portlets.base_archive_portlet import ArchiveSummary
 from plone.app.portlets.portlets import base
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
-from ftw.contentpage.portlets.base_archive_portlet import ArchiveSummary
-from ftw.contentpage.interfaces import INewsListingView
 
 
 class INewsArchivePortlet(IPortletDataProvider):

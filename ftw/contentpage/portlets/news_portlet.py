@@ -2,7 +2,6 @@ from Acquisition import aq_parent, aq_inner
 from DateTime import DateTime
 from ftw.contentpage import _
 from ftw.contentpage.interfaces import INews
-from ftw.contentpage.interfaces import INewsFolder
 from plone.app.portlets.browser.interfaces import IPortletAddForm
 from plone.app.portlets.browser.interfaces import IPortletEditForm
 from plone.app.portlets.interfaces import IPortletPermissionChecker
@@ -259,7 +258,7 @@ class Renderer(base.Renderer):
         if self.data.classification_items:
             cs_uids = []
             for item in self.data.classification_items:
-                obj = self.context.restrictedTraverse(
+                obj = self.get_news_context().restrictedTraverse(
                     '/'.join([portal_path, item.strip('/')]))
                 cs_uids.append(obj.UID())
             query['cs_uids'] = cs_uids
@@ -295,7 +294,7 @@ class Renderer(base.Renderer):
             self.data.__name__,
             self.manager.__name__)
 
-        return '/'.join((self.context.absolute_url(),
+        return '/'.join((self.get_news_context().absolute_url(),
                          '@@news_portlet_listing?{0}'.format(params)))
 
     def get_news_context(self):
