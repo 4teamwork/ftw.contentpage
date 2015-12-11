@@ -4,6 +4,9 @@ Changelog
 1.11.7 (unreleased)
 -------------------
 
+- Restrict versions of some dependencies so they don't pull in Plone 5.
+  [mbaechtold]
+
 - Fix both news and news archive portlet context to display all news.
   [lknoepfel]
 
