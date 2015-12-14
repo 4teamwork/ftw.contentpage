@@ -4,6 +4,10 @@ Changelog
 1.11.7 (unreleased)
 -------------------
 
+- Respect colorbox image_size property for images opened in overlay.
+  This also solves caching issues (new image url).
+  [mathias.leimgruber]
+
 - Restrict versions of some dependencies so they don't pull in Plone 5.
   [mbaechtold]
 

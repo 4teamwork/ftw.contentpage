@@ -1,5 +1,8 @@
-from Products.Five.browser import BrowserView
+from ftw.colorbox.interfaces import IColorboxSettings
 from plone.app.imaging.utils import getAllowedSizes
+from plone.registry.interfaces import IRegistry
+from Products.Five.browser import BrowserView
+from zope.component import getUtility
 
 
 class ListingBlockGalleryView(BrowserView):
@@ -19,3 +22,18 @@ class ListingBlockGalleryView(BrowserView):
         sizes = getAllowedSizes()
         # Fallback is a plone default scale -> mini
         return sizes.get('listingblock_gallery', 'mini')
+
+    def get_image_large_url(self, img):
+        img_url = img.absolute_url()
+
+        registry = getUtility(IRegistry)
+        colorbox_settings = registry.forInterface(IColorboxSettings)
+
+        if colorbox_settings.image_size:
+            scales = img.restrictedTraverse('@@images')
+            scaled = scales.scale('image', scale=colorbox_settings.image_size)
+
+            if scaled:
+                return scaled.url
+
+        return img_url
