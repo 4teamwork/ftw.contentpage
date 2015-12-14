@@ -13,7 +13,7 @@
                tal:attributes="style string:width:${width};;height:${height}">
             <a href="#"
                tal:attributes="title string: <b>${img/title_or_id}</b> ${img/Description};
-                               href img/absolute_url">
+                               href python: view.get_image_large_url(img)">
               <img tal:replace="structure img/@@images/image/listingblock_gallery" />
             </a>
           </div>
