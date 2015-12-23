@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.7 (unreleased)
+1.11.7 (2015-12-23)
 -------------------
 
 - Respect colorbox image_size property for images opened in overlay.
