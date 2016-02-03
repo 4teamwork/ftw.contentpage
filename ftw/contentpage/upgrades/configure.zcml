@@ -434,4 +434,14 @@
         directory="profiles/1610"
         />
 
+    <!-- 1610 -> 1607 -->
+    <genericsetup:upgradeStep
+        title="ftw.simplelayout !!!!!!!"
+        description=""
+        source="1610"
+        destination="2000"
+        handler="ftw.contentpage.upgrades.toSimplelayout.ToSimplelayout"
+        profile="ftw.contentpage:default"
+        />
+
 </configure>

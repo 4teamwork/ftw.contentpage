@@ -65,6 +65,7 @@ setup(name='ftw.contentpage',
           'simplelayout.portlet.dropzone',
           'plone.dexterity',
           'plone.directives.form',
+          'ftw.simplelayout [contenttypes]',
           ],
 
       entry_points="""
