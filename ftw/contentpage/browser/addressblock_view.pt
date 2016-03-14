@@ -6,7 +6,7 @@
     <div class="addressText">
       <div tal:replace="structure view/address">Address</div>
     </div>
-    <div class="addressMap">
+    <div class="addressMap" tal:condition="view/show_map">
       <div id="kml-content-viewlet">
         <tal:omit tal:define="cgmap view/get_address_map" tal:omit-tag="">
           <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />

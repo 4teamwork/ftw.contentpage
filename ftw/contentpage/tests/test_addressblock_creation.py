@@ -1,11 +1,17 @@
+from collective.geo.geographer.interfaces import IGeoreferenced
+from ftw.builder import Builder
+from ftw.builder import create
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
-from unittest2 import TestCase
-from simplelayout.base.interfaces import ISimpleLayoutBlock
-from plone.testing.z2 import Browser
-from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+from ftw.testbrowser import browsing
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
+from plone.registry import field
+from plone.registry import Record
 from plone.registry.interfaces import IRegistry
+from plone.testing.z2 import Browser
+from simplelayout.base.interfaces import ISimpleLayoutBlock
+from unittest2 import TestCase
 from zope.component import getUtility
-from plone.registry import Record, field
 import transaction
 
 
@@ -126,6 +132,36 @@ class TestAddressBlockCreation(TestCase):
         self.browser.open(self.contentpage.absolute_url())
         self.assertIn('<h2>Opening Hours', self.browser.contents)
         self.assertIn('Monday to Friday', self.browser.contents)
+
+    @browsing
+    def test_show_map_if_address_is_given(self, browser):
+        addressblock = create(Builder('address block')
+                              .within(self.contentpage)
+                              .having(address="Engehaldenstrasse 53",
+                                      zip="3012",
+                                      city="Bern"))
+
+        geo = IGeoreferenced(addressblock)
+        geo.setGeoInterface('Point', (-105.08, 40.59))
+
+        transaction.commit()
+
+        browser.login().visit(addressblock, view="block_view")
+        self.assertEqual(1, len(browser.css('.addressMap')))
+
+        browser.login().visit(addressblock, view="addressblock_detail_view")
+        self.assertEqual(1, len(browser.css('.addressMap')))
+
+    @browsing
+    def test_hide_map_if_no_address_is_given(self, browser):
+        addressblock = create(Builder('address block')
+                              .within(self.contentpage))
+
+        browser.login().visit(addressblock, view="block_view")
+        self.assertEqual(0, len(browser.css('.addressMap')))
+
+        browser.login().visit(addressblock, view="addressblock_detail_view")
+        self.assertEqual(0, len(browser.css('.addressMap')))
 
     def tearDown(self):
         super(TestAddressBlockCreation, self).tearDown()
