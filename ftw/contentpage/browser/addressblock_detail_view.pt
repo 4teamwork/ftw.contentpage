@@ -13,7 +13,7 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
         <div class="addressWrapper">
-          <div class="addressMap">
+          <div class="addressMap" tal:condition="view/show_map">
             <div id="kml-content-viewlet">
               <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
               <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />

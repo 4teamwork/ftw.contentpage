@@ -1,4 +1,6 @@
-from Acquisition import aq_inner, aq_parent
+from Acquisition import aq_inner
+from Acquisition import aq_parent
+from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.mapwidget.browser.widget import MapWidget
 from ftw.contentpage.interfaces import IAddressBlockView
 from Products.Five.browser import BrowserView
@@ -27,6 +29,9 @@ class AddressBlockView(BrowserView):
         address_map.addClass('addressblock-map')
 
         return address_map
+
+    def show_map(self):
+        return IGeoreferenced(self.context).hasCoordinates()
 
 
 class AddressBlockPortletView(AddressBlockView):

@@ -4,7 +4,8 @@ Changelog
 1.11.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not show map on addressblock if no address is given.
+  [elioschmutz]
 
 
 1.11.7 (2015-12-23)
