@@ -36,10 +36,12 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.browser.getControl(name="form.buttons.add").click()
 
-    def setUp(self):
-        self.portal = self.layer['portal']
-        self.browser = Browser(self.layer['portal'])
-        self.browser.handleErrors = False
+    def _create_content(self):
+        """
+        Some of the test methods are using the same test data. But not all
+        method need the test data. You may call this method at the top of
+        your test method in order to get some test data.
+        """
         self.newsfolder1 = self.portal.get(self.portal.invokeFactory(
             'NewsFolder', 'newsfolder1', title="Newsfolder1"))
         self.newsfolder2 = self.portal.get(self.portal.invokeFactory(
@@ -61,10 +63,16 @@ class TestNewsPortlets(unittest.TestCase):
             'News', 'news4',
             effectiveDate=DateTime() + 5)  # Further news
         transaction.commit()
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.browser = Browser(self.layer['portal'])
+        self.browser.handleErrors = False
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
             TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
     def test_area_path_validator(self):
+        self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -88,6 +96,7 @@ class TestNewsPortlets(unittest.TestCase):
                       self.browser.contents)
 
     def test_create_portlet_only_context(self):
+        self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -109,6 +118,7 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertFalse('newsfolder2/news4' in self.browser.contents)
 
     def test_create_portlet_path(self):
+        self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -134,6 +144,7 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertFalse('newsfolder2/news4' in self.browser.contents)
 
     def test_create_portlet_no_img(self):
+        self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -157,12 +168,14 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertNotIn('<div class="newsImage"', self.browser.contents)
 
     def test_create_portlet_crop_desc(self):
+        self._create_content()
         self._create_portlet()
         self.browser.open(self.portal.absolute_url())
         self.assertIn('This Description must be longer than 50 chars so ...',
                       self.browser.contents)
 
     def test_create_portlet_desc_off(self):
+        self._create_content()
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
             TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
@@ -259,6 +272,7 @@ class TestNewsPortlets(unittest.TestCase):
                       self.browser.contents)
 
     def test_image_viewlet(self):
+        self._create_content()
         self._create_portlet()
         self.browser.open(self.portal.absolute_url())
         self.assertIn('<div class="newsImage">'
@@ -276,6 +290,7 @@ class TestNewsPortlets(unittest.TestCase):
                          self.browser.url)
 
     def test_addform_send_error(self):
+        self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
             '/++contextportlets++plone.leftcolumn/+/newsportlet'
@@ -302,6 +317,7 @@ class TestNewsPortlets(unittest.TestCase):
                       self.browser.contents)
 
     def test_days_no_filter(self):
+        self._create_content()
         context = self.portal
         portlet = NewsAssignment(days=0, only_context=False)
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
@@ -310,6 +326,7 @@ class TestNewsPortlets(unittest.TestCase):
         self.assertEquals(len(renderer.get_news()), 4, 'Expect all 4 news')
 
     def test_days_filter(self):
+        self._create_content()
         context = self.portal
         portlet = NewsAssignment(days=5, only_context=False)
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
@@ -383,6 +400,7 @@ class TestNewsPortlets(unittest.TestCase):
             renderer.archive_summary())
 
     def test_archive_portlets_is_available_on_newslisting(self):
+        self._create_content()
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
         portlet = Assignment()
         view = NewsListing(self.portal, self.portal.REQUEST)
@@ -395,6 +413,7 @@ class TestNewsPortlets(unittest.TestCase):
         )
 
     def test_news_archive_portlet(self):
+        self._create_content()
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
             TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
@@ -488,3 +507,102 @@ class TestNewsPortlets(unittest.TestCase):
 
         browser.login().open()
         self.assertNotEquals(None, browser.find('More News'))
+
+    @browsing
+    def test_news_portlet_does_not_render_expired_items(self, browser):
+        news_folder = create(Builder('news folder'))
+
+        # Create six news items.
+        create(Builder('news')
+               .titled('Default News')
+               .within(news_folder))
+        create(Builder('news')
+               .titled('Default News With Expiration Date')
+               .within(news_folder)
+               .having(expirationDate=DateTime() + 20))
+        create(Builder('news')
+               .titled('Future News')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() + 10))
+        create(Builder('news')
+               .titled('Future News With Expiration Date')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() + 10)
+               .having(expirationDate=DateTime() + 20))
+        create(Builder('news')
+               .titled('Old News')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() - 10))
+        create(Builder('news')
+               .titled('Old News (Expired)')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() - 20)
+               .having(expirationDate=DateTime() - 10))
+
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .within(self.portal)
+               .having(portlet_title='My Portlet',
+                       more_news_link=True,
+                       quantity=100))
+
+        # Make sure the admin sees all news entries, even expired and future
+        # news items.
+        browser.login().open()
+        self.assertEqual(
+            [
+                'Future News',
+                'Future News With Expiration Date',
+                'Default News',
+                'Default News With Expiration Date',
+                'Old News',
+                'Old News (Expired)',
+            ],
+            browser.css('.newsText .portletItemTitle').text
+        )
+
+        # Make sure the anonymous user only sees news entries which are
+        # not expired and not in the future.
+        browser.logout().open()
+        self.assertEqual(
+            [
+                'Default News With Expiration Date',
+                'Default News',
+                'Old News',
+            ],
+            browser.css('.newsText .portletItemTitle').text
+        )
+
+        # Configure the portlet to show expired news too.
+        browser.login()
+        browser.visit(self.portal, view='manage-portlets')
+        browser.find('News Portlet (My Portlet)').click()
+        browser.fill({u'Show expired items': True}).submit()
+        browser.forms['form'].fill({u'Show expired items': True}).find('Save').click()
+
+        # Make sure the admin still sees all news entries, even expired
+        # and future news items.
+        browser.login().open()
+        self.assertEqual(
+            [
+                'Future News',
+                'Future News With Expiration Date',
+                'Default News',
+                'Default News With Expiration Date',
+                'Old News',
+                'Old News (Expired)',
+            ],
+            browser.css('.newsText .portletItemTitle').text
+        )
+
+        # Make sure the anonymous user still only sees news entries which are
+        # not expired and not in the future.
+        browser.logout().open()
+        self.assertEqual(
+            [
+                'Default News With Expiration Date',
+                'Default News',
+                'Old News',
+            ],
+            browser.css('.newsText .portletItemTitle').text
+        )

@@ -113,7 +113,9 @@ class NewsPortletListing(NewsListing):
     def get_items(self):
         portlet = self.get_portlet()
         if portlet:
-            return portlet.get_news(all_news=True)
+            # Get the news items from the portlet. Tell the portlet that
+            # it is the listing view who asks for the news items.
+            return portlet.get_news(all_news=True, listing_view=True)
 
         return []
 

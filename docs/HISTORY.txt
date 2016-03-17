@@ -4,6 +4,10 @@ Changelog
 1.11.8 (unreleased)
 -------------------
 
+- Add option to news portlet which will force the news portlet listing view
+  to also show expired news items.
+  [mbaechtold]
+
 - Do not show map on addressblock if no address is given.
   [elioschmutz]
 
