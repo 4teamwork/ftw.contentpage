@@ -220,3 +220,103 @@ class TestNewsPortletListing(TestCase):
             ['News item 1', 'News item 2', 'News item 3'],
             browser.css('.newsListing .tileHeadline a').text
         )
+
+    @browsing
+    def test_news_listing_renders_expired_items(self, browser):
+        news_folder = create(Builder('news folder'))
+
+        # Create six news items.
+        create(Builder('news')
+               .titled('Default News')
+               .within(news_folder))
+        create(Builder('news')
+               .titled('Default News With Expiration Date')
+               .within(news_folder)
+               .having(expirationDate=DateTime() + 20))
+        create(Builder('news')
+               .titled('Future News')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() + 10))
+        create(Builder('news')
+               .titled('Future News With Expiration Date')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() + 10)
+               .having(expirationDate=DateTime() + 20))
+        create(Builder('news')
+               .titled('Old News')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() - 10))
+        create(Builder('news')
+               .titled('Old News (Expired)')
+               .within(news_folder)
+               .having(effectiveDate=DateTime() - 20)
+               .having(expirationDate=DateTime() - 10))
+
+        create(Builder('news portlet')
+               .in_manager(u'plone.rightcolumn')
+               .within(self.portal)
+               .having(portlet_title='My Portlet',
+                       more_news_link=True,
+                       quantity=100))
+
+        # Make sure the admin sees all news entries, even expired and future
+        # news items.
+        browser.login().open().find('More News').click()
+        self.assertEqual(
+            [
+                'Future News',
+                'Future News With Expiration Date',
+                'Default News',
+                'Default News With Expiration Date',
+                'Old News',
+                'Old News (Expired)',
+            ],
+            browser.css('.newsListing .tileHeadline a').text
+        )
+
+        # Make sure the anonymous user only sees news entries which are
+        # not expired and not in the future.
+        browser.logout().open().find('More News').click()
+        self.assertEquals(
+            [
+                'Default News With Expiration Date',
+                'Default News',
+                'Old News',
+            ],
+            browser.css('.newsListing .tileHeadline a').text
+        )
+
+        # Configure the portlet to show expired news too.
+        browser.login()
+        browser.visit(self.portal, view='manage-portlets')
+        browser.find('News Portlet (My Portlet)').click()
+        browser.fill({u'Show expired items': True}).submit()
+        browser.forms['form'].fill({u'Show expired items': True}).find('Save').click()
+
+        # Make sure the admin still sees all news entries, even expired
+        # and future news items.
+        browser.login().open().find('More News').click()
+        self.assertEqual(
+            [
+                'Future News',
+                'Future News With Expiration Date',
+                'Default News',
+                'Default News With Expiration Date',
+                'Old News',
+                'Old News (Expired)',
+            ],
+            browser.css('.newsListing .tileHeadline a').text
+        )
+
+        # Make sure the anonymous user sees all news entries, even the
+        # expired ones. But not the future news.
+        browser.logout().open().find('More News').click()
+        self.assertEqual(
+            [
+                'Default News With Expiration Date',
+                'Default News',
+                'Old News',
+                'Old News (Expired)',
+            ],
+            browser.css('.newsListing .tileHeadline a').text
+        )

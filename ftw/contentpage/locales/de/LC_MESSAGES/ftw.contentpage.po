@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-17 07:22+0000\n"
+"POT-Creation-Date: 2016-03-17 07:27+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:112
+#: ./ftw/contentpage/portlets/news_portlet.py:125
 msgid "Add News Portlet"
 msgstr "News Portlet hinzufügen"
 
@@ -163,7 +163,7 @@ msgstr "Hier sind noch keine Inhalte."
 msgid "There is no content to list."
 msgstr "Kein Inhalt."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:113
+#: ./ftw/contentpage/portlets/news_portlet.py:126
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
 
@@ -374,6 +374,11 @@ msgstr ""
 msgid "help_showOpeningHours"
 msgstr "Definieren Sie, ob die Hinweise zu den Öffnungszeiten angezeigt werden sollen"
 
+#. Default: "The news portlet and the news listing will also render expired items."
+#: ./ftw/contentpage/portlets/news_portlet.py:105
+msgid "help_show_expired_news"
+msgstr "Diese Option definiert, ob im Portlet und bei der Liste der älteren Einträge auch abgelaufene Einträge angezeigt werden soll."
+
 #: ./ftw/contentpage/content/listingblock.py:46
 msgid "help_sort_on"
 msgstr ""
@@ -432,7 +437,7 @@ msgid "label_by_author"
 msgstr "von ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:144
+#: ./ftw/contentpage/portlets/news_portlet.py:157
 msgid "label_cancel"
 msgstr "Abbrechen"
 
@@ -604,7 +609,7 @@ msgid "label_rss_link"
 msgstr "RSS-Feed Link anzeigen."
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:133
+#: ./ftw/contentpage/portlets/news_portlet.py:146
 msgid "label_save"
 msgstr "Speichern"
 
@@ -622,6 +627,11 @@ msgstr "Öffnungszeiten anzeigen"
 #: ./ftw/contentpage/portlets/news_portlet.py:73
 msgid "label_show_desc"
 msgstr "Beschreibung anzeigen"
+
+#. Default: "Show expired items"
+#: ./ftw/contentpage/portlets/news_portlet.py:101
+msgid "label_show_expired_news"
+msgstr "Abgelaufene Einträge anzeigen"
 
 #: ./ftw/contentpage/portlets/news_portlet.py:28
 msgid "label_show_image"
@@ -748,7 +758,7 @@ msgid "text_not_content"
 msgstr "Keine Inhalte"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:106
+#: ./ftw/contentpage/portlets/news_portlet.py:119
 msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 

@@ -22,7 +22,7 @@ class TestNewsPortlet(MockTestCase):
         self.expect(url.getPortalPath()).result('/plone')
         self.expect(context.getPhysicalPath()).result(('folder', 'file'))
         self.expect(catalog.searchResults(
-            MATCH(query_matcher))).count(1).result(['1', '2', '3', '4', '5'])
+            MATCH(query_matcher), show_all=False, show_inactive=False)).count(1).result(['1', '2', '3', '4', '5'])
         self.replay()
         obj = Assignment(path=['/peter/hans'])
         renderer = Renderer(context, request, view, manager, obj)
@@ -46,7 +46,7 @@ class TestNewsPortlet(MockTestCase):
         self.expect(context.getPhysicalPath()).result(
             ('folder', 'file')).count(0, None)
         self.expect(catalog.searchResults(
-            MATCH(query_matcher))).count(1).result(['1', '2', '3', '4', '5'])
+            MATCH(query_matcher), show_all=False, show_inactive=False)).count(1).result(['1', '2', '3', '4', '5'])
         self.replay()
         obj = Assignment(path=['peter/hans'], only_context=False)
         renderer = Renderer(context, request, view, manager, obj)
@@ -70,7 +70,7 @@ class TestNewsPortlet(MockTestCase):
         self.expect(context.getPhysicalPath()).result(
             ('folder', 'file')).count(0, None)
         self.expect(catalog.searchResults(
-            MATCH(query_matcher))).count(1).result(['1', '2', '3', '4', '5'])
+            MATCH(query_matcher), show_all=False, show_inactive=False)).count(1).result(['1', '2', '3', '4', '5'])
         self.replay()
         obj = Assignment(subjects=['hans', 'peter'], only_context=False)
         renderer = Renderer(context, request, view, manager, obj)
@@ -98,7 +98,7 @@ class TestNewsPortlet(MockTestCase):
         self.expect(context.getPhysicalPath()).result(
             ('folder', 'file')).count(0, None)
         self.expect(catalog.searchResults(
-            MATCH(query_matcher))).count(1).result(['1', '2', '3', '4', '5'])
+            MATCH(query_matcher), show_all=False, show_inactive=False)).count(1).result(['1', '2', '3', '4', '5'])
         self.replay()
         obj = Assignment(classification_items=['hans/peter'],
                          only_context=False)

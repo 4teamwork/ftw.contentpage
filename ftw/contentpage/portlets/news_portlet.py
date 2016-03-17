@@ -2,6 +2,7 @@ from Acquisition import aq_parent, aq_inner
 from DateTime import DateTime
 from ftw.contentpage import _
 from ftw.contentpage.interfaces import INews
+from plone import api
 from plone.app.portlets.browser.interfaces import IPortletAddForm
 from plone.app.portlets.browser.interfaces import IPortletEditForm
 from plone.app.portlets.interfaces import IPortletPermissionChecker
@@ -97,6 +98,19 @@ class INewsPortlet(IPortletDataProvider):
         default=False,
     )
 
+    show_expired_news = schema.Bool(
+        title=_(
+            u'label_show_expired_news',
+            default=u"Show expired items"
+        ),
+        description=_(
+            'help_show_expired_news',
+            default=u"The news portlet and the news listing will also "
+                    u"render expired items."
+        ),
+        default=False,
+    )
+
     @invariant
     def is_either_path_or_area(obj):
         """Checks if not both path and current area are defined.
@@ -176,7 +190,8 @@ class AddForm(form.AddForm):
             days=data.get('days', 0),
             more_news_link=data.get('more_news_link', 0),
             rss_link=data.get('rss_link', 0),
-            always_render_portlet=data.get('always_render_portlet', False)
+            always_render_portlet=data.get('always_render_portlet', False,),
+            show_expired_news=data.get('show_expired_news', False,),
         )
 
 
@@ -187,7 +202,7 @@ class Assignment(base.Assignment):
                  only_context=True, quantity=5, classification_items=None,
                  path=None, subjects=None, show_desc=False, desc_length=50,
                  days=0, more_news_link=0, rss_link=0,
-                 always_render_portlet=False):
+                 always_render_portlet=False, show_expired_news=False):
         self.portlet_title = portlet_title
         self.show_image = show_image
         self.only_context = only_context
@@ -201,6 +216,7 @@ class Assignment(base.Assignment):
         self.more_news_link = more_news_link
         self.rss_link = rss_link
         self.always_render_portlet = always_render_portlet
+        self.show_expired_news = show_expired_news
 
     @property
     def title(self):
@@ -238,7 +254,7 @@ class Renderer(base.Renderer):
             has_news = self.get_news()
         return has_news and not is_news
 
-    def get_news(self, all_news=False):
+    def get_news(self, all_news=False, listing_view=False):
         catalog = getToolByName(self.context, 'portal_catalog')
         url_tool = getToolByName(self.context, 'portal_url')
         portal_path = url_tool.getPortalPath()
@@ -270,9 +286,34 @@ class Renderer(base.Renderer):
             date = DateTime() - self.data.days
             query['effective'] = {'query': date, 'range': 'min'}
 
+        show_all = False
+        show_inactive = False
+        if listing_view and getattr(self.data, 'show_expired_news', False):
+            # Prepare to force the query to show inactive content too.
+            # See https://www.fourdigits.nl/blog/listing-expired-plone-content
+            # for more information.
+            show_all = True
+            show_inactive = True
+
+            # See https://www.fourdigits.nl/blog/listing-expired-plone-content
+            # for the reason behind the following query extension.
+            query['expires'] = {
+                'query': (DateTime('2000/01/01'), DateTime('2500/01/01')),
+                'range': 'min:max',
+            }
+
+            # Since we're forcing the query to show future content too, we
+            # need to restrict this manually.
+            if not api.user.has_permission('Access future portal content'):
+                query['effective'] = {'query': DateTime(), 'range': 'max', }
+
         query['sort_on'] = 'effective'
         query['sort_order'] = 'descending'
-        results = catalog.searchResults(query)
+        results = catalog.searchResults(
+            query,
+            show_all=show_all,
+            show_inactive=show_inactive,
+        )
 
         if not all_news and self.data.quantity:
             results = results[:self.data.quantity]

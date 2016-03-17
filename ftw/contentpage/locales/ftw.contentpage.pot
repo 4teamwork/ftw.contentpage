@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-17 07:22+0000\n"
+"POT-Creation-Date: 2016-03-17 07:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:112
+#: ./ftw/contentpage/portlets/news_portlet.py:125
 msgid "Add News Portlet"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "There is no content to list."
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:113
+#: ./ftw/contentpage/portlets/news_portlet.py:126
 msgid "This Portlet displays News"
 msgstr ""
 
@@ -374,6 +374,11 @@ msgstr ""
 msgid "help_showOpeningHours"
 msgstr ""
 
+#. Default: "The news portlet and the news listing will also render expired items."
+#: ./ftw/contentpage/portlets/news_portlet.py:105
+msgid "help_show_expired_news"
+msgstr ""
+
 #: ./ftw/contentpage/content/listingblock.py:46
 msgid "help_sort_on"
 msgstr ""
@@ -432,7 +437,7 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:144
+#: ./ftw/contentpage/portlets/news_portlet.py:157
 msgid "label_cancel"
 msgstr ""
 
@@ -604,7 +609,7 @@ msgid "label_rss_link"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:133
+#: ./ftw/contentpage/portlets/news_portlet.py:146
 msgid "label_save"
 msgstr ""
 
@@ -621,6 +626,11 @@ msgstr ""
 #. Default: "Show Description"
 #: ./ftw/contentpage/portlets/news_portlet.py:73
 msgid "label_show_desc"
+msgstr ""
+
+#. Default: "Show expired items"
+#: ./ftw/contentpage/portlets/news_portlet.py:101
+msgid "label_show_expired_news"
 msgstr ""
 
 #: ./ftw/contentpage/portlets/news_portlet.py:28
@@ -748,7 +758,7 @@ msgid "text_not_content"
 msgstr ""
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:106
+#: ./ftw/contentpage/portlets/news_portlet.py:119
 msgid "text_path_and_area"
 msgstr ""
 
