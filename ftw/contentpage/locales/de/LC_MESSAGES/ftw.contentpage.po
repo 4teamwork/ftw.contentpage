@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-24 09:03+0000\n"
+"POT-Creation-Date: 2016-03-17 07:22+0000\n"
 "PO-Revision-Date: 2013-04-11 18:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,9 +11,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:111
+#: ./ftw/contentpage/portlets/news_portlet.py:112
 msgid "Add News Portlet"
 msgstr "News Portlet hinzufügen"
+
+#: ./ftw/contentpage/upgrades/configure.zcml:376
+msgid "Add defaultfileviewname for listing block file link generation"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:425
+msgid "Add new add cateories permission (content categories behavior)"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:435
+msgid "Add textblock teaser."
+msgstr ""
 
 msgid "Address"
 msgstr "Adresse"
@@ -26,7 +38,7 @@ msgstr "Adressenblock"
 msgid "Archive"
 msgstr "Archiv"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:49
+#: ./ftw/contentpage/portlets/news_portlet.py:50
 msgid "Classification Items"
 msgstr "Themen"
 
@@ -38,6 +50,10 @@ msgstr "Spalten"
 #: ./ftw/contentpage/profiles/default/types/ContentPage.xml
 msgid "ContentPage"
 msgstr "Inhaltsseite"
+
+#: ./ftw/contentpage/configure.zcml:44
+msgid "Create content the simplayout way"
+msgstr ""
 
 #: ./ftw/contentpage/browser/eventlisting.pt:32
 #: ./ftw/contentpage/viewlets/event_data.pt:4
@@ -88,6 +104,10 @@ msgstr "ICS-Export"
 msgid "ID"
 msgstr "ID"
 
+#: ./ftw/contentpage/upgrades/configure.zcml:349
+msgid "Install collapse_archive.js"
+msgstr ""
+
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
 msgid "ListingBlock"
 msgstr "Auflistungsblock"
@@ -105,7 +125,7 @@ msgstr "News"
 msgid "NewsFolder"
 msgstr "Newsordner"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:32
+#: ./ftw/contentpage/portlets/news_portlet.py:33
 msgid "Path"
 msgstr "Pfad"
 
@@ -143,13 +163,17 @@ msgstr "Hier sind noch keine Inhalte."
 msgid "There is no content to list."
 msgstr "Kein Inhalt."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:112
+#: ./ftw/contentpage/portlets/news_portlet.py:113
 msgid "This Portlet displays News"
 msgstr "Ein Portlet, um News darzustellen."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:22
+#: ./ftw/contentpage/portlets/news_portlet.py:23
 msgid "Title"
 msgstr "Titel"
+
+#: ./ftw/contentpage/configure.zcml:58
+msgid "Uninstall ftw.contentpage"
+msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
 #: ./ftw/contentpage/profiles/default/types/ListingBlock.xml
@@ -157,12 +181,16 @@ msgstr "Titel"
 msgid "View"
 msgstr "Anzeigen"
 
+#: ./ftw/contentpage/upgrades/configure.zcml:357
+msgid "add faqaction  and update block action"
+msgstr ""
+
 #. Default: "Cancel"
 #: ./ftw/contentpage/browser/feedback.py:104
 msgid "button_cancel"
 msgstr "Abbrechen"
 
-#: ./ftw/contentpage/behaviors/content_categories.py:28
+#: ./ftw/contentpage/behaviors/content_categories.py:20
 msgid "categories"
 msgstr "Kategorien"
 
@@ -212,26 +240,94 @@ msgid "contactportlet_open_times"
 msgstr "Öffnungszeiten"
 
 #. Default: "Show news of the las x days."
-#: ./ftw/contentpage/portlets/news_portlet.py:80
+#: ./ftw/contentpage/portlets/news_portlet.py:81
 msgid "description_days"
 msgstr "Zeigt nur News der letzten X Tage an. \"0\" bedeutet keine Einschränkung."
 
 #. Default: "Enter an alternative text for the image"
-#: ./ftw/contentpage/content/textblock.py:86
+#: ./ftw/contentpage/content/textblock.py:87
 msgid "description_image_alt_text"
 msgstr "Geben Sie den Alternativtext für das Bild ein. Der Alternativtext richtet sich an Benutzer und Endgeräte, die den Bildinhalt nicht wahrnehmen oder nicht darstellen können, und sollte also wörtlich als Alternative zum Bild formuliert sein. Falls kein Alternativtext angegeben wird, wird der Bildtitel verwendet."
 
 #. Default: "Opens image in an overlay"
-#: ./ftw/contentpage/content/textblock.py:67
+#: ./ftw/contentpage/content/textblock.py:68
 msgid "description_image_clickable"
 msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:95
+#: ./ftw/contentpage/configure.zcml:44
+msgid "ftw.contentpage"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:45
+msgid "ftw.contentpage.upgrades.1002"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:64
+msgid "ftw.contentpage.upgrades.1003"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:83
+msgid "ftw.contentpage.upgrades.1004"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:102
+msgid "ftw.contentpage.upgrades.1005"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:121
+msgid "ftw.contentpage.upgrades.1006"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:140
+msgid "ftw.contentpage.upgrades.1007"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:159
+msgid "ftw.contentpage.upgrades.1008"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:178
+msgid "ftw.contentpage.upgrades.1009"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:197
+msgid "ftw.contentpage.upgrades.1300"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:216
+msgid "ftw.contentpage.upgrades.1400"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:235
+msgid "ftw.contentpage.upgrades.1401"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:254
+msgid "ftw.contentpage.upgrades.1402"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:283
+msgid "ftw.contentpage.upgrades.1404"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:302
+msgid "ftw.contentpage.upgrades.1405"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:340
+msgid "ftw.contentpage.upgrades.1600"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:26
+msgid "ftw.contentpage.upgrades.3000"
+msgstr ""
+
+#: ./ftw/contentpage/portlets/news_portlet.py:96
 msgid "help_always_render_portlet"
 msgstr "Wenn diese Option aktiv ist, wird das Portlet auch angezeigt, wenn es gar keine News-Einträge gibt."
 
 #. Default: "Category for contentlisting"
-#: ./ftw/contentpage/behaviors/content_categories.py:26
+#: ./ftw/contentpage/behaviors/content_categories.py:18
 #: ./ftw/contentpage/extender.py:33
 msgid "help_categories"
 msgstr "Definieren Sie, unter welchen Rubrik diese Inhaltsseite abgelegt werden soll"
@@ -258,11 +354,11 @@ msgid "help_mark_as_authority"
 msgstr "Dadurch werden Inhalte unter anderem Direkt auf der Behörden-Übersicht angezeigt."
 
 #. Default: "New categories for contentlisting"
-#: ./ftw/contentpage/behaviors/content_categories.py:37
+#: ./ftw/contentpage/behaviors/content_categories.py:30
 msgid "help_new_categories"
 msgstr "Eine Rubrik pro Zeile eingeben, mehrere Worte sind erlaubt."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:44
+#: ./ftw/contentpage/portlets/news_portlet.py:45
 msgid "help_only_context"
 msgstr "Wenn ausgewählt, werden nur noch News aus dem aktuellen Bereich dargestellt"
 
@@ -321,7 +417,7 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Adresstitel"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:94
+#: ./ftw/contentpage/portlets/news_portlet.py:95
 msgid "label_always_render_portlet"
 msgstr "Portlet immer anzeigen"
 
@@ -336,12 +432,12 @@ msgid "label_by_author"
 msgstr "von ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:143
+#: ./ftw/contentpage/portlets/news_portlet.py:144
 msgid "label_cancel"
 msgstr "Abbrechen"
 
 #. Default: "Categories"
-#: ./ftw/contentpage/behaviors/content_categories.py:25
+#: ./ftw/contentpage/behaviors/content_categories.py:17
 #: ./ftw/contentpage/extender.py:32
 msgid "label_categories"
 msgstr "Rubrik"
@@ -357,7 +453,7 @@ msgid "label_country"
 msgstr "Land"
 
 #. Default: "Days"
-#: ./ftw/contentpage/portlets/news_portlet.py:79
+#: ./ftw/contentpage/portlets/news_portlet.py:80
 msgid "label_days"
 msgstr "Anzahl Tage"
 
@@ -366,7 +462,7 @@ msgstr "Anzahl Tage"
 msgid "label_department"
 msgstr "Abteilung"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:76
+#: ./ftw/contentpage/portlets/news_portlet.py:77
 msgid "label_desc_length"
 msgstr "Maximale Zeichenanzahl der News-Beschreibung, die dargestellt werden sollen"
 
@@ -415,7 +511,7 @@ msgid "label_fax"
 msgstr "Fax"
 
 #. Default: "${title} - News Feed"
-#: ./ftw/contentpage/browser/newslisting.py:59
+#: ./ftw/contentpage/browser/newslisting.py:63
 msgid "label_feed_desc"
 msgstr "${title} - News Feed"
 
@@ -426,22 +522,22 @@ msgid "label_id"
 msgstr "ID"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:57
+#: ./ftw/contentpage/content/textblock.py:58
 msgid "label_image"
 msgstr "Bild"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:84
+#: ./ftw/contentpage/content/textblock.py:85
 msgid "label_image_alt_text"
 msgstr "Alternativtext"
 
 #. Default: "Image"
-#: ./ftw/contentpage/content/textblock.py:76
+#: ./ftw/contentpage/content/textblock.py:77
 msgid "label_image_caption"
 msgstr "Bildtitel"
 
 #. Default: "Image clickable"
-#: ./ftw/contentpage/content/textblock.py:65
+#: ./ftw/contentpage/content/textblock.py:66
 msgid "label_image_clickable"
 msgstr "Bild auch als Overlay darstellbar machen"
 
@@ -459,16 +555,16 @@ msgid "label_modified"
 msgstr "Bearbeitungsdatum"
 
 #. Default: "Show more news link"
-#: ./ftw/contentpage/portlets/news_portlet.py:85
+#: ./ftw/contentpage/portlets/news_portlet.py:86
 msgid "label_more_news_link"
 msgstr "Link auf ältere Meldung darstellen"
 
-#. Default: " New categories"
-#: ./ftw/contentpage/behaviors/content_categories.py:36
+#. Default: "New categories"
+#: ./ftw/contentpage/behaviors/content_categories.py:29
 msgid "label_new_categories"
 msgstr "Neue Rubrik anlegen und benutzen."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:43
+#: ./ftw/contentpage/portlets/news_portlet.py:44
 msgid "label_only_context"
 msgstr "Nur in diesem Bereich"
 
@@ -493,7 +589,7 @@ msgstr "Ordnerreihenfolge"
 msgid "label_published_on"
 msgstr "Publiziert:"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:60
+#: ./ftw/contentpage/portlets/news_portlet.py:61
 msgid "label_quantity"
 msgstr "Anzahl"
 
@@ -503,12 +599,12 @@ msgid "label_readmore"
 msgstr "Weiterlesen"
 
 #. Default: "Shows link to the rss feed"
-#: ./ftw/contentpage/portlets/news_portlet.py:89
+#: ./ftw/contentpage/portlets/news_portlet.py:90
 msgid "label_rss_link"
 msgstr "RSS-Feed Link anzeigen."
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:132
+#: ./ftw/contentpage/portlets/news_portlet.py:133
 msgid "label_save"
 msgstr "Speichern"
 
@@ -523,11 +619,11 @@ msgid "label_showOpeningHours"
 msgstr "Öffnungszeiten anzeigen"
 
 #. Default: "Show Description"
-#: ./ftw/contentpage/portlets/news_portlet.py:72
+#: ./ftw/contentpage/portlets/news_portlet.py:73
 msgid "label_show_desc"
 msgstr "Beschreibung anzeigen"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:27
+#: ./ftw/contentpage/portlets/news_portlet.py:28
 msgid "label_show_image"
 msgstr "Bild anzeigen"
 
@@ -556,7 +652,7 @@ msgstr "Titel"
 msgid "label_subject"
 msgstr "Betreff"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:64
+#: ./ftw/contentpage/portlets/news_portlet.py:65
 msgid "label_subjects"
 msgstr "Stichworte"
 
@@ -566,7 +662,7 @@ msgid "label_team"
 msgstr "Team"
 
 #. Default: "Text"
-#: ./ftw/contentpage/content/textblock.py:43
+#: ./ftw/contentpage/content/textblock.py:44
 msgid "label_text"
 msgstr "Text"
 
@@ -626,22 +722,17 @@ msgid "subject_listing_subjects"
 msgstr "Stichwort"
 
 #. Default: "External URL"
-#: ./ftw/contentpage/content/textblock.py:109
+#: ./ftw/contentpage/content/textblock.py:102
 msgid "teaser_external_url"
 msgstr "Externe URL"
 
 #. Default: "Internal Reference"
-#: ./ftw/contentpage/content/textblock.py:107
+#: ./ftw/contentpage/content/textblock.py:100
 msgid "teaser_internal_reference"
 msgstr "Interne Referenz"
 
-#. Default: "Teaser link text"
-#: ./ftw/contentpage/content/textblock.py:98
-msgid "teaser_link_text_label"
-msgstr "Teaser Link Text"
-
 #. Default: "Select internal or external link"
-#: ./ftw/contentpage/content/textblock.py:114
+#: ./ftw/contentpage/content/textblock.py:106
 msgid "teaser_select_label"
 msgstr "Wähle zwischen interner Referenz und externem Link"
 
@@ -657,7 +748,7 @@ msgid "text_not_content"
 msgstr "Keine Inhalte"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:105
+#: ./ftw/contentpage/portlets/news_portlet.py:106
 msgid "text_path_and_area"
 msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschränken."
 
@@ -665,5 +756,4 @@ msgstr "Sie können keinen Pfad definieren und gleichzeitig den Bereich einschr�
 #: ./ftw/contentpage/browser/address.pt:14
 msgid "text_phone"
 msgstr "Tel. ${num}"
-
 
