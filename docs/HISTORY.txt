@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11.8 (unreleased)
+1.12.0 (2016-03-30)
 -------------------
 
 - Add option to news portlet which will force the news portlet listing view
