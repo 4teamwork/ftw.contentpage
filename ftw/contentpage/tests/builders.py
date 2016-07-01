@@ -1,6 +1,6 @@
 from ftw.builder import builder_registry
 from ftw.builder.archetypes import ArchetypesBuilder
-from ftw.builder.content import ImageBuilder
+from ftw.builder.content import ATImageBuilder
 from ftw.contentpage.portlets import news_portlet
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
@@ -82,7 +82,7 @@ class ListingBlockBuilder(ArchetypesBuilder):
 builder_registry.register('listing block', ListingBlockBuilder)
 
 
-class TextBlockBuilder(ImageBuilder):
+class TextBlockBuilder(ATImageBuilder):
 
     portal_type = 'TextBlock'
 
