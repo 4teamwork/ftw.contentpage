@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <portlets>
  <!-- Portlet type registrations -->
+
+ <portlet addview="newsportlet" remove="true" />
+ <portlet addview="newsarchiveportlet" remove="true" />
+
  <portlet
    addview="contentpagenewsportlet"
    title="News Portlet"
@@ -13,10 +17,5 @@
    description=""
    />
 
- <portlet
-   addview="eventarchive"
-   title="Event Archive Portlet"
-   description=""
-   />
 
 </portlets>

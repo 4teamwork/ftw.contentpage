@@ -18,14 +18,14 @@ class TestNewsPortletListing(TestCase):
 
     def test_no_portlet_found(self):
         self.request.form.update({'portlet': 'not_existing'})
-        view = self.portal.unrestrictedTraverse('news_portlet_listing')
+        view = self.portal.unrestrictedTraverse('newsportlet_listing')
         self.assertEqual(None, view.get_portlet())
 
     def test_portlet_found_in_leftcolumn(self):
         portlet = create(Builder('news portlet'))
         self.request.form.update({'portlet': portlet.__name__,
                                   'manager': u'plone.leftcolumn'})
-        view = self.portal.unrestrictedTraverse('news_portlet_listing')
+        view = self.portal.unrestrictedTraverse('newsportlet_listing')
         self.assertEqual(portlet,
                          view.get_portlet().data)
 

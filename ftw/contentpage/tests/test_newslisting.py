@@ -94,7 +94,7 @@ class TestNewsListing(TestCase):
         page = create(Builder('content page').titled('Contentpage'))
         newsfolder = create(Builder('news folder').within(page).titled('News'))
 
-        browser.login().visit(page, view='@@news_listing')
+        browser.login().visit(page, view='@@newslisting')
         self.assertEquals('Contentpage - News', plone.first_heading())
 
         browser.visit(newsfolder)

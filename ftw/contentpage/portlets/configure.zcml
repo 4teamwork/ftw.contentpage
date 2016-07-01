@@ -7,7 +7,7 @@
     <include package="plone.app.portlets" />
 
      <plone:portlet
-         name="newsportlet"
+         name="contentpagenewsportlet"
          interface=".news_portlet.INewsPortlet"
          assignment=".news_portlet.Assignment"
          view_permission="zope2.View"
@@ -17,7 +17,7 @@
          />
 
      <plone:portlet
-         name="newsarchiveportlet"
+         name="contentpagenewsarchiveportlet"
          interface=".news_archive_portlet.INewsArchivePortlet"
          assignment=".news_archive_portlet.Assignment"
          view_permission="zope2.View"

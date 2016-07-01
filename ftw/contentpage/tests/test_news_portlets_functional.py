@@ -29,7 +29,7 @@ class TestNewsPortlets(unittest.TestCase):
     def _create_portlet(self):
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
@@ -75,7 +75,7 @@ class TestNewsPortlets(unittest.TestCase):
         self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
@@ -99,7 +99,7 @@ class TestNewsPortlets(unittest.TestCase):
         self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
@@ -121,7 +121,7 @@ class TestNewsPortlets(unittest.TestCase):
         self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
@@ -147,7 +147,7 @@ class TestNewsPortlets(unittest.TestCase):
         self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
@@ -181,7 +181,7 @@ class TestNewsPortlets(unittest.TestCase):
 
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet')
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet')
         self.browser.getControl(
             name="form.widgets.portlet_title").value = u"My Portlet"
         # Get Control over the Query Field and enter a value.
@@ -203,7 +203,7 @@ class TestNewsPortlets(unittest.TestCase):
     def test_no_classificationItems(self):
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet')
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet')
         self.assertNotIn('<div class="contenttreeWidget"'
                          'id="form-widgets-classification_items-contenttree">',
                          self.browser.contents
@@ -216,7 +216,7 @@ class TestNewsPortlets(unittest.TestCase):
         transaction.commit()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
             )
         self.assertIn('<div class="contenttreeWidget"'
                       ' id="form-widgets-classification_items-contenttree">',
@@ -283,7 +283,7 @@ class TestNewsPortlets(unittest.TestCase):
     def test_addform_cancel(self):
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
         )
         self.browser.getControl(name="form.buttons.cancel_add").click()
         self.assertEqual(self.portal.absolute_url() + '/@@manage-portlets',
@@ -293,14 +293,14 @@ class TestNewsPortlets(unittest.TestCase):
         self._create_content()
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
         )
         self.browser.addHeader('Authorization', 'Basic %s:%s' % (
             TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
         self.browser.open(
             self.portal.absolute_url() +
-            '/++contextportlets++plone.leftcolumn/+/newsportlet'
+            '/++contextportlets++plone.leftcolumn/+/contentpagenewsportlet'
         )
         # Get Control over the Query Field and enter a value.
         self.browser.getControl(
@@ -386,7 +386,7 @@ class TestNewsPortlets(unittest.TestCase):
                           'number': 2,
                           'title': u'January',
                           'url': 'http://nohost/plone/archivefolder/'
-                                 'news_listing?archive=2013/01/01'}],
+                                 'newslisting?archive=2013/01/01'}],
               'number': 2,
               'title': '2013'},
              {'mark': False,
@@ -394,7 +394,7 @@ class TestNewsPortlets(unittest.TestCase):
                           'number': 2,
                           'title': u'December',
                           'url': 'http://nohost/plone/archivefolder/'
-                                 'news_listing?archive=2012/12/01'}],
+                                 'newslisting?archive=2012/12/01'}],
               'number': 2,
               'title': '2012'}],
             renderer.archive_summary())
@@ -418,7 +418,7 @@ class TestNewsPortlets(unittest.TestCase):
             TEST_USER_NAME, TEST_USER_PASSWORD, ))
 
         self.browser.open(
-            '%s/++contextportlets++plone.leftcolumn/+/newsarchiveportlet' %
+            '%s/++contextportlets++plone.leftcolumn/+/contentpagenewsarchiveportlet' %
             self.newsfolder1.absolute_url()
         )
 

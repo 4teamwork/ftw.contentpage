@@ -23,7 +23,7 @@ class TestArchiveSummary(TestCase):
             self.request,
             ['ftw.contentpage.interfaces.INews'],
             'effective',
-            'news_listing')
+            'newslisting')
 
     def _create_news(self, date_str):
         create(Builder('news')

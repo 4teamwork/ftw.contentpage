@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 
-version = '1.12.1.dev0'
+version = '1.13.0.dev0'
 mainainter = 'Mathias Leimgruber'
 
 tests_require = ['ftw.testing [splinter]',
