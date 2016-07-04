@@ -55,7 +55,7 @@ class TestNewsViews(unittest.TestCase):
                 effectiveDate=None))
 
     def test_news_listing_view_no_restriction(self):
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
+        listing = self.newsfolder.restrictedTraverse("@@newslisting")
         self.assertEqual(len(listing.get_items()), 5)
         brain = listing.get_items()[0]
         self.assertEqual(brain.Title, 'My News')
@@ -66,7 +66,7 @@ class TestNewsViews(unittest.TestCase):
         self.assertEqual('test_user_1_', listing.get_creator(brain))
 
     def test_get_creator_no_member(self):
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
+        listing = self.newsfolder.restrictedTraverse("@@newslisting")
         self.news.setCreators(['dummy'])
         self.news.reindexObject()
 
@@ -74,7 +74,7 @@ class TestNewsViews(unittest.TestCase):
         self.assertEquals('dummy', listing.get_creator(brain))
 
     def test_get_creator_has_fullname(self):
-        listing = self.newsfolder.restrictedTraverse("@@news_listing")
+        listing = self.newsfolder.restrictedTraverse("@@newslisting")
         member = self.portal.portal_membership.getMemberById(TEST_USER_ID)
         member.setProperties(fullname='Firstname Lastname')
 
@@ -82,5 +82,5 @@ class TestNewsViews(unittest.TestCase):
         self.assertEquals('Firstname Lastname', listing.get_creator(brain))
 
     def test_news_listing_on_portal(self):
-        listing = self.portal.restrictedTraverse("@@news_listing")
+        listing = self.portal.restrictedTraverse("@@newslisting")
         self.assertEqual(len(listing.get_items()), 5)

@@ -85,14 +85,14 @@
 
     <browser:page
         for="*"
-        name="news_listing"
+        name="newslisting"
         class=".newslisting.NewsListing"
         permission="zope2.View"
         />
 
     <browser:page
         for="*"
-        name="news_portlet_listing"
+        name="newsportlet_listing"
         class=".newslisting.NewsPortletListing"
         permission="zope2.View"
         />

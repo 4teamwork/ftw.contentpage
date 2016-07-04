@@ -336,7 +336,7 @@ class Renderer(base.Renderer):
             self.manager.__name__)
 
         return '/'.join((self.get_news_context().absolute_url(),
-                         '@@news_portlet_listing?{0}'.format(params)))
+                         '@@newsportlet_listing?{0}'.format(params)))
 
     def get_news_context(self):
         """ If we are in a news entry we have to get a parent node as start for

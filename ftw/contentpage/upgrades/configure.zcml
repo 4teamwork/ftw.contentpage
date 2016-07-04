@@ -434,4 +434,13 @@
         directory="profiles/1610"
         />
 
+    <!-- 1610 -> 1611 -->
+    <upgrade-step:importProfile
+        title="Update news view names - they changed in favior of ftw.news."
+        profile="ftw.contentpage:default"
+        source="1610"
+        destination="1611"
+        directory="profiles/1611"
+        />
+
 </configure>

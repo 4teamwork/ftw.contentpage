@@ -48,7 +48,7 @@ class Renderer(base.Renderer):
             self.request,
             ['ftw.contentpage.interfaces.INews'],
             'effective',
-            'news_listing')()
+            'newslisting')()
 
     render = ViewPageTemplateFile('news_archive_portlet.pt')
 

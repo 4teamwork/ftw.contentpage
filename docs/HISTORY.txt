@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.12.1 (unreleased)
+1.13.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Rename several views and portletnames in favor of ftw.news.
+  [mathias.leimgruber]
 
 
 1.12.0 (2016-03-30)

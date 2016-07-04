@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <portlets>
   <portlet
-   addview="newsportlet"
+   addview="contentpagenewsportlet"
    remove="True"
    />
  <portlet
-   addview="newsarchiveportlet"
+   addview="contentpagenewsarchiveportlet"
    remove="True"
    />
  <portlet
