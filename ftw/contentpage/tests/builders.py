@@ -1,7 +1,9 @@
 from ftw.builder import builder_registry
 from ftw.builder.archetypes import ArchetypesBuilder
 from ftw.builder.content import ATImageBuilder
+from ftw.builder.portlets import PlonePortletBuilder
 from ftw.contentpage.portlets import news_portlet
+from ftw.contentpage.portlets import event_archive
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 from zope.component import getMultiAdapter
@@ -151,3 +153,13 @@ class NewsPortletBuilder(object):
             transaction.commit()
 
 builder_registry.register('news portlet', NewsPortletBuilder)
+
+
+class EventArchivePortletBuilder(PlonePortletBuilder):
+    assignment_class = event_archive.Assignment
+
+    def __init__(self, session):
+        super(EventArchivePortletBuilder, self).__init__(session)
+        self.manager_name = u'plone.rightcolumn'
+
+builder_registry.register('event archive portlet', EventArchivePortletBuilder)

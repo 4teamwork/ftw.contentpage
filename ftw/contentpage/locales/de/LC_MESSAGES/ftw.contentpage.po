@@ -81,7 +81,7 @@ msgstr "Veranstaltung"
 msgid "EventFolder"
 msgstr "Veranstaltungsordner"
 
-#: ./ftw/contentpage/portlets/event_archive.pt:12
+#: ./ftw/contentpage/portlets/event_archive.py:73
 msgid "Events"
 msgstr "Veranstaltungen"
 
@@ -257,6 +257,36 @@ msgstr "Geben Sie den Alternativtext für das Bild ein. Der Alternativtext richt
 #: ./ftw/contentpage/content/textblock.py:68
 msgid "description_image_clickable"
 msgstr "Wird das Bild angeklickt, öffnet es sich in einem Overlay"
+
+#. Default: "Renders a widget containing the number of events by year and month."
+#: ./ftw/contentpage/portlets/event_archive.py:83
+msgid "event_archive_portlet_add_form_description"
+msgstr "Zeigt die Anzahl Veranstaltungen gruppiert nach Jahr und Monat an."
+
+#. Default: "Add Event Archive Portlet"
+#: ./ftw/contentpage/portlets/event_archive.py:81
+msgid "event_archive_portlet_add_form_label"
+msgstr "Event Archive Portlet hinzufügen"
+
+#. Default: "Renders a widget containing the number of events by year and month."
+#: ./ftw/contentpage/portlets/event_archive.py:136
+msgid "event_archive_portlet_edit_form_description"
+msgstr "Zeigt die Anzahl Veranstaltungen gruppiert nach Jahr und Monat an."
+
+#. Default: "Edit Event Archive Portlet"
+#: ./ftw/contentpage/portlets/event_archive.py:134
+msgid "event_archive_portlet_edit_form_label"
+msgstr "Event Archive Portlet bearbeiten"
+
+#. Default: "Use this to override the title of the portlet."
+#: ./ftw/contentpage/portlets/event_archive.py:24
+msgid "event_portlet_title_description"
+msgstr "Übersteuert den Standard-Titel des Portlets"
+
+#. Default: "Title"
+#: ./ftw/contentpage/portlets/event_archive.py:23
+msgid "event_portlet_title_label"
+msgstr "Titel"
 
 #: ./ftw/contentpage/configure.zcml:44
 msgid "ftw.contentpage"

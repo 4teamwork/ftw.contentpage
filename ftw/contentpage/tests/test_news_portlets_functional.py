@@ -427,7 +427,7 @@ class TestNewsPortlets(unittest.TestCase):
         pq = PyQuery(self.browser.contents)
         self.assertTrue(
             pq('.portlet.portletArchiveListing'),
-            'We added one, so there sould be a EventArchive portlet'
+            'We added one, so there should be a news archive portlet'
         )
 
         self.assertGreater(

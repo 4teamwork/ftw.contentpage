@@ -9,9 +9,7 @@
         <dl class="portlet portletArchiveListing">
 
             <dt class="portletHeader">
-                <span i18n:translate="">
-                    Events
-                </span>
+                <span tal:content="view/get_portlet_title"/>
             </dt>
 
             <dd class="portletItem">
