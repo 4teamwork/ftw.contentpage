@@ -4,7 +4,11 @@ Changelog
 1.13.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Drop support for Plone 4.1.
+  [mbaechtold]
+
+- Add option to override the title of the event archive portlets.
+  [mbaechtold]
 
 
 1.13.0 (2016-07-04)

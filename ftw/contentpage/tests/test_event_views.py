@@ -207,22 +207,3 @@ class TestEventListing(MockTestCase):
         viewlet = [v for v in manager.viewlets if v.__name__ == name][0]
 
         self.failUnless(viewlet)
-
-    def test_event_archive_portlet(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-            TEST_USER_NAME, TEST_USER_PASSWORD, ))
-
-        self.browser.open(
-            '%s/++contextportlets++plone.leftcolumn/+/eventarchive' %
-            self.eventfolder.absolute_url())
-
-        self.browser.open(self.eventfolder.absolute_url())
-
-        pq = PyQuery(self.browser.contents)
-        self.assertTrue(pq('.portlet.portletArchiveListing'),
-            'We added one, so there sould be a EventArchive portlet')
-
-        self.assertEquals(
-            len(pq(
-                '.portlet.portletArchiveListing .portletItem li.month')), 3,
-                'Expect three entries in the events archive portlet')

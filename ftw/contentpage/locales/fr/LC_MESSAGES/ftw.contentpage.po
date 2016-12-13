@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-17 07:27+0000\n"
+"POT-Creation-Date: 2016-12-12 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:125
+#: ./ftw/contentpage/portlets/news_portlet.py:126
 msgid "Add News Portlet"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Archive"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:50
+#: ./ftw/contentpage/portlets/news_portlet.py:51
 msgid "Classification Items"
 msgstr ""
 
@@ -81,9 +81,9 @@ msgstr ""
 msgid "EventFolder"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/event_archive.pt:12
+#: ./ftw/contentpage/portlets/event_archive.py:73
 msgid "Events"
-msgstr ""
+msgstr "Evénements"
 
 #: ./ftw/contentpage/viewlets/event_data.pt:16
 msgid "Export"
@@ -125,7 +125,7 @@ msgstr "Nouveautés"
 msgid "NewsFolder"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:33
+#: ./ftw/contentpage/portlets/news_portlet.py:34
 msgid "Path"
 msgstr ""
 
@@ -163,16 +163,20 @@ msgstr ""
 msgid "There is no content to list."
 msgstr "Il n'y a pas de blocs ici."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:126
+#: ./ftw/contentpage/portlets/news_portlet.py:127
 msgid "This Portlet displays News"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:23
+#: ./ftw/contentpage/portlets/news_portlet.py:24
 msgid "Title"
 msgstr "Titre"
 
 #: ./ftw/contentpage/configure.zcml:58
 msgid "Uninstall ftw.contentpage"
+msgstr ""
+
+#: ./ftw/contentpage/upgrades/configure.zcml:444
+msgid "Update news view names - they changed in favior of ftw.news."
 msgstr ""
 
 #: ./ftw/contentpage/profiles/default/types/AddressBlock.xml
@@ -240,7 +244,7 @@ msgid "contactportlet_open_times"
 msgstr "Heures d’ouverture"
 
 #. Default: "Show news of the las x days."
-#: ./ftw/contentpage/portlets/news_portlet.py:81
+#: ./ftw/contentpage/portlets/news_portlet.py:82
 msgid "description_days"
 msgstr "Afficher nouvelles de Las x jours"
 
@@ -253,6 +257,36 @@ msgstr "Saisissez un texte alternatif pour l'image"
 #: ./ftw/contentpage/content/textblock.py:68
 msgid "description_image_clickable"
 msgstr "Ouvre l'image dans un overlay"
+
+#. Default: "Renders a widget containing the number of events by year and month."
+#: ./ftw/contentpage/portlets/event_archive.py:83
+msgid "event_archive_portlet_add_form_description"
+msgstr ""
+
+#. Default: "Add Event Archive Portlet"
+#: ./ftw/contentpage/portlets/event_archive.py:81
+msgid "event_archive_portlet_add_form_label"
+msgstr ""
+
+#. Default: "Renders a widget containing the number of events by year and month."
+#: ./ftw/contentpage/portlets/event_archive.py:136
+msgid "event_archive_portlet_edit_form_description"
+msgstr ""
+
+#. Default: "Edit Event Archive Portlet"
+#: ./ftw/contentpage/portlets/event_archive.py:134
+msgid "event_archive_portlet_edit_form_label"
+msgstr ""
+
+#. Default: "Use this to override the title of the portlet."
+#: ./ftw/contentpage/portlets/event_archive.py:24
+msgid "event_portlet_title_description"
+msgstr ""
+
+#. Default: "Title"
+#: ./ftw/contentpage/portlets/event_archive.py:23
+msgid "event_portlet_title_label"
+msgstr ""
 
 #: ./ftw/contentpage/configure.zcml:44
 msgid "ftw.contentpage"
@@ -322,7 +356,7 @@ msgstr ""
 msgid "ftw.contentpage.upgrades.3000"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:96
+#: ./ftw/contentpage/portlets/news_portlet.py:97
 msgid "help_always_render_portlet"
 msgstr "Lorsque cette option est activée, le portlet s'affiche même s'il n'y a pas de nouvelles."
 
@@ -358,7 +392,7 @@ msgstr ""
 msgid "help_new_categories"
 msgstr "Une catégorie par ligne, plusieurs mots sont permis."
 
-#: ./ftw/contentpage/portlets/news_portlet.py:45
+#: ./ftw/contentpage/portlets/news_portlet.py:46
 msgid "help_only_context"
 msgstr ""
 
@@ -375,7 +409,7 @@ msgid "help_showOpeningHours"
 msgstr ""
 
 #. Default: "The news portlet and the news listing will also render expired items."
-#: ./ftw/contentpage/portlets/news_portlet.py:105
+#: ./ftw/contentpage/portlets/news_portlet.py:106
 msgid "help_show_expired_news"
 msgstr "Das News-Portlet und die Auflistung zeigen auch abgelaufene Einträge an."
 
@@ -422,7 +456,7 @@ msgstr "Adresse"
 msgid "label_addressTitle"
 msgstr "Titre d'adress"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:95
+#: ./ftw/contentpage/portlets/news_portlet.py:96
 msgid "label_always_render_portlet"
 msgstr "Toujours afficher le portlet"
 
@@ -437,7 +471,7 @@ msgid "label_by_author"
 msgstr "de ${author}"
 
 #. Default: "Cancel"
-#: ./ftw/contentpage/portlets/news_portlet.py:157
+#: ./ftw/contentpage/portlets/news_portlet.py:158
 msgid "label_cancel"
 msgstr "Annuler"
 
@@ -458,7 +492,7 @@ msgid "label_country"
 msgstr "Pays"
 
 #. Default: "Days"
-#: ./ftw/contentpage/portlets/news_portlet.py:80
+#: ./ftw/contentpage/portlets/news_portlet.py:81
 msgid "label_days"
 msgstr "jours"
 
@@ -467,7 +501,7 @@ msgstr "jours"
 msgid "label_department"
 msgstr "Département"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:77
+#: ./ftw/contentpage/portlets/news_portlet.py:78
 msgid "label_desc_length"
 msgstr ""
 
@@ -560,7 +594,7 @@ msgid "label_modified"
 msgstr ""
 
 #. Default: "Show more news link"
-#: ./ftw/contentpage/portlets/news_portlet.py:86
+#: ./ftw/contentpage/portlets/news_portlet.py:87
 msgid "label_more_news_link"
 msgstr "Afficher plus de lien nouvelles"
 
@@ -569,7 +603,7 @@ msgstr "Afficher plus de lien nouvelles"
 msgid "label_new_categories"
 msgstr "Créer et utiliser nouvelle catégories"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:44
+#: ./ftw/contentpage/portlets/news_portlet.py:45
 msgid "label_only_context"
 msgstr ""
 
@@ -594,7 +628,7 @@ msgstr ""
 msgid "label_published_on"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_portlet.py:61
+#: ./ftw/contentpage/portlets/news_portlet.py:62
 msgid "label_quantity"
 msgstr ""
 
@@ -604,12 +638,12 @@ msgid "label_readmore"
 msgstr "En savoir plus"
 
 #. Default: "Shows link to the rss feed"
-#: ./ftw/contentpage/portlets/news_portlet.py:90
+#: ./ftw/contentpage/portlets/news_portlet.py:91
 msgid "label_rss_link"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/contentpage/portlets/news_portlet.py:146
+#: ./ftw/contentpage/portlets/news_portlet.py:147
 msgid "label_save"
 msgstr "Enregistrer"
 
@@ -624,16 +658,16 @@ msgid "label_showOpeningHours"
 msgstr "Voir les heures d'ouverture"
 
 #. Default: "Show Description"
-#: ./ftw/contentpage/portlets/news_portlet.py:73
+#: ./ftw/contentpage/portlets/news_portlet.py:74
 msgid "label_show_desc"
 msgstr "Afficher la description"
 
 #. Default: "Show expired items"
-#: ./ftw/contentpage/portlets/news_portlet.py:101
+#: ./ftw/contentpage/portlets/news_portlet.py:102
 msgid "label_show_expired_news"
 msgstr "Abgelaufene Einträe anzeigen"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:28
+#: ./ftw/contentpage/portlets/news_portlet.py:29
 msgid "label_show_image"
 msgstr ""
 
@@ -662,7 +696,7 @@ msgstr ""
 msgid "label_subject"
 msgstr "Sujet"
 
-#: ./ftw/contentpage/portlets/news_portlet.py:65
+#: ./ftw/contentpage/portlets/news_portlet.py:66
 msgid "label_subjects"
 msgstr ""
 
@@ -758,7 +792,7 @@ msgid "text_not_content"
 msgstr "Pas de contenu"
 
 #. Default: "You can not set a path and limit to context."
-#: ./ftw/contentpage/portlets/news_portlet.py:119
+#: ./ftw/contentpage/portlets/news_portlet.py:120
 msgid "text_path_and_area"
 msgstr "Vous ne pouvez pas définir un chemin et limiter au contexte."
 
