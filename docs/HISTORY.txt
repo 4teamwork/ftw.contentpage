@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.14.1 (unreleased)
+1.15.0 (2017-01-04)
 -------------------
 
 - Add option to override the title of the news archive portlets.
