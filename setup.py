@@ -11,6 +11,7 @@ tests_require = ['ftw.testing [splinter]',
                  'plone.app.testing',
                  'plone.mocktestcase',
                  'plone.formwidget.contenttree',
+                 'ftw.calendar >= 3.0.0',
                  'pyquery',
                  ]
 
