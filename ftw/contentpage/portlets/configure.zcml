@@ -23,6 +23,7 @@
          view_permission="zope2.View"
          renderer=".news_archive_portlet.Renderer"
          addview=".news_archive_portlet.AddForm"
+         editview=".news_archive_portlet.EditForm"
          />
 
      <plone:portlet

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-12-12 14:21+0000\n"
+"POT-Creation-Date: 2017-01-03 17:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "AddressBlock"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/news_archive_portlet.pt:12
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:74
 msgid "Archive"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "EventFolder"
 msgstr ""
 
-#: ./ftw/contentpage/portlets/event_archive.py:73
+#: ./ftw/contentpage/portlets/event_archive.py:74
 msgid "Events"
 msgstr ""
 
@@ -259,32 +259,32 @@ msgid "description_image_clickable"
 msgstr ""
 
 #. Default: "Renders a widget containing the number of events by year and month."
-#: ./ftw/contentpage/portlets/event_archive.py:83
+#: ./ftw/contentpage/portlets/event_archive.py:84
 msgid "event_archive_portlet_add_form_description"
 msgstr ""
 
 #. Default: "Add Event Archive Portlet"
-#: ./ftw/contentpage/portlets/event_archive.py:81
+#: ./ftw/contentpage/portlets/event_archive.py:82
 msgid "event_archive_portlet_add_form_label"
 msgstr ""
 
 #. Default: "Renders a widget containing the number of events by year and month."
-#: ./ftw/contentpage/portlets/event_archive.py:136
+#: ./ftw/contentpage/portlets/event_archive.py:137
 msgid "event_archive_portlet_edit_form_description"
 msgstr ""
 
 #. Default: "Edit Event Archive Portlet"
-#: ./ftw/contentpage/portlets/event_archive.py:134
+#: ./ftw/contentpage/portlets/event_archive.py:135
 msgid "event_archive_portlet_edit_form_label"
 msgstr ""
 
 #. Default: "Use this to override the title of the portlet."
-#: ./ftw/contentpage/portlets/event_archive.py:24
+#: ./ftw/contentpage/portlets/event_archive.py:25
 msgid "event_portlet_title_description"
 msgstr ""
 
 #. Default: "Title"
-#: ./ftw/contentpage/portlets/event_archive.py:23
+#: ./ftw/contentpage/portlets/event_archive.py:24
 msgid "event_portlet_title_label"
 msgstr ""
 
@@ -471,6 +471,8 @@ msgid "label_by_author"
 msgstr ""
 
 #. Default: "Cancel"
+#: ./ftw/contentpage/portlets/event_archive.py:116
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:116
 #: ./ftw/contentpage/portlets/news_portlet.py:158
 msgid "label_cancel"
 msgstr ""
@@ -643,6 +645,8 @@ msgid "label_rss_link"
 msgstr ""
 
 #. Default: "Save"
+#: ./ftw/contentpage/portlets/event_archive.py:105
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:105
 #: ./ftw/contentpage/portlets/news_portlet.py:147
 msgid "label_save"
 msgstr ""
@@ -733,6 +737,36 @@ msgstr ""
 #. Default: "More News"
 #: ./ftw/contentpage/portlets/news_portlet.pt:57
 msgid "more_news_link"
+msgstr ""
+
+#. Default: "Renders a widget containing the number of news by year and month."
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:84
+msgid "news_archive_portlet_add_form_description"
+msgstr ""
+
+#. Default: "Add News Archive Portlet"
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:82
+msgid "news_archive_portlet_add_form_label"
+msgstr ""
+
+#. Default: "Edit News Archive Portlet"
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:135
+msgid "news_archive_portlet_edit_form_label"
+msgstr ""
+
+#. Default: "Use this to override the title of the portlet."
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:25
+msgid "news_archive_portlet_title_description"
+msgstr ""
+
+#. Default: "Title"
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:24
+msgid "news_archive_portlet_title_label"
+msgstr ""
+
+#. Default: "Renders a widget containing the number of news by year and month."
+#: ./ftw/contentpage/portlets/news_archive_portlet.py:137
+msgid "newst_archive_portlet_edit_form_description"
 msgstr ""
 
 #. Default: "No recent news available."

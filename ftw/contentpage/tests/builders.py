@@ -2,6 +2,7 @@ from ftw.builder import builder_registry
 from ftw.builder.archetypes import ArchetypesBuilder
 from ftw.builder.content import ATImageBuilder
 from ftw.builder.portlets import PlonePortletBuilder
+from ftw.contentpage.portlets import news_archive_portlet
 from ftw.contentpage.portlets import news_portlet
 from ftw.contentpage.portlets import event_archive
 from plone.portlets.interfaces import IPortletAssignmentMapping
@@ -163,3 +164,13 @@ class EventArchivePortletBuilder(PlonePortletBuilder):
         self.manager_name = u'plone.rightcolumn'
 
 builder_registry.register('event archive portlet', EventArchivePortletBuilder)
+
+
+class NewsArchivePortletBuilder(PlonePortletBuilder):
+    assignment_class = news_archive_portlet.Assignment
+
+    def __init__(self, session):
+        super(NewsArchivePortletBuilder, self).__init__(session)
+        self.manager_name = u'plone.rightcolumn'
+
+builder_registry.register('news archive portlet', NewsArchivePortletBuilder)

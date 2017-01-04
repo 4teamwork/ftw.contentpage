@@ -8,10 +8,8 @@
     <div class="portletWrapper">
         <dl class="portlet portletArchiveListing">
 
-            <dt class="portletHeader">
-                <span i18n:translate="">
-                    Archive
-                </span>
+             <dt class="portletHeader">
+                <span tal:content="view/get_portlet_title"/>
             </dt>
 
             <dd class="portletItem">
