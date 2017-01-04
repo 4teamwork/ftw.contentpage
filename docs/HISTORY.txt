@@ -4,7 +4,8 @@ Changelog
 1.14.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add option to override the title of the news archive portlets.
+  [mbaechtold]
 
 
 1.14.0 (2016-12-13)

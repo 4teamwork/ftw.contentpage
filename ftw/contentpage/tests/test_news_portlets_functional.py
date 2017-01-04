@@ -412,28 +412,6 @@ class TestNewsPortlets(unittest.TestCase):
             'News Archive portlet should be available on NewsListing View'
         )
 
-    def test_news_archive_portlet(self):
-        self._create_content()
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-            TEST_USER_NAME, TEST_USER_PASSWORD, ))
-
-        self.browser.open(
-            '%s/++contextportlets++plone.leftcolumn/+/contentpagenewsarchiveportlet' %
-            self.newsfolder1.absolute_url()
-        )
-
-        self.browser.open(self.newsfolder1.absolute_url())
-
-        pq = PyQuery(self.browser.contents)
-        self.assertTrue(
-            pq('.portlet.portletArchiveListing'),
-            'We added one, so there should be a news archive portlet'
-        )
-
-        self.assertGreater(
-            len(pq('.portlet.portletArchiveListing .portletItem li')), 0,
-            'Expect at least one entry in the events archive portlet')
-
     def test_newsportlet_more_news_link_disabled(self):
         manager = getUtility(IPortletManager, name=u"plone.leftcolumn")
         portlet = NewsAssignment()
