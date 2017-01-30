@@ -131,5 +131,12 @@
        handler="simplelayout.base.events.set_initial_layout"
        />
 
+  <configure zcml:condition="installed ftw.calendar">
+      <adapter
+           for="* *"
+           provides="ftw.calendar.browser.interfaces.IFtwCalendarEventCreator"
+           factory=".adapters.CalendarEventPageCreator"
+           />
+  </configure>
 
 </configure>
