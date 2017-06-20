@@ -14,8 +14,15 @@ class CalendarEventPageCreator(object):
         return "EventPage"
 
     def createEvent(self, title, start_date):
-        return api.content.create(container=self.context,
-                                  type=self.getEventType(),
-                                  title=title,
-                                  startDate=start_date,
-                                  endDate=start_date)
+        event = api.content.create(
+            container=self.context,
+            type=self.getEventType(),
+            title=title,
+        )
+
+        # Setting the dates does not work via "api.content.create()", reason unknown.
+        event.setStartDate(start_date)
+        event.setEndDate(start_date)
+        event.reindexObject(idxs=['start', 'end'])
+
+        return event

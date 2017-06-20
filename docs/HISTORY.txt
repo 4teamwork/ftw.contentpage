@@ -4,6 +4,9 @@ Changelog
 1.16.1 (unreleased)
 -------------------
 
+- Fix event creator adapter introduced in 1.16.0.
+  [mbaechtold]
+
 - Make news portlet more robust.
   [mbaechtold]
 
