@@ -325,7 +325,7 @@ class Renderer(base.Renderer):
         return ploneview.cropText(description, self.data.desc_length)
 
     def show_more_news_link(self):
-        return self.data.more_news_link
+        return getattr(self.data, 'more_news_link', False)
 
     def show_rss_link(self):
         return getattr(self.data, 'rss_link', False)
