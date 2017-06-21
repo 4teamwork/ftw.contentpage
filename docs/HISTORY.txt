@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.16.1 (unreleased)
+1.16.1 (2017-06-21)
 -------------------
 
 - Fix event creator adapter introduced in 1.16.0.
