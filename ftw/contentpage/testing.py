@@ -1,9 +1,9 @@
 from ftw.builder.session import BuilderSession
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import set_builder_session_factory
-from ftw.testing import FunctionalSplinterTesting
 from ftw.testing.layer import ComponentRegistryLayer
 from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
@@ -88,7 +88,7 @@ class FtwContentPageLayer(PloneSandboxLayer):
         login(portal, TEST_USER_NAME)
 
 
-class FunctionalBrowserlayerTesting(FunctionalSplinterTesting):
+class FunctionalBrowserlayerTesting(FunctionalTesting):
     """Support browserlayer"""
 
     def setUpEnvironment(self, portal):
