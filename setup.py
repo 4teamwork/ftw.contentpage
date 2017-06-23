@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 version = '1.16.2.dev0'
 mainainter = 'Mathias Leimgruber'
 
-tests_require = ['ftw.testing [splinter] <1.12.0',
+tests_require = ['ftw.testing',
                  'ftw.testbrowser',
                  'ftw.builder',
                  'plone.app.testing',

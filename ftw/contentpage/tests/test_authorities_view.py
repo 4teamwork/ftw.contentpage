@@ -2,12 +2,10 @@ from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.browser import authorities
 from ftw.contentpage.interfaces import IAuthority
-from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.contentpage.tests import FunctionalTestCase
 from ftw.contentpage.tests.pages import AuthoritiesView
+from ftw.testbrowser import browsing
 from ftw.testing import MockTestCase
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-from unittest2 import TestCase
 import transaction
 
 
@@ -74,15 +72,14 @@ class TestHelperFunctions(MockTestCase):
              ])
 
 
-class TestTreeView(TestCase):
-
-    layer = FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+class TestTreeView(FunctionalTestCase):
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        super(TestTreeView, self).setUp()
+        self.grant('Manager')
 
-    def test_only_first_two_levels_visible(self):
+    @browsing
+    def test_only_first_two_levels_visible(self, browser):
         container = create(Builder('content page'))
 
         first = create(Builder('content page')
@@ -103,7 +100,8 @@ class TestTreeView(TestCase):
         AuthoritiesView().visit_on(container)
         self.assertEquals(['First', 'Second'], AuthoritiesView().link_labels)
 
-    def test_view_has_two_columns(self):
+    @browsing
+    def test_view_has_two_columns(self, browser):
         container = create(Builder('content page'))
 
         create(Builder('content page')
@@ -120,7 +118,8 @@ class TestTreeView(TestCase):
         self.assertEquals([['One'], ['Two']],
                           AuthoritiesView().link_labels_per_column)
 
-    def test_only_pages_with_orgunit_marker_interface_are_displayed(self):
+    @browsing
+    def test_only_pages_with_orgunit_marker_interface_are_displayed(self, browser):
         container = create(Builder('content page'))
 
         create(Builder('content page')
@@ -136,7 +135,8 @@ class TestTreeView(TestCase):
         self.assertEquals(['With IAuthority'],
                           AuthoritiesView().link_labels)
 
-    def test_pages_are_linked_properly(self):
+    @browsing
+    def test_pages_are_linked_properly(self, browser):
         container = create(Builder('content page'))
 
         foo = create(Builder('content page')
@@ -157,7 +157,8 @@ class TestTreeView(TestCase):
             [AuthoritiesView().link_url('Foo'),
              AuthoritiesView().link_url('Bar')])
 
-    def test_column_balancing_can_be_changed_with_property(self):
+    @browsing
+    def test_column_balancing_can_be_changed_with_property(self, browser):
         container = create(Builder('content page'))
 
         create(Builder('content page')
@@ -192,7 +193,8 @@ class TestTreeView(TestCase):
                            ['Two', 'Three', 'Four']],
                           AuthoritiesView().link_labels_per_column)
 
-    def test_pages_excluded_from_navigation_are_not_shown(self):
+    @browsing
+    def test_pages_excluded_from_navigation_are_not_shown(self, browser):
         container = create(Builder('content page'))
 
         create(Builder('content page')
