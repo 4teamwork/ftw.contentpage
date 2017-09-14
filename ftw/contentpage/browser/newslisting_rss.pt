@@ -1,44 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
-  xmlns="http://purl.org/rss/1.0/"
-  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-  xmlns:tal="http://xml.zope.org/namespaces/tal"
-  xmlns:metal="http://xml.zope.org/namespaces/metal">
-
-<tal:block
-    tal:define="items python: view.get_items()">
-
-<channel rdf:about="" tal:attributes="rdf:about request/URL">
-  <title tal:content="view/title">The title</title>
-  <link tal:content="view/link" />
-  <description tal:content="view/description" />
-  <image tal:attributes="rdf:resource string:${context/portal_url}/logo.png" />
-
-  <items>
-    <rdf:Seq>
-      <tal:block repeat="item python: items">
-        <rdf:li rdf:resource=""
-                tal:attributes="rdf:resource item/getURL" />
-      </tal:block>
-    </rdf:Seq>
-  </items>
-
-</channel>
-
-<tal:block repeat="item python: items">
-  <item rdf:about="" tal:attributes="rdf:about item/getURL">
-    <title tal:content="item/Title" />
-    <link tal:content="item/getURL" />
-    <description tal:content="item/Description" />
-    <pubDate tal:define="effective python: item.getObject().getEffectiveDate()"
-             tal:condition="effective"
-             tal:content="python: effective.strftime('%a, %e %b %Y %H:%M:%S %z')" />
-  </item>
-</tal:block>
-
-</tal:block>
-
-</rdf:RDF>
+<rss version="2.0"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel tal:define="items view/get_items">
+        <atom:link tal:attributes="href string:${view/context/absolute_url}/${view/__name__}"
+                   rel="self"
+                   type="application/rss+xml" />
+        <title tal:content="view/title" />
+        <link tal:content="view/link" />
+        <description tal:content="view/description" />
+        <item tal:repeat='item items'>
+            <title tal:content="item/Title" />
+            <link tal:content="item/getURL" />
+            <description tal:content="item/Description" />
+            <guid tal:content="item/getURL" />
+            <pubDate tal:define="effective item/effective"
+                     tal:condition="effective"
+                     tal:content="effective/rfc822" />
+        </item>
+    </channel>
+</rss>

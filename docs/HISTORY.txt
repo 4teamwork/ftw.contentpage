@@ -4,7 +4,7 @@ Changelog
 1.16.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update newslisting rss view to rss version 2.0 [raphael-s]
 
 
 1.16.2 (2017-06-23)
