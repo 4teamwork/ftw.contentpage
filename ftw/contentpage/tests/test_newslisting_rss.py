@@ -36,28 +36,25 @@ class TestNewsRssListing(TestCase):
     def test_newslisting_rss_items(self):
         self.browser.open(self.newsfolder.absolute_url() + '/news_rss_listing')
 
-        rdf = '<rdf:li rdf:resource="{0}"/>'.format(
-            self.news.absolute_url())
-        self.assertIn(rdf,
+        title = '<title>{}</title>'.format(self.news.title)
+        self.assertIn(title,
                       self.browser.contents,
-                      'Did not found the rdf tag for the news')
+                      'Could not find the title of the news')
 
-        link = '<link>{0}</link>'.format(self.news.absolute_url())
+        link = '<link>{}</link>'.format(self.news.absolute_url())
         self.assertIn(link,
                       self.browser.contents,
-                      'Did not found the link tag for the news')
+                      'Could not find the link tag for the news')
 
     @browsing
     def test_newsitem_contains_pubdate(self, browser):
         browser.open(self.newsfolder, view='news_rss_listing')
         browser.parse_as_html()  # use HTML parser so that we have no XML namespaces.
 
-        effective_date = self.news.getEffectiveDate()
+        effective_date = self.news.effective()
         self.assertEqual(
-            # Difference between "%e" and "%-e":
-            # %e has a leading space on single numbers - thats why the tests
-            # failing between the 1st and the 9th every month :-)
-            # %-e Removes the leading space - only works on unix machines.
-            effective_date.strftime('%a, %-e %b %Y %H:%M:%S %z').strip(),
-            browser.css('rdf item pubDate').first.text
+            # Since w3c suggests using rfc822 for pubDate, we can simply
+            # use the already implemented method for this.
+            effective_date.rfc822(),
+            browser.css('rss item pubDate').first.text
         )
