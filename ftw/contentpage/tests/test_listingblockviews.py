@@ -1,5 +1,6 @@
 from StringIO import StringIO
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
+from ftw.testbrowser import browsing
 from plone.app.imaging.utils import getAllowedSizes
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import login
@@ -196,6 +197,45 @@ class TestListingBlockViews(TestCase):
             "listingblock/image/@@images",
                       view.index())
         self.assertIn("title=\"Dummy Image\"", view.index())
+
+    @browsing
+    def test_gallery_view_respects_sorting(self, browser):
+        listingblock = self._create_listingblock()
+
+        _image = listingblock.get(listingblock.invokeFactory('Image', 'aaa'))
+        dummy = open("%s/dummy.png" % os.path.split(__file__)[0], 'r')
+        dummy.seek(0)
+        _image.setImage(dummy)
+        _image.setTitle('AAA')
+        _image.processForm()
+        transaction.commit()
+
+        _image = listingblock.get(listingblock.invokeFactory('Image', 'zzz'))
+        dummy = open("%s/dummy.png" % os.path.split(__file__)[0], 'r')
+        dummy.seek(0)
+        _image.setImage(dummy)
+        _image.setTitle('ZZZ')
+        _image.processForm()
+        transaction.commit()
+
+        browser.login()
+
+        # By default, the images are sorted by their title (ascending).
+        browser.open(listingblock)
+        self.assertEquals(
+            ['AAA', 'ZZZ'],
+            browser.css('.column-sortable_title').text
+        )
+
+        # Reverse the sort order.
+        browser.visit(listingblock, view='edit')
+        browser.fill({'Sort Order': 'Descending'}).save()
+
+        # The images are now sorted by their title, but in descending order.
+        self.assertEquals(
+            ['ZZZ', 'AAA'],
+            browser.css('.column-sortable_title').text
+        )
 
     def tearDown(self):
         super(TestListingBlockViews, self).tearDown()

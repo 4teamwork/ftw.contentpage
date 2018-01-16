@@ -4,7 +4,8 @@ Changelog
 1.16.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Sort the images in the gallery view of the listing block by the
+  sorting options defined on the block. [mbaechtold]
 
 
 1.16.3 (2017-10-10)

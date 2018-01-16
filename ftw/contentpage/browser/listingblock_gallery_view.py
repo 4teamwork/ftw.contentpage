@@ -1,6 +1,7 @@
 from ftw.colorbox.interfaces import IColorboxSettings
 from plone.app.imaging.utils import getAllowedSizes
 from plone.registry.interfaces import IRegistry
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from zope.component import getUtility
 
@@ -11,12 +12,17 @@ class ListingBlockGalleryView(BrowserView):
     @property
     def _build_query(self):
         query = {}
+        path = '/'.join(self.context.getPhysicalPath())
+        query['path'] = {'query': path, 'depth': 1}
         query['portal_type'] = ['Image']
+        query['sort_on'] = self.context.getSortOn()
+        query['sort_order'] = self.context.getSortOrder()
         return query
 
     def get_images(self):
-        return self.context.listFolderContents(
-            contentFilter=self._build_query)
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(self._build_query)
+        return [brain.getObject() for brain in brains]
 
     def _get_box_boundaries(self):
         sizes = getAllowedSizes()
