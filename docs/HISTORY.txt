@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.16.4 (unreleased)
+1.16.4 (2018-01-22)
 -------------------
 
 - Sort the images in the gallery view of the listing block by the
