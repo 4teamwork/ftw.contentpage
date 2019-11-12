@@ -11,7 +11,7 @@ from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from Products.Five.browser import BrowserView
 from pyquery import PyQuery
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import queryMultiAdapter
 from zope.viewlet.interfaces import IViewletManager
 import os

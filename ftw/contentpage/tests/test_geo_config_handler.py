@@ -1,5 +1,5 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import queryAdapter
 from collective.geo.settings.interfaces import IGeoCustomFeatureStyle
 

@@ -5,7 +5,7 @@ from plone.testing.z2 import Browser
 from Products.CMFCore.utils import getToolByName
 from pyquery import PyQuery
 from StringIO import StringIO
-from unittest2 import TestCase
+from unittest import TestCase
 import transaction
 
 

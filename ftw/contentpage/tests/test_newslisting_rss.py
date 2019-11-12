@@ -7,7 +7,7 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
-from unittest2 import TestCase
+from unittest import TestCase
 import transaction
 
 
@@ -49,12 +49,10 @@ class TestNewsRssListing(TestCase):
     @browsing
     def test_newsitem_contains_pubdate(self, browser):
         browser.open(self.newsfolder, view='news_rss_listing')
-        browser.parse_as_html()  # use HTML parser so that we have no XML namespaces.
-
         effective_date = self.news.effective()
         self.assertEqual(
             # Since w3c suggests using rfc822 for pubDate, we can simply
             # use the already implemented method for this.
             effective_date.rfc822(),
-            browser.css('rss item pubDate').first.text
+            browser.css('pubDate').first.text
         )

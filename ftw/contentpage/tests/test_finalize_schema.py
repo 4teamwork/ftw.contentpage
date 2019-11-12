@@ -3,7 +3,7 @@ from ftw.contentpage.content.schema import finalize
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.CMFCore.permissions import ManagePortal
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestAddressBlockCreation(TestCase):

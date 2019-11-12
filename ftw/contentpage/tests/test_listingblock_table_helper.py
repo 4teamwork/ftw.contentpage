@@ -3,7 +3,7 @@ from ftw.builder import Builder, create
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.testbrowser import browsing
 from plone.registry.interfaces import IRegistry
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import getUtility
 
 

@@ -4,7 +4,7 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.views import SimpleLayoutView
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.viewlet.interfaces import IViewletManager
 from zope.component import queryMultiAdapter
 import transaction

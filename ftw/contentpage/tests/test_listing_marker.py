@@ -3,7 +3,7 @@ from ftw.builder import create
 from ftw.contentpage.interfaces import IAuthority
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from Products.CMFCore.utils import getToolByName
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestMarkerInterfaceForListings(TestCase):

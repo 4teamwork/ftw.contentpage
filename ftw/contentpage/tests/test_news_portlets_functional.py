@@ -12,7 +12,7 @@ from Products.Five.browser import BrowserView
 from pyquery import PyQuery
 from zope.component import getUtility
 import transaction
-import unittest2 as unittest
+import unittest as unittest
 
 from ftw.contentpage.browser.newslisting import NewsListing
 from ftw.contentpage.portlets.news_archive_portlet import Assignment

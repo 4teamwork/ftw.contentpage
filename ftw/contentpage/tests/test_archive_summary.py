@@ -4,7 +4,7 @@ from ftw.builder import create
 from ftw.contentpage.portlets.base_archive_portlet import ArchiveSummary
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from plone.app.testing import setRoles, TEST_USER_ID, TEST_USER_NAME, login
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestArchiveSummary(TestCase):

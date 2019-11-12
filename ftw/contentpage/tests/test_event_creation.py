@@ -3,7 +3,7 @@ from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 import transaction
-import unittest2 as unittest
+import unittest as unittest
 
 
 class TestEvent(unittest.TestCase):

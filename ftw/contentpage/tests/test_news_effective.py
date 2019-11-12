@@ -3,7 +3,7 @@ from ftw.builder import create
 from ftw.builder import Builder
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from pytz import timezone as tz
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestNewsEffective(TestCase):

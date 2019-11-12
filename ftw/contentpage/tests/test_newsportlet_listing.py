@@ -2,7 +2,7 @@ from DateTime import DateTime
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.testbrowser import browsing
-from unittest2 import TestCase
+from unittest import TestCase
 
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 

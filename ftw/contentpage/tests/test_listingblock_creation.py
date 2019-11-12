@@ -1,7 +1,7 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from plone.registry.interfaces import IRegistry
 from simplelayout.base.interfaces import ISimpleLayoutBlock
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
 from plone.registry import Record, field

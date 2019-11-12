@@ -1,6 +1,6 @@
 from DateTime import DateTime
 from ftw.contentpage.browser.eventlisting import format_date
-import unittest2 as unittest
+import unittest as unittest
 
 
 class TestEvent(unittest.TestCase):
