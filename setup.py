@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 version = '1.16.5.dev0'
 mainainter = 'Mathias Leimgruber'
 
-tests_require = ['ftw.testing',
+tests_require = ['ftw.testing<2a',
                  'ftw.testbrowser',
                  'ftw.builder',
                  'plone.app.testing',
