@@ -3,7 +3,7 @@ from ftw.testbrowser import browsing
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from simplelayout.base.utils import IBlockControl
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
 import os

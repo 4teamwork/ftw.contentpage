@@ -4,7 +4,7 @@ from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID
 import datetime
 import os
-import unittest2 as unittest
+import unittest as unittest
 
 
 class TestExtendQueryByDate(unittest.TestCase):

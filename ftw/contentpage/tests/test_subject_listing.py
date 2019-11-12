@@ -6,7 +6,7 @@ from ftw.contentpage.tests import FunctionalTestCase
 from ftw.contentpage.tests.pages import SubjectListingView
 from ftw.testbrowser import browsing
 from plone.registry.interfaces import IRegistry
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import getUtility
 import transaction
 

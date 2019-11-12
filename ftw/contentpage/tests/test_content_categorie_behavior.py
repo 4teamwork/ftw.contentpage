@@ -9,8 +9,8 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.fti import DexterityFTI
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.views import SimpleLayoutView
-from unittest2 import skipUnless
-from unittest2 import TestCase
+from unittest import skipUnless
+from unittest import TestCase
 from zope import schema
 from zope.component import queryMultiAdapter
 from zope.interface import alsoProvides

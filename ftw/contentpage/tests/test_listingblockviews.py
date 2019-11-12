@@ -6,7 +6,7 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import login
 from plone.app.testing import logout
 from plone.testing.z2 import Browser
-from unittest2 import TestCase
+from unittest import TestCase
 from zope.component import queryMultiAdapter
 import os
 import transaction

@@ -1,4 +1,4 @@
-import unittest2 as unittest
+import unittest as unittest
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 import transaction
 from simplelayout.base.interfaces import ISimpleLayoutCapable

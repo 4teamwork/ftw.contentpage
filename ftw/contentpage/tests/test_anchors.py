@@ -2,7 +2,7 @@ from ftw.builder import Builder
 from ftw.builder import create
 from ftw.contentpage.testing import FTW_CONTENTPAGE_FUNCTIONAL_TESTING
 from ftw.testbrowser import browsing
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestAnchors(TestCase):

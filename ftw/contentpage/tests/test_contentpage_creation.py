@@ -3,7 +3,7 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from simplelayout.base.interfaces import IAdditionalListingEnabled
 from simplelayout.base.interfaces import ISimpleLayoutCapable
-from unittest2 import TestCase
+from unittest import TestCase
 import transaction
 from zope.component import queryMultiAdapter
 from zope.publisher.browser import BrowserView

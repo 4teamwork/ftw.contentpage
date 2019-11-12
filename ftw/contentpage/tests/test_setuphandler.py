@@ -1,5 +1,5 @@
 from ftw.contentpage.testing import FTW_CONTENTPAGE_INTEGRATION_TESTING
-from unittest2 import TestCase
+from unittest import TestCase
 from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
