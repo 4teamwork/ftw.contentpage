@@ -4,7 +4,7 @@ Changelog
 1.16.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Drop support for Plone 4.2 [jone]
 
 
 1.16.4 (2018-01-22)
